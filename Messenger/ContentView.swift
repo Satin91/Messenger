@@ -14,8 +14,12 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
             Text("Hello, world!")
+                .font(Fonts.makeFont(weight: .bold, size: 40))
         }
         .padding()
+        .onAppear {
+            NetworkService().sendAuthCode()
+        }
     }
 }
 

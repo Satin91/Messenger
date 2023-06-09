@@ -11,6 +11,15 @@
 		8E1945912A3269C900CBB4B4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1945902A3269C900CBB4B4 /* ContentView.swift */; };
 		8E1945932A3269CA00CBB4B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E1945922A3269CA00CBB4B4 /* Assets.xcassets */; };
 		8E1945962A3269CA00CBB4B4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E1945952A3269CA00CBB4B4 /* Preview Assets.xcassets */; };
+		8E19459F2A326AAF00CBB4B4 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E19459E2A326AAF00CBB4B4 /* Roboto-Light.ttf */; };
+		8E1945A32A326AC600CBB4B4 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E1945A02A326AC500CBB4B4 /* Roboto-Medium.ttf */; };
+		8E1945A42A326AC600CBB4B4 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E1945A12A326AC500CBB4B4 /* Roboto-Regular.ttf */; };
+		8E1945A52A326AC600CBB4B4 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E1945A22A326AC500CBB4B4 /* Roboto-Bold.ttf */; };
+		8E1945AA2A326C0E00CBB4B4 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1945A92A326C0E00CBB4B4 /* Fonts.swift */; };
+		8E1945AC2A326DCA00CBB4B4 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1945AB2A326DCA00CBB4B4 /* NetworkService.swift */; };
+		8E34C2882A33908B009C40FA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E34C2872A33908B009C40FA /* Constants.swift */; };
+		8E34C28A2A3392F0009C40FA /* NetworkRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E34C2892A3392F0009C40FA /* NetworkRequestModel.swift */; };
+		8E34C28D2A339329009C40FA /* SendAuthCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E34C28C2A339329009C40FA /* SendAuthCode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +28,16 @@
 		8E1945902A3269C900CBB4B4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8E1945922A3269CA00CBB4B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E1945952A3269CA00CBB4B4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8E19459E2A326AAF00CBB4B4 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		8E1945A02A326AC500CBB4B4 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		8E1945A12A326AC500CBB4B4 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		8E1945A22A326AC500CBB4B4 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		8E1945A62A326AE500CBB4B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8E1945A92A326C0E00CBB4B4 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		8E1945AB2A326DCA00CBB4B4 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		8E34C2872A33908B009C40FA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8E34C2892A3392F0009C40FA /* NetworkRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestModel.swift; sourceTree = "<group>"; };
+		8E34C28C2A339329009C40FA /* SendAuthCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAuthCode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,9 +70,14 @@
 		8E19458D2A3269C900CBB4B4 /* Messenger */ = {
 			isa = PBXGroup;
 			children = (
+				8E34C2852A339074009C40FA /* Constants */,
+				8E1945A62A326AE500CBB4B4 /* Info.plist */,
 				8E19458E2A3269C900CBB4B4 /* MessengerApp.swift */,
 				8E1945902A3269C900CBB4B4 /* ContentView.swift */,
-				8E1945922A3269CA00CBB4B4 /* Assets.xcassets */,
+				8E34C2832A338756009C40FA /* NetworkService */,
+				8E34C2822A33874D009C40FA /* Repositories */,
+				8E1945A72A326BFF00CBB4B4 /* Theme */,
+				8E19459C2A3269D700CBB4B4 /* Resources */,
 				8E1945942A3269CA00CBB4B4 /* Preview Content */,
 			);
 			path = Messenger;
@@ -65,6 +89,83 @@
 				8E1945952A3269CA00CBB4B4 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8E19459C2A3269D700CBB4B4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8E19459D2A3269E000CBB4B4 /* Fonts */,
+				8E1945922A3269CA00CBB4B4 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8E19459D2A3269E000CBB4B4 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8E19459E2A326AAF00CBB4B4 /* Roboto-Light.ttf */,
+				8E1945A22A326AC500CBB4B4 /* Roboto-Bold.ttf */,
+				8E1945A02A326AC500CBB4B4 /* Roboto-Medium.ttf */,
+				8E1945A12A326AC500CBB4B4 /* Roboto-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		8E1945A72A326BFF00CBB4B4 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				8E1945A82A326C0600CBB4B4 /* Fonts */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		8E1945A82A326C0600CBB4B4 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8E1945A92A326C0E00CBB4B4 /* Fonts.swift */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		8E34C2822A33874D009C40FA /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		8E34C2832A338756009C40FA /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				8E34C28B2A339302009C40FA /* Requests */,
+				8E1945AB2A326DCA00CBB4B4 /* NetworkService.swift */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		8E34C2842A338761009C40FA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8E34C2892A3392F0009C40FA /* NetworkRequestModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8E34C2852A339074009C40FA /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				8E34C2872A33908B009C40FA /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		8E34C28B2A339302009C40FA /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+				8E34C2842A338761009C40FA /* Model */,
+				8E34C28C2A339329009C40FA /* SendAuthCode.swift */,
+			);
+			path = Requests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,8 +226,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E1945A32A326AC600CBB4B4 /* Roboto-Medium.ttf in Resources */,
 				8E1945962A3269CA00CBB4B4 /* Preview Assets.xcassets in Resources */,
+				8E1945A52A326AC600CBB4B4 /* Roboto-Bold.ttf in Resources */,
+				8E1945A42A326AC600CBB4B4 /* Roboto-Regular.ttf in Resources */,
 				8E1945932A3269CA00CBB4B4 /* Assets.xcassets in Resources */,
+				8E19459F2A326AAF00CBB4B4 /* Roboto-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +242,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E34C2882A33908B009C40FA /* Constants.swift in Sources */,
+				8E1945AC2A326DCA00CBB4B4 /* NetworkService.swift in Sources */,
+				8E34C28D2A339329009C40FA /* SendAuthCode.swift in Sources */,
 				8E1945912A3269C900CBB4B4 /* ContentView.swift in Sources */,
+				8E1945AA2A326C0E00CBB4B4 /* Fonts.swift in Sources */,
+				8E34C28A2A3392F0009C40FA /* NetworkRequestModel.swift in Sources */,
 				8E19458F2A3269C900CBB4B4 /* MessengerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,6 +379,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Messenger/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Messenger/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -297,6 +408,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Messenger/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Messenger/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
