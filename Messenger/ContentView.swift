@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
+import Combine
 
 struct ContentView: View {
+    @State var cancelBag = Set<AnyCancellable>()
+    let service = NetworkService()
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -18,7 +21,31 @@ struct ContentView: View {
         }
         .padding()
         .onAppear {
-            NetworkService().sendAuthCode()
+            service.sendAuthCode(phone: "+79230464916")
+                .sink { error in
+                } receiveValue: { response in
+                    print(response.is_success)
+                }
+                .store(in: &cancelBag)
+        }
+    }
+    
+    func sendAuthCode(phone: String) -> Future<SendAuthCodeResponse, Never> {
+        let request = SendAuthCodeRequest(phone: phone).make
+        
+        return Future { promise in
+            BaseNetworkTask.execute(model: SendAuthCodeResponse.self, request: request)
+                .sink { error in
+                    switch error {
+                    case .failure(_):
+                        print("Error")
+                    default:
+                        break
+                    }
+                } receiveValue: { response in
+                    promise(.success(response))
+                }
+                .store(in: &self.cancelBag)
         }
     }
 }

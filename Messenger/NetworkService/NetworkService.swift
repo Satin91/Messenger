@@ -7,18 +7,28 @@
 
 import Foundation
 import Combine
+import UIKit
 
 class NetworkService {
-    
-    func sendAuthCode() {
-        let request = try! SendAuthCodeRequest(phone: "+79230464916").make().get()
-        URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data else {
-                return
-            }
-            let json =  try! JSONSerialization.jsonObject(with: data)
-            print("Debug: Data \(json)")
-        }.resume()
+    var cancelBag = Set<AnyCancellable>()
+    func sendAuthCode(phone: String) -> Future<SendAuthCodeResponse, NetworkError> {
+        let request = SendAuthCodeRequest(phone: phone).make
+        
+        return Future { promise in
+            BaseNetworkTask.execute(model: SendAuthCodeResponse.self, request: request)
+                .sink { error in
+                    switch error {
+                    case .failure(_):
+                        promise(.failure(NetworkError.noNetworkConnection))
+                    default:
+                        break
+                    }
+                } receiveValue: { response in
+                    promise(.success(response))
+                }
+                .store(in: &self.cancelBag)
+        }
     }
 }
+
 

@@ -20,6 +20,9 @@
 		8E34C2882A33908B009C40FA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E34C2872A33908B009C40FA /* Constants.swift */; };
 		8E34C28A2A3392F0009C40FA /* NetworkRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E34C2892A3392F0009C40FA /* NetworkRequestModel.swift */; };
 		8E34C28D2A339329009C40FA /* SendAuthCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E34C28C2A339329009C40FA /* SendAuthCode.swift */; };
+		8E34C28F2A33AB38009C40FA /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E34C28E2A33AB38009C40FA /* NetworkError.swift */; };
+		8E34C2922A33AF0B009C40FA /* SendAuthCodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E34C2912A33AF0B009C40FA /* SendAuthCodeResponse.swift */; };
+		8E34C2952A33E776009C40FA /* BaseNetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E34C2942A33E776009C40FA /* BaseNetworkTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		8E34C2872A33908B009C40FA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8E34C2892A3392F0009C40FA /* NetworkRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestModel.swift; sourceTree = "<group>"; };
 		8E34C28C2A339329009C40FA /* SendAuthCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAuthCode.swift; sourceTree = "<group>"; };
+		8E34C28E2A33AB38009C40FA /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		8E34C2912A33AF0B009C40FA /* SendAuthCodeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAuthCodeResponse.swift; sourceTree = "<group>"; };
+		8E34C2942A33E776009C40FA /* BaseNetworkTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetworkTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +76,7 @@
 		8E19458D2A3269C900CBB4B4 /* Messenger */ = {
 			isa = PBXGroup;
 			children = (
+				8E34C2932A33E6F4009C40FA /* Utilities */,
 				8E34C2852A339074009C40FA /* Constants */,
 				8E1945A62A326AE500CBB4B4 /* Info.plist */,
 				8E19458E2A3269C900CBB4B4 /* MessengerApp.swift */,
@@ -138,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				8E34C28B2A339302009C40FA /* Requests */,
+				8E34C2902A33AD29009C40FA /* Responses */,
 				8E1945AB2A326DCA00CBB4B4 /* NetworkService.swift */,
 			);
 			path = NetworkService;
@@ -147,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				8E34C2892A3392F0009C40FA /* NetworkRequestModel.swift */,
+				8E34C28E2A33AB38009C40FA /* NetworkError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -166,6 +175,22 @@
 				8E34C28C2A339329009C40FA /* SendAuthCode.swift */,
 			);
 			path = Requests;
+			sourceTree = "<group>";
+		};
+		8E34C2902A33AD29009C40FA /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				8E34C2912A33AF0B009C40FA /* SendAuthCodeResponse.swift */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		8E34C2932A33E6F4009C40FA /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				8E34C2942A33E776009C40FA /* BaseNetworkTask.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,13 +267,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E34C2952A33E776009C40FA /* BaseNetworkTask.swift in Sources */,
 				8E34C2882A33908B009C40FA /* Constants.swift in Sources */,
+				8E34C28F2A33AB38009C40FA /* NetworkError.swift in Sources */,
 				8E1945AC2A326DCA00CBB4B4 /* NetworkService.swift in Sources */,
 				8E34C28D2A339329009C40FA /* SendAuthCode.swift in Sources */,
 				8E1945912A3269C900CBB4B4 /* ContentView.swift in Sources */,
 				8E1945AA2A326C0E00CBB4B4 /* Fonts.swift in Sources */,
 				8E34C28A2A3392F0009C40FA /* NetworkRequestModel.swift in Sources */,
 				8E19458F2A3269C900CBB4B4 /* MessengerApp.swift in Sources */,
+				8E34C2922A33AF0B009C40FA /* SendAuthCodeResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

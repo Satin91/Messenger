@@ -18,9 +18,9 @@ struct SendAuthCodeRequest: BaseNetworkRequestProtocol {
         self.path = Constants.API.sendAuthCodePath
         self.url = Constants.API.baseURL
         let body = ["phone": phone]
-        let data = try! JSONSerialization.data(withJSONObject: body)
+        let data = try? JSONSerialization.data(withJSONObject: body)
         self.httpBody = data
         self.httpMethod = .post
-        print(self.headers)
     }
 }
+

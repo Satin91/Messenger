@@ -14,13 +14,6 @@ protocol BaseNetworkRequestProtocol {
     var httpMethod: HTTPMethod? { get set }
 }
 
-enum HTTPMethod: String {
-    case get = "GET"
-    case post = "POST"
-    case put = "PUT"
-    case delete = "DELETE"
-}
-
 extension BaseNetworkRequestProtocol {
     var headers: [String: String] {
         get {
@@ -28,14 +21,18 @@ extension BaseNetworkRequestProtocol {
         }
     }
     
-    func make() -> Result<URLRequest, Error> {
-        guard let url = URL(string: url + path) else {
-            return .failure(URLError.badURL as! Error)
-        }
-        var request = URLRequest(url: url)
+    var make: URLRequest {
+        var request = URLRequest(url: URL(string: url + path)!)
         request.allHTTPHeaderFields = headers
         request.httpBody = httpBody
         request.httpMethod = httpMethod?.rawValue
-        return .success(request)
+        return request
     }
+}
+
+enum HTTPMethod: String {
+    case get = "GET"
+    case post = "POST"
+    case put = "PUT"
+    case delete = "DELETE"
 }
