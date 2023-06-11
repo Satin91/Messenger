@@ -26,6 +26,7 @@ struct NavigationBarView: View {
         switch type {
         case .large:
             largeNavBar
+                .padding(.vertical, 25)
         case .default:
             defaultNavBar
         }

@@ -31,11 +31,11 @@ struct StatebleButton: View {
     
     
     var button: some View {
-        RoundedRectangle(cornerRadius: Spacing.smallRadius)
+        RoundedRectangle(cornerRadius: Spacing.smallRadius, style: .continuous)
             .foregroundColor(state == .disable ? Colors.neutral : Colors.primary)
             .frame(height: Spacing.mediumControl)
             .overlay {
-                Text("Text")
+                Text(title)
                     .font(Fonts.makeFont(weight: .bold, size: 18))
                     .foregroundColor(Colors.light)
             }

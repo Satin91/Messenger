@@ -16,10 +16,28 @@ struct EnterPhoneNumberView: View {
     }
     
     var content: some View {
-        VStack(spacing: Spacing.mediumPadding) {
+        VStack(spacing: Spacing.largePadding) {
+            infoLabel
             textField
             nextButton
         }
+    }
+    
+    var infoLabel: some View {
+        Group {
+            Text("Please enter")
+                .font(Fonts.makeFont(weight: .light, size: 16))
+                .foregroundColor(Colors.dark)
+            +
+            Text(" your phone number")
+                .font(Fonts.makeFont(weight: .bold, size: 16))
+                .foregroundColor(Colors.dark)
+            +
+            Text(", so we can verify you")
+                .font(Fonts.makeFont(weight: .light, size: 16))
+                .foregroundColor(Colors.dark)
+        }
+        .multilineTextAlignment(.leading)
     }
     
     var textField: some View {

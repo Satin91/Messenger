@@ -8,7 +8,8 @@
 import Foundation
 
 protocol NotificationServiceProtocol {
-    func push(_ notification: NotificationModel) async throws -> Bool
+    func push(_ notification: NotificationModel)
+    func register()
 }
 
 final class NotificationService: NotificationServiceProtocol {
@@ -18,15 +19,11 @@ final class NotificationService: NotificationServiceProtocol {
         self.manager = manager
     }
     
-    func push(_ notification: NotificationModel) async throws -> Bool {
-        try await withCheckedThrowingContinuation({ continuation in
-            manager.send(notification) { error in
-                if error != nil {
-                    continuation.resume(throwing: error!)
-                } else {
-                    continuation.resume(with: .success(true))
-                }
-            }
-        })
+    func register() {
+        manager.register()
+    }
+    
+    func push(_ notification: NotificationModel) {
+        manager.send(notification)
     }
 }

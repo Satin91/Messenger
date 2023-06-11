@@ -21,10 +21,18 @@ struct BorderedTextField: View {
     
     private var textField: some View {
         TextField("Phone number", text: $text)
+            .padding(Spacing.smallPadding)
+            .font(Fonts.makeFont(weight: .bold, size: 14))
+            .foregroundColor(Colors.dark)
             .background(
-                RoundedRectangle(cornerRadius: 15)
-                    .stroke(Colors.neutral, lineWidth: 1)
-                    .frame(height: Spacing.mediumControl)
+                ZStack {
+                    RoundedRectangle(cornerRadius: 15, style: .continuous)
+                        .fill(Colors.light)
+                        .frame(height: Spacing.mediumControl)
+                    RoundedRectangle(cornerRadius: 15, style: .continuous)
+                        .stroke(Colors.neutral, lineWidth: 1)
+                        .frame(height: Spacing.mediumControl)
+                }
             )
     }
 }

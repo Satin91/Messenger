@@ -21,10 +21,11 @@ struct VerificationScreen: View {
             Spacer()
         }
         .padding(Spacing.horizontalEdges)
+        .background(Colors.background)
     }
     
     var navigationBar: some View {
-        NavigationBarView(title: "Регистрация", type: .large)
+        NavigationBarView(title: "Register", type: .large)
         
     }
     

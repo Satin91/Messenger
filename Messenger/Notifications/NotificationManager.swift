@@ -9,27 +9,27 @@ import Foundation
 import UserNotifications
 
 protocol NotificationManagerProtocol {
-    func send(_ notification: NotificationModel, completion: @escaping (Error?) -> Void)
+    func register()
+    func send(_ notification: NotificationModel)
 }
 
 final class NotificationManager: NotificationManagerProtocol {
     let center = UNUserNotificationCenter.current()
     
-    func registerForPushNotifications() {
+    func register() {
         center.requestAuthorization(options: [.alert, .sound, .badge]) { (permissionGranted, error) in
             DispatchQueue.main.async {
                 guard permissionGranted else {
+                    // TODO: save this to core data and show alert when notification called
                     return
                 }
             }
         }
     }
     
-    func send(_ notification: NotificationModel, completion: @escaping (Error?) -> Void) {
+    func send(_ notification: NotificationModel) {
         let request = makeRequest(model: notification)
-        center.add(request) { error in
-            completion(error)
-        }
+        center.add(request)
     }
     
     private func makeRequest(model: NotificationModel) -> UNNotificationRequest {
@@ -48,6 +48,7 @@ final class NotificationManager: NotificationManagerProtocol {
         let content = UNMutableNotificationContent()
         content.title = title
         content.body = body
+        content.sound = .default
         return content
     }
 }
