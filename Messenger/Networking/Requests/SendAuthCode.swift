@@ -9,14 +9,14 @@ import Foundation
 import Alamofire
 
 
-struct SendAuthCodeRequest: BaseNetworkRequestProtocol {
+struct SendAuthCodeRequest: NetworkRequestProtocol {
     var parameters: [String: Any]
     
     init(phone: String) {
         self.parameters = ["phone" : phone]
     }
     
-    func make() -> BaseNetworkRequest {
-        BaseNetworkRequest(path: Constants.API.sendAuthCodePath, parameters: self.parameters)
+    func make() -> RequestModel {
+        RequestModel(path: Constants.API.sendAuthCodePath, parameters: self.parameters)
     }
 }

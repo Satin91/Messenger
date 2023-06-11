@@ -9,12 +9,20 @@ import Foundation
 import Combine
 import UIKit
 
-class NetworkService {
-    var cancelBag = Set<AnyCancellable>()
+protocol AuthentificationServiceProtocol {
+    func sendAuthCode(phone: String) -> AnyPublisher<SendAuthCodeResponse, Error>
+}
+
+class AuthentificationService: AuthentificationServiceProtocol {
+    var networkManager: NetworkManagerProtocol
+    
+    init(networkManager: NetworkManagerProtocol) {
+        self.networkManager = networkManager
+    }
     
     func sendAuthCode(phone: String) -> AnyPublisher<SendAuthCodeResponse, Error> {
         let request = SendAuthCodeRequest(phone: phone)
-        return BaseNetworkTask.sharedInstance.execute(request: request)
+        return networkManager.sendRequest(request: request)
             .decode(type: SendAuthCodeResponse.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }

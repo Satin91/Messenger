@@ -16,15 +16,27 @@
 		8E1945A42A326AC600CBB4B4 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E1945A12A326AC500CBB4B4 /* Roboto-Regular.ttf */; };
 		8E1945A52A326AC600CBB4B4 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E1945A22A326AC500CBB4B4 /* Roboto-Bold.ttf */; };
 		8E1945AA2A326C0E00CBB4B4 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1945A92A326C0E00CBB4B4 /* Fonts.swift */; };
-		8E1945AC2A326DCA00CBB4B4 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1945AB2A326DCA00CBB4B4 /* NetworkService.swift */; };
+		8E1945AC2A326DCA00CBB4B4 /* AuthentificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1945AB2A326DCA00CBB4B4 /* AuthentificationService.swift */; };
 		8E34C2882A33908B009C40FA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E34C2872A33908B009C40FA /* Constants.swift */; };
-		8E34C28A2A3392F0009C40FA /* BaseNetworkRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E34C2892A3392F0009C40FA /* BaseNetworkRequestModel.swift */; };
+		8E34C28A2A3392F0009C40FA /* RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E34C2892A3392F0009C40FA /* RequestModel.swift */; };
 		8E34C28D2A339329009C40FA /* SendAuthCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E34C28C2A339329009C40FA /* SendAuthCode.swift */; };
 		8E34C2922A33AF0B009C40FA /* SendAuthCodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E34C2912A33AF0B009C40FA /* SendAuthCodeResponse.swift */; };
-		8E34C2952A33E776009C40FA /* BaseNetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E34C2942A33E776009C40FA /* BaseNetworkTask.swift */; };
+		8E34C2952A33E776009C40FA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E34C2942A33E776009C40FA /* NetworkManager.swift */; };
 		8E9032FC2A34E71B00445809 /* MainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9032FB2A34E71B00445809 /* MainScreenViewModel.swift */; };
 		8E9033032A35060000445809 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8E9033022A35060000445809 /* Alamofire */; };
 		8E9033072A3545AA00445809 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E9033062A3545AA00445809 /* Colors.xcassets */; };
+		8E9B08A12A35FD5D00D1A035 /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08A02A35FD5D00D1A035 /* ScreenFactory.swift */; };
+		8E9B08A42A35FE5100D1A035 /* ApplicationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08A32A35FE5100D1A035 /* ApplicationFactory.swift */; };
+		8E9B08A72A360F4800D1A035 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08A62A360F4800D1A035 /* NotificationManager.swift */; };
+		8E9B08A92A360F4F00D1A035 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08A82A360F4F00D1A035 /* NotificationService.swift */; };
+		8E9B08AB2A36107600D1A035 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08AA2A36107600D1A035 /* NotificationModel.swift */; };
+		8E9B08AD2A36264700D1A035 /* VerificationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08AC2A36264700D1A035 /* VerificationScreen.swift */; };
+		8E9B08AF2A36266900D1A035 /* VerificationScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08AE2A36266900D1A035 /* VerificationScreenViewModel.swift */; };
+		8E9B08B22A36294A00D1A035 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08B12A36294A00D1A035 /* NavigationBarView.swift */; };
+		8E9B08B52A36305500D1A035 /* EnterPhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08B42A36305500D1A035 /* EnterPhoneNumberView.swift */; };
+		8E9B08B72A36306B00D1A035 /* EnterVerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08B62A36306B00D1A035 /* EnterVerificationCodeView.swift */; };
+		8E9B08B92A36412300D1A035 /* BorderedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08B82A36412300D1A035 /* BorderedTextField.swift */; };
+		8E9B08BB2A36459400D1A035 /* StatebleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08BA2A36459400D1A035 /* StatebleButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,14 +51,26 @@
 		8E1945A22A326AC500CBB4B4 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		8E1945A62A326AE500CBB4B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8E1945A92A326C0E00CBB4B4 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
-		8E1945AB2A326DCA00CBB4B4 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		8E1945AB2A326DCA00CBB4B4 /* AuthentificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationService.swift; sourceTree = "<group>"; };
 		8E34C2872A33908B009C40FA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		8E34C2892A3392F0009C40FA /* BaseNetworkRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetworkRequestModel.swift; sourceTree = "<group>"; };
+		8E34C2892A3392F0009C40FA /* RequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestModel.swift; sourceTree = "<group>"; };
 		8E34C28C2A339329009C40FA /* SendAuthCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAuthCode.swift; sourceTree = "<group>"; };
 		8E34C2912A33AF0B009C40FA /* SendAuthCodeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAuthCodeResponse.swift; sourceTree = "<group>"; };
-		8E34C2942A33E776009C40FA /* BaseNetworkTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetworkTask.swift; sourceTree = "<group>"; };
+		8E34C2942A33E776009C40FA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8E9032FB2A34E71B00445809 /* MainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewModel.swift; sourceTree = "<group>"; };
 		8E9033062A3545AA00445809 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		8E9B08A02A35FD5D00D1A035 /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactory.swift; sourceTree = "<group>"; };
+		8E9B08A32A35FE5100D1A035 /* ApplicationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationFactory.swift; sourceTree = "<group>"; };
+		8E9B08A62A360F4800D1A035 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		8E9B08A82A360F4F00D1A035 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		8E9B08AA2A36107600D1A035 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
+		8E9B08AC2A36264700D1A035 /* VerificationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationScreen.swift; sourceTree = "<group>"; };
+		8E9B08AE2A36266900D1A035 /* VerificationScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationScreenViewModel.swift; sourceTree = "<group>"; };
+		8E9B08B12A36294A00D1A035 /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
+		8E9B08B42A36305500D1A035 /* EnterPhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPhoneNumberView.swift; sourceTree = "<group>"; };
+		8E9B08B62A36306B00D1A035 /* EnterVerificationCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterVerificationCodeView.swift; sourceTree = "<group>"; };
+		8E9B08B82A36412300D1A035 /* BorderedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedTextField.swift; sourceTree = "<group>"; };
+		8E9B08BA2A36459400D1A035 /* StatebleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatebleButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,9 +105,10 @@
 			isa = PBXGroup;
 			children = (
 				8E9032FE2A34E74500445809 /* App */,
+				8E9B08A52A360F3300D1A035 /* Notifications */,
 				8E9033002A35055A00445809 /* Networking */,
 				8E9032FD2A34E73E00445809 /* Screens */,
-				8E34C2932A33E6F4009C40FA /* Utilities */,
+				8E9B08B02A36293400D1A035 /* UIComponents */,
 				8E34C2852A339074009C40FA /* Constants */,
 				8E1945A62A326AE500CBB4B4 /* Info.plist */,
 				8E1945A72A326BFF00CBB4B4 /* Theme */,
@@ -138,22 +163,12 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
-		8E34C2832A338756009C40FA /* NetworkService */ = {
+		8E34C2842A338761009C40FA /* RequestModel */ = {
 			isa = PBXGroup;
 			children = (
-				8E34C28B2A339302009C40FA /* Requests */,
-				8E34C2902A33AD29009C40FA /* Responses */,
-				8E1945AB2A326DCA00CBB4B4 /* NetworkService.swift */,
+				8E34C2892A3392F0009C40FA /* RequestModel.swift */,
 			);
-			path = NetworkService;
-			sourceTree = "<group>";
-		};
-		8E34C2842A338761009C40FA /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				8E34C2892A3392F0009C40FA /* BaseNetworkRequestModel.swift */,
-			);
-			path = Model;
+			path = RequestModel;
 			sourceTree = "<group>";
 		};
 		8E34C2852A339074009C40FA /* Constants */ = {
@@ -180,16 +195,10 @@
 			path = Responses;
 			sourceTree = "<group>";
 		};
-		8E34C2932A33E6F4009C40FA /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utilities;
-			sourceTree = "<group>";
-		};
 		8E9032FD2A34E73E00445809 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				8E9B08B32A36301900D1A035 /* VerificationScreen */,
 				8E9032FF2A34E7CF00445809 /* MainScreen */,
 			);
 			path = Screens;
@@ -198,6 +207,7 @@
 		8E9032FE2A34E74500445809 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				8E9B08A22A35FE3D00D1A035 /* DIContainer */,
 				8E19458E2A3269C900CBB4B4 /* MessengerApp.swift */,
 			);
 			path = App;
@@ -215,11 +225,69 @@
 		8E9033002A35055A00445809 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				8E34C2842A338761009C40FA /* Model */,
-				8E34C2832A338756009C40FA /* NetworkService */,
-				8E34C2942A33E776009C40FA /* BaseNetworkTask.swift */,
+				8E34C2842A338761009C40FA /* RequestModel */,
+				8E34C28B2A339302009C40FA /* Requests */,
+				8E34C2902A33AD29009C40FA /* Responses */,
+				8E9B089E2A35F22100D1A035 /* Services */,
+				8E9B089F2A35F22800D1A035 /* Manager */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		8E9B089E2A35F22100D1A035 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8E1945AB2A326DCA00CBB4B4 /* AuthentificationService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8E9B089F2A35F22800D1A035 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				8E34C2942A33E776009C40FA /* NetworkManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		8E9B08A22A35FE3D00D1A035 /* DIContainer */ = {
+			isa = PBXGroup;
+			children = (
+				8E9B08A32A35FE5100D1A035 /* ApplicationFactory.swift */,
+				8E9B08A02A35FD5D00D1A035 /* ScreenFactory.swift */,
+			);
+			path = DIContainer;
+			sourceTree = "<group>";
+		};
+		8E9B08A52A360F3300D1A035 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				8E9B08A62A360F4800D1A035 /* NotificationManager.swift */,
+				8E9B08AA2A36107600D1A035 /* NotificationModel.swift */,
+				8E9B08A82A360F4F00D1A035 /* NotificationService.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		8E9B08B02A36293400D1A035 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				8E9B08B12A36294A00D1A035 /* NavigationBarView.swift */,
+				8E9B08B82A36412300D1A035 /* BorderedTextField.swift */,
+				8E9B08BA2A36459400D1A035 /* StatebleButton.swift */,
+			);
+			path = UIComponents;
+			sourceTree = "<group>";
+		};
+		8E9B08B32A36301900D1A035 /* VerificationScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8E9B08AC2A36264700D1A035 /* VerificationScreen.swift */,
+				8E9B08AE2A36266900D1A035 /* VerificationScreenViewModel.swift */,
+				8E9B08B42A36305500D1A035 /* EnterPhoneNumberView.swift */,
+				8E9B08B62A36306B00D1A035 /* EnterVerificationCodeView.swift */,
+			);
+			path = VerificationScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,14 +371,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E34C2952A33E776009C40FA /* BaseNetworkTask.swift in Sources */,
+				8E34C2952A33E776009C40FA /* NetworkManager.swift in Sources */,
 				8E9032FC2A34E71B00445809 /* MainScreenViewModel.swift in Sources */,
+				8E9B08A92A360F4F00D1A035 /* NotificationService.swift in Sources */,
+				8E9B08AB2A36107600D1A035 /* NotificationModel.swift in Sources */,
 				8E34C2882A33908B009C40FA /* Constants.swift in Sources */,
-				8E1945AC2A326DCA00CBB4B4 /* NetworkService.swift in Sources */,
+				8E9B08B92A36412300D1A035 /* BorderedTextField.swift in Sources */,
+				8E9B08B22A36294A00D1A035 /* NavigationBarView.swift in Sources */,
+				8E9B08AF2A36266900D1A035 /* VerificationScreenViewModel.swift in Sources */,
+				8E9B08B52A36305500D1A035 /* EnterPhoneNumberView.swift in Sources */,
+				8E9B08A42A35FE5100D1A035 /* ApplicationFactory.swift in Sources */,
+				8E9B08B72A36306B00D1A035 /* EnterVerificationCodeView.swift in Sources */,
+				8E9B08AD2A36264700D1A035 /* VerificationScreen.swift in Sources */,
+				8E1945AC2A326DCA00CBB4B4 /* AuthentificationService.swift in Sources */,
+				8E9B08BB2A36459400D1A035 /* StatebleButton.swift in Sources */,
 				8E34C28D2A339329009C40FA /* SendAuthCode.swift in Sources */,
+				8E9B08A72A360F4800D1A035 /* NotificationManager.swift in Sources */,
+				8E9B08A12A35FD5D00D1A035 /* ScreenFactory.swift in Sources */,
 				8E1945912A3269C900CBB4B4 /* MainScreenView.swift in Sources */,
 				8E1945AA2A326C0E00CBB4B4 /* Fonts.swift in Sources */,
-				8E34C28A2A3392F0009C40FA /* BaseNetworkRequestModel.swift in Sources */,
+				8E34C28A2A3392F0009C40FA /* RequestModel.swift in Sources */,
 				8E19458F2A3269C900CBB4B4 /* MessengerApp.swift in Sources */,
 				8E34C2922A33AF0B009C40FA /* SendAuthCodeResponse.swift in Sources */,
 			);

@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 struct MainScreenView: View {
-    let service = NetworkService()
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")

@@ -10,28 +10,12 @@ import Combine
 
 @main
 struct MessengerApp: App {
-    let networkService = NetworkService()
-    @State var subscriber = Set<AnyCancellable>()
-    @State var isAuthorized: Bool = false
+    
+    let sceneFactory = SceneFactory()
+    
     var body: some Scene {
         WindowGroup {
-            ZStack {
-                if isAuthorized {
-                    MainScreenView()
-                }
-            }
-            .onAppear {
-                networkService.sendAuthCode(phone: "+79230464916")
-                    .sink { error in
-                    } receiveValue: { response in
-                        if response.is_success {
-                            isAuthorized = true
-                        }
-                    }
-                    .store(in: &subscriber)
-                
-            }
+            SceneFactory().makeFirstScreen()
         }
-        
     }
 }
