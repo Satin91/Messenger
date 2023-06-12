@@ -21,6 +21,7 @@ final class VerificationScreenViewModel: NSObject, ObservableObject {
         self.authService = authService
         self.notificationService = notificationService
         super.init()
+        notificationService.register()
         UNUserNotificationCenter.current().delegate = self
     }
     

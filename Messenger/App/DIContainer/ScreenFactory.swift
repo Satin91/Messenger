@@ -17,7 +17,6 @@ final class SceneFactory: NSObject, SceneFactoryProtocol, UNUserNotificationCent
     let applicationFactory = ApplicationFactory()
     
     func makeFirstScreen() -> AnyView {
-        applicationFactory.notificationService.register()
         let viewModel = VerificationScreenViewModel(authService: applicationFactory.authService, notificationService: applicationFactory.notificationService)
         return AnyView(VerificationScreen().environmentObject(viewModel))
     }

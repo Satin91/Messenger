@@ -16,7 +16,7 @@ struct EnterPhoneNumberView: View {
     }
     
     var content: some View {
-        VStack(spacing: Spacing.largePadding) {
+        VStack(alignment: .leading, spacing: Spacing.largePadding) {
             infoLabel
             textField
             nextButton
@@ -24,28 +24,25 @@ struct EnterPhoneNumberView: View {
     }
     
     var infoLabel: some View {
-        Group {
-            Text("Please enter")
-                .font(Fonts.makeFont(weight: .light, size: 16))
-                .foregroundColor(Colors.dark)
-            +
-            Text(" your phone number")
-                .font(Fonts.makeFont(weight: .bold, size: 16))
-                .foregroundColor(Colors.dark)
-            +
-            Text(", so we can verify you")
-                .font(Fonts.makeFont(weight: .light, size: 16))
-                .foregroundColor(Colors.dark)
-        }
-        .multilineTextAlignment(.leading)
+        Text("Please enter")
+            .font(Fonts.makeFont(weight: .light, size: 16))
+            .foregroundColor(Colors.dark)
+        +
+        Text(" your phone number")
+            .font(Fonts.makeFont(weight: .bold, size: 16))
+            .foregroundColor(Colors.dark)
+        +
+        Text(", so we can verify you")
+            .font(Fonts.makeFont(weight: .light, size: 16))
+            .foregroundColor(Colors.dark)
     }
     
     var textField: some View {
-        BorderedTextField(text: $text)
+        PhoneNumberTextFieldView(text: $text)
     }
     
     var nextButton: some View {
-        StatebleButton(title: "Next", state:  text.count >= 12 ? .enable : .disable) {
+        StatebleButtonView(title: "Next", state:  text.count >= 12 ? .enable : .disable) {
             viewModel.checkAuthCode(phone: text)
         }
     }

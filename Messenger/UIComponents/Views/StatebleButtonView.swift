@@ -1,5 +1,5 @@
 //
-//  StatebleButton.swift
+//  StatebleButtonView.swift
 //  Messenger
 //
 //  Created by Артур Кулик on 11.06.2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct StatebleButton: View {
+struct StatebleButtonView: View {
     enum State {
         case disable
         case enable
@@ -44,6 +44,6 @@ struct StatebleButton: View {
 
 struct StatebleButton_Previews: PreviewProvider {
     static var previews: some View {
-        StatebleButton(title: "Text", state: .enable, action: {})
+        StatebleButtonView(title: "Text", state: .enable, action: {})
     }
 }
