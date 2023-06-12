@@ -15,7 +15,7 @@ struct MessengerApp: App {
     
     var body: some Scene {
         WindowGroup {
-            SceneFactory().makeFirstScreen()
+            sceneFactory.makeFirstScreen()
         }
     }
 }

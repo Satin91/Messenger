@@ -17,12 +17,18 @@ final class ApplicationFactory {
     private let networkManager: NetworkManagerProtocol
     private let notificationManager: NotificationManagerProtocol
     
+    
     var notificationService: NotificationServiceProtocol {
         NotificationService(manager: notificationManager)
     }
     
     var authService: AuthentificationServiceProtocol {
         AuthentificationService(networkManager: networkManager)
+    }
+    
+    // ViewModels
+    var verificationScreenViewModel: VerificationScreenViewModel {
+        VerificationScreenViewModel(authService: authService, notificationService: notificationService)
     }
     
     

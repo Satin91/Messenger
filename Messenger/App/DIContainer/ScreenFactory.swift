@@ -13,11 +13,10 @@ protocol SceneFactoryProtocol {
     func makeFirstScreen() -> AnyView
 }
 
-final class SceneFactory: NSObject, SceneFactoryProtocol, UNUserNotificationCenterDelegate {
+final class SceneFactory: NSObject, SceneFactoryProtocol {
     let applicationFactory = ApplicationFactory()
     
     func makeFirstScreen() -> AnyView {
-        let viewModel = VerificationScreenViewModel(authService: applicationFactory.authService, notificationService: applicationFactory.notificationService)
-        return AnyView(VerificationScreen().environmentObject(viewModel))
+        return AnyView(VerificationScreen().environmentObject(applicationFactory.verificationScreenViewModel))
     }
 }

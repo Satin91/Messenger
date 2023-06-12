@@ -9,14 +9,19 @@ import Foundation
 import UserNotifications
 
 protocol NotificationManagerProtocol {
-    func register()
     func send(_ notification: NotificationModel)
 }
 
-final class NotificationManager: NotificationManagerProtocol {
+final class NotificationManager: NSObject, NotificationManagerProtocol {
     let center = UNUserNotificationCenter.current()
     
-    func register() {
+    override init() {
+        super.init()
+        self.register()
+        UNUserNotificationCenter.current().delegate = self
+    }
+    
+    private func register() {
         center.requestAuthorization(options: [.alert, .sound, .badge]) { (permissionGranted, error) in
             DispatchQueue.main.async {
                 guard permissionGranted else {
@@ -52,3 +57,10 @@ final class NotificationManager: NotificationManagerProtocol {
         return content
     }
 }
+
+extension NotificationManager: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.sound, .banner])
+    }
+}
+

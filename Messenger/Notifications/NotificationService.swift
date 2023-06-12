@@ -9,7 +9,6 @@ import Foundation
 
 protocol NotificationServiceProtocol {
     func push(_ notification: NotificationModel)
-    func register()
 }
 
 final class NotificationService: NotificationServiceProtocol {
@@ -17,10 +16,6 @@ final class NotificationService: NotificationServiceProtocol {
     
     init(manager: NotificationManagerProtocol) {
         self.manager = manager
-    }
-    
-    func register() {
-        manager.register()
     }
     
     func push(_ notification: NotificationModel) {

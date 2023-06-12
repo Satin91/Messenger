@@ -21,8 +21,6 @@ final class VerificationScreenViewModel: NSObject, ObservableObject {
         self.authService = authService
         self.notificationService = notificationService
         super.init()
-        notificationService.register()
-        UNUserNotificationCenter.current().delegate = self
     }
     
     func checkAuthCode(phone: String) {
@@ -48,12 +46,5 @@ final class VerificationScreenViewModel: NSObject, ObservableObject {
     
     func sendVerificationCode() {
         self.notificationService.push(NotificationModel(title: "Verification Code", subtitle: "133337", timeInterval: 3))
-    }
-}
-
-// Реализация делегата для получения уведомления при открытом приложении.
-extension VerificationScreenViewModel: UNUserNotificationCenterDelegate {
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.sound, .banner])
     }
 }
