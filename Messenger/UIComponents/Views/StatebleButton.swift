@@ -8,13 +8,8 @@
 import SwiftUI
 
 struct StatebleButton: View {
-    enum State {
-        case disable
-        case enable
-    }
-    
     var title: String
-    var state: State
+    var isEnable: Bool
     var action: () -> Void
     var body: some View {
         content
@@ -23,7 +18,7 @@ struct StatebleButton: View {
     var content: some View {
         button
             .onTapGesture {
-                if state == .enable {
+                if isEnable {
                     action()
                 }
             }
@@ -32,7 +27,7 @@ struct StatebleButton: View {
     
     var button: some View {
         RoundedRectangle(cornerRadius: Spacing.smallRadius, style: .continuous)
-            .foregroundColor(state == .disable ? Colors.neutral : Colors.primary)
+            .foregroundColor(isEnable ? Colors.primary : Colors.neutral)
             .frame(height: Spacing.mediumControl)
             .overlay {
                 Text(title)
@@ -44,6 +39,6 @@ struct StatebleButton: View {
 
 struct StatebleButton_Previews: PreviewProvider {
     static var previews: some View {
-        StatebleButton(title: "Text", state: .enable, action: {})
+        StatebleButton(title: "Text", isEnable: true, action: {})
     }
 }

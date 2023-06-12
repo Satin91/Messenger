@@ -5,6 +5,7 @@
 //  Created by Артур Кулик on 12.06.2023.
 //
 
+import Combine
 import SwiftUI
 
 struct VerificationTextField: View {
@@ -35,7 +36,13 @@ struct VerificationTextField: View {
             .foregroundColor(Colors.dark)
             .kerning(kerning)
             .frame(height: Spacing.mediumControl)
-            .padding(.leading, 18)
+            .offset(x: 18)
+            .scrollDisabled(true)
+            .onReceive(Just(text)) { _ in
+                if text.count > 6 {
+                    text = String(text.prefix(6))
+                }
+            }
     }
     
     var dash: some View {

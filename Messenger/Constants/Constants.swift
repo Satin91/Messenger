@@ -13,6 +13,7 @@ enum Constants {
         static let baseHeaders = ["Content-Type": "application/json", "application/json": "accept"]
         static let baseURL = "https://plannerok.ru/api/v1/"
         static let sendAuthCodePath = "users/send-auth-code/"
+        static let checkAuthCodePath = "users/check-auth-code/"
     }
 }
 

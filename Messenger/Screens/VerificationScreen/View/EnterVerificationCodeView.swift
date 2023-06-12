@@ -9,7 +9,6 @@ import SwiftUI
 
 struct EnterVerificationCodeView: View {
     @EnvironmentObject var viewModel: VerificationScreenViewModel
-    @State var text: String = ""
     
     var body: some View {
         content
@@ -21,6 +20,7 @@ struct EnterVerificationCodeView: View {
             infoLabel
             textField
             resendCodeLabel
+            verificationButton
             Spacer()
         }
     }
@@ -45,7 +45,7 @@ struct EnterVerificationCodeView: View {
     }
     
     var textField: some View {
-        VerificationTextField(text: $text)
+        VerificationTextField(text: $viewModel.verificationCode)
     }
     
     var resendCodeLabel: some View {
@@ -62,6 +62,13 @@ struct EnterVerificationCodeView: View {
             }
         }
         .frame(maxWidth: .infinity, alignment: .center)
+    }
+    
+    var verificationButton: some View {
+        StatebleButton(title: "Verify", isEnable: viewModel.verificationCode.count == 6) {
+            viewModel.checkAuthCode()
+        }
+        .frame(width: 85, height: 18)
     }
 }
 

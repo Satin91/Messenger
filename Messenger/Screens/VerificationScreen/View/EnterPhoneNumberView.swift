@@ -6,10 +6,10 @@
 //
 
 import SwiftUI
+import Alamofire
 
 struct EnterPhoneNumberView: View {
     @EnvironmentObject var viewModel: VerificationScreenViewModel
-    @State var text: String = ""
     
     var body: some View {
         content
@@ -48,12 +48,12 @@ struct EnterPhoneNumberView: View {
     }
     
     var textField: some View {
-        PhoneNumberTextField(text: $text)
+        PhoneNumberTextField(text: $viewModel.phoneNumberText)
     }
     
     var nextButton: some View {
-        StatebleButton(title: "Next", state:  text.count >= 12 ? .enable : .disable) {
-            viewModel.checkAuthCode(phone: text)
+        StatebleButton(title: "Next", isEnable: viewModel.isFullPhoneNumber) {
+            viewModel.sendAuthCode()
         }
     }
 }

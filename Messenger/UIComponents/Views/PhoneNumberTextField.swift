@@ -26,15 +26,26 @@ struct PhoneNumberTextField: View {
     private var textField: some View {
         iPhoneNumberField("", text: $text)
             .prefixHidden(false)
-            .countryCodePlaceholderColor(Colors.neutralSecondary)
             .flagHidden(false)
             .maximumDigits(12)
             .flagSelectable(true)
+            .defaultRegion(Locale.current.regionCode)
+            .onNumberChange { _ in
+                updateTextWithPrefix()
+            }
             .font(UIFont(name: "Roboto-Regular", size: 17))
             .foregroundColor(Colors.primary)
             .clearButtonMode(.whileEditing)
             .padding(Spacing.smallPadding)
             .modifier(RoundedBorderModifier(color: isEditing ? Colors.primary : Colors.neutral))
-         
     }
+    
+    private func updateTextWithPrefix() {
+        if text.count <= 1 {
+            DispatchQueue.main.async {
+                self.text = "+"
+            }
+        }
+    }
+    
 }

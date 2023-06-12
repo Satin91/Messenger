@@ -10,6 +10,7 @@ import SwiftUI
 struct VerificationScreen: View {
     @EnvironmentObject var viewModel: VerificationScreenViewModel
     
+    
     var body: some View {
         content
     }
@@ -17,20 +18,17 @@ struct VerificationScreen: View {
     var content: some View {
         container
             .background(Colors.background)
-        
     }
     
-    var container: some View {
-        TabView(selection: $viewModel.pageIndex) {
-            Group {
+    @ViewBuilder var container: some View {
+        Group {
+            if viewModel.pageIndex == 0 {
                 EnterPhoneNumberView()
-                    .tag(0)
+            } else {
                 EnterVerificationCodeView()
-                    .tag(1)
             }
-            .padding(Spacing.horizontalEdges)
         }
-        .tabViewStyle(.page)
+        .padding(.horizontal, Spacing.horizontalEdges)
     }
 }
 
