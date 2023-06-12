@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "flowstacks",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/johnpatrickmorgan/FlowStacks",
+      "state" : {
+        "revision" : "84cda93c30d1db880200482bf8b5aef185df40c9",
+        "version" : "0.3.3"
+      }
+    },
+    {
       "identity" : "iphonenumberfield",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/MojtabaHs/iPhoneNumberField.git",

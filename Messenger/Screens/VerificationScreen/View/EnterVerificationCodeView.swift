@@ -10,6 +10,8 @@ import SwiftUI
 struct EnterVerificationCodeView: View {
     @EnvironmentObject var viewModel: VerificationScreenViewModel
     
+    var verifyButtonTapped: () -> Void
+    
     var body: some View {
         content
     }
@@ -68,6 +70,7 @@ struct EnterVerificationCodeView: View {
     var verificationButton: some View {
         StatebleButton(title: "Verify", isEnable: viewModel.verificationCode.count == 6) {
             viewModel.checkAuthCode()
+            verifyButtonTapped()
         }
         .frame(maxWidth: .infinity, alignment: .trailing)
     }
@@ -75,6 +78,6 @@ struct EnterVerificationCodeView: View {
 
 struct EnterVerificationCodeView_Previews: PreviewProvider {
     static var previews: some View {
-        EnterVerificationCodeView()
+        EnterVerificationCodeView(verifyButtonTapped: {})
     }
 }

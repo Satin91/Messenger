@@ -9,7 +9,7 @@ import SwiftUI
 
 struct VerificationScreen: View {
     @EnvironmentObject var viewModel: VerificationScreenViewModel
-    
+    @EnvironmentObject var router: AppCoordinatorViewModel
     
     var body: some View {
         content
@@ -22,18 +22,20 @@ struct VerificationScreen: View {
     
     @ViewBuilder var container: some View {
         Group {
-            if viewModel.pageIndex == 0 {
+            if viewModel.pageIndex == 1 {
                 EnterPhoneNumberView()
             } else {
-                EnterVerificationCodeView()
+                EnterVerificationCodeView {
+                    router.pushToHomeScreen()
+                }
             }
         }
         .padding(.horizontal, Spacing.horizontalEdges)
     }
 }
-
-struct VerificationScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        VerificationScreen()
-    }
-}
+//
+//struct VerificationScreen_Previews: PreviewProvider {
+//    static var previews: some View {
+//        VerificationScreen()
+//    }
+//}

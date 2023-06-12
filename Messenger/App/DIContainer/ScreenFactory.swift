@@ -16,8 +16,7 @@ protocol SceneFactoryProtocol {
 final class SceneFactory: NSObject, SceneFactoryProtocol {
     let applicationFactory = ApplicationFactory()
     
-    @ViewBuilder func makeFirstScreen() -> AnyView {
-        
+    func makeFirstScreen() -> AnyView {
         return AnyView(VerificationScreen().environmentObject(applicationFactory.verificationScreenViewModel))
     }
 }
