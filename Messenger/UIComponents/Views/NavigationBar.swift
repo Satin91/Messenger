@@ -13,7 +13,7 @@ final class Containers {
     var centralContainer = AnyView(EmptyView())
 }
 
-struct NavigationBarView: View {
+struct NavigationBar: View {
     private var containers = Containers()
     private var leadingSize: CGFloat = .zero
     private var trailingSize: CGFloat = .zero
@@ -30,15 +30,15 @@ struct NavigationBarView: View {
         }
     }
     
-    func addLeftContainer(_ container: () -> any View) -> NavigationBarView {
+    func addLeftContainer(_ container: () -> any View) -> NavigationBar {
         containers.leftContainer = AnyView(container())
         return self
     }
-    func addRightContainer(_ container: () -> any View) -> NavigationBarView {
+    func addRightContainer(_ container: () -> any View) -> NavigationBar {
         containers.rightContainer = AnyView(container())
         return self
     }
-    func addCentralContainer(_ container: () -> any View) -> NavigationBarView {
+    func addCentralContainer(_ container: () -> any View) -> NavigationBar {
         containers.centralContainer = AnyView(container())
         return self
     }

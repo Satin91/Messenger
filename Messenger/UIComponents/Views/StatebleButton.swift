@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct StatebleButtonView: View {
+struct StatebleButton: View {
     enum State {
         case disable
         case enable
@@ -44,6 +44,6 @@ struct StatebleButtonView: View {
 
 struct StatebleButton_Previews: PreviewProvider {
     static var previews: some View {
-        StatebleButtonView(title: "Text", state: .enable, action: {})
+        StatebleButton(title: "Text", state: .enable, action: {})
     }
 }

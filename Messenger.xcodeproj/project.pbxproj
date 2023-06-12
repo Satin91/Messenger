@@ -32,14 +32,16 @@
 		8E9B08AB2A36107600D1A035 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08AA2A36107600D1A035 /* NotificationModel.swift */; };
 		8E9B08AD2A36264700D1A035 /* VerificationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08AC2A36264700D1A035 /* VerificationScreen.swift */; };
 		8E9B08AF2A36266900D1A035 /* VerificationScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08AE2A36266900D1A035 /* VerificationScreenViewModel.swift */; };
-		8E9B08B22A36294A00D1A035 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08B12A36294A00D1A035 /* NavigationBarView.swift */; };
+		8E9B08B22A36294A00D1A035 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08B12A36294A00D1A035 /* NavigationBar.swift */; };
 		8E9B08B52A36305500D1A035 /* EnterPhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08B42A36305500D1A035 /* EnterPhoneNumberView.swift */; };
 		8E9B08B72A36306B00D1A035 /* EnterVerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08B62A36306B00D1A035 /* EnterVerificationCodeView.swift */; };
-		8E9B08B92A36412300D1A035 /* PhoneNumberTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08B82A36412300D1A035 /* PhoneNumberTextFieldView.swift */; };
-		8E9B08BB2A36459400D1A035 /* StatebleButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08BA2A36459400D1A035 /* StatebleButtonView.swift */; };
+		8E9B08B92A36412300D1A035 /* PhoneNumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08B82A36412300D1A035 /* PhoneNumberTextField.swift */; };
+		8E9B08BB2A36459400D1A035 /* StatebleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08BA2A36459400D1A035 /* StatebleButton.swift */; };
 		8E9B08C52A368EB800D1A035 /* iPhoneNumberField in Frameworks */ = {isa = PBXBuildFile; productRef = 8E9B08C42A368EB800D1A035 /* iPhoneNumberField */; };
 		8E9B08C72A36961900D1A035 /* RoundedBorderModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08C62A36961900D1A035 /* RoundedBorderModifier.swift */; };
 		8E9B08CB2A369E2800D1A035 /* LargeTitleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08CA2A369E2800D1A035 /* LargeTitleModifier.swift */; };
+		8E9B08CD2A36B82400D1A035 /* VerificationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08CC2A36B82400D1A035 /* VerificationTextField.swift */; };
+		8E9B08CF2A36C09100D1A035 /* ReadSizeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08CE2A36C09100D1A035 /* ReadSizeModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,13 +71,15 @@
 		8E9B08AA2A36107600D1A035 /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		8E9B08AC2A36264700D1A035 /* VerificationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationScreen.swift; sourceTree = "<group>"; };
 		8E9B08AE2A36266900D1A035 /* VerificationScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationScreenViewModel.swift; sourceTree = "<group>"; };
-		8E9B08B12A36294A00D1A035 /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
+		8E9B08B12A36294A00D1A035 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		8E9B08B42A36305500D1A035 /* EnterPhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterPhoneNumberView.swift; sourceTree = "<group>"; };
 		8E9B08B62A36306B00D1A035 /* EnterVerificationCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterVerificationCodeView.swift; sourceTree = "<group>"; };
-		8E9B08B82A36412300D1A035 /* PhoneNumberTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberTextFieldView.swift; sourceTree = "<group>"; };
-		8E9B08BA2A36459400D1A035 /* StatebleButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatebleButtonView.swift; sourceTree = "<group>"; };
+		8E9B08B82A36412300D1A035 /* PhoneNumberTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberTextField.swift; sourceTree = "<group>"; };
+		8E9B08BA2A36459400D1A035 /* StatebleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatebleButton.swift; sourceTree = "<group>"; };
 		8E9B08C62A36961900D1A035 /* RoundedBorderModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBorderModifier.swift; sourceTree = "<group>"; };
 		8E9B08CA2A369E2800D1A035 /* LargeTitleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTitleModifier.swift; sourceTree = "<group>"; };
+		8E9B08CC2A36B82400D1A035 /* VerificationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationTextField.swift; sourceTree = "<group>"; };
+		8E9B08CE2A36C09100D1A035 /* ReadSizeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadSizeModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,10 +291,8 @@
 		8E9B08B32A36301900D1A035 /* VerificationScreen */ = {
 			isa = PBXGroup;
 			children = (
-				8E9B08AC2A36264700D1A035 /* VerificationScreen.swift */,
-				8E9B08AE2A36266900D1A035 /* VerificationScreenViewModel.swift */,
-				8E9B08B42A36305500D1A035 /* EnterPhoneNumberView.swift */,
-				8E9B08B62A36306B00D1A035 /* EnterVerificationCodeView.swift */,
+				8E9B08D02A36C0AF00D1A035 /* ViewModel */,
+				8E9B08D12A36C0C400D1A035 /* View */,
 			);
 			path = VerificationScreen;
 			sourceTree = "<group>";
@@ -300,6 +302,7 @@
 			children = (
 				8E9B08C62A36961900D1A035 /* RoundedBorderModifier.swift */,
 				8E9B08CA2A369E2800D1A035 /* LargeTitleModifier.swift */,
+				8E9B08CE2A36C09100D1A035 /* ReadSizeModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -307,11 +310,30 @@
 		8E9B08C92A36963000D1A035 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8E9B08B12A36294A00D1A035 /* NavigationBarView.swift */,
-				8E9B08B82A36412300D1A035 /* PhoneNumberTextFieldView.swift */,
-				8E9B08BA2A36459400D1A035 /* StatebleButtonView.swift */,
+				8E9B08B12A36294A00D1A035 /* NavigationBar.swift */,
+				8E9B08B82A36412300D1A035 /* PhoneNumberTextField.swift */,
+				8E9B08CC2A36B82400D1A035 /* VerificationTextField.swift */,
+				8E9B08BA2A36459400D1A035 /* StatebleButton.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		8E9B08D02A36C0AF00D1A035 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				8E9B08AE2A36266900D1A035 /* VerificationScreenViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8E9B08D12A36C0C400D1A035 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8E9B08AC2A36264700D1A035 /* VerificationScreen.swift */,
+				8E9B08B42A36305500D1A035 /* EnterPhoneNumberView.swift */,
+				8E9B08B62A36306B00D1A035 /* EnterVerificationCodeView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -402,21 +424,23 @@
 				8E9B08A92A360F4F00D1A035 /* NotificationService.swift in Sources */,
 				8E9B08AB2A36107600D1A035 /* NotificationModel.swift in Sources */,
 				8E34C2882A33908B009C40FA /* Constants.swift in Sources */,
-				8E9B08B92A36412300D1A035 /* PhoneNumberTextFieldView.swift in Sources */,
-				8E9B08B22A36294A00D1A035 /* NavigationBarView.swift in Sources */,
+				8E9B08B92A36412300D1A035 /* PhoneNumberTextField.swift in Sources */,
+				8E9B08B22A36294A00D1A035 /* NavigationBar.swift in Sources */,
 				8E9B08AF2A36266900D1A035 /* VerificationScreenViewModel.swift in Sources */,
 				8E9B08B52A36305500D1A035 /* EnterPhoneNumberView.swift in Sources */,
 				8E9B08A42A35FE5100D1A035 /* ApplicationFactory.swift in Sources */,
 				8E9B08B72A36306B00D1A035 /* EnterVerificationCodeView.swift in Sources */,
 				8E9B08AD2A36264700D1A035 /* VerificationScreen.swift in Sources */,
 				8E1945AC2A326DCA00CBB4B4 /* AuthentificationService.swift in Sources */,
-				8E9B08BB2A36459400D1A035 /* StatebleButtonView.swift in Sources */,
+				8E9B08BB2A36459400D1A035 /* StatebleButton.swift in Sources */,
 				8E34C28D2A339329009C40FA /* SendAuthCode.swift in Sources */,
 				8E9B08A72A360F4800D1A035 /* NotificationManager.swift in Sources */,
 				8E9B08A12A35FD5D00D1A035 /* ScreenFactory.swift in Sources */,
 				8E9B08C72A36961900D1A035 /* RoundedBorderModifier.swift in Sources */,
 				8E1945912A3269C900CBB4B4 /* MainScreenView.swift in Sources */,
+				8E9B08CF2A36C09100D1A035 /* ReadSizeModifier.swift in Sources */,
 				8E1945AA2A326C0E00CBB4B4 /* Fonts.swift in Sources */,
+				8E9B08CD2A36B82400D1A035 /* VerificationTextField.swift in Sources */,
 				8E34C28A2A3392F0009C40FA /* RequestModel.swift in Sources */,
 				8E19458F2A3269C900CBB4B4 /* MessengerApp.swift in Sources */,
 				8E34C2922A33AF0B009C40FA /* SendAuthCodeResponse.swift in Sources */,

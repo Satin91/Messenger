@@ -29,6 +29,7 @@ final class VerificationScreenViewModel: NSObject, ObservableObject {
         authService.sendAuthCode(phone: phone)
             .sink(receiveCompletion: { completion in
                 let error = try? completion.error()
+                print("Error \(error)")
             }, receiveValue: { response in
                 self.sendVerificationCode()
                 guard self.pageIndex != 1 else { return }
@@ -45,8 +46,8 @@ final class VerificationScreenViewModel: NSObject, ObservableObject {
         pageIndex = 0
     }
     
-    private func sendVerificationCode() {
-        self.notificationService.push(NotificationModel(title: "Verification Code", subtitle: "133337", timeInterval: 5))
+    func sendVerificationCode() {
+        self.notificationService.push(NotificationModel(title: "Verification Code", subtitle: "133337", timeInterval: 3))
     }
 }
 

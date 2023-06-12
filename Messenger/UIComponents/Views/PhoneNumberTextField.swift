@@ -8,7 +8,7 @@
 import SwiftUI
 import iPhoneNumberField
 
-struct PhoneNumberTextFieldView: View {
+struct PhoneNumberTextField: View {
     
     @Binding var text: String
     var isEditing: Bool {

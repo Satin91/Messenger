@@ -30,9 +30,9 @@ struct RequestModel {
         JSONEncoding.default
     }
     
-    init(path: String, parameters: [String: Any]?, httpMethod: Alamofire.HTTPMethod = .get) {
+    init(path: String, parameters: [String: Any]?, method: Alamofire.HTTPMethod = .get) {
         self.path = path
         self.parameters = parameters
-        self.method = httpMethod
+        self.method = method
     }
 }

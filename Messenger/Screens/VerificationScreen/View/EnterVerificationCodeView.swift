@@ -9,23 +9,26 @@ import SwiftUI
 
 struct EnterVerificationCodeView: View {
     @EnvironmentObject var viewModel: VerificationScreenViewModel
+    @State var text: String = ""
     
     var body: some View {
         content
     }
     
     var content: some View {
-        VStack(alignment: .leading, spacing: Spacing.mediumPadding) {
+        VStack(alignment: .leading, spacing: Spacing.largePadding) {
             navigationBar
             infoLabel
+            textField
+            resendCodeLabel
             Spacer()
         }
     }
     
     var navigationBar: some View {
-        NavigationBarView()
+        NavigationBar()
             .addLeftContainer {
-                VStack(alignment: .leading, spacing: Spacing.mediumPadding) {
+                VStack(alignment: .leading, spacing: Spacing.mediumControl) {
                     Button("Back") {
                         viewModel.goBack()
                     }
@@ -39,6 +42,26 @@ struct EnterVerificationCodeView: View {
         Text("Check your sms inbox, we have sent you the code.")
             .font(Fonts.makeFont(weight: .light, size: 16))
             .foregroundColor(Colors.dark)
+    }
+    
+    var textField: some View {
+        VerificationTextField(text: $text)
+    }
+    
+    var resendCodeLabel: some View {
+        HStack(spacing: .zero) {
+            Text("Didn’t Receive a code? ")
+                .font(Fonts.makeFont(weight: .regular, size: 14))
+                .foregroundColor(Colors.neutral)
+            Button {
+                viewModel.sendVerificationCode()
+            } label: {
+                Text("resend code")
+                    .font(Fonts.makeFont(weight: .bold, size: 14))
+                    .foregroundColor(Colors.primary)
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .center)
     }
 }
 

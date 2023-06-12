@@ -26,7 +26,7 @@ struct EnterPhoneNumberView: View {
     }
     
     var navigationBar: some View {
-        NavigationBarView()
+        NavigationBar()
             .addLeftContainer {
                 Text("Register")
                     .largeTitleModifier()
@@ -48,11 +48,11 @@ struct EnterPhoneNumberView: View {
     }
     
     var textField: some View {
-        PhoneNumberTextFieldView(text: $text)
+        PhoneNumberTextField(text: $text)
     }
     
     var nextButton: some View {
-        StatebleButtonView(title: "Next", state:  text.count >= 12 ? .enable : .disable) {
+        StatebleButton(title: "Next", state:  text.count >= 12 ? .enable : .disable) {
             viewModel.checkAuthCode(phone: text)
         }
     }
