@@ -22,7 +22,7 @@ class NetworkManager: NetworkManagerProtocol {
     
     func sendRequest(request: NetworkRequestProtocol) -> AnyPublisher<Data, Error> {
         let request = request.make()
-        return session.request(request.baseUrl + request.path, method: .post, parameters: request.parameters, encoding: request.encoding, headers: request.headers).publishData()
+        return session.request(request.baseUrl + request.path, method: request.method, parameters: request.parameters, encoding: request.encoding, headers: request.headers).publishData()
             .tryMap { response -> Data in
                 switch response.result {
                 case .success(let data):
