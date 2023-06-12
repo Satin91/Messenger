@@ -15,29 +15,23 @@ struct VerificationScreen: View {
     }
     
     var content: some View {
-        VStack {
-            navigationBar
-            container
-            Spacer()
-        }
-        .padding(Spacing.horizontalEdges)
-        .background(Colors.background)
-    }
-    
-    var navigationBar: some View {
-        NavigationBarView(title: "Register", type: .large)
+        container
+            .background(Colors.background)
         
     }
     
-    @ViewBuilder var container: some View {
-        switch viewModel.isCodeSent {
-        case true:
-            EnterVerificationCodeView()
-        case false:
-            EnterPhoneNumberView()
+    var container: some View {
+        TabView(selection: $viewModel.pageIndex) {
+            Group {
+                EnterPhoneNumberView()
+                    .tag(0)
+                EnterVerificationCodeView()
+                    .tag(1)
+            }
+            .padding(Spacing.horizontalEdges)
         }
+        .tabViewStyle(.page)
     }
-    
 }
 
 struct VerificationScreen_Previews: PreviewProvider {

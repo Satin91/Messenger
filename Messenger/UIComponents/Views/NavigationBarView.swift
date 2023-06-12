@@ -7,43 +7,39 @@
 
 import SwiftUI
 
+final class Containers {
+    var leftContainer = AnyView(EmptyView())
+    var rightContainer = AnyView(EmptyView())
+    var centralContainer = AnyView(EmptyView())
+}
+
 struct NavigationBarView: View {
-    enum NavBarType {
-        case large
-        case `default`
-    }
-    
-    var title: String
-    
-    var type: NavBarType = .default
+    private var containers = Containers()
+    private var leadingSize: CGFloat = .zero
+    private var trailingSize: CGFloat = .zero
+    private var centerSize: CGFloat = .zero
     
     var body: some View {
-        content
-            .background(Color.clear)
-    }
-    
-    @ViewBuilder private var content: some View {
-        switch type {
-        case .large:
-            largeNavBar
-                .padding(.vertical, 25)
-        case .default:
-            defaultNavBar
-        }
-    }
-    
-    private var largeNavBar: some View {
-        HStack {
-            Text(title)
-                .font(Fonts.makeFont(weight: .bold, size: 40))
-                .foregroundColor(Colors.dark)
-            Spacer()
-        }
-    }
-    
-    private var defaultNavBar: some View {
         ZStack {
-            EmptyView()
+            containers.leftContainer
+                .frame(maxWidth: .infinity, alignment: .leading)
+            containers.rightContainer
+                .frame(maxWidth: .infinity, alignment: .trailing)
+            containers.centralContainer
+                .frame(maxWidth: .infinity, alignment: .center)
         }
+    }
+    
+    func addLeftContainer(_ container: () -> any View) -> NavigationBarView {
+        containers.leftContainer = AnyView(container())
+        return self
+    }
+    func addRightContainer(_ container: () -> any View) -> NavigationBarView {
+        containers.rightContainer = AnyView(container())
+        return self
+    }
+    func addCentralContainer(_ container: () -> any View) -> NavigationBarView {
+        containers.centralContainer = AnyView(container())
+        return self
     }
 }

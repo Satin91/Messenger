@@ -17,10 +17,20 @@ struct EnterPhoneNumberView: View {
     
     var content: some View {
         VStack(alignment: .leading, spacing: Spacing.largePadding) {
+            navigationBar
             infoLabel
             textField
             nextButton
+            Spacer()
         }
+    }
+    
+    var navigationBar: some View {
+        NavigationBarView()
+            .addLeftContainer {
+                Text("Register")
+                    .largeTitleModifier()
+            }
     }
     
     var infoLabel: some View {

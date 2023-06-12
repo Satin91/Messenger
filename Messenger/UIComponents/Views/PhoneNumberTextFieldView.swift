@@ -29,7 +29,7 @@ struct PhoneNumberTextFieldView: View {
             .countryCodePlaceholderColor(Colors.neutralSecondary)
             .flagHidden(false)
             .maximumDigits(12)
-            .defaultRegion("DE")
+            .flagSelectable(true)
             .font(UIFont(name: "Roboto-Regular", size: 17))
             .foregroundColor(Colors.primary)
             .clearButtonMode(.whileEditing)

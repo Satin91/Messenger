@@ -15,7 +15,7 @@ final class VerificationScreenViewModel: NSObject, ObservableObject {
     var notificationService: NotificationServiceProtocol
     var subscriber = Set<AnyCancellable>()
     
-    @Published var isCodeSent: Bool = false
+    @Published var pageIndex: Int = 0
     
     init(authService: AuthentificationServiceProtocol, notificationService: NotificationServiceProtocol) {
         self.authService = authService
@@ -31,9 +31,18 @@ final class VerificationScreenViewModel: NSObject, ObservableObject {
                 let error = try? completion.error()
             }, receiveValue: { response in
                 self.sendVerificationCode()
-                self.isCodeSent = response.is_success
+                guard self.pageIndex != 1 else { return }
+                self.goNext()
             })
             .store(in: &subscriber)
+    }
+    
+    func goNext() {
+        pageIndex = 1
+    }
+    
+    func goBack() {
+        pageIndex = 0
     }
     
     private func sendVerificationCode() {
