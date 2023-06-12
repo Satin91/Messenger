@@ -45,6 +45,7 @@
 		8E9B08D42A3785BD00D1A035 /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8E9B08D32A3785BD00D1A035 /* PhoneNumberKit */; };
 		8E9B08D62A37969600D1A035 /* CheckAuthCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08D52A37969600D1A035 /* CheckAuthCodeRequest.swift */; };
 		8E9B08D82A3797DC00D1A035 /* CheckAuthCodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08D72A3797DB00D1A035 /* CheckAuthCodeResponse.swift */; };
+		8E9B08DA2A37B0EB00D1A035 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08D92A37B0EB00D1A035 /* AlertView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +86,7 @@
 		8E9B08CE2A36C09100D1A035 /* ReadSizeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadSizeModifier.swift; sourceTree = "<group>"; };
 		8E9B08D52A37969600D1A035 /* CheckAuthCodeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckAuthCodeRequest.swift; sourceTree = "<group>"; };
 		8E9B08D72A3797DB00D1A035 /* CheckAuthCodeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckAuthCodeResponse.swift; sourceTree = "<group>"; };
+		8E9B08D92A37B0EB00D1A035 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -322,6 +324,7 @@
 				8E9B08B82A36412300D1A035 /* PhoneNumberTextField.swift */,
 				8E9B08CC2A36B82400D1A035 /* VerificationTextField.swift */,
 				8E9B08BA2A36459400D1A035 /* StatebleButton.swift */,
+				8E9B08D92A37B0EB00D1A035 /* AlertView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				8E9B08CD2A36B82400D1A035 /* VerificationTextField.swift in Sources */,
 				8E34C28A2A3392F0009C40FA /* RequestModel.swift in Sources */,
 				8E19458F2A3269C900CBB4B4 /* MessengerApp.swift in Sources */,
+				8E9B08DA2A37B0EB00D1A035 /* AlertView.swift in Sources */,
 				8E34C2922A33AF0B009C40FA /* SendAuthCodeResponse.swift in Sources */,
 				8E9B08CB2A369E2800D1A035 /* LargeTitleModifier.swift in Sources */,
 			);

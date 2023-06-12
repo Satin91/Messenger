@@ -12,13 +12,8 @@ struct MainScreenView: View {
     
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-                .font(Fonts.makeFont(weight: .bold, size: 40))
+            Text("MainScreen!")
         }
-        .padding()
     }
 }
 

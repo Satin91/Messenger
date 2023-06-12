@@ -31,6 +31,7 @@ struct EnterVerificationCodeView: View {
                 VStack(alignment: .leading, spacing: Spacing.mediumControl) {
                     Button("Back") {
                         viewModel.goBack()
+                        viewModel.verificationCode = ""
                     }
                     Text("Verify Code")
                         .largeTitleModifier()
@@ -68,7 +69,7 @@ struct EnterVerificationCodeView: View {
         StatebleButton(title: "Verify", isEnable: viewModel.verificationCode.count == 6) {
             viewModel.checkAuthCode()
         }
-        .frame(width: 85, height: 18)
+        .frame(maxWidth: .infinity, alignment: .trailing)
     }
 }
 
