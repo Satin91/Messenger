@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RegisterResponse: Codable {
+struct UserRegisterResponse: Codable {
     var refresh_token: String
     var access_token: String
     var user_id: Int

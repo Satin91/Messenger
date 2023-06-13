@@ -19,10 +19,8 @@ struct RequestModel {
     var path: String
     var parameters: [String : Any]?
     var method: Alamofire.HTTPMethod
+    var headers: HTTPHeaders
     
-    var headers: HTTPHeaders {
-        HTTPHeaders(Constants.API.baseHeaders)
-    }
     var baseUrl: String {
         Constants.API.baseURL
     }
@@ -30,9 +28,10 @@ struct RequestModel {
         JSONEncoding.default
     }
     
-    init(path: String, parameters: [String: Any]?, method: Alamofire.HTTPMethod = .get) {
+    init(path: String, parameters: [String: Any]? = nil, headers: HTTPHeaders = HTTPHeaders(Constants.API.baseHeaders), method: Alamofire.HTTPMethod = .get) {
         self.path = path
         self.parameters = parameters
         self.method = method
+        self.headers = headers
     }
 }

@@ -28,9 +28,12 @@
 		8E626DF22A38B78F0018AD87 /* RegistrationScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E626DF12A38B78F0018AD87 /* RegistrationScreen.swift */; };
 		8E626DF42A38B7990018AD87 /* RegistrationScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E626DF32A38B7990018AD87 /* RegistrationScreenViewModel.swift */; };
 		8E626DF62A38D93C0018AD87 /* PrimaryTextModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E626DF52A38D93C0018AD87 /* PrimaryTextModifier.swift */; };
-		8E626DF82A38E20B0018AD87 /* registerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E626DF72A38E20B0018AD87 /* registerRequest.swift */; };
-		8E626DFA2A38E2B90018AD87 /* RegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E626DF92A38E2B90018AD87 /* RegisterResponse.swift */; };
+		8E626DF82A38E20B0018AD87 /* UserRegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E626DF72A38E20B0018AD87 /* UserRegisterRequest.swift */; };
+		8E626DFA2A38E2B90018AD87 /* UserRegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E626DF92A38E2B90018AD87 /* UserRegisterResponse.swift */; };
 		8E626DFF2A38F39E0018AD87 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E626DFE2A38F39E0018AD87 /* UserModel.swift */; };
+		8E626E012A38F88E0018AD87 /* GetCurrentUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E626E002A38F88E0018AD87 /* GetCurrentUserRequest.swift */; };
+		8E626E032A38F9360018AD87 /* RemoteUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E626E022A38F9360018AD87 /* RemoteUserService.swift */; };
+		8E626E052A38F9930018AD87 /* GetCurrentUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E626E042A38F9930018AD87 /* GetCurrentUserResponse.swift */; };
 		8E9033032A35060000445809 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8E9033022A35060000445809 /* Alamofire */; };
 		8E9033072A3545AA00445809 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E9033062A3545AA00445809 /* Colors.xcassets */; };
 		8E9B08A12A35FD5D00D1A035 /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08A02A35FD5D00D1A035 /* ScreenFactory.swift */; };
@@ -83,9 +86,12 @@
 		8E626DF12A38B78F0018AD87 /* RegistrationScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationScreen.swift; sourceTree = "<group>"; };
 		8E626DF32A38B7990018AD87 /* RegistrationScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationScreenViewModel.swift; sourceTree = "<group>"; };
 		8E626DF52A38D93C0018AD87 /* PrimaryTextModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryTextModifier.swift; sourceTree = "<group>"; };
-		8E626DF72A38E20B0018AD87 /* registerRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registerRequest.swift; sourceTree = "<group>"; };
-		8E626DF92A38E2B90018AD87 /* RegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterResponse.swift; sourceTree = "<group>"; };
+		8E626DF72A38E20B0018AD87 /* UserRegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterRequest.swift; sourceTree = "<group>"; };
+		8E626DF92A38E2B90018AD87 /* UserRegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterResponse.swift; sourceTree = "<group>"; };
 		8E626DFE2A38F39E0018AD87 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		8E626E002A38F88E0018AD87 /* GetCurrentUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCurrentUserRequest.swift; sourceTree = "<group>"; };
+		8E626E022A38F9360018AD87 /* RemoteUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteUserService.swift; sourceTree = "<group>"; };
+		8E626E042A38F9930018AD87 /* GetCurrentUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCurrentUserResponse.swift; sourceTree = "<group>"; };
 		8E9033062A3545AA00445809 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		8E9B08A02A35FD5D00D1A035 /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactory.swift; sourceTree = "<group>"; };
 		8E9B08A32A35FE5100D1A035 /* ApplicationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationFactory.swift; sourceTree = "<group>"; };
@@ -229,8 +235,9 @@
 			isa = PBXGroup;
 			children = (
 				8E34C28C2A339329009C40FA /* SendAuthCodeRequest.swift */,
-				8E626DF72A38E20B0018AD87 /* registerRequest.swift */,
+				8E626DF72A38E20B0018AD87 /* UserRegisterRequest.swift */,
 				8E9B08D52A37969600D1A035 /* CheckAuthCodeRequest.swift */,
+				8E626E002A38F88E0018AD87 /* GetCurrentUserRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -240,7 +247,8 @@
 			children = (
 				8E34C2912A33AF0B009C40FA /* SendAuthCodeResponse.swift */,
 				8E9B08D72A3797DB00D1A035 /* CheckAuthCodeResponse.swift */,
-				8E626DF92A38E2B90018AD87 /* RegisterResponse.swift */,
+				8E626DF92A38E2B90018AD87 /* UserRegisterResponse.swift */,
+				8E626E042A38F9930018AD87 /* GetCurrentUserResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -323,6 +331,7 @@
 			isa = PBXGroup;
 			children = (
 				8E1945AB2A326DCA00CBB4B4 /* AuthentificationService.swift */,
+				8E626E022A38F9360018AD87 /* RemoteUserService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -515,10 +524,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E34C2952A33E776009C40FA /* NetworkManager.swift in Sources */,
+				8E626E012A38F88E0018AD87 /* GetCurrentUserRequest.swift in Sources */,
 				8E9B08A92A360F4F00D1A035 /* NotificationService.swift in Sources */,
-				8E626DF82A38E20B0018AD87 /* registerRequest.swift in Sources */,
+				8E626DF82A38E20B0018AD87 /* UserRegisterRequest.swift in Sources */,
 				8E9B08AB2A36107600D1A035 /* NotificationModel.swift in Sources */,
 				8E9B08D82A3797DC00D1A035 /* CheckAuthCodeResponse.swift in Sources */,
+				8E626E032A38F9360018AD87 /* RemoteUserService.swift in Sources */,
 				8E34C2882A33908B009C40FA /* Constants.swift in Sources */,
 				8E626DF42A38B7990018AD87 /* RegistrationScreenViewModel.swift in Sources */,
 				8E9B08B92A36412300D1A035 /* PhoneNumberTextField.swift in Sources */,
@@ -544,7 +555,8 @@
 				8E1945AA2A326C0E00CBB4B4 /* Fonts.swift in Sources */,
 				8E9B08CD2A36B82400D1A035 /* VerificationTextField.swift in Sources */,
 				8E34C28A2A3392F0009C40FA /* RequestModel.swift in Sources */,
-				8E626DFA2A38E2B90018AD87 /* RegisterResponse.swift in Sources */,
+				8E626DFA2A38E2B90018AD87 /* UserRegisterResponse.swift in Sources */,
+				8E626E052A38F9930018AD87 /* GetCurrentUserResponse.swift in Sources */,
 				8E19458F2A3269C900CBB4B4 /* MessengerApp.swift in Sources */,
 				8E9B08DA2A37B0EB00D1A035 /* AlertView.swift in Sources */,
 				8E626DED2A38B1560018AD87 /* DatabaseManager.swift in Sources */,

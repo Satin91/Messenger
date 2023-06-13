@@ -32,12 +32,16 @@ final class ApplicationFactory {
         AuthentificationService(networkManager: networkManager)
     }
     
+    var remoteUserService: RemoteUserServiceProtocol {
+        RemoteUserService(networkManager: networkManager)
+    }
+    
     var verificationScreenViewModel: AuthentificationScreenViewModel {
         AuthentificationScreenViewModel(authService: authService, notificationService: notificationService)
     }
     
     func registrationScreenViewModel(phoneNumber: String) -> RegistrationScreenViewModel {
-        RegistrationScreenViewModel(databaseService: databaseService, authService: authService, phoneNumber: phoneNumber)
+        RegistrationScreenViewModel(databaseService: databaseService, authService: authService, remoteUserService: remoteUserService, phoneNumber: phoneNumber)
     }
     
     init() {

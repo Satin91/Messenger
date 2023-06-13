@@ -11,6 +11,8 @@ import Combine
 final class RegistrationScreenViewModel: ObservableObject {
     var databaseService: DatabaseServiceProtocol
     var authService: AuthentificationServiceProtocol
+    var remoteUserService: RemoteUserServiceProtocol
+    
     var subscriber = Set<AnyCancellable>()
     
     let phoneNumber: String
@@ -19,10 +21,11 @@ final class RegistrationScreenViewModel: ObservableObject {
     @Published var userName: String = ""
     
     
-    init(databaseService: DatabaseServiceProtocol, authService: AuthentificationServiceProtocol, phoneNumber: String) {
+    init(databaseService: DatabaseServiceProtocol, authService: AuthentificationServiceProtocol, remoteUserService: RemoteUserServiceProtocol, phoneNumber: String) {
         self.databaseService = databaseService
-        self .authService = authService
+        self.authService = authService
         self.phoneNumber = phoneNumber
+        self.remoteUserService = remoteUserService
     }
     
     func register() {
@@ -32,6 +35,15 @@ final class RegistrationScreenViewModel: ObservableObject {
                 print("Register Error \(error)")
             } receiveValue: { response in
                 print("Register Response \(response)")
+                self.remoteUserService.getCurrentUser(accessToken: response.access_token)
+                    .sink { completion in
+                        let error = try? completion.error()
+                        print("GetCurrentUser Error \(error)")
+                    } receiveValue: { response in
+                        print("Current user response \(response)")
+                    }
+                    .store(in: &self.subscriber)
+                
             }
             .store(in: &subscriber)
     }

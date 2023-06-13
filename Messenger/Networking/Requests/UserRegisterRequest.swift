@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct RegisterRequest: NetworkRequestProtocol {
+struct UserRegisterRequest: NetworkRequestProtocol {
     var parameters: [String: Any]
     
     init(phone: String, name: String, username: String) {
@@ -15,6 +15,6 @@ struct RegisterRequest: NetworkRequestProtocol {
     }
     
     func make() -> RequestModel {
-        RequestModel(path: Constants.API.registerPath, parameters: self.parameters, method: .post)
+        RequestModel(path: Constants.API.userRegisterPath, parameters: self.parameters, method: .post)
     }
 }

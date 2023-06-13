@@ -14,7 +14,8 @@ enum Constants {
         static let baseURL = "https://plannerok.ru/api/v1/"
         static let sendAuthCodePath = "users/send-auth-code/"
         static let checkAuthCodePath = "users/check-auth-code/"
-        static let registerPath = "users/register/"
+        static let userRegisterPath = "users/register/"
+        static let getCurrentUserPath = "users/me/"
     }
 }
 

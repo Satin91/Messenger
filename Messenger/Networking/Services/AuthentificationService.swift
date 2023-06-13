@@ -12,7 +12,7 @@ import UIKit
 protocol AuthentificationServiceProtocol {
     func sendAuthCode(phone: String) -> AnyPublisher<SendAuthCodeResponse, Error>
     func checkAuthCode(phone: String, code: String) -> AnyPublisher<CheckAuthCodeResponse, Error>
-    func register(phone: String, name: String, username: String) -> AnyPublisher<RegisterResponse, Error>
+    func register(phone: String, name: String, username: String) -> AnyPublisher<UserRegisterResponse, Error>
 }
 
 class AuthentificationService: AuthentificationServiceProtocol {
@@ -37,10 +37,10 @@ class AuthentificationService: AuthentificationServiceProtocol {
             .eraseToAnyPublisher()
     }
     
-    func register(phone: String, name: String, username: String) -> AnyPublisher<RegisterResponse, Error> {
-        let request = RegisterRequest(phone: phone, name: name, username: username)
+    func register(phone: String, name: String, username: String) -> AnyPublisher<UserRegisterResponse, Error> {
+        let request = UserRegisterRequest(phone: phone, name: name, username: username)
         return networkManager.sendRequest(request: request)
-            .decode(type: RegisterResponse.self, decoder: JSONDecoder())
+            .decode(type: UserRegisterResponse.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
 }
