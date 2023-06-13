@@ -10,14 +10,16 @@ import Foundation
 import SwiftUI
 import UserNotifications
 
-final class VerificationScreenViewModel: NSObject, ObservableObject {
+final class AuthentificationScreenViewModel: NSObject, ObservableObject {
     var authService: AuthentificationServiceProtocol
     var notificationService: NotificationServiceProtocol
-    var subscriber = Set<AnyCancellable>()
     
+    var subscriber = Set<AnyCancellable>()
+    @Published var navigatior: AuthNavigator = .onEnterPhoneNumber
     @Published var pageIndex: Int = 0
     @Published var phoneNumberText = ""
     @Published var verificationCode = ""
+    
     
     var isFullPhoneNumber: Bool {
         let numbers = Array(phoneNumberText).compactMap({ Int(String($0))})
@@ -28,7 +30,7 @@ final class VerificationScreenViewModel: NSObject, ObservableObject {
         self.authService = authService
         self.notificationService = notificationService
     }
-    
+
     func sendAuthCode() {
         authService.sendAuthCode(phone: phoneNumberText)
             .sink { completion in
@@ -36,8 +38,7 @@ final class VerificationScreenViewModel: NSObject, ObservableObject {
                 print("Error \(error)")
             } receiveValue: { response in
                 self.sendVerificationCode()
-                guard self.pageIndex != 1 else { return }
-                self.pageIndex = 1
+                self.navigatior = .onEnterVerificationCode
             }
             .store(in: &subscriber)
     }
@@ -46,24 +47,28 @@ final class VerificationScreenViewModel: NSObject, ObservableObject {
         authService.checkAuthCode(phone: phoneNumberText, code: verificationCode)
             .sink { completion in
                 let error = try? completion.error()
-                print("Error \(error)")
+                print("AuthCode Error \(error)")
             } receiveValue: { response in
-                guard self.pageIndex != 1 else { return }
-                self.pageIndex = 1
+                if response.is_user_exists {
+                    self.navigatior = .onVerivicationSuccess
+                } else {
+                    self.navigatior = .goToRegistrationScreen
+                }
             }
             .store(in: &subscriber)
-    }
-    
-    func goNext() {
-        pageIndex = 1
-    }
-    
-    func goBack() {
-        pageIndex = 0
     }
     
     // Имитация отправления СМС Сообщения
     func sendVerificationCode() {
         self.notificationService.push(NotificationModel(title: "Verification Code", subtitle: "133337", timeInterval: 3))
+    }
+}
+
+extension AuthentificationScreenViewModel {
+    enum AuthNavigator {
+        case onEnterPhoneNumber
+        case onEnterVerificationCode
+        case onVerivicationSuccess
+        case goToRegistrationScreen
     }
 }

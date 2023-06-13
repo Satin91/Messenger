@@ -12,25 +12,31 @@ import FlowStacks
 enum Screen {
     case verificationScreen
     case homeScreen
+    case registerScreen(String)
 }
 
 struct AppCoordinator: View {
-    @ObservedObject var viewModel: AppCoordinatorViewModel
+    @ObservedObject var coordinator: AppCoordinatorViewModel
     let sceneFactory = SceneFactory()
     
     init(viewModel: AppCoordinatorViewModel) {
-        self.viewModel = viewModel
+        self.coordinator = viewModel
     }
     
     var body: some View {
-        Router($viewModel.routes) { screen,_ in
+        Router($coordinator.routes) { screen,_ in
             switch screen {
             case .verificationScreen:
-                sceneFactory.makeFirstScreen().environmentObject(viewModel)
+                sceneFactory.makeAuthorizationScreen()
             case .homeScreen:
                 HomeScreen()
+                    .toolbar(.hidden)
+            case .registerScreen(let phonenumber):
+                sceneFactory.makeRegistrationScreen(phoneNumber: phonenumber)
+                    .toolbar(.hidden)
             }
         }
+        .environmentObject(coordinator)
     }
 }
 
@@ -38,10 +44,15 @@ class AppCoordinatorViewModel: ObservableObject {
   @Published var routes: Routes<Screen>
     
   init() {
+      print("Init app coordinator")
       self.routes = [.root(.verificationScreen, embedInNavigationView: true)]
   }
     
     func pushToHomeScreen() {
         routes.push(.homeScreen)
+    }
+    
+    func pushToRegisterScreen(phoneNumber: String) {
+        routes.push(.registerScreen(phoneNumber))
     }
 }

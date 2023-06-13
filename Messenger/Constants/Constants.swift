@@ -14,6 +14,7 @@ enum Constants {
         static let baseURL = "https://plannerok.ru/api/v1/"
         static let sendAuthCodePath = "users/send-auth-code/"
         static let checkAuthCodePath = "users/check-auth-code/"
+        static let registerPath = "users/register/"
     }
 }
 
@@ -38,4 +39,8 @@ enum Colors {
     static let neutralSecondary = Color("neutralSecondary")
     static let primary = Color("primary")
     static let primarySecondary = Color("primarySecondary")
+}
+
+enum Images {
+    static let verifySuccess = Image("verifySuccess")
 }

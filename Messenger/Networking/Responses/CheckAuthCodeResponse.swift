@@ -8,8 +8,8 @@
 import Foundation
 
 struct CheckAuthCodeResponse: Codable {
-    var refresh_token: String
-    var access_token: String
-    var user_id: Int
-    var is_user_exists: String
+    var refresh_token: String?
+    var access_token: String?
+    var user_id: Int?
+    var is_user_exists: Bool
 }

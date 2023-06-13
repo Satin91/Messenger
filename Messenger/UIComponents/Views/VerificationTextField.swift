@@ -32,7 +32,7 @@ struct VerificationTextField: View {
     
     var textField: some View {
         TextField("", text: $text)
-            .font(Fonts.makeFont(weight: .medium, size: 50))
+            .font(Fonts.roboto(weight: .medium, size: 50))
             .foregroundColor(Colors.dark)
             .kerning(kerning)
             .frame(height: Spacing.mediumControl)

@@ -31,7 +31,7 @@ struct StatebleButton: View {
             .frame(height: Spacing.mediumControl)
             .overlay {
                 Text(title)
-                    .font(Fonts.makeFont(weight: .bold, size: 18))
+                    .font(Fonts.roboto(weight: .bold, size: 18))
                     .foregroundColor(Colors.light)
             }
     }

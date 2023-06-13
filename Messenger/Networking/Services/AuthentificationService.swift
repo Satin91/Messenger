@@ -12,9 +12,11 @@ import UIKit
 protocol AuthentificationServiceProtocol {
     func sendAuthCode(phone: String) -> AnyPublisher<SendAuthCodeResponse, Error>
     func checkAuthCode(phone: String, code: String) -> AnyPublisher<CheckAuthCodeResponse, Error>
+    func register(phone: String, name: String, username: String) -> AnyPublisher<RegisterResponse, Error>
 }
 
 class AuthentificationService: AuthentificationServiceProtocol {
+    
     var networkManager: NetworkManagerProtocol
     
     init(networkManager: NetworkManagerProtocol) {
@@ -32,6 +34,13 @@ class AuthentificationService: AuthentificationServiceProtocol {
         let request = CheckAuthCodeRequest(phone: phone, code: code)
         return networkManager.sendRequest(request: request)
             .decode(type: CheckAuthCodeResponse.self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
+    }
+    
+    func register(phone: String, name: String, username: String) -> AnyPublisher<RegisterResponse, Error> {
+        let request = RegisterRequest(phone: phone, name: name, username: username)
+        return networkManager.sendRequest(request: request)
+            .decode(type: RegisterResponse.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
 }

@@ -13,7 +13,7 @@ enum Fonts: String {
     case medium = "Roboto-Medium"
     case bold = "Roboto-Bold"
     
-    static func makeFont(weight: Fonts, size: CGFloat) -> Font {
+    static func roboto(weight: Fonts, size: CGFloat) -> Font {
         Font.custom(weight.rawValue, size: size)
     }
 }

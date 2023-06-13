@@ -9,7 +9,7 @@ import SwiftUI
 import Alamofire
 
 struct EnterPhoneNumberView: View {
-    @EnvironmentObject var viewModel: VerificationScreenViewModel
+    @EnvironmentObject var viewModel: AuthentificationScreenViewModel
     
     var body: some View {
         content
@@ -35,15 +35,15 @@ struct EnterPhoneNumberView: View {
     
     var infoLabel: some View {
         Text("Please enter")
-            .font(Fonts.makeFont(weight: .light, size: 16))
+            .font(Fonts.roboto(weight: .light, size: 16))
             .foregroundColor(Colors.dark)
         +
         Text(" your phone number")
-            .font(Fonts.makeFont(weight: .bold, size: 16))
+            .font(Fonts.roboto(weight: .bold, size: 16))
             .foregroundColor(Colors.dark)
         +
         Text(", so we can verify you")
-            .font(Fonts.makeFont(weight: .light, size: 16))
+            .font(Fonts.roboto(weight: .light, size: 16))
             .foregroundColor(Colors.dark)
     }
     

@@ -15,25 +15,35 @@ import Alamofire
 
 final class ApplicationFactory {
     private let networkManager: NetworkManagerProtocol
+    private let databaseManager: DatabaseManagerProtocol
     private let notificationManager: NotificationManagerProtocol
+    private let routher: AppCoordinatorViewModel
     
     
     var notificationService: NotificationServiceProtocol {
         NotificationService(manager: notificationManager)
     }
     
+    var databaseService: DatabaseServiceProtocol{
+        DatabaseService(databaseManager: databaseManager)
+    }
+    
     var authService: AuthentificationServiceProtocol {
         AuthentificationService(networkManager: networkManager)
     }
     
-    // ViewModels
-    var verificationScreenViewModel: VerificationScreenViewModel {
-        VerificationScreenViewModel(authService: authService, notificationService: notificationService)
+    var verificationScreenViewModel: AuthentificationScreenViewModel {
+        AuthentificationScreenViewModel(authService: authService, notificationService: notificationService)
     }
     
+    func registrationScreenViewModel(phoneNumber: String) -> RegistrationScreenViewModel {
+        RegistrationScreenViewModel(databaseService: databaseService, authService: authService, phoneNumber: phoneNumber)
+    }
     
     init() {
         self.networkManager = NetworkManager(session: Session.default)
+        self.databaseManager = DatabaseManager()
         self.notificationManager = NotificationManager()
+        self.routher = AppCoordinatorViewModel()
     }
 }

@@ -11,7 +11,7 @@ struct LargeTitleModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .font(Fonts.makeFont(weight: .bold, size: 40))
+            .font(Fonts.roboto(weight: .bold, size: 40))
             .foregroundColor(Colors.dark)
     }
 }

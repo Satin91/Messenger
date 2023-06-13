@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EnterVerificationCodeView: View {
-    @EnvironmentObject var viewModel: VerificationScreenViewModel
+    @EnvironmentObject var viewModel: AuthentificationScreenViewModel
     
     var verifyButtonTapped: () -> Void
     
@@ -32,7 +32,6 @@ struct EnterVerificationCodeView: View {
             .addLeftContainer {
                 VStack(alignment: .leading, spacing: Spacing.mediumControl) {
                     Button("Back") {
-                        viewModel.goBack()
                         viewModel.verificationCode = ""
                     }
                     Text("Verify Code")
@@ -43,7 +42,7 @@ struct EnterVerificationCodeView: View {
     
     var infoLabel: some View {
         Text("Check your sms inbox, we have sent you the code.")
-            .font(Fonts.makeFont(weight: .light, size: 16))
+            .font(Fonts.roboto(weight: .light, size: 16))
             .foregroundColor(Colors.dark)
     }
     
@@ -54,13 +53,13 @@ struct EnterVerificationCodeView: View {
     var resendCodeLabel: some View {
         HStack(spacing: .zero) {
             Text("Didn’t Receive a code? ")
-                .font(Fonts.makeFont(weight: .regular, size: 14))
+                .font(Fonts.roboto(weight: .regular, size: 14))
                 .foregroundColor(Colors.neutral)
             Button {
                 viewModel.sendVerificationCode()
             } label: {
                 Text("resend code")
-                    .font(Fonts.makeFont(weight: .bold, size: 14))
+                    .font(Fonts.roboto(weight: .bold, size: 14))
                     .foregroundColor(Colors.primary)
             }
         }
@@ -69,7 +68,6 @@ struct EnterVerificationCodeView: View {
     
     var verificationButton: some View {
         StatebleButton(title: "Verify", isEnable: viewModel.verificationCode.count == 6) {
-            viewModel.checkAuthCode()
             verifyButtonTapped()
         }
         .frame(maxWidth: .infinity, alignment: .trailing)
