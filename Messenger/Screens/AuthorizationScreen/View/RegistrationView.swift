@@ -1,5 +1,5 @@
 //
-//  RegistrationScreen.swift
+//  RegistrationView.swift
 //  Messenger
 //
 //  Created by Артур Кулик on 13.06.2023.
@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct RegistrationScreen: View {
-    @StateObject var viewModel: RegistrationScreenViewModel
+struct RegistrationView: View {
+    @EnvironmentObject var viewModel: AuthentificationScreenViewModel
     
     var body: some View {
         content
@@ -57,7 +57,7 @@ struct RegistrationScreen: View {
     }
     
     private var usernameTextField: some View {
-        TextField("username", text: $viewModel.userName)
+        TextField("username", text: $viewModel.username)
     }
     
     private var registerButton: some View {

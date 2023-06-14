@@ -28,12 +28,6 @@ struct ProfileData: Codable {
     var username: String
     var vk: String
 }
-
-struct UserAvatar: Codable {
-    var avatar: String
-    var bigAvatar: String
-    var miniAvatar: String
-}
 //"profile_data" =     {
 //    avatar = "<null>";
 //    avatars = "<null>";

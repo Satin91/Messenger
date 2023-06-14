@@ -10,12 +10,13 @@ import SwiftUI
 struct AunthentificationScreen: View {
     @EnvironmentObject var viewModel: AuthentificationScreenViewModel
     @EnvironmentObject var router: AppCoordinatorViewModel
-    @State var pageIndex: Int = 0
     
     var body: some View {
         content
-            .onChange(of: viewModel.pageIndex) { newValue in
-                pageIndex = newValue
+            .onChange(of: viewModel.registerSuccess) { isSuccess in
+                if isSuccess {
+                    router.pushToHomeScreen()
+                }
             }
     }
     
@@ -39,10 +40,7 @@ struct AunthentificationScreen: View {
                     router.pushToHomeScreen()
                 }
             case .goToRegistrationScreen:
-                Color.clear
-                    .onAppear {
-                        router.pushToRegisterScreen(phoneNumber: viewModel.phoneNumberText)
-                    }
+                RegistrationView()
             }
         }
         .padding(.horizontal, Spacing.horizontalEdges)

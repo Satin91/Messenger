@@ -48,7 +48,7 @@ struct EnterPhoneNumberView: View {
     }
     
     var textField: some View {
-        PhoneNumberTextField(text: $viewModel.phoneNumberText)
+        PhoneNumberTextField(text: $viewModel.phoneNumber)
     }
     
     var nextButton: some View {

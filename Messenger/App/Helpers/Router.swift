@@ -12,7 +12,6 @@ import FlowStacks
 enum Screen {
     case verificationScreen
     case homeScreen
-    case registerScreen(String)
 }
 
 struct AppCoordinator: View {
@@ -31,9 +30,6 @@ struct AppCoordinator: View {
             case .homeScreen:
                 HomeScreen()
                     .toolbar(.hidden)
-            case .registerScreen(let phonenumber):
-                sceneFactory.makeRegistrationScreen(phoneNumber: phonenumber)
-                    .toolbar(.hidden)
             }
         }
         .environmentObject(coordinator)
@@ -50,9 +46,5 @@ class AppCoordinatorViewModel: ObservableObject {
     
     func pushToHomeScreen() {
         routes.push(.homeScreen)
-    }
-    
-    func pushToRegisterScreen(phoneNumber: String) {
-        routes.push(.registerScreen(phoneNumber))
     }
 }

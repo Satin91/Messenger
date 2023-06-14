@@ -37,11 +37,7 @@ final class ApplicationFactory {
     }
     
     var verificationScreenViewModel: AuthentificationScreenViewModel {
-        AuthentificationScreenViewModel(authService: authService, notificationService: notificationService)
-    }
-    
-    func registrationScreenViewModel(phoneNumber: String) -> RegistrationScreenViewModel {
-        RegistrationScreenViewModel(databaseService: databaseService, authService: authService, remoteUserService: remoteUserService, phoneNumber: phoneNumber)
+        AuthentificationScreenViewModel(authService: authService, databaseService: databaseService, notificationService: notificationService, remoteUserService: remoteUserService)
     }
     
     init() {
