@@ -1,6 +1,7 @@
 {
-  "colors" : [
+  "images" : [
     {
+      "filename" : "chatAvatar3.png",
       "idiom" : "universal"
     }
   ],

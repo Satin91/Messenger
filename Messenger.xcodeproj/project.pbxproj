@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8E19458F2A3269C900CBB4B4 /* MessengerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E19458E2A3269C900CBB4B4 /* MessengerApp.swift */; };
-		8E1945932A3269CA00CBB4B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E1945922A3269CA00CBB4B4 /* Assets.xcassets */; };
+		8E1945932A3269CA00CBB4B4 /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E1945922A3269CA00CBB4B4 /* AppIcon.xcassets */; };
 		8E1945962A3269CA00CBB4B4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E1945952A3269CA00CBB4B4 /* Preview Assets.xcassets */; };
 		8E19459F2A326AAF00CBB4B4 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E19459E2A326AAF00CBB4B4 /* Roboto-Light.ttf */; };
 		8E1945A32A326AC600CBB4B4 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E1945A02A326AC500CBB4B4 /* Roboto-Medium.ttf */; };
@@ -33,6 +33,10 @@
 		8E626E012A38F88E0018AD87 /* GetCurrentUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E626E002A38F88E0018AD87 /* GetCurrentUserRequest.swift */; };
 		8E626E032A38F9360018AD87 /* RemoteUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E626E022A38F9360018AD87 /* RemoteUserService.swift */; };
 		8E626E052A38F9930018AD87 /* GetCurrentUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E626E042A38F9930018AD87 /* GetCurrentUserResponse.swift */; };
+		8E89644D2A3A27CD00C0243C /* ChatListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E89644C2A3A27CD00C0243C /* ChatListView.swift */; };
+		8E89644F2A3A282100C0243C /* MockChats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E89644E2A3A282100C0243C /* MockChats.swift */; };
+		8E8964522A3A2EB600C0243C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E8964512A3A2EB600C0243C /* Images.xcassets */; };
+		8E8964542A3A49A200C0243C /* ChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8964532A3A49A200C0243C /* ChatScreen.swift */; };
 		8E9033032A35060000445809 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8E9033022A35060000445809 /* Alamofire */; };
 		8E9033072A3545AA00445809 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E9033062A3545AA00445809 /* Colors.xcassets */; };
 		8E9B08A12A35FD5D00D1A035 /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08A02A35FD5D00D1A035 /* ScreenFactory.swift */; };
@@ -65,7 +69,7 @@
 /* Begin PBXFileReference section */
 		8E19458B2A3269C900CBB4B4 /* Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E19458E2A3269C900CBB4B4 /* MessengerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerApp.swift; sourceTree = "<group>"; };
-		8E1945922A3269CA00CBB4B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8E1945922A3269CA00CBB4B4 /* AppIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcon.xcassets; sourceTree = "<group>"; };
 		8E1945952A3269CA00CBB4B4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8E19459E2A326AAF00CBB4B4 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		8E1945A02A326AC500CBB4B4 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
@@ -89,6 +93,10 @@
 		8E626E002A38F88E0018AD87 /* GetCurrentUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCurrentUserRequest.swift; sourceTree = "<group>"; };
 		8E626E022A38F9360018AD87 /* RemoteUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteUserService.swift; sourceTree = "<group>"; };
 		8E626E042A38F9930018AD87 /* GetCurrentUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCurrentUserResponse.swift; sourceTree = "<group>"; };
+		8E89644C2A3A27CD00C0243C /* ChatListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListView.swift; sourceTree = "<group>"; };
+		8E89644E2A3A282100C0243C /* MockChats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockChats.swift; sourceTree = "<group>"; };
+		8E8964512A3A2EB600C0243C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8E8964532A3A49A200C0243C /* ChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatScreen.swift; sourceTree = "<group>"; };
 		8E9033062A3545AA00445809 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		8E9B08A02A35FD5D00D1A035 /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactory.swift; sourceTree = "<group>"; };
 		8E9B08A32A35FE5100D1A035 /* ApplicationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationFactory.swift; sourceTree = "<group>"; };
@@ -177,7 +185,8 @@
 			isa = PBXGroup;
 			children = (
 				8E19459D2A3269E000CBB4B4 /* Fonts */,
-				8E1945922A3269CA00CBB4B4 /* Assets.xcassets */,
+				8E1945922A3269CA00CBB4B4 /* AppIcon.xcassets */,
+				8E8964512A3A2EB600C0243C /* Images.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -283,9 +292,26 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		8E8964502A3A28F200C0243C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8E89644E2A3A282100C0243C /* MockChats.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8E8964552A3A49AF00C0243C /* ChatScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8E8964532A3A49A200C0243C /* ChatScreen.swift */,
+			);
+			path = ChatScreen;
+			sourceTree = "<group>";
+		};
 		8E9032FD2A34E73E00445809 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				8E8964552A3A49AF00C0243C /* ChatScreen */,
 				8E9B08E02A37C3A500D1A035 /* HomeScreen */,
 				8E9B08B32A36301900D1A035 /* AuthorizationScreen */,
 			);
@@ -413,7 +439,9 @@
 		8E9B08E02A37C3A500D1A035 /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
+				8E8964502A3A28F200C0243C /* Model */,
 				8E9B08E12A37C41E00D1A035 /* HomeScreen.swift */,
+				8E89644C2A3A27CD00C0243C /* ChatListView.swift */,
 			);
 			path = HomeScreen;
 			sourceTree = "<group>";
@@ -491,12 +519,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E8964522A3A2EB600C0243C /* Images.xcassets in Resources */,
 				8E1945A32A326AC600CBB4B4 /* Roboto-Medium.ttf in Resources */,
 				8E9B08E42A37D81900D1A035 /* Images.xcassets in Resources */,
 				8E1945962A3269CA00CBB4B4 /* Preview Assets.xcassets in Resources */,
 				8E1945A52A326AC600CBB4B4 /* Roboto-Bold.ttf in Resources */,
 				8E1945A42A326AC600CBB4B4 /* Roboto-Regular.ttf in Resources */,
-				8E1945932A3269CA00CBB4B4 /* Assets.xcassets in Resources */,
+				8E1945932A3269CA00CBB4B4 /* AppIcon.xcassets in Resources */,
 				8E19459F2A326AAF00CBB4B4 /* Roboto-Light.ttf in Resources */,
 				8E9033072A3545AA00445809 /* Colors.xcassets in Resources */,
 			);
@@ -511,7 +540,9 @@
 			files = (
 				8E34C2952A33E776009C40FA /* NetworkManager.swift in Sources */,
 				8E626E012A38F88E0018AD87 /* GetCurrentUserRequest.swift in Sources */,
+				8E89644F2A3A282100C0243C /* MockChats.swift in Sources */,
 				8E9B08A92A360F4F00D1A035 /* NotificationService.swift in Sources */,
+				8E89644D2A3A27CD00C0243C /* ChatListView.swift in Sources */,
 				8E626DF82A38E20B0018AD87 /* UserRegisterRequest.swift in Sources */,
 				8E9B08AB2A36107600D1A035 /* NotificationModel.swift in Sources */,
 				8E9B08D82A3797DC00D1A035 /* CheckAuthCodeResponse.swift in Sources */,
@@ -520,6 +551,7 @@
 				8E9B08B92A36412300D1A035 /* PhoneNumberTextField.swift in Sources */,
 				8E626DF22A38B78F0018AD87 /* RegistrationView.swift in Sources */,
 				8E9B08B22A36294A00D1A035 /* NavigationBar.swift in Sources */,
+				8E8964542A3A49A200C0243C /* ChatScreen.swift in Sources */,
 				8E626DF62A38D93C0018AD87 /* PrimaryTextModifier.swift in Sources */,
 				8E9B08AF2A36266900D1A035 /* AuthenticationScreenViewModel.swift in Sources */,
 				8E9B08B52A36305500D1A035 /* EnterPhoneNumberView.swift in Sources */,

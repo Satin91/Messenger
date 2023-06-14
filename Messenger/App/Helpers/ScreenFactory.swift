@@ -21,4 +21,12 @@ final class SceneFactory: NSObject, SceneFactoryProtocol {
     func makeAuthorizationScreen() -> AnyView {
         AnyView(AuthenticationScreen().environmentObject(applicationFactory.verificationScreenViewModel))
     }
+    
+    func makeHomeScreen(user: UserModel) -> AnyView {
+        AnyView(HomeScreen(user: user).environmentObject(applicationFactory.routher))
+    }
+    
+    func makeChatScreen(user: UserModel, companion: MockChats.ChatUser) -> AnyView {
+        AnyView(ChatScreen(user: user, companion: companion).environmentObject(applicationFactory.routher))
+    }
 }

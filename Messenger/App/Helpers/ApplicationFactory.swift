@@ -17,7 +17,7 @@ final class ApplicationFactory {
     private let networkManager: NetworkManagerProtocol
     private let databaseManager: DatabaseManagerProtocol
     private let notificationManager: NotificationManagerProtocol
-    private let routher: AppCoordinatorViewModel
+    let routher: AppCoordinatorViewModel
     
     
     var notificationService: NotificationServiceProtocol {

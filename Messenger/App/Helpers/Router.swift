@@ -12,6 +12,7 @@ import FlowStacks
 enum Screen {
     case verificationScreen
     case homeScreen(UserModel)
+    case chatScreen(UserModel, MockChats.ChatUser)
 }
 
 struct AppCoordinator: View {
@@ -30,6 +31,8 @@ struct AppCoordinator: View {
             case .homeScreen(let user):
                 HomeScreen(user: user)
                     .toolbar(.hidden)
+            case .chatScreen(let user, let companion):
+                sceneFactory.makeChatScreen(user: user, companion: companion)
             }
         }
         .environmentObject(coordinator)
@@ -41,10 +44,18 @@ class AppCoordinatorViewModel: ObservableObject {
     
   init() {
       print("Init app coordinator")
-      self.routes = [.root(.verificationScreen, embedInNavigationView: true)]
+      self.routes = [.root(.homeScreen(UserModel()), embedInNavigationView: true)]
   }
     
     func pushToHomeScreen(user: UserModel) {
         routes.push(.homeScreen(user) )
+    }
+    
+    func pushToChatScreen(user: UserModel, companion: MockChats.ChatUser) {
+        routes.push(.chatScreen(user, companion))
+    }
+    
+    func back() {
+        routes.goBack()
     }
 }
