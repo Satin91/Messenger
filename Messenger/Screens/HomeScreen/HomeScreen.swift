@@ -8,13 +8,19 @@
 import SwiftUI
 
 struct HomeScreen: View {
+    var user: UserModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text(user.name)
+            Text(user.username)
+            Text(user.phone)
+        }
     }
 }
 
-struct HomeScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeScreen()
-    }
-}
+//struct HomeScreen_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeScreen()
+//    }
+//}

@@ -7,17 +7,12 @@
 
 import SwiftUI
 
-struct AunthentificationScreen: View {
-    @EnvironmentObject var viewModel: AuthentificationScreenViewModel
+struct AuthenticationScreen: View {
+    @EnvironmentObject var viewModel: AuthenticationScreenViewModel
     @EnvironmentObject var router: AppCoordinatorViewModel
     
     var body: some View {
         content
-            .onChange(of: viewModel.registerSuccess) { isSuccess in
-                if isSuccess {
-                    router.pushToHomeScreen()
-                }
-            }
     }
     
     var content: some View {
@@ -35,12 +30,12 @@ struct AunthentificationScreen: View {
                 EnterVerificationCodeView {
                     viewModel.checkAuthCode()
                 }
-            case .onVerivicationSuccess:
-                VerificationSuccessView {
-                    router.pushToHomeScreen()
-                }
-            case .goToRegistrationScreen:
+            case .onRegistrationScreen:
                 RegistrationView()
+            case .toHomeScreen(let user):
+                Color.clear.onAppear {
+                    router.pushToHomeScreen(user: user)
+                }
             }
         }
         .padding(.horizontal, Spacing.horizontalEdges)

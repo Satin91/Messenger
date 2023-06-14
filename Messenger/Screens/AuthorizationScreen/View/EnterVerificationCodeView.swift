@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EnterVerificationCodeView: View {
-    @EnvironmentObject var viewModel: AuthentificationScreenViewModel
+    @EnvironmentObject var viewModel: AuthenticationScreenViewModel
     
     var verifyButtonTapped: () -> Void
     

@@ -19,6 +19,6 @@ final class SceneFactory: NSObject, SceneFactoryProtocol {
     
     // Инициализация экрана Аутентификации производится с environmentObject'ом, по причине наличия в этом экране нескольких subView.
     func makeAuthorizationScreen() -> AnyView {
-        AnyView(AunthentificationScreen().environmentObject(applicationFactory.verificationScreenViewModel))
+        AnyView(AuthenticationScreen().environmentObject(applicationFactory.verificationScreenViewModel))
     }
 }

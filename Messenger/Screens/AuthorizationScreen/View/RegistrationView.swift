@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RegistrationView: View {
-    @EnvironmentObject var viewModel: AuthentificationScreenViewModel
+    @EnvironmentObject var viewModel: AuthenticationScreenViewModel
     
     var body: some View {
         content

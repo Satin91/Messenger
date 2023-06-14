@@ -11,7 +11,7 @@ import FlowStacks
 
 enum Screen {
     case verificationScreen
-    case homeScreen
+    case homeScreen(UserModel)
 }
 
 struct AppCoordinator: View {
@@ -27,8 +27,8 @@ struct AppCoordinator: View {
             switch screen {
             case .verificationScreen:
                 sceneFactory.makeAuthorizationScreen()
-            case .homeScreen:
-                HomeScreen()
+            case .homeScreen(let user):
+                HomeScreen(user: user)
                     .toolbar(.hidden)
             }
         }
@@ -44,7 +44,7 @@ class AppCoordinatorViewModel: ObservableObject {
       self.routes = [.root(.verificationScreen, embedInNavigationView: true)]
   }
     
-    func pushToHomeScreen() {
-        routes.push(.homeScreen)
+    func pushToHomeScreen(user: UserModel) {
+        routes.push(.homeScreen(user) )
     }
 }

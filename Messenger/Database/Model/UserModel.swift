@@ -13,12 +13,13 @@ class UserModel: Object {
     dynamic var id: Int = 0
     dynamic var refreshToken: String?
     dynamic var accessToken: String?
-    dynamic var name: String = ""
-    dynamic var username: String?
+    dynamic var name = ""
+    dynamic var phone = ""
+    dynamic var username = ""
     dynamic var birthday: String?
     dynamic var city: String?
     dynamic var avatar: String?
-    dynamic var avatars: [String]?
+    dynamic var avatars: RealmSwift.List<String>?
     dynamic var zodiacSign: String = ""
     dynamic var aboutMe: String = ""
     

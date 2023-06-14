@@ -9,7 +9,7 @@ import SwiftUI
 import Alamofire
 
 struct EnterPhoneNumberView: View {
-    @EnvironmentObject var viewModel: AuthentificationScreenViewModel
+    @EnvironmentObject var viewModel: AuthenticationScreenViewModel
     
     var body: some View {
         content

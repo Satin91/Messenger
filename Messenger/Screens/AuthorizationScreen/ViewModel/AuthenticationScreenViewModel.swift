@@ -9,8 +9,9 @@ import Combine
 import Foundation
 import SwiftUI
 import UserNotifications
+import RealmSwift
 
-final class AuthentificationScreenViewModel: NSObject, ObservableObject {
+final class AuthenticationScreenViewModel: NSObject, ObservableObject {
     var authService: AuthentificationServiceProtocol
     var notificationService: NotificationServiceProtocol
     var remoteUserService: RemoteUserServiceProtocol
@@ -68,11 +69,11 @@ final class AuthentificationScreenViewModel: NSObject, ObservableObject {
                                 refreshToken: authResponse.refresh_token!
                             )
                             self.databaseService.save(user: user)
+                            self.navigatior = .toHomeScreen(user)
                         }
                         .store(in: &self.subscriber)
-                    self.navigatior = .onVerivicationSuccess
                 } else {
-                    self.navigatior = .goToRegistrationScreen
+                    self.navigatior = .onRegistrationScreen
                 }
             }
             .store(in: &subscriber)
@@ -97,6 +98,7 @@ final class AuthentificationScreenViewModel: NSObject, ObservableObject {
                             refreshToken: registerResponse.refresh_token
                         )
                         self.databaseService.save(user: user)
+                        self.navigatior = .toHomeScreen(user)
                     }
                     .store(in: &self.subscriber)
                 
@@ -110,29 +112,31 @@ final class AuthentificationScreenViewModel: NSObject, ObservableObject {
     }
 }
 
-extension AuthentificationScreenViewModel {
+extension AuthenticationScreenViewModel {
     func saveUserToDB(profileData: ProfileData, accessToken: String?, refreshToken: String?) -> UserModel {
         let userObject = UserModel()
+        let avatars = RealmSwift.List<String>()
+        avatars.append(objectsIn: profileData.avatars ?? [])
         userObject.accessToken = accessToken
         userObject.refreshToken = refreshToken
-        
         userObject.id = profileData.id
         userObject.name = profileData.name
         userObject.username = profileData.username
         userObject.birthday = profileData.birthday
         userObject.city = profileData.city
         userObject.avatar = profileData.avatar
-        userObject.avatars = profileData.avatars
+        userObject.avatars = avatars
+        userObject.phone = profileData.phone
         
         return userObject
     }
 }
 
-extension AuthentificationScreenViewModel {
+extension AuthenticationScreenViewModel {
     enum AuthNavigator {
         case onEnterPhoneNumber
         case onEnterVerificationCode
-        case onVerivicationSuccess
-        case goToRegistrationScreen
+        case onRegistrationScreen
+        case toHomeScreen(UserModel)
     }
 }

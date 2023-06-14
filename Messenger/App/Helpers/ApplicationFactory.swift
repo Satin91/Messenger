@@ -36,8 +36,8 @@ final class ApplicationFactory {
         RemoteUserService(networkManager: networkManager)
     }
     
-    var verificationScreenViewModel: AuthentificationScreenViewModel {
-        AuthentificationScreenViewModel(authService: authService, databaseService: databaseService, notificationService: notificationService, remoteUserService: remoteUserService)
+    var verificationScreenViewModel: AuthenticationScreenViewModel {
+        AuthenticationScreenViewModel(authService: authService, databaseService: databaseService, notificationService: notificationService, remoteUserService: remoteUserService)
     }
     
     init() {
