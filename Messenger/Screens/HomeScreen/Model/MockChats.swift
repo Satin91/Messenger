@@ -10,20 +10,15 @@ import Foundation
 class MockChats {
  
     static let chats: [ChatUser] = [
-        ChatUser(name: "Пётр", avatar: "chatAvatar1", messages: [Message(text: "Привет!", date: Date())]),
-        ChatUser(name: "Владислав", avatar: "chatAvatar2", messages: [Message(text: "Привет, как дела?", date: Date())]),
-        ChatUser(name: "Татьяна", avatar: "chatAvatar3", messages: [Message(text: "Завтра пришлю список полезной литературы по вашему запросу.", date: Date())]),
+        ChatUser(name: "Пётр", avatar: "chatAvatar1", messages: ["Привет!", "Не забыл про нашу встречу сегодня вечером?"]),
+        ChatUser(name: "Владислав", avatar: "chatAvatar2", messages: ["Привет, не знаеш в какой аудитории у нас сегодня философия?", "Сегодня же нашего \"Канта\" заменяют..", "Надеюсь он в курсе что мы сейчас проходим."]),
+        ChatUser(name: "Татьяна", avatar: "chatAvatar3", messages: ["Завтра пришлю список полезной литературы по вашему запросу."])
     ]
     
     struct ChatUser {
         var id = UUID()
         var name: String
         var avatar: String
-        var messages: [Message]
-    }
-
-    struct Message {
-        var text: String
-        var date: Date
+        var messages: [String]
     }
 }

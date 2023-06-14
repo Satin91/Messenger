@@ -21,6 +21,7 @@ struct AppCoordinator: View {
     
     init(viewModel: AppCoordinatorViewModel) {
         self.coordinator = viewModel
+        print("Init Coordinator")
     }
     
     var body: some View {
@@ -28,11 +29,13 @@ struct AppCoordinator: View {
             switch screen {
             case .verificationScreen:
                 sceneFactory.makeAuthorizationScreen()
+                    .toolbar(.hidden)
             case .homeScreen(let user):
                 HomeScreen(user: user)
                     .toolbar(.hidden)
             case .chatScreen(let user, let companion):
                 sceneFactory.makeChatScreen(user: user, companion: companion)
+                    .toolbar(.hidden)
             }
         }
         .environmentObject(coordinator)

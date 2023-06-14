@@ -64,7 +64,7 @@ struct ChatListRow: View {
     }
     
     var lastMessageLabel: some View {
-        Text(user.messages.last?.text ?? "No messages yet")
+        Text(user.messages.last ?? "No messages yet")
             .font(Fonts.roboto(weight: .regular, size: 16))
             .foregroundColor(Colors.neutral)
     }

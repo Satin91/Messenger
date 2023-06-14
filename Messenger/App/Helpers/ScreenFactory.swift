@@ -23,10 +23,10 @@ final class SceneFactory: NSObject, SceneFactoryProtocol {
     }
     
     func makeHomeScreen(user: UserModel) -> AnyView {
-        AnyView(HomeScreen(user: user).environmentObject(applicationFactory.routher))
+        AnyView(HomeScreen(user: user))
     }
     
     func makeChatScreen(user: UserModel, companion: MockChats.ChatUser) -> AnyView {
-        AnyView(ChatScreen(user: user, companion: companion).environmentObject(applicationFactory.routher))
+        AnyView(ChatScreen(user: user, companion: companion))
     }
 }
