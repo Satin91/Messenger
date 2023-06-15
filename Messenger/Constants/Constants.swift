@@ -30,6 +30,7 @@ enum Spacing {
     
     static let smallRadius: CGFloat = 8
     static let defaultRadius: CGFloat = 16
+    static let largeRadius: CGFloat = 32
 }
 
 enum Colors {
@@ -44,6 +45,3 @@ enum Colors {
     static let darkBlueShadow = Color("darkBlueShadow")
 }
 
-enum Images {
-    static let verifySuccess = Image("verifySuccess")
-}

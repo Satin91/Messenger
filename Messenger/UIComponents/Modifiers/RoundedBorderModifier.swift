@@ -12,15 +12,20 @@ struct RoundedBorderModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
+            .padding()
             .background(
                 ZStack {
                     RoundedRectangle(cornerRadius: 15, style: .continuous)
                         .fill(Colors.light)
-                        .frame(height: Spacing.mediumControl)
                     RoundedRectangle(cornerRadius: 15, style: .continuous)
                         .stroke(color, lineWidth: 1)
-                        .frame(height: Spacing.mediumControl)
                 }
             )
+    }
+}
+
+extension View {
+    func roundedBorderModifier(color: Color) -> some View {
+        modifier(RoundedBorderModifier(color: color))
     }
 }

@@ -28,7 +28,7 @@ struct RegistrationView: View {
     private var navigationBar: some View {
         NavigationBar()
             .addLeftContainer {
-                Text("Register")
+                Text("Регистрация")
                     .largeTitleModifier()
             }
     }
@@ -41,7 +41,7 @@ struct RegistrationView: View {
         }
         .primaryTextModifier()
         .padding(.leading, Spacing.smallPadding)
-        .modifier(RoundedBorderModifier(color: Colors.primary))
+        .roundedBorderModifier(color: Colors.primary)
         .padding(.top, Spacing.mediumPadding)
     }
     
@@ -53,15 +53,15 @@ struct RegistrationView: View {
     }
     
     private var nameTextField: some View {
-        TextField("name", text: $viewModel.name)
+        TextField("Имя", text: $viewModel.name)
     }
     
     private var usernameTextField: some View {
-        TextField("username", text: $viewModel.username)
+        TextField("Никнейм", text: $viewModel.username)
     }
     
     private var registerButton: some View {
-        StatebleButton(title: "Register", isEnable: true) {
+        StatebleButton(title: "Зарегистрироваться", isEnable: true) {
             viewModel.register()
         }
     }

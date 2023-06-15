@@ -10,8 +10,6 @@ import SwiftUI
 struct EnterVerificationCodeView: View {
     @EnvironmentObject var viewModel: AuthenticationScreenViewModel
     
-    var verifyButtonTapped: () -> Void
-    
     var body: some View {
         content
     }
@@ -31,17 +29,18 @@ struct EnterVerificationCodeView: View {
         NavigationBar()
             .addLeftContainer {
                 VStack(alignment: .leading, spacing: Spacing.mediumControl) {
-                    Button("Back") {
-                        viewModel.verificationCode = ""
+                    Button("Назад") {
+                        viewModel.navigatior = .onEnterPhoneNumber
+                        viewModel.verificationCode.removeAll()
                     }
-                    Text("Verify Code")
+                    Text("Подтвердить код")
                         .largeTitleModifier()
                 }
             }
     }
     
     var infoLabel: some View {
-        Text("Check your sms inbox, we have sent you the code.")
+        Text("Мы отправили Вам код, проверьте входящие СМС.")
             .font(Fonts.roboto(weight: .light, size: 16))
             .foregroundColor(Colors.dark)
     }
@@ -52,13 +51,13 @@ struct EnterVerificationCodeView: View {
     
     var resendCodeLabel: some View {
         HStack(spacing: .zero) {
-            Text("Didn’t Receive a code? ")
+            Text("Не получили код? ")
                 .font(Fonts.roboto(weight: .regular, size: 14))
                 .foregroundColor(Colors.neutral)
             Button {
                 viewModel.sendVerificationCode()
             } label: {
-                Text("resend code")
+                Text("Отправить снова")
                     .font(Fonts.roboto(weight: .bold, size: 14))
                     .foregroundColor(Colors.primary)
             }
@@ -67,8 +66,8 @@ struct EnterVerificationCodeView: View {
     }
     
     var verificationButton: some View {
-        StatebleButton(title: "Verify", isEnable: viewModel.verificationCode.count == 6) {
-            verifyButtonTapped()
+        StatebleButton(title: "Подтвердить", isEnable: viewModel.verificationCode.count == 6) {
+            viewModel.checkAuthCode()
         }
         .frame(maxWidth: .infinity, alignment: .trailing)
     }
@@ -76,6 +75,6 @@ struct EnterVerificationCodeView: View {
 
 struct EnterVerificationCodeView_Previews: PreviewProvider {
     static var previews: some View {
-        EnterVerificationCodeView(verifyButtonTapped: {})
+        EnterVerificationCodeView()
     }
 }

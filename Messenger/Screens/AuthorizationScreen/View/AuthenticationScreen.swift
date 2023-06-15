@@ -27,9 +27,7 @@ struct AuthenticationScreen: View {
             case .onEnterPhoneNumber:
                 EnterPhoneNumberView()
             case .onEnterVerificationCode:
-                EnterVerificationCodeView {
-                    viewModel.checkAuthCode()
-                }
+                EnterVerificationCodeView()
             case .onRegistrationScreen:
                 RegistrationView()
             case .toHomeScreen(let user):

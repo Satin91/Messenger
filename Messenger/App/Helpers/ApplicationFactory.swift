@@ -40,6 +40,10 @@ final class ApplicationFactory {
         AuthenticationScreenViewModel(authService: authService, databaseService: databaseService, notificationService: notificationService, remoteUserService: remoteUserService)
     }
     
+    var profileScreenViewModel: ProfileScreenViewModel {
+        ProfileScreenViewModel(remoteUserService: remoteUserService)
+    }
+    
     init() {
         self.networkManager = NetworkManager(session: Session.default)
         self.databaseManager = DatabaseManager()

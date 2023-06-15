@@ -11,8 +11,9 @@ import FlowStacks
 
 enum Screen {
     case verificationScreen
-    case homeScreen(UserModel)
+    case chatListScreen(UserModel)
     case chatScreen(UserModel, MockChats.ChatUser)
+    case profileScreen(UserModel)
 }
 
 struct AppCoordinator: View {
@@ -21,7 +22,6 @@ struct AppCoordinator: View {
     
     init(viewModel: AppCoordinatorViewModel) {
         self.coordinator = viewModel
-        print("Init Coordinator")
     }
     
     var body: some View {
@@ -30,11 +30,14 @@ struct AppCoordinator: View {
             case .verificationScreen:
                 sceneFactory.makeAuthorizationScreen()
                     .toolbar(.hidden)
-            case .homeScreen(let user):
-                HomeScreen(user: user)
+            case .chatListScreen(let user):
+                ChatListScreen(user: user)
                     .toolbar(.hidden)
             case .chatScreen(let user, let companion):
                 sceneFactory.makeChatScreen(user: user, companion: companion)
+                    .toolbar(.hidden)
+            case .profileScreen(let user):
+                sceneFactory.makeProfileScreen(user: user)
                     .toolbar(.hidden)
             }
         }
@@ -46,16 +49,19 @@ class AppCoordinatorViewModel: ObservableObject {
   @Published var routes: Routes<Screen>
     
   init() {
-      print("Init app coordinator")
-      self.routes = [.root(.homeScreen(UserModel()), embedInNavigationView: true)]
+      self.routes = [.root(.profileScreen(UserModel()), embedInNavigationView: true)]
   }
     
     func pushToHomeScreen(user: UserModel) {
-        routes.push(.homeScreen(user) )
+        routes.push(.chatListScreen(user) )
     }
     
     func pushToChatScreen(user: UserModel, companion: MockChats.ChatUser) {
         routes.push(.chatScreen(user, companion))
+    }
+    
+    func pushToProfileScreen(user: UserModel) {
+        routes.push(.profileScreen(user))
     }
     
     func back() {

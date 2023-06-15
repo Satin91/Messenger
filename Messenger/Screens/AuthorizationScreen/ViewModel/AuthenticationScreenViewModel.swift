@@ -108,7 +108,7 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
     
     // Имитация отправления СМС Сообщения
     func sendVerificationCode() {
-        self.notificationService.push(NotificationModel(title: "Verification Code", subtitle: "133337", timeInterval: 3))
+        self.notificationService.push(NotificationModel(title: "Verification Code", subtitle: "133337", timeInterval: 2))
     }
 }
 

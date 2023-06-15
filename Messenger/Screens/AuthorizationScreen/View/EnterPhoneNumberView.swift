@@ -28,21 +28,21 @@ struct EnterPhoneNumberView: View {
     var navigationBar: some View {
         NavigationBar()
             .addLeftContainer {
-                Text("Register")
+                Text("Здравствуйте!")
                     .largeTitleModifier()
             }
     }
     
     var infoLabel: some View {
-        Text("Please enter")
+        Text("Пожалуйста, введите")
             .font(Fonts.roboto(weight: .light, size: 16))
             .foregroundColor(Colors.dark)
         +
-        Text(" your phone number")
+        Text(" свой номер телефона")
             .font(Fonts.roboto(weight: .bold, size: 16))
             .foregroundColor(Colors.dark)
         +
-        Text(", so we can verify you")
+        Text(", чтобы мы могли подтвердить Вашу личность.")
             .font(Fonts.roboto(weight: .light, size: 16))
             .foregroundColor(Colors.dark)
     }
@@ -52,7 +52,7 @@ struct EnterPhoneNumberView: View {
     }
     
     var nextButton: some View {
-        StatebleButton(title: "Next", isEnable: viewModel.isFullPhoneNumber) {
+        StatebleButton(title: "Отправить код", isEnable: viewModel.isFullPhoneNumber) {
             viewModel.sendAuthCode()
         }
     }
