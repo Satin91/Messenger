@@ -22,9 +22,7 @@ struct HomeScreen: View {
             Spacer()
         }
         .padding(Spacing.horizontalEdges)
-        .background {
-            Colors.background
-        }
+        .fillBackgroundModifier(color: Colors.background)
     }
     
     var navigationBar: some View {

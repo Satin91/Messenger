@@ -9,8 +9,8 @@ import SwiftUI
 
 struct ChatScreen: View {
     enum KeyboardForeground: Hashable {
-          case foreground
-      }
+        case foreground
+    }
     
     @EnvironmentObject var router: AppCoordinatorViewModel
     @State var text = ""
@@ -29,27 +29,37 @@ struct ChatScreen: View {
     }
     
     private var content: some View {
-        VStack {
+        VStack(spacing: .zero) {
             navigationBar
-                .padding(.horizontal, Spacing.horizontalEdges)
+                .padding(Spacing.horizontalEdges)
             messagesContainer
-            textField
-                .padding(.horizontal, Spacing.horizontalEdges)
-            Spacer()
+            Divider()
+            textFieldContainer
         }
-        .background {
-            Colors.background
-        }
+        .fillBackgroundModifier(color: Colors.background)
     }
+    
     private var navigationBar: some View {
         NavigationBar()
             .addLeftContainer {
-                VStack(alignment: .leading, spacing: Spacing.largePadding) {
+                VStack(alignment: .leading, spacing: Spacing.mediumPadding) {
                     Button("Back") {
                         router.back()
                     }
-                    Text(companion.name)
-                        .largeTitleModifier()
+                    HStack(spacing: Spacing.smallPadding) {
+                        Image(companion.avatar)
+                            .resizable()
+                            .scaledToFit()
+                            .clipShape(Circle())
+                            .frame(width: 58, height: 58)
+                        VStack(alignment: .leading, spacing: Spacing.extraSmallPadding) {
+                            Text(companion.name)
+                                .mediumTitleModifier()
+                            Text("Last seen 1 hour ago")
+                                .font(Fonts.roboto(weight: .light, size: 16))
+                                .foregroundColor(Colors.neutral)
+                        }
+                    }
                 }
             }
     }
@@ -58,19 +68,21 @@ struct ChatScreen: View {
         ScrollView(.vertical) {
             ForEach(messages, id: \.self) { message in
                 messageView(text: message)
-                    .padding(.vertical, Spacing.extraSmallPadding)
+                    .padding(.vertical, 4)
             }.rotationEffect(.degrees(180))
                 .padding(Spacing.horizontalEdges)
         }.rotationEffect(.degrees(180))
+            .background(Colors.chatBackground)
     }
     
-    private var textField: some View {
+    private var textFieldContainer: some View {
         HStack(spacing: Spacing.smallPadding) {
             TextField("Enter text", text: $text)
+                .font(Fonts.roboto(weight: .regular, size: 14))
                 .focused($isKeyboardForeground, equals: .foreground)
                 .padding()
-                .background(Colors.neutralSecondary)
-                .cornerRadius(8)
+                .background(Colors.light)
+                .cornerRadius(Spacing.defaultRadius, antialiased: true)
             Button {
                 withAnimation {
                     isKeyboardForeground = nil
@@ -85,15 +97,19 @@ struct ChatScreen: View {
             }
             
         }
+        .padding(.vertical, Spacing.smallPadding)
+        .padding(.horizontal, Spacing.horizontalEdges)
+        .background(Colors.chatBackground)
     }
     
     private func companionMessageView(text: String) -> some View {
         HStack {
             Text(text)
+                .font(Fonts.roboto(weight: .regular, size: 14))
                 .foregroundColor(Colors.dark)
                 .padding()
                 .background(Colors.light)
-                .cornerRadius(16)
+                .cornerRadius(Spacing.smallRadius)
                 .largeShadowModifier()
             Spacer()
         }
@@ -103,10 +119,11 @@ struct ChatScreen: View {
         HStack {
             Spacer()
             Text(text)
+                .font(Fonts.roboto(weight: .regular, size: 14))
                 .foregroundColor(Colors.primary)
                 .padding()
                 .background(Colors.primarySecondary)
-                .cornerRadius(16)
+                .cornerRadius(Spacing.smallRadius)
         }
     }
     

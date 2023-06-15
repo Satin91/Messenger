@@ -38,6 +38,7 @@
 		8E8964542A3A49A200C0243C /* ChatScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8964532A3A49A200C0243C /* ChatScreen.swift */; };
 		8E8964572A3A5DF100C0243C /* ShadowModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8964562A3A5DF100C0243C /* ShadowModifiers.swift */; };
 		8E8964592A3A63CF00C0243C /* DismissingKeyboardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8964582A3A63CF00C0243C /* DismissingKeyboardModifier.swift */; };
+		8E89645B2A3A8DB400C0243C /* FillBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E89645A2A3A8DB400C0243C /* FillBackgroundModifier.swift */; };
 		8E9033032A35060000445809 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8E9033022A35060000445809 /* Alamofire */; };
 		8E9033072A3545AA00445809 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E9033062A3545AA00445809 /* Colors.xcassets */; };
 		8E9B08A12A35FD5D00D1A035 /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08A02A35FD5D00D1A035 /* ScreenFactory.swift */; };
@@ -54,7 +55,7 @@
 		8E9B08BB2A36459400D1A035 /* StatebleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08BA2A36459400D1A035 /* StatebleButton.swift */; };
 		8E9B08C52A368EB800D1A035 /* iPhoneNumberField in Frameworks */ = {isa = PBXBuildFile; productRef = 8E9B08C42A368EB800D1A035 /* iPhoneNumberField */; };
 		8E9B08C72A36961900D1A035 /* RoundedBorderModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08C62A36961900D1A035 /* RoundedBorderModifier.swift */; };
-		8E9B08CB2A369E2800D1A035 /* LargeTitleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08CA2A369E2800D1A035 /* LargeTitleModifier.swift */; };
+		8E9B08CB2A369E2800D1A035 /* TextModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08CA2A369E2800D1A035 /* TextModifiers.swift */; };
 		8E9B08CD2A36B82400D1A035 /* VerificationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08CC2A36B82400D1A035 /* VerificationTextField.swift */; };
 		8E9B08CF2A36C09100D1A035 /* ReadSizeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08CE2A36C09100D1A035 /* ReadSizeModifier.swift */; };
 		8E9B08D42A3785BD00D1A035 /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8E9B08D32A3785BD00D1A035 /* PhoneNumberKit */; };
@@ -99,6 +100,7 @@
 		8E8964532A3A49A200C0243C /* ChatScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatScreen.swift; sourceTree = "<group>"; };
 		8E8964562A3A5DF100C0243C /* ShadowModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShadowModifiers.swift; sourceTree = "<group>"; };
 		8E8964582A3A63CF00C0243C /* DismissingKeyboardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissingKeyboardModifier.swift; sourceTree = "<group>"; };
+		8E89645A2A3A8DB400C0243C /* FillBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillBackgroundModifier.swift; sourceTree = "<group>"; };
 		8E9033062A3545AA00445809 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		8E9B08A02A35FD5D00D1A035 /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactory.swift; sourceTree = "<group>"; };
 		8E9B08A32A35FE5100D1A035 /* ApplicationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationFactory.swift; sourceTree = "<group>"; };
@@ -113,7 +115,7 @@
 		8E9B08B82A36412300D1A035 /* PhoneNumberTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberTextField.swift; sourceTree = "<group>"; };
 		8E9B08BA2A36459400D1A035 /* StatebleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatebleButton.swift; sourceTree = "<group>"; };
 		8E9B08C62A36961900D1A035 /* RoundedBorderModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedBorderModifier.swift; sourceTree = "<group>"; };
-		8E9B08CA2A369E2800D1A035 /* LargeTitleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTitleModifier.swift; sourceTree = "<group>"; };
+		8E9B08CA2A369E2800D1A035 /* TextModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextModifiers.swift; sourceTree = "<group>"; };
 		8E9B08CC2A36B82400D1A035 /* VerificationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationTextField.swift; sourceTree = "<group>"; };
 		8E9B08CE2A36C09100D1A035 /* ReadSizeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadSizeModifier.swift; sourceTree = "<group>"; };
 		8E9B08D52A37969600D1A035 /* CheckAuthCodeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckAuthCodeRequest.swift; sourceTree = "<group>"; };
@@ -400,10 +402,11 @@
 			children = (
 				8E9B08C62A36961900D1A035 /* RoundedBorderModifier.swift */,
 				8E626DF52A38D93C0018AD87 /* PrimaryTextModifier.swift */,
-				8E9B08CA2A369E2800D1A035 /* LargeTitleModifier.swift */,
+				8E9B08CA2A369E2800D1A035 /* TextModifiers.swift */,
 				8E9B08CE2A36C09100D1A035 /* ReadSizeModifier.swift */,
 				8E8964562A3A5DF100C0243C /* ShadowModifiers.swift */,
 				8E8964582A3A63CF00C0243C /* DismissingKeyboardModifier.swift */,
+				8E89645A2A3A8DB400C0243C /* FillBackgroundModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				8E9B08B52A36305500D1A035 /* EnterPhoneNumberView.swift in Sources */,
 				8E8964572A3A5DF100C0243C /* ShadowModifiers.swift in Sources */,
 				8E9B08E22A37C41E00D1A035 /* HomeScreen.swift in Sources */,
+				8E89645B2A3A8DB400C0243C /* FillBackgroundModifier.swift in Sources */,
 				8E9B08A42A35FE5100D1A035 /* ApplicationFactory.swift in Sources */,
 				8E9B08B72A36306B00D1A035 /* EnterVerificationCodeView.swift in Sources */,
 				8E9B08AD2A36264700D1A035 /* AuthenticationScreen.swift in Sources */,
@@ -583,7 +587,7 @@
 				8E626DED2A38B1560018AD87 /* DatabaseManager.swift in Sources */,
 				8E626DFF2A38F39E0018AD87 /* UserModel.swift in Sources */,
 				8E34C2922A33AF0B009C40FA /* SendAuthCodeResponse.swift in Sources */,
-				8E9B08CB2A369E2800D1A035 /* LargeTitleModifier.swift in Sources */,
+				8E9B08CB2A369E2800D1A035 /* TextModifiers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

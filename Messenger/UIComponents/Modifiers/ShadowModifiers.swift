@@ -11,7 +11,7 @@ struct LargeShadowModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .shadow(color: Colors.darkBlueShadow.opacity(0.2), radius: 20, y: 20)
+            .shadow(color: Colors.darkBlueShadow.opacity(0.1), radius: 15, y: 15)
     }
 }
 
