@@ -10,14 +10,16 @@ import RealmSwift
 import Alamofire
 
 struct ProfileScreen: View {
-    var user: UserModel
     @EnvironmentObject var router: AppCoordinatorViewModel
     @StateObject var viewModel: ProfileScreenViewModel
-    @State var name: String = ""
-    @State var aboutMe: String = ""
+    
+    @State var isChange: Bool = false
     
     var body: some View {
         content
+            .onChange(of: viewModel) { newValue in
+                isChange = viewModel.compareChanges()
+            }
     }
     
     var content: some View {
@@ -27,10 +29,12 @@ struct ProfileScreen: View {
                 VStack(alignment: .leading, spacing: Spacing.mediumPadding) {
                     avatar
                     textContainer
+                    saveButton
                 }
                 .padding(.horizontal, Spacing.horizontalEdges)
             }
         }
+        .fillBackgroundModifier(color: Colors.background)
     }
     
     var navigationBar: some View {
@@ -44,7 +48,7 @@ struct ProfileScreen: View {
     }
     
     var avatar: some View {
-        Image(user.avatar ?? "avatarPlaceholder")
+        Image(viewModel.user.avatar ?? "avatarPlaceholder")
             .resizable()
             .aspectRatio(contentMode: .fit)
             .frame(maxWidth: .infinity)
@@ -58,52 +62,70 @@ struct ProfileScreen: View {
                 userNameLabel
                 phoneNumberLabel
                 zodiacSign
+                cityTextField
                 aboutMeTextField
             }
-            .smalTitleModifier()
             .frame(maxWidth: .infinity, alignment: .leading)
-            .roundedBorderModifier(color: Colors.neutral)
         }
     }
     
     var nameTextField: some View {
-        TextField("Имя", text: $name)
+        TitledTextField(title: "Имя", placeholder: "Введите имя", text: $viewModel.name)
     }
     
     var userNameLabel: some View {
-        Text(user.username)
+        TitledTextField(title: "Имя пользователя", placeholder: "Введите имя", text: .constant(viewModel.user.username),isDisabled: true)
     }
     
     var phoneNumberLabel: some View {
-        Text(user.phone)
-            .foregroundColor(Colors.neutral)
+        TitledTextField(title: "Номер телефона", placeholder: "", text: .constant(viewModel.user.phone),isDisabled: true)
     }
     
-    var city: some View {
-        Text(user.city ?? "")
+    var cityTextField: some View {
+        TitledTextField(
+            title: "Расположение",
+            placeholder: "Населенный пункт не указан",
+            text: $viewModel.city.bound
+        )
     }
     
     var zodiacSign: some View {
-        Text("Водолеюшка")
+        ZStack {
+            TitledTextField(
+                title: "Знак зодиака",
+                placeholder: "Дата рождения не выбрана",
+                text: .constant(viewModel.zodiacSignText.bound),
+                isDisabled: true
+            )
+            VStack {
+                Spacer()
+                HStack {
+                    Spacer()
+                    datePicker
+                        .frame(alignment: .bottomLeading)
+                }
+            }
+
+        }
     }
     
+    var datePicker: some View {
+        DatePicker(selection: $viewModel.birthday.bound, in: ...Date.now, displayedComponents: .date) {
+        }
+        .labelsHidden()
+        .accentColor(Colors.primary)
+        .padding(8)
+    }
+    
+    
     var aboutMeTextField: some View {
-        TextField("Расскажите о себе", text: $aboutMe, axis: .vertical)
+        TitledTextField(title: "Обо мне", placeholder: "Расскажите о себе", text: $viewModel.aboutMe)
             .frame(alignment: .topLeading)
             .lineLimit(10)
     }
-}
-
-struct ProfileScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        let userModel = UserModel()
-        userModel.name = "Артур"
-        userModel.username = "Satin"
-        userModel.aboutMe = "asd"
-        userModel.avatars = RealmSwift.List<String>()
-        userModel.phone = "72125123532"
-        return ProfileScreen(user: userModel, viewModel: ProfileScreenViewModel(remoteUserService: RemoteUserService(networkManager: NetworkManager(session: Session.default))))
+    
+    var saveButton: some View {
+        StatebleButton(title: "Сохранить", isEnable: isChange) {
+        }
     }
 }
-//
-//Должен содержать аватарку пользователя, номер телефона, никнейм, город проживания, дату рождения, знак зодиака по дате рождения, о себе.

@@ -19,7 +19,6 @@ enum Screen {
 struct AppCoordinator: View {
     @ObservedObject var coordinator: AppCoordinatorViewModel
     let sceneFactory = SceneFactory()
-    
     init(viewModel: AppCoordinatorViewModel) {
         self.coordinator = viewModel
     }

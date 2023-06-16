@@ -31,6 +31,6 @@ final class SceneFactory: NSObject, SceneFactoryProtocol {
     }
     
     func makeProfileScreen(user: UserModel) -> AnyView {
-        AnyView(ProfileScreen(user: user, viewModel: self.applicationFactory.profileScreenViewModel))
+        AnyView(ProfileScreen(viewModel: self.applicationFactory.profileScreenViewModel(user: user)))
     }
 }

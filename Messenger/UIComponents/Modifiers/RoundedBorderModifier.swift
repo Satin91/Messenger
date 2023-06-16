@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct RoundedBorderModifier: ViewModifier {
-    var color: Color
+    var borderColor: Color
+    var backgroundColor: Color?
     
     func body(content: Content) -> some View {
         content
@@ -16,16 +17,16 @@ struct RoundedBorderModifier: ViewModifier {
             .background(
                 ZStack {
                     RoundedRectangle(cornerRadius: 15, style: .continuous)
-                        .fill(Colors.light)
+                        .fill(backgroundColor ?? Colors.light)
                     RoundedRectangle(cornerRadius: 15, style: .continuous)
-                        .stroke(color, lineWidth: 1)
+                        .stroke(borderColor, lineWidth: 1)
                 }
             )
     }
 }
 
 extension View {
-    func roundedBorderModifier(color: Color) -> some View {
-        modifier(RoundedBorderModifier(color: color))
+    func roundedBorderModifier(borderColor: Color, backgroundColor: Color? = nil) -> some View {
+        modifier(RoundedBorderModifier(borderColor: borderColor, backgroundColor: backgroundColor))
     }
 }

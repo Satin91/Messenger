@@ -36,7 +36,7 @@ struct PhoneNumberTextField: View {
             .font(UIFont(name: "Roboto-Regular", size: 17))
             .foregroundColor(Colors.primary)
             .clearButtonMode(.whileEditing)
-            .roundedBorderModifier(color: isEditing ? Colors.primary : Colors.neutral)
+            .roundedBorderModifier(borderColor: isEditing ? Colors.primary : Colors.neutral)
     }
     
     private func updateTextWithPrefix() {

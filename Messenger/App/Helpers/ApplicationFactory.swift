@@ -40,8 +40,8 @@ final class ApplicationFactory {
         AuthenticationScreenViewModel(authService: authService, databaseService: databaseService, notificationService: notificationService, remoteUserService: remoteUserService)
     }
     
-    var profileScreenViewModel: ProfileScreenViewModel {
-        ProfileScreenViewModel(remoteUserService: remoteUserService)
+    func profileScreenViewModel(user: UserModel) -> ProfileScreenViewModel {
+        ProfileScreenViewModel(remoteUserService: remoteUserService, user: user)
     }
     
     init() {

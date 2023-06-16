@@ -41,7 +41,7 @@ struct RegistrationView: View {
         }
         .primaryTextModifier()
         .padding(.leading, Spacing.smallPadding)
-        .roundedBorderModifier(color: Colors.primary)
+        .roundedBorderModifier(borderColor: Colors.primary)
         .padding(.top, Spacing.mediumPadding)
     }
     

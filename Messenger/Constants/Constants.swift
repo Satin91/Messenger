@@ -43,5 +43,6 @@ enum Colors {
     static let primarySecondary = Color("primarySecondary")
     static let chatBackground = Color("chatBackground")
     static let darkBlueShadow = Color("darkBlueShadow")
+    static let lightGray = Color("lightGray")
 }
 

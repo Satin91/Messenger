@@ -10,9 +10,9 @@ import SwiftUI
 
 struct VerificationTextField: View {
     @Binding var text: String
-    @State var size: CGSize = .zero
+    @State var screenSize: CGSize = .zero
     var kerning: CGFloat {
-        ((size.width - (letterWidth * lettersCount)) / lettersCount)
+        ((screenSize.width - (letterWidth * lettersCount)) / lettersCount)
     }
     
     let letterWidth: CGFloat = 30
@@ -27,7 +27,7 @@ struct VerificationTextField: View {
             textField
             dash
         }
-        .readSize(in: $size)
+        .readSize(in: $screenSize)
     }
     
     var textField: some View {

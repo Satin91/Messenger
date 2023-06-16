@@ -39,6 +39,11 @@
 		8E89645B2A3A8DB400C0243C /* FillBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E89645A2A3A8DB400C0243C /* FillBackgroundModifier.swift */; };
 		8E89645D2A3A9ABC00C0243C /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E89645C2A3A9ABC00C0243C /* ProfileScreen.swift */; };
 		8E8964622A3AAE6500C0243C /* ProfileScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8964612A3AAE6500C0243C /* ProfileScreenViewModel.swift */; };
+		8E8964642A3B6B4400C0243C /* TitledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8964632A3B6B4400C0243C /* TitledTextField.swift */; };
+		8E8964662A3B88A600C0243C /* PopUpModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8964652A3B88A600C0243C /* PopUpModifier.swift */; };
+		8E8964682A3BAB9500C0243C /* ZodiacSign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8964672A3BAB9500C0243C /* ZodiacSign.swift */; };
+		8E89646A2A3BAFD800C0243C /* DateConversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8964692A3BAFD800C0243C /* DateConversions.swift */; };
+		8E89646D2A3BCCBC00C0243C /* OptionalBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E89646C2A3BCCBC00C0243C /* OptionalBinding.swift */; };
 		8E9033032A35060000445809 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8E9033022A35060000445809 /* Alamofire */; };
 		8E9033072A3545AA00445809 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E9033062A3545AA00445809 /* Colors.xcassets */; };
 		8E9B08A12A35FD5D00D1A035 /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08A02A35FD5D00D1A035 /* ScreenFactory.swift */; };
@@ -101,6 +106,11 @@
 		8E89645A2A3A8DB400C0243C /* FillBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillBackgroundModifier.swift; sourceTree = "<group>"; };
 		8E89645C2A3A9ABC00C0243C /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		8E8964612A3AAE6500C0243C /* ProfileScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewModel.swift; sourceTree = "<group>"; };
+		8E8964632A3B6B4400C0243C /* TitledTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledTextField.swift; sourceTree = "<group>"; };
+		8E8964652A3B88A600C0243C /* PopUpModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpModifier.swift; sourceTree = "<group>"; };
+		8E8964672A3BAB9500C0243C /* ZodiacSign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZodiacSign.swift; sourceTree = "<group>"; };
+		8E8964692A3BAFD800C0243C /* DateConversions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConversions.swift; sourceTree = "<group>"; };
+		8E89646C2A3BCCBC00C0243C /* OptionalBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalBinding.swift; sourceTree = "<group>"; };
 		8E9033062A3545AA00445809 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		8E9B08A02A35FD5D00D1A035 /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactory.swift; sourceTree = "<group>"; };
 		8E9B08A32A35FE5100D1A035 /* ApplicationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationFactory.swift; sourceTree = "<group>"; };
@@ -166,6 +176,7 @@
 				8E9B08A52A360F3300D1A035 /* Notifications */,
 				8E626DEB2A38B1480018AD87 /* Database */,
 				8E9033002A35055A00445809 /* Networking */,
+				8E89646B2A3BAFDD00C0243C /* Extensions */,
 				8E9032FD2A34E73E00445809 /* Screens */,
 				8E9B08B02A36293400D1A035 /* UIComponents */,
 				8E34C2852A339074009C40FA /* Constants */,
@@ -320,6 +331,15 @@
 			path = ProfileScreen;
 			sourceTree = "<group>";
 		};
+		8E89646B2A3BAFDD00C0243C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8E8964692A3BAFD800C0243C /* DateConversions.swift */,
+				8E89646C2A3BCCBC00C0243C /* OptionalBinding.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		8E9032FD2A34E73E00445809 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
@@ -375,6 +395,7 @@
 				8E9B08A32A35FE5100D1A035 /* ApplicationFactory.swift */,
 				8E9B08A02A35FD5D00D1A035 /* ScreenFactory.swift */,
 				8E9B08DB2A37BA4400D1A035 /* Router.swift */,
+				8E8964672A3BAB9500C0243C /* ZodiacSign.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -416,6 +437,7 @@
 				8E8964562A3A5DF100C0243C /* ShadowModifiers.swift */,
 				8E8964582A3A63CF00C0243C /* DismissingKeyboardModifier.swift */,
 				8E89645A2A3A8DB400C0243C /* FillBackgroundModifier.swift */,
+				8E8964652A3B88A600C0243C /* PopUpModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -425,6 +447,7 @@
 			children = (
 				8E9B08B12A36294A00D1A035 /* NavigationBar.swift */,
 				8E9B08B82A36412300D1A035 /* PhoneNumberTextField.swift */,
+				8E8964632A3B6B4400C0243C /* TitledTextField.swift */,
 				8E9B08CC2A36B82400D1A035 /* VerificationTextField.swift */,
 				8E9B08BA2A36459400D1A035 /* StatebleButton.swift */,
 				8E9B08D92A37B0EB00D1A035 /* AlertView.swift */,
@@ -551,15 +574,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E89646A2A3BAFD800C0243C /* DateConversions.swift in Sources */,
 				8E34C2952A33E776009C40FA /* NetworkManager.swift in Sources */,
 				8E626E012A38F88E0018AD87 /* GetCurrentUserRequest.swift in Sources */,
 				8E89644F2A3A282100C0243C /* MockChats.swift in Sources */,
+				8E8964662A3B88A600C0243C /* PopUpModifier.swift in Sources */,
 				8E9B08A92A360F4F00D1A035 /* NotificationService.swift in Sources */,
 				8E89645D2A3A9ABC00C0243C /* ProfileScreen.swift in Sources */,
 				8E626DF82A38E20B0018AD87 /* UserRegisterRequest.swift in Sources */,
 				8E9B08AB2A36107600D1A035 /* NotificationModel.swift in Sources */,
 				8E9B08D82A3797DC00D1A035 /* CheckAuthCodeResponse.swift in Sources */,
 				8E626E032A38F9360018AD87 /* RemoteUserService.swift in Sources */,
+				8E8964642A3B6B4400C0243C /* TitledTextField.swift in Sources */,
 				8E34C2882A33908B009C40FA /* Constants.swift in Sources */,
 				8E9B08B92A36412300D1A035 /* PhoneNumberTextField.swift in Sources */,
 				8E626DF22A38B78F0018AD87 /* RegistrationView.swift in Sources */,
@@ -571,6 +597,7 @@
 				8E9B08E22A37C41E00D1A035 /* ChatListScreen.swift in Sources */,
 				8E89645B2A3A8DB400C0243C /* FillBackgroundModifier.swift in Sources */,
 				8E9B08A42A35FE5100D1A035 /* ApplicationFactory.swift in Sources */,
+				8E8964682A3BAB9500C0243C /* ZodiacSign.swift in Sources */,
 				8E9B08B72A36306B00D1A035 /* EnterVerificationCodeView.swift in Sources */,
 				8E9B08AD2A36264700D1A035 /* AuthenticationScreen.swift in Sources */,
 				8E1945AC2A326DCA00CBB4B4 /* AuthentificationService.swift in Sources */,
@@ -580,6 +607,7 @@
 				8E8964592A3A63CF00C0243C /* DismissingKeyboardModifier.swift in Sources */,
 				8E9B08A12A35FD5D00D1A035 /* ScreenFactory.swift in Sources */,
 				8E9B08C72A36961900D1A035 /* RoundedBorderModifier.swift in Sources */,
+				8E89646D2A3BCCBC00C0243C /* OptionalBinding.swift in Sources */,
 				8E9B08D62A37969600D1A035 /* CheckAuthCodeRequest.swift in Sources */,
 				8E9B08CF2A36C09100D1A035 /* ReadSizeModifier.swift in Sources */,
 				8E8964622A3AAE6500C0243C /* ProfileScreenViewModel.swift in Sources */,
