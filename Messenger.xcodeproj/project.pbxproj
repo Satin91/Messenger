@@ -44,6 +44,8 @@
 		8E8964682A3BAB9500C0243C /* ZodiacSign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8964672A3BAB9500C0243C /* ZodiacSign.swift */; };
 		8E89646A2A3BAFD800C0243C /* DateConversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8964692A3BAFD800C0243C /* DateConversions.swift */; };
 		8E89646D2A3BCCBC00C0243C /* OptionalBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E89646C2A3BCCBC00C0243C /* OptionalBinding.swift */; };
+		8E89646F2A3BE3C900C0243C /* UpdateUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E89646E2A3BE3C900C0243C /* UpdateUserRequest.swift */; };
+		8E8964712A3BEABE00C0243C /* UpdateUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8964702A3BEABE00C0243C /* UpdateUserResponse.swift */; };
 		8E9033032A35060000445809 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8E9033022A35060000445809 /* Alamofire */; };
 		8E9033072A3545AA00445809 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E9033062A3545AA00445809 /* Colors.xcassets */; };
 		8E9B08A12A35FD5D00D1A035 /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08A02A35FD5D00D1A035 /* ScreenFactory.swift */; };
@@ -111,6 +113,8 @@
 		8E8964672A3BAB9500C0243C /* ZodiacSign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZodiacSign.swift; sourceTree = "<group>"; };
 		8E8964692A3BAFD800C0243C /* DateConversions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConversions.swift; sourceTree = "<group>"; };
 		8E89646C2A3BCCBC00C0243C /* OptionalBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalBinding.swift; sourceTree = "<group>"; };
+		8E89646E2A3BE3C900C0243C /* UpdateUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserRequest.swift; sourceTree = "<group>"; };
+		8E8964702A3BEABE00C0243C /* UpdateUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserResponse.swift; sourceTree = "<group>"; };
 		8E9033062A3545AA00445809 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		8E9B08A02A35FD5D00D1A035 /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactory.swift; sourceTree = "<group>"; };
 		8E9B08A32A35FE5100D1A035 /* ApplicationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationFactory.swift; sourceTree = "<group>"; };
@@ -257,6 +261,7 @@
 				8E626DF72A38E20B0018AD87 /* UserRegisterRequest.swift */,
 				8E9B08D52A37969600D1A035 /* CheckAuthCodeRequest.swift */,
 				8E626E002A38F88E0018AD87 /* GetCurrentUserRequest.swift */,
+				8E89646E2A3BE3C900C0243C /* UpdateUserRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -268,6 +273,7 @@
 				8E9B08D72A3797DB00D1A035 /* CheckAuthCodeResponse.swift */,
 				8E626DF92A38E2B90018AD87 /* UserRegisterResponse.swift */,
 				8E626E042A38F9930018AD87 /* GetCurrentUserResponse.swift */,
+				8E8964702A3BEABE00C0243C /* UpdateUserResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -594,6 +600,7 @@
 				8E9B08AF2A36266900D1A035 /* AuthenticationScreenViewModel.swift in Sources */,
 				8E9B08B52A36305500D1A035 /* EnterPhoneNumberView.swift in Sources */,
 				8E8964572A3A5DF100C0243C /* ShadowModifiers.swift in Sources */,
+				8E8964712A3BEABE00C0243C /* UpdateUserResponse.swift in Sources */,
 				8E9B08E22A37C41E00D1A035 /* ChatListScreen.swift in Sources */,
 				8E89645B2A3A8DB400C0243C /* FillBackgroundModifier.swift in Sources */,
 				8E9B08A42A35FE5100D1A035 /* ApplicationFactory.swift in Sources */,
@@ -608,6 +615,7 @@
 				8E9B08A12A35FD5D00D1A035 /* ScreenFactory.swift in Sources */,
 				8E9B08C72A36961900D1A035 /* RoundedBorderModifier.swift in Sources */,
 				8E89646D2A3BCCBC00C0243C /* OptionalBinding.swift in Sources */,
+				8E89646F2A3BE3C900C0243C /* UpdateUserRequest.swift in Sources */,
 				8E9B08D62A37969600D1A035 /* CheckAuthCodeRequest.swift in Sources */,
 				8E9B08CF2A36C09100D1A035 /* ReadSizeModifier.swift in Sources */,
 				8E8964622A3AAE6500C0243C /* ProfileScreenViewModel.swift in Sources */,

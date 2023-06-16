@@ -125,7 +125,9 @@ struct ProfileScreen: View {
     }
     
     var saveButton: some View {
+        
         StatebleButton(title: "Сохранить", isEnable: isChange) {
+            viewModel.updateUser()
         }
     }
 }

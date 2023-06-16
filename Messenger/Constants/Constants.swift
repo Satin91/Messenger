@@ -16,6 +16,7 @@ enum Constants {
         static let checkAuthCodePath = "users/check-auth-code/"
         static let userRegisterPath = "users/register/"
         static let getCurrentUserPath = "users/me/"
+        static let updateUserPath = "users/me/"
     }
 }
 

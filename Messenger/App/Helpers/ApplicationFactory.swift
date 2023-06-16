@@ -41,7 +41,7 @@ final class ApplicationFactory {
     }
     
     func profileScreenViewModel(user: UserModel) -> ProfileScreenViewModel {
-        ProfileScreenViewModel(remoteUserService: remoteUserService, user: user)
+        ProfileScreenViewModel(databaseService: databaseService, remoteUserService: remoteUserService, user: user)
     }
     
     init() {

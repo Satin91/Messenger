@@ -6,10 +6,17 @@
 //
 
 import Foundation
-import CryptoKit
+import Combine
+import RealmSwift
 
 final class ProfileScreenViewModel: ObservableObject {
     var user: UserModel
+    
+    var subscriber = Set<AnyCancellable>()
+    
+    var remoteUserService: RemoteUserServiceProtocol
+    var databaseService: DatabaseServiceProtocol
+    
     
     /// При каждом изменении @Published свойства, обновляется вся модель. По этому нет причин не использовать вычисляемое свойства, основанне на издателе.
     var zodiacSignText: String? {
@@ -25,21 +32,14 @@ final class ProfileScreenViewModel: ObservableObject {
     @Published var aboutMe = ""
     @Published var birthday: Date?
     
-    var remoteUserService: RemoteUserServiceProtocol
-    //TODO: implement databaseService
-    
-    init(remoteUserService: RemoteUserServiceProtocol, user: UserModel) {
+    init(databaseService: DatabaseServiceProtocol, remoteUserService: RemoteUserServiceProtocol, user: UserModel) {
         self.remoteUserService = remoteUserService
+        self.databaseService = databaseService
         self.user = user
         self.city = user.city
         self.name = user.name
         self.aboutMe = user.aboutMe
         self.birthday = user.birthday?.toDate
-        print("init")
-    }
-    
-    func calculateZodiac(date: Date) {
-        birthday = date
     }
     
     /// Проверка на изменения свойств
@@ -64,6 +64,22 @@ final class ProfileScreenViewModel: ObservableObject {
     
     ///обновление пользователя в базе и на сервере.
     func updateUser() {
+        let realm = try! Realm()
+        try! realm.write {
+            user.name = name
+            user.city = city
+            user.birthday = birthday?.toString
+            user.aboutMe = aboutMe
+        }
+//        databaseService.save(user: user)
+        remoteUserService.updateUser(accessToken: user.accessToken ?? "", user: user)
+            .sink { completion in
+                let error = try! completion.error()
+                print(error)
+            } receiveValue: { response in
+                print(response)
+            }
+            .store(in: &subscriber)
     }
 }
 
