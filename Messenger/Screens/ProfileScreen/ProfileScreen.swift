@@ -70,22 +70,21 @@ struct ProfileScreen: View {
     }
     
     var nameTextField: some View {
-        TitledTextField(title: "Имя", placeholder: "Введите имя", text: $viewModel.name)
+        TitledTextField(title: "Имя", text: $viewModel.name, placeholder: "Введите имя")
     }
     
     var userNameLabel: some View {
-        TitledTextField(title: "Имя пользователя", placeholder: "Введите имя", text: .constant(viewModel.user.username),isDisabled: true)
+        TitledTextField(title: "Имя пользователя", text: .constant(viewModel.user.username), placeholder: "Введите имя",isDisabled: true)
     }
     
     var phoneNumberLabel: some View {
-        TitledTextField(title: "Номер телефона", placeholder: "", text: .constant(viewModel.user.phone),isDisabled: true)
+        TitledTextField(title: "Номер телефона", text: .constant(viewModel.user.phone), placeholder: "",isDisabled: true)
     }
     
     var cityTextField: some View {
         TitledTextField(
             title: "Расположение",
-            placeholder: "Населенный пункт не указан",
-            text: $viewModel.city.bound
+            text: $viewModel.city.bound, placeholder: "Населенный пункт не указан"
         )
     }
     
@@ -93,8 +92,7 @@ struct ProfileScreen: View {
         ZStack {
             TitledTextField(
                 title: "Знак зодиака",
-                placeholder: "Дата рождения не выбрана",
-                text: .constant(viewModel.zodiacSignText.bound),
+                text: .constant(viewModel.zodiacSignText.bound), placeholder: "Дата рождения не выбрана",
                 isDisabled: true
             )
             VStack {
@@ -119,9 +117,8 @@ struct ProfileScreen: View {
     
     
     var aboutMeTextField: some View {
-        TitledTextField(title: "Обо мне", placeholder: "Расскажите о себе", text: $viewModel.aboutMe)
+        TitledTextField(title: "Обо мне", text: $viewModel.aboutMe, placeholder: "Расскажите о себе", axis: .vertical)
             .frame(alignment: .topLeading)
-            .lineLimit(10)
     }
     
     var saveButton: some View {

@@ -48,7 +48,7 @@ class AppCoordinatorViewModel: ObservableObject {
   @Published var routes: Routes<Screen>
     
   init() {
-      self.routes = [.root(.verificationScreen, embedInNavigationView: true)]
+      self.routes = [.root(.profileScreen(UserModel()), embedInNavigationView: true)]
   }
     
     func pushToHomeScreen(user: UserModel) {

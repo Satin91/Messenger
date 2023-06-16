@@ -9,9 +9,11 @@ import SwiftUI
 
 struct TitledTextField: View {
     @State var title: String
-    @State var placeholder: String
-    
     @Binding var text: String
+    
+    let placeholder: String
+    var axis: Axis = .horizontal
+    
     
     var isDisabled: Bool = false
     
@@ -34,7 +36,7 @@ struct TitledTextField: View {
     }
     
     var textField: some View {
-        TextField(placeholder, text: $text)
+        TextField(placeholder, text: $text, axis: axis)
             .font(Fonts.roboto(weight: .medium, size: 14))
             .foregroundColor(Colors.primary)
             .disabled(isDisabled)
@@ -47,6 +49,6 @@ struct TitledTextField: View {
 
 struct TitledTextField_Previews: PreviewProvider {
     static var previews: some View {
-        TitledTextField(title: "Title", placeholder: "Text", text: .constant("Text"))
+        TitledTextField(title: "Title", text: .constant("Text"), placeholder: "Text")
     }
 }
