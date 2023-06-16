@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import RealmSwift
+import UIKit
 
 final class ProfileScreenViewModel: ObservableObject {
     var user: UserModel
@@ -71,6 +72,13 @@ final class ProfileScreenViewModel: ObservableObject {
             user.birthday = birthday?.toString
             user.aboutMe = aboutMe
         }
+        let image : UIImage = UIImage(named:"avatarPlaceholder")!
+        let data = image.pngData()
+        let base64 = data?.base64EncodedData(options: .lineLength64Characters)
+        let str = String(decoding: base64!, as: UTF8.self)
+        let dataDecoded : Data = Data(base64Encoded: str, options: .ignoreUnknownCharacters)!
+        let uiimage = UIImage(data: dataDecoded)
+        print("String data \(dataDecoded)")
 //        databaseService.save(user: user)
         remoteUserService.updateUser(accessToken: user.accessToken ?? "", user: user)
             .sink { completion in
