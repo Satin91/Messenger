@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import UIKit
 
 protocol RemoteUserServiceProtocol {
     func getCurrentUser(accessToken: String) -> AnyPublisher<GetCurrentUserResponse, Error>
@@ -20,16 +21,14 @@ final class RemoteUserService: RemoteUserServiceProtocol {
         self.networkManager = networkManager
     }
     
+    var cancelBag = Set<AnyCancellable>()
     func getCurrentUser(accessToken: String) -> AnyPublisher<GetCurrentUserResponse, Error> {
         let request = GetCurrentUserRequest(accessToken: accessToken)
         return networkManager.sendRequest(request: request)
             .decode(type: GetCurrentUserResponse.self, decoder: JSONDecoder())
-            .map({ userresponse -> GetCurrentUserResponse in
-                let imageData = try! Data(contentsOf: URL(string: Constants.API.baseURL + userresponse.profile_data.avatars.avatar)! as URL)
-                var profileData = userresponse.profile_data
-                profileData.avatarData = imageData
-                return GetCurrentUserResponse(profile_data: profileData)
-            })
+            .flatMap { response in
+                return self.loadAvatar(userResponse: response)
+            }
             .eraseToAnyPublisher()
     }
     
@@ -39,4 +38,22 @@ final class RemoteUserService: RemoteUserServiceProtocol {
             .decode(type: UpdateUserResponse.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
+    
+    func loadAvatar(userResponse: GetCurrentUserResponse) -> AnyPublisher<GetCurrentUserResponse, Error> {
+        guard var endPoint = userResponse.profile_data.avatar else {
+            return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
+        }
+        endPoint.insert(contentsOf: "media/avatars/600x600/", at: endPoint.startIndex)
+        return URLSession.shared.dataTaskPublisher(for: URL(string: Constants.API.baseURL + endPoint)!)
+            .map({ response in
+                var userResponse = userResponse
+                userResponse.profile_data.avatarData = response.data
+                return userResponse
+            })
+            .mapError({ urlerrir in
+                return URLError(.badURL)
+            })
+            .eraseToAnyPublisher()
+    }
 }
+

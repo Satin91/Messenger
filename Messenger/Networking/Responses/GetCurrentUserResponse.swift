@@ -9,6 +9,11 @@ import Foundation
 
 struct GetCurrentUserResponse: Codable {
     var profile_data: ProfileData
+    
+    mutating func replaceImage(data: Data?) -> GetCurrentUserResponse {
+        self.profile_data.avatarData = data
+        return self
+    }
 }
 
 struct ProfileData: Codable {

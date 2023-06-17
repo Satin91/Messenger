@@ -19,7 +19,7 @@ class UserModel: Object {
     dynamic var birthday: String?
     dynamic var city: String?
     dynamic var avatar: Data?
-    dynamic var avatars: Avatars = Avatars(avatar: "", bigAvatar: "", miniAvatar: "")
+    dynamic var avatars: Avatars?
     dynamic var zodiacSign: String = ""
     dynamic var aboutMe: String = ""
     

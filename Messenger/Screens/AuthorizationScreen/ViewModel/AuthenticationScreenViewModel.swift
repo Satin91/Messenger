@@ -51,12 +51,14 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
     
     func checkAuthCode() {
         authService.checkAuthCode(phone: phoneNumber, code: verificationCode)
+            .receive(on: RunLoop.main)
             .sink { completion in
                 let error = try? completion.error()
                 print("AuthCode Error \(error)")
             } receiveValue: { authResponse in
                 if authResponse.is_user_exists {
                     self.remoteUserService.getCurrentUser(accessToken: authResponse.access_token!)
+                        .receive(on: RunLoop.main)
                         .sink { completion in
                             let error = try? completion.error()
                         } receiveValue: { userResponse in
@@ -65,6 +67,7 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
                                 accessToken: authResponse.access_token!,
                                 refreshToken: authResponse.refresh_token!
                             )
+                            print("user.avatar \(user)")
                             self.navigatior = .toChatList(user)
                         }
                         .store(in: &self.subscriber)
@@ -113,6 +116,7 @@ extension AuthenticationScreenViewModel {
         userObject.avatar = profileData.avatarData
         userObject.avatars = profileData.avatars
         userObject.phone = profileData.phone
+        print("Avatar data in authViewModel \(profileData.avatarData)")
         self.databaseService.save(user: userObject)
         
         return userObject

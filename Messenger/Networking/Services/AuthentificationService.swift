@@ -35,6 +35,7 @@ class AuthentificationService: AuthentificationServiceProtocol {
         return networkManager.sendRequest(request: request)
             .decode(type: CheckAuthCodeResponse.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
+
     }
     
     func register(phone: String, name: String, username: String) -> AnyPublisher<UserRegisterResponse, Error> {
