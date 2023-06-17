@@ -51,43 +51,40 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
     
     func checkAuthCode() {
         authService.checkAuthCode(phone: phoneNumber, code: verificationCode)
-            .receive(on: RunLoop.main)
-            .sink { completion in
-                let error = try? completion.error()
-                print("AuthCode Error \(error)")
-            } receiveValue: { authResponse in
-                if authResponse.is_user_exists {
-                    self.remoteUserService.getCurrentUser(accessToken: authResponse.access_token!)
-                        .receive(on: RunLoop.main)
-                        .sink { completion in
-                            let error = try? completion.error()
-                        } receiveValue: { userResponse in
-                            let user = self.saveUserToDB(
-                                profileData: userResponse.profile_data,
-                                accessToken: authResponse.access_token!,
-                                refreshToken: authResponse.refresh_token!
-                            )
-                            print("user.avatar \(user)")
-                            self.navigatior = .toChatList(user)
-                        }
-                        .store(in: &self.subscriber)
-                } else {
-                    self.navigatior = .onRegistrationScreen
+            .flatMap { response  in
+                if response.is_user_exists {
+                    SessionInfo.shared.refreshToken = response.refresh_token
+                    SessionInfo.shared.accessToken = response.access_token
+                    SessionInfo.shared.userID = response.user_id
+                    return self.remoteUserService.getCurrentUser(accessToken: response.access_token!)
                 }
+                return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
+            }
+            .receive(on: RunLoop.main)
+            .sink { error in
+                self.navigatior = .onError("Неверный код авторизации :(")
+            } receiveValue: { userResponse in
+                userResponse.profile_data.id = SessionInfo.shared.userID!
+                userResponse.profile_data.accessToken = SessionInfo.shared.accessToken
+                userResponse.profile_data.refreshToken = SessionInfo.shared.refreshToken
+                self.navigatior = .toChatList(userResponse.profile_data)
+                self.databaseService.save(user: userResponse.profile_data)
             }
             .store(in: &subscriber)
+
     }
     
     func register() {
         authService.register(phone: phoneNumber, name: name, username: username)
             .sink { completion in
-                let error = try? completion.error()
             } receiveValue: { registerResponse in
                 self.remoteUserService.getCurrentUser(accessToken: registerResponse.access_token)
                     .sink { completion in
-                        let error = try? completion.error()
                     } receiveValue: { userResponse in
-                        let user = self.saveUserToDB(profileData: userResponse.profile_data, accessToken: registerResponse.access_token, refreshToken: registerResponse.refresh_token)
+                        let user = userResponse.profile_data
+                        user.id = registerResponse.user_id
+                        user.refreshToken = registerResponse.refresh_token
+                        user.accessToken = registerResponse.access_token
                         self.navigatior = .toChatList(user)
                     }
                     .store(in: &self.subscriber)
@@ -103,31 +100,20 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
 }
 
 extension AuthenticationScreenViewModel {
-    
-    func saveUserToDB(profileData: ProfileData, accessToken: String?, refreshToken: String?) -> UserModel {
-        let userObject = UserModel()
-        userObject.accessToken = accessToken
-        userObject.refreshToken = refreshToken
-        userObject.id = profileData.id
-        userObject.name = profileData.name
-        userObject.username = profileData.username
-        userObject.birthday = profileData.birthday
-        userObject.city = profileData.city
-        userObject.avatar = profileData.avatarData
-        userObject.avatars = profileData.avatars
-        userObject.phone = profileData.phone
-        print("Avatar data in authViewModel \(profileData.avatarData)")
-        self.databaseService.save(user: userObject)
-        
-        return userObject
-    }
-}
-
-extension AuthenticationScreenViewModel {
     enum AuthNavigator {
         case onEnterPhoneNumber
         case onEnterVerificationCode
         case onRegistrationScreen
+        case onError(String)
         case toChatList(UserModel)
     }
 }
+
+//extension Subscribers.Completion {
+//    var error2: Failure? {
+//        switch self {
+//        case let .failure(error): return error
+//        default: return nil
+//        }
+//    }
+//}

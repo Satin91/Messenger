@@ -28,7 +28,7 @@ final class ProfileScreenViewModel: ObservableObject {
     /// Свойства пользователя, допустимые для модификации.
     @Published var name: String
     @Published var city: String?
-    @Published var aboutMe = ""
+    @Published var aboutMe: String?
     @Published var birthday: Date?
     @Published var avatar: Data?
     
@@ -40,7 +40,7 @@ final class ProfileScreenViewModel: ObservableObject {
         self.name = user.name
         self.aboutMe = user.aboutMe
         self.birthday = user.birthday?.toDate
-        self.avatar = user.avatar
+        self.avatar = user.avatarData
     }
     
     /// Проверка на изменения свойств
@@ -54,6 +54,10 @@ final class ProfileScreenViewModel: ObservableObject {
         }
         
         guard user.city == self.city else {
+            return true
+        }
+        
+        guard user.avatarData == self.avatar else {
             return true
         }
         

@@ -34,6 +34,10 @@ struct AuthenticationScreen: View {
                 Color.clear.onAppear {
                     router.pushToChatList(user: user)
                 }
+            case .onError(let text):
+                Text(text)
+                    .foregroundColor(Colors.lightGray)
+                    .frame(width: 320, height: 320)
             }
         }
         .padding(.horizontal, Spacing.horizontalEdges)

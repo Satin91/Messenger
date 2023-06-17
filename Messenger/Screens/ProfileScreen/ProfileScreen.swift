@@ -138,7 +138,7 @@ struct ProfileScreen: View {
     
     
     var aboutMeTextField: some View {
-        TitledTextField(title: "Обо мне", text: $viewModel.aboutMe, placeholder: "Расскажите о себе", axis: .vertical)
+        TitledTextField(title: "Обо мне", text: $viewModel.aboutMe.bound, placeholder: "Расскажите о себе", axis: .vertical)
             .frame(alignment: .topLeading)
     }
     

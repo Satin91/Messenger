@@ -20,8 +20,7 @@ final class RemoteUserService: RemoteUserServiceProtocol {
     init(networkManager: NetworkManagerProtocol) {
         self.networkManager = networkManager
     }
-    
-    var cancelBag = Set<AnyCancellable>()
+
     func getCurrentUser(accessToken: String) -> AnyPublisher<GetCurrentUserResponse, Error> {
         let request = GetCurrentUserRequest(accessToken: accessToken)
         return networkManager.sendRequest(request: request)
@@ -46,9 +45,10 @@ final class RemoteUserService: RemoteUserServiceProtocol {
         guard let url = URL(string: Constants.API.Media.avatar(size: .bigAvatar, address: address)) else {
             return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
         }
+        
         return URLSession.shared.dataTaskPublisher(for: url)
             .map({ response in
-                var temp = userResponse
+                let temp = userResponse
                 temp.profile_data.avatarData = response.data
                 return temp
             })
