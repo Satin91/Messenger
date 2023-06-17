@@ -9,12 +9,14 @@ import SwiftUI
 
 extension Image {
     init(placeholder: String, data: Data?) {
-        guard let data = data else {
+        print("Init Image with data INIT \(data)")
+        guard let data = data, let uiimage = UIImage(data: data) else {
             self.init(placeholder)
+            print("Init Image with failure")
             return
         }
-        let uimage = UIImage(data: data)
-        self.init(uiImage: uimage ?? UIImage())
+        print("Init Image with Success")
+        self.init(uiImage: uiimage)
     }
 }
 

@@ -63,13 +63,15 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
                             print("GetCurrentUser Error \(error)")
                         } receiveValue: { userResponse in
                             print("Current user response \(userResponse)")
-                            let user = self.saveUserToDB(
-                                profileData: userResponse.profile_data,
-                                accessToken: authResponse.access_token!,
-                                refreshToken: authResponse.refresh_token!
-                            )
-                            self.databaseService.save(user: user)
-                            self.navigatior = .toHomeScreen(user)
+                            DispatchQueue.main.async {
+                                let user = self.saveUserToDB(
+                                    profileData: userResponse.profile_data,
+                                    accessToken: authResponse.access_token!,
+                                    refreshToken: authResponse.refresh_token!
+                                )
+                                self.databaseService.save(user: user)
+                                self.navigatior = .toChatList(user)
+                            }
                         }
                         .store(in: &self.subscriber)
                 } else {
@@ -97,8 +99,8 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
                             accessToken: registerResponse.access_token,
                             refreshToken: registerResponse.refresh_token
                         )
-                        self.databaseService.save(user: user)
-                        self.navigatior = .toHomeScreen(user)
+                        print("Go to home screen \(user.avatar)")
+                        self.navigatior = .toChatList(user)
                     }
                     .store(in: &self.subscriber)
                 
@@ -113,10 +115,9 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
 }
 
 extension AuthenticationScreenViewModel {
+    
     func saveUserToDB(profileData: ProfileData, accessToken: String?, refreshToken: String?) -> UserModel {
         let userObject = UserModel()
-        let avatars = RealmSwift.List<String>()
-        avatars.append(objectsIn: profileData.avatars ?? [])
         userObject.accessToken = accessToken
         userObject.refreshToken = refreshToken
         userObject.id = profileData.id
@@ -124,9 +125,16 @@ extension AuthenticationScreenViewModel {
         userObject.username = profileData.username
         userObject.birthday = profileData.birthday
         userObject.city = profileData.city
-        userObject.avatar = profileData.avatar
-        userObject.avatars = avatars
+        print("profile data avatar \(profileData.avatar)")
+        Task {
+            let data = await remoteUserService.getUserAvatar(path: profileData.avatar ?? "")
+            userObject.avatar = data
+            let image = UIImage(data: data!)
+            print("Debug: Imagedata \(image)")
+        }
+        userObject.avatars = profileData.avatars
         userObject.phone = profileData.phone
+        self.databaseService.save(user: userObject)
         
         return userObject
     }
@@ -137,6 +145,6 @@ extension AuthenticationScreenViewModel {
         case onEnterPhoneNumber
         case onEnterVerificationCode
         case onRegistrationScreen
-        case toHomeScreen(UserModel)
+        case toChatList(UserModel)
     }
 }

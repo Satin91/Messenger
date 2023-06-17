@@ -15,12 +15,12 @@ enum Constants {
     
     enum API {
         static let baseHeaders = ["Content-Type": "application/json", "application/json": "accept"]
-        static let baseURL = "https://plannerok.ru/api/v1/"
-        static let sendAuthCodePath = "users/send-auth-code/"
-        static let checkAuthCodePath = "users/check-auth-code/"
-        static let userRegisterPath = "users/register/"
-        static let getCurrentUserPath = "users/me/"
-        static let updateUserPath = "users/me/"
+        static let baseURL = "https://plannerok.ru/"
+        static let sendAuthCodePath = "api/v1/users/send-auth-code/"
+        static let checkAuthCodePath = "api/v1/users/check-auth-code/"
+        static let userRegisterPath = "api/v1/users/register/"
+        static let getCurrentUserPath = "api/v1/users/me/"
+        static let updateUserPath = "api/v1/users/me/"
     }
 }
 

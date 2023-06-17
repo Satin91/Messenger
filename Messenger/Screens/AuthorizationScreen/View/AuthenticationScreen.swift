@@ -30,9 +30,9 @@ struct AuthenticationScreen: View {
                 EnterVerificationCodeView()
             case .onRegistrationScreen:
                 RegistrationView()
-            case .toHomeScreen(let user):
+            case .toChatList(let user):
                 Color.clear.onAppear {
-                    router.pushToHomeScreen(user: user)
+                    router.pushToChatList(user: user)
                 }
             }
         }

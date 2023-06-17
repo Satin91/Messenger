@@ -29,17 +29,3 @@ struct UpdateUserRequest: NetworkRequestProtocol {
         return RequestModel(path: Constants.API.updateUserPath, parameters: parameters, headers: HTTPHeaders(headers), method: .put)
     }
 }
-
-//{
-//  "name": "string",
-//  "username": "string",
-//  "birthday": "2023-06-16",
-//  "city": "string",
-//  "vk": "string",
-//  "instagram": "string",
-//  "status": "string",
-//  "avatar": {
-//    "filename": "string",
-//    "base_64": "string"
-//  }
-//}

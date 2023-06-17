@@ -11,6 +11,7 @@ import Foundation
 
 protocol NetworkManagerProtocol {
     func sendRequest(request: NetworkRequestProtocol) -> AnyPublisher<Data, Error>
+    func dataFromURL(urlString: String) async throws -> Data?
 }
 
 class NetworkManager: NetworkManagerProtocol {
@@ -35,6 +36,15 @@ class NetworkManager: NetworkManagerProtocol {
                 }
             }
             .eraseToAnyPublisher()
+    }
+    
+    func dataFromURL(urlString: String) async throws -> Data? {
+        guard let url = URL(string: urlString) else {
+            throw URLError(.badURL)
+        }
+        let request = URLRequest(url: url)
+        let (data, _) = try await URLSession.shared.data(for: request)
+        return data
     }
 }
 

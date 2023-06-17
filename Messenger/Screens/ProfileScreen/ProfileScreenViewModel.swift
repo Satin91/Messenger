@@ -40,6 +40,7 @@ final class ProfileScreenViewModel: ObservableObject {
         self.name = user.name
         self.aboutMe = user.aboutMe
         self.birthday = user.birthday?.toDate
+        self.avatar = user.avatar
     }
     
     /// Проверка на изменения свойств
@@ -74,7 +75,7 @@ final class ProfileScreenViewModel: ObservableObject {
         
         
         
-        let image = UIImage(named: Constants.CommonNames.avatarPlaceholder)
+        let image = UIImage(data: avatar ?? Data())
         guard let imgData = image!.pngData() else { return }
         let base64String = imgData.base64EncodedString(options: .lineLength64Characters)
         //        let dataDecoded : Data = Data(base64Encoded: str, options: .ignoreUnknownCharacters)!

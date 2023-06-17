@@ -48,10 +48,10 @@ class AppCoordinatorViewModel: ObservableObject {
   @Published var routes: Routes<Screen>
     
   init() {
-      self.routes = [.root(.profileScreen(UserModel()), embedInNavigationView: true)]
+      self.routes = [.root(.verificationScreen, embedInNavigationView: true)]
   }
     
-    func pushToHomeScreen(user: UserModel) {
+    func pushToChatList(user: UserModel) {
         routes.push(.chatListScreen(user) )
     }
     

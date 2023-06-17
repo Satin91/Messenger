@@ -42,9 +42,9 @@ struct ChatListScreen: View {
     }
     
     var profile: some View {
-        Image(user.avatar ?? "avatarPlaceholder")
+        Image(placeholder: Constants.CommonNames.avatarPlaceholder, data: user.avatar)
             .resizable()
-            .scaledToFit()
+            .scaledToFill()
             .frame(width: 60, height: 60)
             .clipShape(Circle())
     }

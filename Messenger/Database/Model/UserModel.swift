@@ -18,8 +18,8 @@ class UserModel: Object {
     dynamic var username = ""
     dynamic var birthday: String?
     dynamic var city: String?
-    dynamic var avatar: String?
-    dynamic var avatars: RealmSwift.List<String>?
+    dynamic var avatar: Data?
+    dynamic var avatars: Avatars = Avatars(avatar: "", bigAvatar: "", miniAvatar: "")
     dynamic var zodiacSign: String = ""
     dynamic var aboutMe: String = ""
     
