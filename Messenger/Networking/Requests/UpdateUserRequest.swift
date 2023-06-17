@@ -13,17 +13,14 @@ struct UpdateUserRequest: NetworkRequestProtocol {
     var parameters: [String: Any?]
     var header: [String: String]
     
-    init(accessToken: String, name: String, username: String, birthday: String?, city: String?, filename: String, base64: String) {
+    init(accessToken: String, name: String, username: String, birthday: String?, city: String?, avatar: [String: String]) {
         self.header = ["Authorization": "Bearer \(accessToken)"]
         parameters = [
             "name": name,
             "username": username,
             "birthday": birthday,
             "city": city,
-            "avatar": [
-                "filename": filename,
-                "base_64": base64
-            ]
+            "avatar": avatar
         ]
     }
     

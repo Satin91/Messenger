@@ -9,6 +9,10 @@ import Foundation
 import SwiftUI
 
 enum Constants {
+    enum CommonNames {
+        static let avatarPlaceholder = "avatarPlaceholder"
+    }
+    
     enum API {
         static let baseHeaders = ["Content-Type": "application/json", "application/json": "accept"]
         static let baseURL = "https://plannerok.ru/api/v1/"
@@ -46,4 +50,3 @@ enum Colors {
     static let darkBlueShadow = Color("darkBlueShadow")
     static let lightGray = Color("lightGray")
 }
-

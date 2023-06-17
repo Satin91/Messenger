@@ -8,17 +8,28 @@
 import SwiftUI
 import RealmSwift
 import Alamofire
+import PhotosUI
 
 struct ProfileScreen: View {
     @EnvironmentObject var router: AppCoordinatorViewModel
     @StateObject var viewModel: ProfileScreenViewModel
     
-    @State var isChange: Bool = false
+    /// Кнопка сохранения свойств пользователя имеет состояния, этот флаг оповещает об изменениях.
+    @State var isUserChanged: Bool = false
+    @State private var avatarItem: PhotosPickerItem?
+    @State private var avatarImage: Image?
     
     var body: some View {
         content
             .onChange(of: viewModel) { newValue in
-                isChange = viewModel.compareChanges()
+                isUserChanged = viewModel.compareChanges()
+            }
+            .onChange(of: avatarItem) { newValue in
+                newValue?.loadTransferable(type: Data.self, completionHandler: { result in
+                    DispatchQueue.main.async {
+                        viewModel.avatar = try? result.get()
+                    }
+                })
             }
     }
     
@@ -27,7 +38,7 @@ struct ProfileScreen: View {
             navigationBar
             ScrollView(.vertical) {
                 VStack(alignment: .leading, spacing: Spacing.mediumPadding) {
-                    avatar
+                    avatarContainer
                     textContainer
                     saveButton
                 }
@@ -47,12 +58,22 @@ struct ProfileScreen: View {
             .padding(.horizontal, Spacing.horizontalEdges)
     }
     
-    var avatar: some View {
-        Image(viewModel.user.avatar ?? "avatarPlaceholder")
+    var avatarContainer: some View {
+        Image(placeholder: Constants.CommonNames.avatarPlaceholder, data: viewModel.avatar)
             .resizable()
-            .aspectRatio(contentMode: .fit)
+            .scaledToFill()
+            .frame(width: 180, height: 180)
+            .clipShape(Circle())
+            .padding()
+            .overlay(alignment: .topTrailing) {
+                PhotosPicker(selection: $avatarItem, matching: .images) {
+                    Image(systemName: "arrow.down.app.fill", variableValue: 1.00)
+                    .symbolRenderingMode(.hierarchical)
+                    .foregroundColor(Colors.primary)
+                    .font(.system(size: 34, weight: .regular))
+                }
+            }
             .frame(maxWidth: .infinity)
-            .cornerRadius(Spacing.defaultRadius * 2)
     }
     
     var textContainer: some View {
@@ -103,7 +124,7 @@ struct ProfileScreen: View {
                         .frame(alignment: .bottomLeading)
                 }
             }
-
+            
         }
     }
     
@@ -123,7 +144,7 @@ struct ProfileScreen: View {
     
     var saveButton: some View {
         
-        StatebleButton(title: "Сохранить", isEnable: isChange) {
+        StatebleButton(title: "Сохранить", isEnable: isUserChanged) {
             viewModel.updateUser()
         }
     }

@@ -30,6 +30,7 @@ class NetworkManager: NetworkManagerProtocol {
                     print("Response data \(serialize)")
                     return data
                 case .failure(let error):
+                    print("Response error \(error)")
                     throw error
                 }
             }

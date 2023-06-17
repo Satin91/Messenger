@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 import Combine
 import RealmSwift
 import UIKit
@@ -19,19 +20,17 @@ final class ProfileScreenViewModel: ObservableObject {
     var databaseService: DatabaseServiceProtocol
     
     
-    /// При каждом изменении @Published свойства, обновляется вся модель. По этому нет причин не использовать вычисляемое свойства, основанне на издателе.
+    /// При каждом изменении @Published свойства, обновляется вся модель. По этому нет причин не использовать вычисляемые свойства, основанне на издателе.
     var zodiacSignText: String? {
         birthday?.zodiac
     }
     
-    /// Кнопка сохранения свойств пользователя имеет состояния, этот флаг оповещает об изменениях.
-    @Published var isUserChanged = false
-
     /// Свойства пользователя, допустимые для модификации.
     @Published var name: String
     @Published var city: String?
     @Published var aboutMe = ""
     @Published var birthday: Date?
+    @Published var avatar: Data?
     
     init(databaseService: DatabaseServiceProtocol, remoteUserService: RemoteUserServiceProtocol, user: UserModel) {
         self.remoteUserService = remoteUserService
@@ -72,18 +71,21 @@ final class ProfileScreenViewModel: ObservableObject {
             user.birthday = birthday?.toString
             user.aboutMe = aboutMe
         }
-        let image : UIImage = UIImage(named:"avatarPlaceholder")!
-        let data = image.pngData()
-        let base64 = data?.base64EncodedData(options: .lineLength64Characters)
-        let str = String(decoding: base64!, as: UTF8.self)
-        let dataDecoded : Data = Data(base64Encoded: str, options: .ignoreUnknownCharacters)!
-        let uiimage = UIImage(data: dataDecoded)
-        print("String data \(dataDecoded)")
-//        databaseService.save(user: user)
-        remoteUserService.updateUser(accessToken: user.accessToken ?? "", user: user)
+        
+        
+        
+        let image = UIImage(named: Constants.CommonNames.avatarPlaceholder)
+        guard let imgData = image!.pngData() else { return }
+        let base64String = imgData.base64EncodedString(options: .lineLength64Characters)
+        //        let dataDecoded : Data = Data(base64Encoded: str, options: .ignoreUnknownCharacters)!
+        //        let uiimage = UIImage(data: dataDecoded)
+        //        databaseService.save(user: user)
+        
+        remoteUserService.updateUser(accessToken: user.accessToken ?? "", user: user, avatar: ["filename": "asfdrg", "base_64": base64String])
             .sink { completion in
-                let error = try! completion.error()
+                let error = try? completion.error()
                 print(error)
+                print(completion)
             } receiveValue: { response in
                 print(response)
             }

@@ -8,11 +8,11 @@
 import Foundation
 
 struct UpdateUserResponse: Codable {
-    var avatars: Avatars
+    var avatars: [String: String]
 }
 
-struct Avatars: Codable {
-    var avatar: String
-    var bigAvatar: String
-    var miniAvatar: String
-}
+//struct Avatars: Codable {
+//    var avatar: String
+//    var bigAvatar: String
+//    var miniAvatar: String
+//}

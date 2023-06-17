@@ -10,7 +10,7 @@ import Foundation
 
 protocol RemoteUserServiceProtocol {
     func getCurrentUser(accessToken: String) -> AnyPublisher<GetCurrentUserResponse, Error>
-    func updateUser(accessToken: String, user: UserModel) -> AnyPublisher<UpdateUserResponse, Error>
+    func updateUser(accessToken: String, user: UserModel, avatar: [String: String]) -> AnyPublisher<UpdateUserResponse, Error>
 }
 
 final class RemoteUserService: RemoteUserServiceProtocol {
@@ -27,8 +27,8 @@ final class RemoteUserService: RemoteUserServiceProtocol {
             .eraseToAnyPublisher()
     }
     
-    func updateUser(accessToken: String, user: UserModel) -> AnyPublisher<UpdateUserResponse, Error> {
-        let request = UpdateUserRequest(accessToken: user.accessToken!, name: user.name, username: user.username, birthday: user.birthday, city: user.city, filename: "Name", base64: "21312")
+    func updateUser(accessToken: String, user: UserModel, avatar: [String: String]) -> AnyPublisher<UpdateUserResponse, Error> {
+        let request = UpdateUserRequest(accessToken: user.accessToken!, name: user.name, username: user.username, birthday: user.birthday, city: user.city, avatar: avatar)
         return networkManager.sendRequest(request: request)
             .decode(type: UpdateUserResponse.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
