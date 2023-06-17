@@ -1,5 +1,5 @@
 //
-//  HomeScreen.swift
+//  ChatListScreen.swift
 //  Messenger
 //
 //  Created by Артур Кулик on 13.06.2023.
@@ -8,16 +8,13 @@
 import SwiftUI
 
 struct ChatListScreen: View {
-    var user: UserModel
     let mockChats = MockChats.chats
     
     @EnvironmentObject var router: AppCoordinatorViewModel
+    @StateObject var viewModel: ChatListScreenViewModel
     
     var body: some View {
         content
-            .onAppear {
-                print("Debug Avatar: chat list on appear \(user.avatar)")
-            }
     }
     
     var content: some View {
@@ -39,13 +36,13 @@ struct ChatListScreen: View {
             .addRightContainer {
                 profile
                     .onTapGesture {
-                        router.pushToProfileScreen(user: user)
+                        router.pushToProfileScreen(user: viewModel.user)
                     }
             }
     }
     
     var profile: some View {
-        Image(placeholder: Constants.CommonNames.avatarPlaceholder, data: user.avatar)
+        Image(placeholder: Constants.CommonNames.avatarPlaceholder, data: viewModel.user.avatar)
             .resizable()
             .scaledToFill()
             .frame(width: 60, height: 60)
@@ -57,7 +54,7 @@ struct ChatListScreen: View {
             ForEach(mockChats, id: \.id) { companion in
                 ChatListRow(companion: companion)
                     .onTapGesture {
-                        router.pushToChatScreen(user: self.user, companion: companion)
+                        router.pushToChatScreen(user: viewModel.user, companion: companion)
                     }
             }
         }

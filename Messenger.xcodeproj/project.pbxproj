@@ -49,6 +49,7 @@
 		8E9033032A35060000445809 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 8E9033022A35060000445809 /* Alamofire */; };
 		8E9033072A3545AA00445809 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E9033062A3545AA00445809 /* Colors.xcassets */; };
 		8E99B8B12A3D29E0009EBC1A /* ImageFromData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E99B8B02A3D29E0009EBC1A /* ImageFromData.swift */; };
+		8E9AF5772A3D6BDA000A5531 /* ChatListScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9AF5762A3D6BDA000A5531 /* ChatListScreenViewModel.swift */; };
 		8E9B08A12A35FD5D00D1A035 /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08A02A35FD5D00D1A035 /* ScreenFactory.swift */; };
 		8E9B08A42A35FE5100D1A035 /* ApplicationFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08A32A35FE5100D1A035 /* ApplicationFactory.swift */; };
 		8E9B08A72A360F4800D1A035 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08A62A360F4800D1A035 /* NotificationManager.swift */; };
@@ -118,6 +119,7 @@
 		8E8964702A3BEABE00C0243C /* UpdateUserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserResponse.swift; sourceTree = "<group>"; };
 		8E9033062A3545AA00445809 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		8E99B8B02A3D29E0009EBC1A /* ImageFromData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFromData.swift; sourceTree = "<group>"; };
+		8E9AF5762A3D6BDA000A5531 /* ChatListScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListScreenViewModel.swift; sourceTree = "<group>"; };
 		8E9B08A02A35FD5D00D1A035 /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactory.swift; sourceTree = "<group>"; };
 		8E9B08A32A35FE5100D1A035 /* ApplicationFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationFactory.swift; sourceTree = "<group>"; };
 		8E9B08A62A360F4800D1A035 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
@@ -504,6 +506,7 @@
 			children = (
 				8E8964502A3A28F200C0243C /* Model */,
 				8E9B08E12A37C41E00D1A035 /* ChatListScreen.swift */,
+				8E9AF5762A3D6BDA000A5531 /* ChatListScreenViewModel.swift */,
 			);
 			path = ChatListScreen;
 			sourceTree = "<group>";
@@ -641,6 +644,7 @@
 				8E8964622A3AAE6500C0243C /* ProfileScreenViewModel.swift in Sources */,
 				8E9B08DC2A37BA4400D1A035 /* Router.swift in Sources */,
 				8E626DEF2A38B15E0018AD87 /* DatabaseService.swift in Sources */,
+				8E9AF5772A3D6BDA000A5531 /* ChatListScreenViewModel.swift in Sources */,
 				8E1945AA2A326C0E00CBB4B4 /* Fonts.swift in Sources */,
 				8E9B08CD2A36B82400D1A035 /* VerificationTextField.swift in Sources */,
 				8E34C28A2A3392F0009C40FA /* RequestModel.swift in Sources */,

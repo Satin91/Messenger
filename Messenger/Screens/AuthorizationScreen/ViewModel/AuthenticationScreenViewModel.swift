@@ -42,7 +42,6 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
         authService.sendAuthCode(phone: phoneNumber)
             .sink { completion in
                 let error = try? completion.error()
-                print("Error \(error)")
             } receiveValue: { response in
                 self.sendVerificationCode()
                 self.navigatior = .onEnterVerificationCode
@@ -60,15 +59,12 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
                     self.remoteUserService.getCurrentUser(accessToken: authResponse.access_token!)
                         .sink { completion in
                             let error = try? completion.error()
-                            print("GetCurrentUser Error \(error)")
                         } receiveValue: { userResponse in
-                            print("Current user response \(userResponse)")
                             let user = self.saveUserToDB(
                                 profileData: userResponse.profile_data,
                                 accessToken: authResponse.access_token!,
                                 refreshToken: authResponse.refresh_token!
                             )
-                            print("Debug Avatar: To chat list \(user.avatar)")
                             self.navigatior = .toChatList(user)
                         }
                         .store(in: &self.subscriber)
@@ -83,15 +79,11 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
         authService.register(phone: phoneNumber, name: name, username: username)
             .sink { completion in
                 let error = try? completion.error()
-                print("Register Error \(error)")
             } receiveValue: { registerResponse in
-                print("Register Response \(registerResponse)")
                 self.remoteUserService.getCurrentUser(accessToken: registerResponse.access_token)
                     .sink { completion in
                         let error = try? completion.error()
-                        print("GetCurrentUser Error \(error)")
                     } receiveValue: { userResponse in
-                        print("Current user response \(userResponse)")
                         let user = self.saveUserToDB(profileData: userResponse.profile_data, accessToken: registerResponse.access_token, refreshToken: registerResponse.refresh_token)
                         self.navigatior = .toChatList(user)
                     }
@@ -118,11 +110,7 @@ extension AuthenticationScreenViewModel {
         userObject.username = profileData.username
         userObject.birthday = profileData.birthday
         userObject.city = profileData.city
-        print("profile data avatar \(profileData.avatar)")
-        let data = remoteUserService.getUserAvatar(path: profileData.avatar ?? "")
-        userObject.avatar = data
-        let image = UIImage(data: data!)
-        print("Debug: Imagedata \(image)")
+        userObject.avatar = profileData.avatarData
         userObject.avatars = profileData.avatars
         userObject.phone = profileData.phone
         self.databaseService.save(user: userObject)

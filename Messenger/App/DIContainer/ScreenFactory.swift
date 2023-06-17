@@ -23,7 +23,7 @@ final class SceneFactory: NSObject, SceneFactoryProtocol {
     }
     
     func makeChatListScreen(user: UserModel) -> AnyView {
-        AnyView(ChatListScreen(user: user))
+        AnyView(ChatListScreen(viewModel: self.applicationFactory.chatListScreenViewModel(user: user)))
     }
     
     func makeChatScreen(user: UserModel, companion: MockChats.ChatUser) -> AnyView {

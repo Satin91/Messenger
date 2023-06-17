@@ -30,7 +30,7 @@ struct AppCoordinator: View {
                 sceneFactory.makeAuthorizationScreen()
                     .toolbar(.hidden)
             case .chatListScreen(let user):
-                ChatListScreen(user: user)
+                sceneFactory.makeChatListScreen(user: user)
                     .toolbar(.hidden)
             case .chatScreen(let user, let companion):
                 sceneFactory.makeChatScreen(user: user, companion: companion)
@@ -52,7 +52,6 @@ class AppCoordinatorViewModel: ObservableObject {
   }
     
     func pushToChatList(user: UserModel) {
-        print("Debug Avatar: Push \(user.avatar)")
         routes.push(.chatListScreen(user) )
     }
     

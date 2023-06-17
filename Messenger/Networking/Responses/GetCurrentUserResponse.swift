@@ -13,6 +13,7 @@ struct GetCurrentUserResponse: Codable {
 
 struct ProfileData: Codable {
     var avatar: String?
+    var avatarData: Data?
     var avatars: Avatars
     var birthday: String?
     var city: String?

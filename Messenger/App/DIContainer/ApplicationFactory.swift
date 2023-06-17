@@ -44,6 +44,10 @@ final class ApplicationFactory {
         ProfileScreenViewModel(databaseService: databaseService, remoteUserService: remoteUserService, user: user)
     }
     
+    func chatListScreenViewModel(user: UserModel) -> ChatListScreenViewModel {
+        ChatListScreenViewModel(user: user)
+    }
+    
     init() {
         self.networkManager = NetworkManager(session: Session.default)
         self.databaseManager = DatabaseManager()
