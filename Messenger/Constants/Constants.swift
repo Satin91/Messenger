@@ -14,13 +14,30 @@ enum Constants {
     }
     
     enum API {
-        static let baseHeaders = ["Content-Type": "application/json", "application/json": "accept"]
         static let baseURL = "https://plannerok.ru/"
-        static let sendAuthCodePath = "api/v1/users/send-auth-code/"
-        static let checkAuthCodePath = "api/v1/users/check-auth-code/"
-        static let userRegisterPath = "api/v1/users/register/"
-        static let getCurrentUserPath = "api/v1/users/me/"
-        static let updateUserPath = "api/v1/users/me/"
+        
+        static let baseHeaders = ["Content-Type": "application/json", "application/json": "accept"]
+        enum Auth {
+            static let sendAuthCodePath = "api/v1/users/send-auth-code/"
+            static let checkAuthCodePath = "api/v1/users/check-auth-code/"
+            static let userRegisterPath = "api/v1/users/register/"
+        }
+        
+        enum User {
+            static let getCurrentUserPath = "api/v1/users/me/"
+            static let updateUserPath = "api/v1/users/me/"
+        }
+        
+        enum Media {
+            enum Avatar: String {
+                case avatar = "media/ava tars/400x400/"
+                case bigAvatar = "media/avatars/600x600/"
+                case miniAvatar = "media/avatars/200x200/"
+            }
+            static func avatar(size: Media.Avatar, address: String) -> String {
+                return Constants.API.baseURL + size.rawValue + address
+            }
+        }
     }
 }
 

@@ -72,21 +72,14 @@ final class ProfileScreenViewModel: ObservableObject {
             user.birthday = birthday?.toString
             user.aboutMe = aboutMe
         }
-        
-        
-        
         let image = UIImage(data: avatar ?? Data())
         guard let imgData = image!.pngData() else { return }
         let base64String = imgData.base64EncodedString(options: .lineLength64Characters)
-        //        let dataDecoded : Data = Data(base64Encoded: str, options: .ignoreUnknownCharacters)!
-        //        let uiimage = UIImage(data: dataDecoded)
-        //        databaseService.save(user: user)
         
-        remoteUserService.updateUser(accessToken: user.accessToken ?? "", user: user, avatar: ["filename": "asfdrg", "base_64": base64String])
+        databaseService.save(user: user)
+        remoteUserService.updateUser(accessToken: user.accessToken ?? "", user: user, avatar: ["filename": "MainAvatar", "base_64": base64String])
             .sink { completion in
                 let error = try? completion.error()
-                print(error)
-                print(completion)
             } receiveValue: { response in
                 print(response)
             }

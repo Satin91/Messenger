@@ -26,8 +26,8 @@ final class RemoteUserService: RemoteUserServiceProtocol {
         let request = GetCurrentUserRequest(accessToken: accessToken)
         return networkManager.sendRequest(request: request)
             .decode(type: GetCurrentUserResponse.self, decoder: JSONDecoder())
-            .flatMap { response in
-                return self.loadAvatar(userResponse: response)
+            .flatMap { userResponse in
+                return self.loadAvatarTo(userResponse)
             }
             .eraseToAnyPublisher()
     }
@@ -39,20 +39,20 @@ final class RemoteUserService: RemoteUserServiceProtocol {
             .eraseToAnyPublisher()
     }
     
-    func loadAvatar(userResponse: GetCurrentUserResponse) -> AnyPublisher<GetCurrentUserResponse, Error> {
-        guard var endPoint = userResponse.profile_data.avatar else {
+    func loadAvatarTo(_ userResponse: GetCurrentUserResponse) -> AnyPublisher<GetCurrentUserResponse, Error> {
+        guard let address = userResponse.profile_data.avatar else {
             return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
         }
-        endPoint.insert(contentsOf: "media/avatars/600x600/", at: endPoint.startIndex)
-        return URLSession.shared.dataTaskPublisher(for: URL(string: Constants.API.baseURL + endPoint)!)
+        guard let url = URL(string: Constants.API.Media.avatar(size: .bigAvatar, address: address)) else {
+            return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
+        }
+        return URLSession.shared.dataTaskPublisher(for: url)
             .map({ response in
-                var userResponse = userResponse
-                userResponse.profile_data.avatarData = response.data
-                return userResponse
+                var temp = userResponse
+                temp.profile_data.avatarData = response.data
+                return temp
             })
-            .mapError({ urlerrir in
-                return URLError(.badURL)
-            })
+            .mapError { _ in URLError(.badURL) }
             .eraseToAnyPublisher()
     }
 }

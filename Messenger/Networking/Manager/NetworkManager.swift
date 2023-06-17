@@ -42,7 +42,6 @@ class NetworkManager: NetworkManagerProtocol {
         guard let url = URL(string: urlString) else {
             return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
         }
-        let request = URLRequest(url: url)
         return session.request(url).publishData()
             .tryMap { response -> Data in
                 switch response.result {
@@ -56,7 +55,6 @@ class NetworkManager: NetworkManagerProtocol {
                 }
             }
             .eraseToAnyPublisher()
-        
     }
 }
 

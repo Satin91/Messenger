@@ -15,6 +15,6 @@ struct SendAuthCodeRequest: NetworkRequestProtocol {
     }
     
     func make() -> RequestModel {
-        RequestModel(path: Constants.API.sendAuthCodePath, parameters: self.parameters, method: .post)
+        RequestModel(path: Constants.API.Auth.sendAuthCodePath, parameters: self.parameters, method: .post)
     }
 }

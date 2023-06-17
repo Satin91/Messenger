@@ -146,6 +146,7 @@ struct ProfileScreen: View {
         
         StatebleButton(title: "Сохранить", isEnable: isUserChanged) {
             viewModel.updateUser()
+            router.back()
         }
     }
 }
