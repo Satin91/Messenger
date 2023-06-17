@@ -52,6 +52,7 @@ class AppCoordinatorViewModel: ObservableObject {
   }
     
     func pushToChatList(user: UserModel) {
+        print("Debug Avatar: Push \(user.avatar)")
         routes.push(.chatListScreen(user) )
     }
     

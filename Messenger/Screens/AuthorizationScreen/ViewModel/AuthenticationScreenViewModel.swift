@@ -37,7 +37,7 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
         self.remoteUserService = remoteUserService
         self.databaseService = databaseService
     }
-
+    
     func sendAuthCode() {
         authService.sendAuthCode(phone: phoneNumber)
             .sink { completion in
@@ -63,15 +63,13 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
                             print("GetCurrentUser Error \(error)")
                         } receiveValue: { userResponse in
                             print("Current user response \(userResponse)")
-                            DispatchQueue.main.async {
-                                let user = self.saveUserToDB(
-                                    profileData: userResponse.profile_data,
-                                    accessToken: authResponse.access_token!,
-                                    refreshToken: authResponse.refresh_token!
-                                )
-                                self.databaseService.save(user: user)
-                                self.navigatior = .toChatList(user)
-                            }
+                            let user = self.saveUserToDB(
+                                profileData: userResponse.profile_data,
+                                accessToken: authResponse.access_token!,
+                                refreshToken: authResponse.refresh_token!
+                            )
+                            print("Debug Avatar: To chat list \(user.avatar)")
+                            self.navigatior = .toChatList(user)
                         }
                         .store(in: &self.subscriber)
                 } else {
@@ -94,12 +92,7 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
                         print("GetCurrentUser Error \(error)")
                     } receiveValue: { userResponse in
                         print("Current user response \(userResponse)")
-                        let user = self.saveUserToDB(
-                            profileData: userResponse.profile_data,
-                            accessToken: registerResponse.access_token,
-                            refreshToken: registerResponse.refresh_token
-                        )
-                        print("Go to home screen \(user.avatar)")
+                        let user = self.saveUserToDB(profileData: userResponse.profile_data, accessToken: registerResponse.access_token, refreshToken: registerResponse.refresh_token)
                         self.navigatior = .toChatList(user)
                     }
                     .store(in: &self.subscriber)
@@ -126,12 +119,10 @@ extension AuthenticationScreenViewModel {
         userObject.birthday = profileData.birthday
         userObject.city = profileData.city
         print("profile data avatar \(profileData.avatar)")
-        Task {
-            let data = await remoteUserService.getUserAvatar(path: profileData.avatar ?? "")
-            userObject.avatar = data
-            let image = UIImage(data: data!)
-            print("Debug: Imagedata \(image)")
-        }
+        let data = remoteUserService.getUserAvatar(path: profileData.avatar ?? "")
+        userObject.avatar = data
+        let image = UIImage(data: data!)
+        print("Debug: Imagedata \(image)")
         userObject.avatars = profileData.avatars
         userObject.phone = profileData.phone
         self.databaseService.save(user: userObject)

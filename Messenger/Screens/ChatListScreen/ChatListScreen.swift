@@ -15,6 +15,9 @@ struct ChatListScreen: View {
     
     var body: some View {
         content
+            .onAppear {
+                print("Debug Avatar: chat list on appear \(user.avatar)")
+            }
     }
     
     var content: some View {
