@@ -83,7 +83,7 @@ final class ProfileScreenViewModel: ObservableObject {
         databaseService.save(user: user)
         remoteUserService.updateUser(accessToken: user.accessToken ?? "", user: user, avatar: ["filename": "MainAvatar", "base_64": base64String])
             .sink { completion in
-                let error = try? completion.error()
+                print("Cant convert image")
             } receiveValue: { response in
                 print(response)
             }

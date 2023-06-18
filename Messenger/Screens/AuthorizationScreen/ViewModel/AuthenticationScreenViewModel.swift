@@ -41,7 +41,6 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
     func sendAuthCode() {
         authService.sendAuthCode(phone: phoneNumber)
             .sink { completion in
-                let error = try? completion.error()
             } receiveValue: { response in
                 self.sendVerificationCode()
                 self.navigatior = .onEnterVerificationCode
@@ -50,19 +49,28 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
     }
     
     func checkAuthCode() {
-        authService.checkAuthCode(phone: phoneNumber, code: verificationCode)
-            .flatMap { response  in
-                if response.is_user_exists {
-                    SessionInfo.shared.refreshToken = response.refresh_token
-                    SessionInfo.shared.accessToken = response.access_token
-                    SessionInfo.shared.userID = response.user_id
-                    return self.remoteUserService.getCurrentUser(accessToken: response.access_token!)
+        authService.checkDecodeType(phone: phoneNumber, code: verificationCode)
+            .flatMap { typeResponse in
+                switch typeResponse {
+                case .response(let response):
+                    if response.is_user_exists {
+                        SessionInfo.shared.refreshToken = response.refresh_token
+                        SessionInfo.shared.accessToken = response.access_token
+                        SessionInfo.shared.userID = response.user_id
+                        return self.remoteUserService.getCurrentUser(accessToken: response.access_token!)
+                    } else {
+                        self.navigatior = .onRegistrationScreen
+                        return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
+                    }
+                case .error(let error):
+                    self.navigatior = .onError(error.detail.message)
+                    return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
+                case .unknown:
+                    return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
                 }
-                return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
             }
             .receive(on: RunLoop.main)
             .sink { error in
-                self.navigatior = .onError("Неверный код авторизации :(")
             } receiveValue: { userResponse in
                 userResponse.profile_data.id = SessionInfo.shared.userID!
                 userResponse.profile_data.accessToken = SessionInfo.shared.accessToken
@@ -71,26 +79,22 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
                 self.databaseService.save(user: userResponse.profile_data)
             }
             .store(in: &subscriber)
-
     }
     
     func register() {
         authService.register(phone: phoneNumber, name: name, username: username)
-            .sink { completion in
-            } receiveValue: { registerResponse in
-                self.remoteUserService.getCurrentUser(accessToken: registerResponse.access_token)
-                    .sink { completion in
-                    } receiveValue: { userResponse in
-                        let user = userResponse.profile_data
-                        user.id = registerResponse.user_id
-                        user.refreshToken = registerResponse.refresh_token
-                        user.accessToken = registerResponse.access_token
-                        self.navigatior = .toChatList(user)
-                    }
-                    .store(in: &self.subscriber)
-                
+            .flatMap { registerResponse in
+                return self.remoteUserService.getCurrentUser(accessToken: registerResponse.access_token)
             }
-            .store(in: &subscriber)
+            .sink { completion in
+            } receiveValue: { userResponse in
+                let user = userResponse.profile_data
+                user.id = SessionInfo.shared.userID!
+                user.refreshToken = SessionInfo.shared.refreshToken
+                user.accessToken = SessionInfo.shared.accessToken
+                self.navigatior = .toChatList(user)
+            }
+            .store(in: &self.subscriber)
     }
     
     // Имитация отправления СМС Сообщения
@@ -108,12 +112,3 @@ extension AuthenticationScreenViewModel {
         case toChatList(UserModel)
     }
 }
-
-//extension Subscribers.Completion {
-//    var error2: Failure? {
-//        switch self {
-//        case let .failure(error): return error
-//        default: return nil
-//        }
-//    }
-//}

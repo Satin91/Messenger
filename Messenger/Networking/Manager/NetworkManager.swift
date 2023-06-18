@@ -46,8 +46,6 @@ class NetworkManager: NetworkManagerProtocol {
             .tryMap { response -> Data in
                 switch response.result {
                 case .success(let data):
-                    let serialize = try! JSONSerialization.jsonObject(with: data)
-                    print("Response data \(serialize)")
                     return data
                 case .failure(let error):
                     print("Response error \(error)")
@@ -56,14 +54,4 @@ class NetworkManager: NetworkManagerProtocol {
             }
             .eraseToAnyPublisher()
     }
-}
-
-extension Subscribers.Completion {
-    func error() throws -> Failure {
-        if case let .failure(error) = self {
-            return error
-        }
-        throw ErrorFunctionThrowsError.error
-    }
-    private enum ErrorFunctionThrowsError: Error { case error }
 }

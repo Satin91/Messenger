@@ -38,18 +38,16 @@ final class RemoteUserService: RemoteUserServiceProtocol {
             .eraseToAnyPublisher()
     }
     
-    func loadAvatarTo(_ userResponse: GetCurrentUserResponse) -> AnyPublisher<GetCurrentUserResponse, Error> {
+    private func loadAvatarTo(_ userResponse: GetCurrentUserResponse) -> AnyPublisher<GetCurrentUserResponse, Error> {
         guard let address = userResponse.profile_data.avatar else {
             return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
         }
-        guard let url = URL(string: Constants.API.Media.avatar(size: .bigAvatar, address: address)) else {
-            return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
-        }
+        let urlString = Constants.API.Media.avatar(size: .bigAvatar, address: address)
         
-        return URLSession.shared.dataTaskPublisher(for: url)
-            .map({ response in
+        return networkManager.dataFromURL(urlString: urlString)
+            .map({ data in
                 let temp = userResponse
-                temp.profile_data.avatarData = response.data
+                temp.profile_data.avatarData = data
                 return temp
             })
             .mapError { _ in URLError(.badURL) }
