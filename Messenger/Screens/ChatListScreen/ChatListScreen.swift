@@ -10,7 +10,7 @@ import SwiftUI
 struct ChatListScreen: View {
     let mockChats = MockChats.chats
     
-    @EnvironmentObject var router: AppCoordinatorViewModel
+    @EnvironmentObject var AppCoordinator: AppCoordinatorViewModel
     @StateObject var viewModel: ChatListScreenViewModel
     
     var body: some View {
@@ -36,7 +36,7 @@ struct ChatListScreen: View {
             .addRightContainer {
                 profile
                     .onTapGesture {
-                        router.pushToProfileScreen(user: viewModel.user)
+                        AppCoordinator.pushToProfileScreen(user: viewModel.user)
                     }
             }
     }
@@ -54,7 +54,7 @@ struct ChatListScreen: View {
             ForEach(mockChats, id: \.id) { companion in
                 ChatListRow(companion: companion)
                     .onTapGesture {
-                        router.pushToChatScreen(user: viewModel.user, companion: companion)
+                        AppCoordinator.pushToChatScreen(user: viewModel.user, companion: companion)
                     }
             }
         }

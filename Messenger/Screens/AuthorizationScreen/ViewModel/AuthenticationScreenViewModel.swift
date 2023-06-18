@@ -130,7 +130,7 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
 //MARK: Внутренний навигатор
 
 extension AuthenticationScreenViewModel {
-    enum AuthNavigator {
+    enum AuthNavigator: Equatable {
         case onEnterPhoneNumber
         case onEnterVerificationCode
         case onRegistrationScreen

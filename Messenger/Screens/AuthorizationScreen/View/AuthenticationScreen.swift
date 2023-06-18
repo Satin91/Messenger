@@ -9,10 +9,14 @@ import SwiftUI
 
 struct AuthenticationScreen: View {
     @EnvironmentObject var viewModel: AuthenticationScreenViewModel
-    @EnvironmentObject var router: AppCoordinatorViewModel
+    @EnvironmentObject var AppCoordinator: AppCoordinatorViewModel
     
+    @State var isScreenChanged: Bool = false
     var body: some View {
         content
+            .onChange(of: viewModel.navigatior) { changeScneen in
+                isScreenChanged.toggle()
+            }
     }
     
     var content: some View {
@@ -32,14 +36,16 @@ struct AuthenticationScreen: View {
                 RegistrationView()
             case .toChatList(let user):
                 Color.clear.onAppear {
-                    router.pushToChatList(user: user)
+                    AppCoordinator.pushToChatList(user: user)
                 }
             case .onError(let text):
                 Text(text)
-                    .foregroundColor(Colors.lightGray)
+                    .foregroundColor(Colors.dark)
                     .frame(width: 320, height: 320)
+                    .background(Color.clear)
             }
         }
         .padding(.horizontal, Spacing.horizontalEdges)
+        .animation(.default, value: isScreenChanged)
     }
 }

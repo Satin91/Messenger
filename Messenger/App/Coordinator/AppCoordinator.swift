@@ -1,5 +1,5 @@
 //
-//  Router.swift
+//  AppCoordinator.swift
 //  Messenger
 //
 //  Created by Артур Кулик on 12.06.2023.
@@ -19,6 +19,7 @@ enum Screen {
 struct AppCoordinator: View {
     @ObservedObject var coordinator: AppCoordinatorViewModel
     let sceneFactory = SceneFactory()
+    
     init(viewModel: AppCoordinatorViewModel) {
         self.coordinator = viewModel
     }
@@ -48,7 +49,13 @@ class AppCoordinatorViewModel: ObservableObject {
   @Published var routes: Routes<Screen>
     
   init() {
-      self.routes = [.root(.verificationScreen, embedInNavigationView: true)]
+      let manager = DatabaseManager()
+      let result = manager.fetch(type: UserModel.self)
+      if result .isEmpty {
+          self.routes = [.root(.verificationScreen, embedInNavigationView: true)]
+      } else {
+          self.routes = [.root(.chatListScreen(result.first!), embedInNavigationView: true)]
+      }
   }
     
     func pushToChatList(user: UserModel) {
