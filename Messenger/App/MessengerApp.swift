@@ -11,11 +11,11 @@ import Combine
 @main
 struct MessengerApp: App {
     
-    let sceneFactory = SceneFactory()
-    
     var body: some Scene {
         WindowGroup {
-            AppCoordinator(viewModel: AppCoordinatorViewModel())
+            AppCoordinator(
+                viewModel: AppCoordinatorViewModel(currentUser: DIContainer.shared.userFetcher.fetchCurrentUser())
+            )
         }
     }
 }

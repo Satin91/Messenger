@@ -79,7 +79,7 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
                         self.navigatior = .onRegistrationScreen
                         return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
                     }
-                    /// Код авторизации неправильный, вывести ошибку.
+                    /// Код авторизации неверный, вывести ошибку.
                 case .error(let error):
                     self.navigatior = .onError(error.detail.message)
                     return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
@@ -88,11 +88,14 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
             .receive(on: RunLoop.main)
             .sink { error in
             } receiveValue: { userResponse in
-                userResponse.profile_data.id = SessionInfo.shared.userID!
-                userResponse.profile_data.accessToken = SessionInfo.shared.accessToken
-                userResponse.profile_data.refreshToken = SessionInfo.shared.refreshToken
+                /// Код авторизации верный, авторизовать пользователя, сохранить его данные, сделать его текущим.
+                let user = userResponse.profile_data
+                user.id = SessionInfo.shared.userID!
+                user.accessToken = SessionInfo.shared.accessToken
+                user.refreshToken = SessionInfo.shared.refreshToken
                 self.navigatior = .toChatList(userResponse.profile_data)
-                self.databaseService.save(user: userResponse.profile_data)
+                self.databaseService.setCurrentUser(user: user)
+                self.databaseService.save(user: user)
             }
             .store(in: &subscriber)
     }
@@ -115,6 +118,7 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
                 user.id = SessionInfo.shared.userID!
                 user.refreshToken = SessionInfo.shared.refreshToken
                 user.accessToken = SessionInfo.shared.accessToken
+                self.databaseService.setCurrentUser(user: user)
                 self.navigatior = .toChatList(user)
             }
             .store(in: &self.subscriber)

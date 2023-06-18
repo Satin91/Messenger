@@ -9,6 +9,8 @@ import Foundation
 
 protocol DatabaseServiceProtocol {
     func save(user: UserModel)
+    func getCurrentUser() -> UserModel?
+    func setCurrentUser(user: UserModel)
 }
 
 final class DatabaseService: DatabaseServiceProtocol {
@@ -20,6 +22,16 @@ final class DatabaseService: DatabaseServiceProtocol {
     
     func save(user: UserModel) {
         databaseManager.save(object: user)
+    }
+    
+    func getCurrentUser() -> UserModel? {
+        databaseManager.fetch(type: CurrentUserModel.self).first?.user
+    }
+    
+    func setCurrentUser(user: UserModel) {
+        let currentUser = CurrentUserModel()
+        currentUser.user = user
+        databaseManager.save(object: currentUser)
     }
 }
 

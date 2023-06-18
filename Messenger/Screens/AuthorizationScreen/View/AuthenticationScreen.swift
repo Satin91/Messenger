@@ -36,7 +36,7 @@ struct AuthenticationScreen: View {
                 RegistrationView()
             case .toChatList(let user):
                 Color.clear.onAppear {
-                    AppCoordinator.pushToChatList(user: user)
+                    AppCoordinator.pushToChatListScreen(user: user)
                 }
             case .onError(let text):
                 Text(text)

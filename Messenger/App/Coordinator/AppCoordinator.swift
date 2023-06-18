@@ -18,7 +18,7 @@ enum Screen {
 
 struct AppCoordinator: View {
     @ObservedObject var coordinator: AppCoordinatorViewModel
-    let sceneFactory = SceneFactory()
+    let sceneFactory = DIContainer.shared.sceneFactory
     
     init(viewModel: AppCoordinatorViewModel) {
         self.coordinator = viewModel
@@ -28,7 +28,7 @@ struct AppCoordinator: View {
         Router($coordinator.routes) { screen,_ in
             switch screen {
             case .verificationScreen:
-                sceneFactory.makeAuthorizationScreen()
+                sceneFactory.makeAuthenticationScreen()
                     .toolbar(.hidden)
             case .chatListScreen(let user):
                 sceneFactory.makeChatListScreen(user: user)
@@ -46,19 +46,18 @@ struct AppCoordinator: View {
 }
 
 class AppCoordinatorViewModel: ObservableObject {
-  @Published var routes: Routes<Screen>
+    @Published var routes: Routes<Screen>
+    var currentUser: UserModel?
     
-  init() {
-      let manager = DatabaseManager()
-      let result = manager.fetch(type: UserModel.self)
-      if result .isEmpty {
-          self.routes = [.root(.verificationScreen, embedInNavigationView: true)]
-      } else {
-          self.routes = [.root(.chatListScreen(result.first!), embedInNavigationView: true)]
-      }
-  }
+    init(currentUser: UserModel?) {
+        if currentUser != nil {
+            self.routes = [.root(.chatListScreen(currentUser!), embedInNavigationView: true)]
+        } else {
+            self.routes = [.root(.verificationScreen, embedInNavigationView: true)]
+        }
+    }
     
-    func pushToChatList(user: UserModel) {
+    func pushToChatListScreen(user: UserModel) {
         routes.push(.chatListScreen(user) )
     }
     
