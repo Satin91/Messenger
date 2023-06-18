@@ -30,7 +30,7 @@ struct ChatListScreen: View {
     var navigationBar: some View {
         NavigationBar()
             .addLeftContainer {
-                Text("Chats")
+                Text("Чаты")
                     .largeTitleModifier()
             }
             .addRightContainer {

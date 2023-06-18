@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct TitledTextField: View {
-    @State var title: String
+    let title: String
     @Binding var text: String
     
     let placeholder: String
     var axis: Axis = .horizontal
-    
-    
-    var isDisabled: Bool = false
+    var isEntryDisabled: Bool = false
     
     var body: some View {
         content
@@ -39,7 +37,7 @@ struct TitledTextField: View {
         TextField(placeholder, text: $text, axis: axis)
             .font(Fonts.roboto(weight: .medium, size: 14))
             .foregroundColor(Colors.primary)
-            .disabled(isDisabled)
+            .disabled(isEntryDisabled)
             .padding(.all)
             .padding(.leading)
             .background(Colors.lightGray)

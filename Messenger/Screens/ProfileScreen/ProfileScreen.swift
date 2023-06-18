@@ -14,20 +14,21 @@ struct ProfileScreen: View {
     @EnvironmentObject var router: AppCoordinatorViewModel
     @StateObject var viewModel: ProfileScreenViewModel
     
-    /// Кнопка сохранения свойств пользователя имеет состояния, этот флаг оповещает об изменениях.
+    /// Кнопка сохранения свойств пользователя имеет состояния, этот флаг оповещает об изменениях произошедших во вью модели.
     @State var isUserChanged: Bool = false
+    
     @State private var avatarItem: PhotosPickerItem?
     @State private var avatarImage: Image?
     
     var body: some View {
         content
-            .onChange(of: viewModel) { newValue in
+            .onChange(of: viewModel) { _ in
                 isUserChanged = viewModel.compareChanges()
             }
-            .onChange(of: avatarItem) { newValue in
-                newValue?.loadTransferable(type: Data.self, completionHandler: { result in
+            .onChange(of: avatarItem) { newImage in
+                newImage?.loadTransferable(type: Data.self, completionHandler: { imageData in
                     DispatchQueue.main.async {
-                        viewModel.avatar = try? result.get()
+                        viewModel.avatar = try? imageData.get()
                     }
                 })
             }
@@ -59,6 +60,7 @@ struct ProfileScreen: View {
     }
     
     var avatarContainer: some View {
+        /// Тип Image имеет расширешие для того, чтобы во входных параметров принимать объект с типом Data
         Image(placeholder: Constants.CommonNames.avatarPlaceholder, data: viewModel.avatar)
             .resizable()
             .scaledToFill()
@@ -91,15 +93,29 @@ struct ProfileScreen: View {
     }
     
     var nameTextField: some View {
-        TitledTextField(title: "Имя", text: $viewModel.name, placeholder: "Введите имя")
+        TitledTextField(
+            title: "Имя",
+            text: $viewModel.name,
+            placeholder: "Введите имя"
+        )
     }
     
     var userNameLabel: some View {
-        TitledTextField(title: "Имя пользователя", text: .constant(viewModel.user.username), placeholder: "Введите имя",isDisabled: true)
+        TitledTextField(
+            title: "Имя пользователя",
+            text: .constant(viewModel.user.username),
+            placeholder: "Введите имя",
+            isEntryDisabled: true
+        )
     }
     
     var phoneNumberLabel: some View {
-        TitledTextField(title: "Номер телефона", text: .constant(viewModel.user.phone), placeholder: "",isDisabled: true)
+        TitledTextField(
+            title: "Номер телефона",
+            text: .constant(viewModel.user.phone),
+            placeholder: "",
+            isEntryDisabled: true
+        )
     }
     
     var cityTextField: some View {
@@ -114,17 +130,12 @@ struct ProfileScreen: View {
             TitledTextField(
                 title: "Знак зодиака",
                 text: .constant(viewModel.zodiacSignText.bound), placeholder: "Дата рождения не выбрана",
-                isDisabled: true
+                isEntryDisabled: true
             )
-            VStack {
-                Spacer()
-                HStack {
-                    Spacer()
-                    datePicker
-                        .frame(alignment: .bottomLeading)
-                }
+            .overlay(alignment: .bottomTrailing) {
+                datePicker
+                    .frame(alignment: .bottomTrailing)
             }
-            
         }
     }
     
