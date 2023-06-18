@@ -10,7 +10,6 @@ import Foundation
 enum CheckAuthCodeResponse: Codable {
     case response(AuthCodeResponse)
     case error(ErrorMessage)
-    case unknown
     
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
@@ -22,14 +21,14 @@ enum CheckAuthCodeResponse: Codable {
             self = .response(response)
             return
         default:
-            self = .unknown
+            break
         }
         
         switch error {
         case .some(let error):
             self = .error(error)
         default:
-            self = .unknown
+            self = .error(ErrorMessage(detail: Detail(message: "Неизвестная ошибка, перезапустите приложение.")))
         }
     }
 }

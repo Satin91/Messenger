@@ -77,6 +77,7 @@
 		8E9B08E42A37D81900D1A035 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E9B08E32A37D81900D1A035 /* Images.xcassets */; };
 		8EDB89382A3E72270067B9C9 /* SessionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDB89372A3E72270067B9C9 /* SessionInfo.swift */; };
 		8EDB893A2A3E80FF0067B9C9 /* PublishersError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDB89392A3E80FF0067B9C9 /* PublishersError.swift */; };
+		8EDB893D2A3EB04D0067B9C9 /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EDB893C2A3EB04D0067B9C9 /* AuthError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -146,6 +147,7 @@
 		8E9B08E32A37D81900D1A035 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8EDB89372A3E72270067B9C9 /* SessionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionInfo.swift; sourceTree = "<group>"; };
 		8EDB89392A3E80FF0067B9C9 /* PublishersError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishersError.swift; sourceTree = "<group>"; };
+		8EDB893C2A3EB04D0067B9C9 /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -382,6 +384,7 @@
 		8E9033002A35055A00445809 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				8EDB893B2A3EB0400067B9C9 /* Errors */,
 				8E34C2842A338761009C40FA /* RequestModel */,
 				8E34C28B2A339302009C40FA /* Requests */,
 				8E34C2902A33AD29009C40FA /* Responses */,
@@ -517,6 +520,14 @@
 			path = ChatListScreen;
 			sourceTree = "<group>";
 		};
+		8EDB893B2A3EB0400067B9C9 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				8EDB893C2A3EB04D0067B9C9 /* AuthError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -623,6 +634,7 @@
 				8E99B8B12A3D29E0009EBC1A /* ImageFromData.swift in Sources */,
 				8E34C2882A33908B009C40FA /* Constants.swift in Sources */,
 				8E9B08B92A36412300D1A035 /* PhoneNumberTextField.swift in Sources */,
+				8EDB893D2A3EB04D0067B9C9 /* AuthError.swift in Sources */,
 				8E626DF22A38B78F0018AD87 /* RegistrationView.swift in Sources */,
 				8E9B08B22A36294A00D1A035 /* NavigationBar.swift in Sources */,
 				8E8964542A3A49A200C0243C /* ChatScreen.swift in Sources */,

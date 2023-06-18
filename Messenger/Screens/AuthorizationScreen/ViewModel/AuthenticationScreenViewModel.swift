@@ -11,6 +11,17 @@ import SwiftUI
 import UserNotifications
 import RealmSwift
 
+/*
+ Обязанности модели:
+ - Ввод номера телефона
+ - Отправка кода авторизации
+ - Проверка на присутствие пользователя в базе
+ - Вывод ошибок связанных с неправильными данными
+ - Авторизация
+ - Регистрация
+ */
+
+
 final class AuthenticationScreenViewModel: NSObject, ObservableObject {
     var authService: AuthentificationServiceProtocol
     var notificationService: NotificationServiceProtocol
@@ -38,6 +49,8 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
         self.databaseService = databaseService
     }
     
+    // MARK: Отправление кода авторизации по набранному номеру
+    
     func sendAuthCode() {
         authService.sendAuthCode(phone: phoneNumber)
             .sink { completion in
@@ -48,24 +61,27 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
             .store(in: &subscriber)
     }
     
+    // MARK: Проверка введенного кода авторизации и присутствия пользователя в базе
+    
     func checkAuthCode() {
-        authService.checkDecodeType(phone: phoneNumber, code: verificationCode)
+        authService.checkAuthCode(phone: phoneNumber, code: verificationCode)
             .flatMap { typeResponse in
                 switch typeResponse {
                 case .response(let response):
                     if response.is_user_exists {
+                        /// Пользователь существует, получить его данные из сервера.
                         SessionInfo.shared.refreshToken = response.refresh_token
                         SessionInfo.shared.accessToken = response.access_token
                         SessionInfo.shared.userID = response.user_id
                         return self.remoteUserService.getCurrentUser(accessToken: response.access_token!)
                     } else {
+                        /// Пользователь отсутствует, направить на регистрацию.
                         self.navigatior = .onRegistrationScreen
                         return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
                     }
+                    /// Код авторизации неправильный, вывести ошибку.
                 case .error(let error):
                     self.navigatior = .onError(error.detail.message)
-                    return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
-                case .unknown:
                     return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
                 }
             }
@@ -81,13 +97,20 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
             .store(in: &subscriber)
     }
     
+    // MARK: Регистрация
+    
     func register() {
         authService.register(phone: phoneNumber, name: name, username: username)
+        /// Получение отклика после нажатия кнопки "регистрация"
             .flatMap { registerResponse in
+                SessionInfo.shared.userID = registerResponse.user_id
+                SessionInfo.shared.accessToken = registerResponse.access_token
+                SessionInfo.shared.refreshToken = registerResponse.refresh_token
                 return self.remoteUserService.getCurrentUser(accessToken: registerResponse.access_token)
             }
             .sink { completion in
             } receiveValue: { userResponse in
+                /// Создание объекта User
                 let user = userResponse.profile_data
                 user.id = SessionInfo.shared.userID!
                 user.refreshToken = SessionInfo.shared.refreshToken
@@ -97,11 +120,14 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
             .store(in: &self.subscriber)
     }
     
-    // Имитация отправления СМС Сообщения
+    // MARK: Имитация отправки СМС с кодом авторизации
+    
     func sendVerificationCode() {
-        self.notificationService.push(NotificationModel(title: "Verification Code", subtitle: "133337", timeInterval: 2))
+        self.notificationService.push(NotificationModel(title: "Код ", subtitle: "133337", timeInterval: 2))
     }
 }
+
+//MARK: Внутренний навигатор
 
 extension AuthenticationScreenViewModel {
     enum AuthNavigator {
