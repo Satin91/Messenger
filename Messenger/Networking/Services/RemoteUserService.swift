@@ -40,7 +40,7 @@ final class RemoteUserService: RemoteUserServiceProtocol {
     
     private func loadAvatarTo(_ userResponse: GetCurrentUserResponse) -> AnyPublisher<GetCurrentUserResponse, Error> {
         guard let address = userResponse.profile_data.avatar else {
-            return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
+            return Just(userResponse).setFailureType(to: Error.self).eraseToAnyPublisher()
         }
         let urlString = Constants.API.Media.avatar(size: .bigAvatar, address: address)
         

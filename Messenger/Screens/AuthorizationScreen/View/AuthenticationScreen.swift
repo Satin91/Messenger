@@ -9,13 +9,14 @@ import SwiftUI
 
 struct AuthenticationScreen: View {
     @EnvironmentObject var viewModel: AuthenticationScreenViewModel
-    @EnvironmentObject var AppCoordinator: AppCoordinatorViewModel
+    @EnvironmentObject var appCoordinator: AppCoordinatorViewModel
     
-    @State var isScreenChanged: Bool = false
+    @State var showAlert: Bool = false
+    
     var body: some View {
         content
-            .onChange(of: viewModel.navigatior) { changeScneen in
-                isScreenChanged.toggle()
+            .onChange(of: viewModel.showAlert) { _ in
+                self.showAlert.toggle()
             }
     }
     
@@ -23,6 +24,9 @@ struct AuthenticationScreen: View {
         container
             .frame(maxWidth: .infinity)
             .background(Colors.background)
+            .alert(isPresented: $showAlert) {
+                Alert(title: Text("Ошибка"), message: Text(viewModel.alertMessage), dismissButton: .default(Text("Понятно")))
+            }
     }
     
     @ViewBuilder var container: some View {
@@ -36,16 +40,10 @@ struct AuthenticationScreen: View {
                 RegistrationView()
             case .toChatList(let user):
                 Color.clear.onAppear {
-                    AppCoordinator.pushToChatListScreen(user: user)
+                    appCoordinator.pushToChatListScreen(user: user)
                 }
-            case .onError(let text):
-                Text(text)
-                    .foregroundColor(Colors.dark)
-                    .frame(width: 320, height: 320)
-                    .background(Color.clear)
             }
         }
         .padding(.horizontal, Spacing.horizontalEdges)
-        .animation(.default, value: isScreenChanged)
     }
 }

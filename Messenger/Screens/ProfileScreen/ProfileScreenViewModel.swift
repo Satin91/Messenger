@@ -89,6 +89,10 @@ final class ProfileScreenViewModel: ObservableObject {
             }
             .store(in: &subscriber)
     }
+    
+    func removeCurrentUser() {
+        databaseService.removeCurrentUser()
+    }
 }
 
 extension ProfileScreenViewModel: Equatable {

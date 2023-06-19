@@ -12,6 +12,7 @@ protocol DatabaseManagerProtocol {
     func save(object: RealmSwift.Object)
     func delete<T: Object>(id: String, object: T.Type)
     func deleteAll()
+    func deleteAll<T: Object>(of type: T.Type)
     func fetch<T>(type: T.Type) -> RealmSwift.Results<T> where T: Object
 }
 
@@ -39,6 +40,13 @@ final class DatabaseManager: DatabaseManagerProtocol {
     func deleteAll() {
         try! realm.write {
             realm.deleteAll()
+        }
+    }
+    
+    func deleteAll<T: Object>(of type: T.Type) {
+        let objects = self.realm.objects(type.self)
+        try! realm.write {
+            realm.delete(objects)
         }
     }
     

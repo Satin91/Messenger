@@ -10,6 +10,7 @@ import Alamofire
 
 struct EnterPhoneNumberView: View {
     @EnvironmentObject var viewModel: AuthenticationScreenViewModel
+    @State var isValidPhoneNumber: Bool = false
     
     var body: some View {
         content
@@ -48,11 +49,11 @@ struct EnterPhoneNumberView: View {
     }
     
     var textField: some View {
-        PhoneNumberTextField(text: $viewModel.phoneNumber)
+        PhoneNumberTextField(text: $viewModel.phoneNumber, isValidNumber: $isValidPhoneNumber)
     }
     
     var nextButton: some View {
-        StatebleButton(title: "Отправить код", isEnable: viewModel.isFullPhoneNumber) {
+        StatebleButton(title: "Отправить код", isEnable: isValidPhoneNumber) {
             viewModel.sendAuthCode()
         }
     }

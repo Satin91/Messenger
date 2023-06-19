@@ -57,6 +57,10 @@ class AppCoordinatorViewModel: ObservableObject {
         }
     }
     
+    func backToRootView() {
+        routes = [.root(.verificationScreen, embedInNavigationView: true)]
+    }
+    
     func pushToChatListScreen(user: UserModel) {
         routes.push(.chatListScreen(user) )
     }

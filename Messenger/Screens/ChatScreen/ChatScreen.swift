@@ -12,7 +12,7 @@ struct ChatScreen: View {
         case foreground
     }
     
-    @EnvironmentObject var AppCoordinator: AppCoordinatorViewModel
+    @EnvironmentObject var appCoordinator: AppCoordinatorViewModel
     @State var text = ""
     @State var messages: [String] = []
     @FocusState var isKeyboardForeground: KeyboardForeground?
@@ -44,7 +44,7 @@ struct ChatScreen: View {
             .addLeftContainer {
                 VStack(alignment: .leading, spacing: Spacing.mediumPadding) {
                     Button("Back") {
-                        AppCoordinator.back()
+                        appCoordinator.back()
                     }
                     HStack(spacing: Spacing.smallPadding) {
                         Image(companion.avatar)

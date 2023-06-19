@@ -11,9 +11,11 @@ protocol DatabaseServiceProtocol {
     func save(user: UserModel)
     func getCurrentUser() -> UserModel?
     func setCurrentUser(user: UserModel)
+    func removeCurrentUser()
 }
 
 final class DatabaseService: DatabaseServiceProtocol {
+    
     var databaseManager: DatabaseManagerProtocol
     
     init(databaseManager: DatabaseManagerProtocol) {
@@ -32,6 +34,10 @@ final class DatabaseService: DatabaseServiceProtocol {
         let currentUser = CurrentUserModel()
         currentUser.user = user
         databaseManager.save(object: currentUser)
+    }
+    
+    func removeCurrentUser() {
+        databaseManager.deleteAll(of: CurrentUserModel.self)
     }
 }
 

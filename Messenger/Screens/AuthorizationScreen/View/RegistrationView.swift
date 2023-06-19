@@ -34,30 +34,36 @@ struct RegistrationView: View {
     }
     
     private var textFieldContainer: some View {
-        Group {
+        VStack {
             phoneNumberLabel
             nameTextField
             usernameTextField
         }
-        .primaryTextModifier()
-        .padding(.leading, Spacing.smallPadding)
-        .roundedBorderModifier(borderColor: Colors.primary)
-        .padding(.top, Spacing.mediumPadding)
     }
     
     private var phoneNumberLabel: some View {
-        Text(viewModel.phoneNumber)
-            .font(Fonts.roboto(weight: .regular, size: 14))
-            .foregroundColor(Colors.neutralSecondary)
-            .frame(maxWidth: .infinity, alignment: .leading)
+        TitledTextField(
+            title: "Номер телефона",
+            text: .constant(viewModel.phoneNumber),
+            placeholder: "",
+            isEntryDisabled: true
+        )
     }
     
     private var nameTextField: some View {
-        TextField("Имя", text: $viewModel.name)
+        TitledTextField(
+            title: "Имя",
+            text: $viewModel.name,
+            placeholder: ""
+        )
     }
     
     private var usernameTextField: some View {
-        TextField("Никнейм", text: $viewModel.username)
+        TitledTextField(
+            title: "Имя пользователя (Минимум 5 символов)",
+            text: $viewModel.username,
+            placeholder: ""
+        )
     }
     
     private var registerButton: some View {

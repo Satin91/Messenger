@@ -11,7 +11,7 @@ import Alamofire
 import PhotosUI
 
 struct ProfileScreen: View {
-    @EnvironmentObject var AppCoordinator: AppCoordinatorViewModel
+    @EnvironmentObject var appCoordinator: AppCoordinatorViewModel
     @StateObject var viewModel: ProfileScreenViewModel
     
     /// Кнопка сохранения свойств пользователя имеет состояния, этот флаг оповещает об изменениях произошедших во вью модели.
@@ -53,9 +53,15 @@ struct ProfileScreen: View {
         NavigationBar()
             .addLeftContainer {
                 Button("Back") {
-                    AppCoordinator.back()
+                    appCoordinator.back()
                 }
             }
+            .addRightContainer({
+                Button("Log out") {
+                    viewModel.removeCurrentUser()
+                    appCoordinator.backToRootView()
+                }
+            })
             .padding(.horizontal, Spacing.horizontalEdges)
     }
     
@@ -157,7 +163,7 @@ struct ProfileScreen: View {
         
         StatebleButton(title: "Сохранить", isEnable: isUserChanged) {
             viewModel.updateUser()
-            AppCoordinator.back()
+            appCoordinator.back()
         }
     }
 }
