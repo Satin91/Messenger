@@ -31,7 +31,7 @@ struct ChatScreen: View {
     private var content: some View {
         VStack(spacing: .zero) {
             navigationBar
-                .padding(Spacing.horizontalEdges)
+                .padding(Layout.Padding.horizontalEdges)
             messagesContainer
             Divider()
             textFieldContainer
@@ -42,17 +42,17 @@ struct ChatScreen: View {
     private var navigationBar: some View {
         NavigationBar()
             .addLeftContainer {
-                VStack(alignment: .leading, spacing: Spacing.mediumPadding) {
+                VStack(alignment: .leading, spacing: Layout.Padding.medium) {
                     Button("Back") {
                         appCoordinator.back()
                     }
-                    HStack(spacing: Spacing.smallPadding) {
+                    HStack(spacing: Layout.Padding.small) {
                         Image(companion.avatar)
                             .resizable()
                             .scaledToFit()
                             .clipShape(Circle())
                             .frame(width: 58, height: 58)
-                        VStack(alignment: .leading, spacing: Spacing.extraSmallPadding) {
+                        VStack(alignment: .leading, spacing: Layout.Padding.extraSmall) {
                             Text(companion.name)
                                 .mediumTitleModifier()
                             Text("Last seen 1 hour ago")
@@ -70,19 +70,19 @@ struct ChatScreen: View {
                 messageView(text: message)
                     .padding(.vertical, 4)
             }.rotationEffect(.degrees(180))
-                .padding(Spacing.horizontalEdges)
+                .padding(Layout.Padding.horizontalEdges)
         }.rotationEffect(.degrees(180))
             .background(Colors.chatBackground)
     }
     
     private var textFieldContainer: some View {
-        HStack(spacing: Spacing.smallPadding) {
+        HStack(spacing: Layout.Padding.small) {
             TextField("Enter text", text: $text)
                 .font(Fonts.roboto(weight: .regular, size: 14))
                 .focused($isKeyboardForeground, equals: .foreground)
                 .padding()
                 .background(Colors.light)
-                .cornerRadius(Spacing.defaultRadius, antialiased: true)
+                .cornerRadius(Layout.Radius.defaultRadius, antialiased: true)
             Button {
                 withAnimation {
                     isKeyboardForeground = nil
@@ -97,8 +97,8 @@ struct ChatScreen: View {
             }
             
         }
-        .padding(.vertical, Spacing.smallPadding)
-        .padding(.horizontal, Spacing.horizontalEdges)
+        .padding(.vertical, Layout.Padding.small)
+        .padding(.horizontal, Layout.Padding.horizontalEdges)
         .background(Colors.chatBackground)
     }
     
@@ -109,7 +109,7 @@ struct ChatScreen: View {
                 .foregroundColor(Colors.dark)
                 .padding()
                 .background(Colors.light)
-                .cornerRadius(Spacing.smallRadius)
+                .cornerRadius(Layout.Radius.smallRadius)
                 .largeShadowModifier()
             Spacer()
         }
@@ -123,7 +123,7 @@ struct ChatScreen: View {
                 .foregroundColor(Colors.primary)
                 .padding()
                 .background(Colors.primarySecondary)
-                .cornerRadius(Spacing.smallRadius)
+                .cornerRadius(Layout.Radius.smallRadius)
         }
     }
     

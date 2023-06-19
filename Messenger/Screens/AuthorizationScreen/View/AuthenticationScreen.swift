@@ -44,6 +44,6 @@ struct AuthenticationScreen: View {
                 }
             }
         }
-        .padding(.horizontal, Spacing.horizontalEdges)
+        .padding(.horizontal, Layout.Padding.horizontalEdges)
     }
 }

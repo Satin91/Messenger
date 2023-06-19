@@ -41,18 +41,25 @@ enum Constants {
     }
 }
 
-enum Spacing {
-    static let horizontalEdges: CGFloat = 24
-    static let extraSmallPadding: CGFloat = 8
-    static let smallPadding: CGFloat = 16
-    static let mediumPadding: CGFloat = 24
-    static let largePadding: CGFloat = 40
-    static let smallControl: CGFloat = 36
-    static let mediumControl: CGFloat = 57
+enum Layout {
+    enum Padding {
+        static let horizontalEdges: CGFloat = 24
+        static let extraSmall: CGFloat = 8
+        static let small: CGFloat = 16
+        static let medium: CGFloat = 24
+        static let large: CGFloat = 40
+    }
     
-    static let smallRadius: CGFloat = 8
-    static let defaultRadius: CGFloat = 16
-    static let largeRadius: CGFloat = 32
+    enum Sizes {
+        static let smallControl: CGFloat = 36
+        static let mediumControl: CGFloat = 57
+    }
+    
+    enum Radius {
+        static let smallRadius: CGFloat = 8
+        static let defaultRadius: CGFloat = 16
+        static let largeRadius: CGFloat = 32
+    }
 }
 
 enum Colors {

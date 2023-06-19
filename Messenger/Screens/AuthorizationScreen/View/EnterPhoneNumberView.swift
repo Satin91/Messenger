@@ -17,7 +17,7 @@ struct EnterPhoneNumberView: View {
     }
     
     var content: some View {
-        VStack(alignment: .leading, spacing: Spacing.largePadding) {
+        VStack(alignment: .leading, spacing: Layout.Padding.large) {
             navigationBar
             infoLabel
             textField

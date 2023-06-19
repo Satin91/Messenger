@@ -35,7 +35,7 @@ struct VerificationTextField: View {
             .font(Fonts.roboto(weight: .medium, size: 50))
             .foregroundColor(Colors.dark)
             .kerning(kerning)
-            .frame(height: Spacing.mediumControl)
+            .frame(height: Layout.Sizes.mediumControl)
             .offset(x: 18)
             .scrollDisabled(true)
             .onReceive(Just(text)) { _ in
@@ -46,14 +46,14 @@ struct VerificationTextField: View {
     }
     
     var dash: some View {
-        HStack(spacing: Spacing.extraSmallPadding) {
+        HStack(spacing: Layout.Padding.extraSmall) {
             ForEach(0..<6) {_ in
                 RoundedRectangle(cornerRadius: 2)
                     .fill(Colors.neutral)
                     .frame(height: 2)
             }
         }
-        .padding(.horizontal, Spacing.extraSmallPadding)
+        .padding(.horizontal, Layout.Padding.extraSmall)
     }
 }
 

@@ -35,15 +35,15 @@ struct ProfileScreen: View {
     }
     
     var content: some View {
-        VStack(spacing: Spacing.mediumPadding) {
+        VStack(spacing: Layout.Padding.medium) {
             navigationBar
             ScrollView(.vertical) {
-                VStack(alignment: .leading, spacing: Spacing.mediumPadding) {
+                VStack(alignment: .leading, spacing: Layout.Padding.medium) {
                     avatarContainer
                     textContainer
                     saveButton
                 }
-                .padding(.horizontal, Spacing.horizontalEdges)
+                .padding(.horizontal, Layout.Padding.horizontalEdges)
             }
         }
         .fillBackgroundModifier(color: Colors.background)
@@ -62,7 +62,7 @@ struct ProfileScreen: View {
                     appCoordinator.backToRootView()
                 }
             })
-            .padding(.horizontal, Spacing.horizontalEdges)
+            .padding(.horizontal, Layout.Padding.horizontalEdges)
     }
     
     var avatarContainer: some View {
@@ -85,7 +85,7 @@ struct ProfileScreen: View {
     }
     
     var textContainer: some View {
-        VStack(alignment: .leading, spacing: Spacing.mediumPadding) {
+        VStack(alignment: .leading, spacing: Layout.Padding.medium) {
             Group {
                 nameTextField
                 userNameLabel

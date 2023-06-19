@@ -69,8 +69,6 @@ final class ProfileScreenViewModel: ObservableObject {
     
     ///обновление пользователя в базе и на сервере.
     func updateUser() {
-    
-//
         databaseService.updateUser { [weak self] in
             self?.user.name = name
             self?.user.city = city
@@ -79,20 +77,19 @@ final class ProfileScreenViewModel: ObservableObject {
             self?.user.avatarData = avatar
         }
         
-        let base64String = avatar?.base64image
-        
-        
-        let _ = remoteUserService.updateUser(accessToken: user.accessToken ?? "", user: user, avatar: ["filename": "MainAvatar", "base_64": base64String ?? ""])
-            .sink { completion in
-                let error = completion.error
-                if error != nil {
-                    print(error?.localizedDescription)
-                    print("Cant convert image")
-                }
-            } receiveValue: { response in
-                print(response)
-            }
-            .store(in: &subscriber)
+        remoteUserService.updateUser(
+            accessToken: user.accessToken ?? "",
+            user: user,
+            avatar: [
+                "filename": "MainAvatar",
+                "base_64": avatar?.base64image ?? ""
+            ]
+        )
+        .sink { _ in
+        } receiveValue: { response in
+            print(response)
+        }
+        .store(in: &subscriber)
     }
     
     func removeCurrentUser() {

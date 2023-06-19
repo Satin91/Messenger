@@ -23,7 +23,7 @@ struct ChatListScreen: View {
             chatList
             Spacer()
         }
-        .padding(Spacing.horizontalEdges)
+        .padding(Layout.Padding.horizontalEdges)
         .fillBackgroundModifier(color: Colors.background)
     }
     
@@ -71,7 +71,7 @@ struct ChatListRow: View {
     
     var content: some View {
         VStack(alignment: .leading) {
-            HStack(spacing: Spacing.smallPadding) {
+            HStack(spacing: Layout.Padding.small) {
                 avatar
                 textContainer
             }
@@ -89,7 +89,7 @@ struct ChatListRow: View {
     }
     
     var textContainer: some View {
-        VStack(alignment: .leading, spacing: Spacing.extraSmallPadding / 2) {
+        VStack(alignment: .leading, spacing: Layout.Padding.extraSmall / 2) {
             nameLabel
             lastMessageLabel
         }

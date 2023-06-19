@@ -15,7 +15,7 @@ struct EnterVerificationCodeView: View {
     }
     
     var content: some View {
-        VStack(alignment: .leading, spacing: Spacing.largePadding) {
+        VStack(alignment: .leading, spacing: Layout.Padding.large) {
             navigationBar
             infoLabel
             textField
@@ -28,7 +28,7 @@ struct EnterVerificationCodeView: View {
     var navigationBar: some View {
         NavigationBar()
             .addLeftContainer {
-                VStack(alignment: .leading, spacing: Spacing.mediumControl) {
+                VStack(alignment: .leading, spacing: Layout.Sizes.mediumControl) {
                     Button("Назад") {
                         viewModel.navigatior = .onEnterPhoneNumber
                         viewModel.verificationCode.removeAll()

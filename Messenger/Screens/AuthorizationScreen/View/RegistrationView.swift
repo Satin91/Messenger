@@ -15,13 +15,13 @@ struct RegistrationView: View {
     }
     
     private var content: some View {
-        VStack(spacing: Spacing.largePadding) {
+        VStack(spacing: Layout.Padding.large) {
             navigationBar
             textFieldContainer
             registerButton
             Spacer()
         }
-        .padding(.horizontal, Spacing.horizontalEdges)
+        .padding(.horizontal, Layout.Padding.horizontalEdges)
         .background(Colors.background)
     }
     

@@ -23,6 +23,7 @@
 		8E34C2952A33E776009C40FA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E34C2942A33E776009C40FA /* NetworkManager.swift */; };
 		8E35C0EC2A3FFF96006B67A6 /* iPhoneNumberField in Frameworks */ = {isa = PBXBuildFile; productRef = 8E35C0EB2A3FFF96006B67A6 /* iPhoneNumberField */; };
 		8E35C0EE2A4003F6006B67A6 /* Base64Encoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E35C0ED2A4003F6006B67A6 /* Base64Encoder.swift */; };
+		8E35C0F02A40132B006B67A6 /* NavigationBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E35C0EF2A40132B006B67A6 /* NavigationBarButton.swift */; };
 		8E3CEC2D2A3F8A5000BA63FD /* UserFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3CEC2C2A3F8A5000BA63FD /* UserFetcher.swift */; };
 		8E3CEC2F2A3F8BD100BA63FD /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3CEC2E2A3F8BD100BA63FD /* CurrentUser.swift */; };
 		8E3CEC312A3F8F9200BA63FD /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3CEC302A3F8F9200BA63FD /* DIContainer.swift */; };
@@ -101,6 +102,7 @@
 		8E34C2912A33AF0B009C40FA /* SendAuthCodeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAuthCodeResponse.swift; sourceTree = "<group>"; };
 		8E34C2942A33E776009C40FA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8E35C0ED2A4003F6006B67A6 /* Base64Encoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base64Encoder.swift; sourceTree = "<group>"; };
+		8E35C0EF2A40132B006B67A6 /* NavigationBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarButton.swift; sourceTree = "<group>"; };
 		8E3CEC2C2A3F8A5000BA63FD /* UserFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFetcher.swift; sourceTree = "<group>"; };
 		8E3CEC2E2A3F8BD100BA63FD /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		8E3CEC302A3F8F9200BA63FD /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
@@ -492,6 +494,7 @@
 			isa = PBXGroup;
 			children = (
 				8E9B08B12A36294A00D1A035 /* NavigationBar.swift */,
+				8E35C0EF2A40132B006B67A6 /* NavigationBarButton.swift */,
 				8E9B08B82A36412300D1A035 /* PhoneNumberTextField.swift */,
 				8E8964632A3B6B4400C0243C /* TitledTextField.swift */,
 				8E9B08CC2A36B82400D1A035 /* VerificationTextField.swift */,
@@ -664,6 +667,7 @@
 				8E9B08A72A360F4800D1A035 /* NotificationManager.swift in Sources */,
 				8E8964592A3A63CF00C0243C /* DismissingKeyboardModifier.swift in Sources */,
 				8E9B08A12A35FD5D00D1A035 /* ScreenFactory.swift in Sources */,
+				8E35C0F02A40132B006B67A6 /* NavigationBarButton.swift in Sources */,
 				8E9B08C72A36961900D1A035 /* RoundedBorderModifier.swift in Sources */,
 				8E89646D2A3BCCBC00C0243C /* OptionalBinding.swift in Sources */,
 				8E89646F2A3BE3C900C0243C /* UpdateUserRequest.swift in Sources */,

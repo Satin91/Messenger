@@ -26,9 +26,9 @@ struct StatebleButton: View {
     
     
     var button: some View {
-        RoundedRectangle(cornerRadius: Spacing.smallRadius, style: .continuous)
+        RoundedRectangle(cornerRadius: Layout.Radius.smallRadius, style: .continuous)
             .foregroundColor(isEnable ? Colors.primary : Colors.neutral)
-            .frame(height: Spacing.mediumControl)
+            .frame(height: Layout.Sizes.mediumControl)
             .overlay {
                 Text(title)
                     .font(Fonts.roboto(weight: .bold, size: 18))
