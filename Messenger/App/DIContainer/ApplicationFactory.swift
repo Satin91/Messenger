@@ -38,7 +38,7 @@ final class ApplicationFactory {
     }
     
     func profileScreenViewModel(user: UserModel) -> ProfileScreenViewModel {
-        ProfileScreenViewModel(databaseService: userDatabaseService, remoteUserService: remoteUserService, user: user)
+        ProfileScreenViewModel(databaseService: userDatabaseService, remoteUserService: remoteUserService, authService: authService, user: user)
     }
     
     func chatListScreenViewModel(user: UserModel) -> ChatListScreenViewModel {

@@ -58,7 +58,7 @@ struct ProfileScreen: View {
             }
             .addRightContainer {
                 NavigationBarButton(imageSystemName: "arrow.turn.up.left") {
-                    viewModel.removeCurrentUser()
+                    viewModel.logOut()
                     appCoordinator.backToRootView()
                 }
             }
@@ -162,8 +162,11 @@ struct ProfileScreen: View {
     
     var saveButton: some View {
         StatebleButton(title: "Сохранить", isEnable: isUserChanged) {
-            viewModel.updateUser()
-            appCoordinator.back()
+            viewModel.updateUser { isSuccess in
+                if isSuccess {
+                    self.appCoordinator.back()
+                }
+            }
         }
     }
 }

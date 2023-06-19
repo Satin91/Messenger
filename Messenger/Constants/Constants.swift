@@ -21,6 +21,7 @@ enum Constants {
             static let sendAuthCodePath = "api/v1/users/send-auth-code/"
             static let checkAuthCodePath = "api/v1/users/check-auth-code/"
             static let userRegisterPath = "api/v1/users/register/"
+            static let refreshTokenPath = "api/v1/users/refresh-token/"
         }
         
         enum User {
