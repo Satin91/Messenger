@@ -13,17 +13,15 @@ struct ChatScreen: View {
     }
     
     @EnvironmentObject var appCoordinator: AppCoordinatorViewModel
-    @State var text = ""
-    @State var messages: [String] = []
-    @FocusState var isKeyboardForeground: KeyboardForeground?
+    @ObservedObject var viewModel: ChatScreenViewModel
     
-    var user: UserModel
-    var companion: MockChats.ChatUser
+    @State var text = ""
+    @FocusState var isKeyboardForeground: KeyboardForeground?
     
     var body: some View {
         content
             .onAppear {
-                messages.append(contentsOf: companion.messages)
+                viewModel.messages.append(contentsOf: viewModel.companion.messages)
             }
             .dismissingKeyboard()
     }
@@ -47,13 +45,13 @@ struct ChatScreen: View {
                         appCoordinator.back()
                     }
                     HStack(spacing: Layout.Padding.small) {
-                        Image(companion.avatar)
+                        Image(viewModel.companion.avatar)
                             .resizable()
                             .scaledToFit()
                             .clipShape(Circle())
                             .frame(width: 58, height: 58)
                         VStack(alignment: .leading, spacing: Layout.Padding.extraSmall) {
-                            Text(companion.name)
+                            Text(viewModel.companion.name)
                                 .mediumTitleModifier()
                             Text("Last seen 1 hour ago")
                                 .font(Fonts.roboto(weight: .light, size: 16))
@@ -66,7 +64,7 @@ struct ChatScreen: View {
     
     private var messagesContainer: some View {
         ScrollView(.vertical) {
-            ForEach(messages, id: \.self) { message in
+            ForEach(viewModel.messages, id: \.self) { message in
                 messageView(text: message)
                     .padding(.vertical, 4)
             }.rotationEffect(.degrees(180))
@@ -87,7 +85,7 @@ struct ChatScreen: View {
                 withAnimation {
                     isKeyboardForeground = nil
                     guard !text.isEmpty else { return }
-                    messages.append(text)
+                    viewModel.messages.append(text)
                     text = ""
                 }
             } label: {
@@ -128,16 +126,10 @@ struct ChatScreen: View {
     }
     
     @ViewBuilder private func messageView(text: String) -> some View {
-        if companion.messages.contains(text) {
+        if viewModel.companion.messages.contains(text) {
             companionMessageView(text: text)
         } else {
             userMessageView(text: text)
         }
-    }
-}
-
-struct ChatScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        ChatScreen(user: UserModel(), companion: MockChats.ChatUser(name: "Vegtables", avatar: "chatAvatar2", messages: ["Hello!"]))
     }
 }

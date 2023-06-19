@@ -37,7 +37,7 @@ final class SceneFactory: SceneFactoryProtocol {
     }
     
     func makeChatScreen(user: UserModel, companion: MockChats.ChatUser) -> AnyView {
-        AnyView(ChatScreen(user: user, companion: companion))
+        AnyView(ChatScreen(viewModel: self.applicationFactory.chatScreenViewModel(user: user, companion: companion)))
     }
     
     func makeProfileScreen(user: UserModel) -> AnyView {

@@ -45,6 +45,10 @@ final class ApplicationFactory {
         ChatListScreenViewModel(user: user)
     }
     
+    func chatScreenViewModel(user: UserModel, companion: MockChats.ChatUser) -> ChatScreenViewModel {
+        ChatScreenViewModel(user: user, companion: companion)
+    }
+    
     init() {
         self.networkManager = NetworkManager(session: Session.default)
         self.databaseManager = DatabaseManager()
