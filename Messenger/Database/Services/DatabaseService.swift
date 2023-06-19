@@ -8,6 +8,7 @@
 import Foundation
 
 protocol DatabaseServiceProtocol {
+    func updateUser(execute: () -> Void)
     func save(user: UserModel)
     func getCurrentUser() -> UserModel?
     func setCurrentUser(user: UserModel)
@@ -20,6 +21,10 @@ final class DatabaseService: DatabaseServiceProtocol {
     
     init(databaseManager: DatabaseManagerProtocol) {
         self.databaseManager = databaseManager
+    }
+    
+    func updateUser(execute: () -> Void) {
+        databaseManager.writeTransaction(execute: execute)
     }
     
     func save(user: UserModel) {

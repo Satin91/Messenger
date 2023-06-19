@@ -9,6 +9,7 @@ import Foundation
 import RealmSwift
 
 protocol DatabaseManagerProtocol {
+    func writeTransaction(execute: () -> Void)
     func save(object: RealmSwift.Object)
     func delete<T: Object>(id: String, object: T.Type)
     func deleteAll()
@@ -19,6 +20,13 @@ protocol DatabaseManagerProtocol {
 
 final class DatabaseManager: DatabaseManagerProtocol {
     private let realm = try! Realm()
+    
+    func writeTransaction(execute: () -> Void) {
+        let realm = try! Realm()
+        try! realm.write {
+            execute()
+        }
+    }
     
     func save(object: RealmSwift.Object) {
         DispatchQueue.main.async { [weak self] in

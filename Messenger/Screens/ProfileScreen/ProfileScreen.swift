@@ -153,14 +153,12 @@ struct ProfileScreen: View {
         .padding(8)
     }
     
-    
     var aboutMeTextField: some View {
         TitledTextField(title: "Обо мне", text: $viewModel.aboutMe.bound, placeholder: "Расскажите о себе", axis: .vertical)
             .frame(alignment: .topLeading)
     }
     
     var saveButton: some View {
-        
         StatebleButton(title: "Сохранить", isEnable: isUserChanged) {
             viewModel.updateUser()
             appCoordinator.back()

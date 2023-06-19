@@ -16,4 +16,3 @@ extension Image {
         self.init(uiImage: uiimage)
     }
 }
-

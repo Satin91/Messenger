@@ -69,21 +69,26 @@ final class ProfileScreenViewModel: ObservableObject {
     
     ///обновление пользователя в базе и на сервере.
     func updateUser() {
-        let realm = try! Realm()
-        try! realm.write {
-            user.name = name
-            user.city = city
-            user.birthday = birthday?.toString
-            user.aboutMe = aboutMe
+    
+//
+        databaseService.updateUser { [weak self] in
+            self?.user.name = name
+            self?.user.city = city
+            self?.user.birthday = birthday?.toString
+            self?.user.aboutMe = aboutMe
+            self?.user.avatarData = avatar
         }
-        let image = UIImage(data: avatar ?? Data())
-        guard let imgData = image!.pngData() else { return }
-        let base64String = imgData.base64EncodedString(options: .lineLength64Characters)
         
-        databaseService.save(user: user)
-        remoteUserService.updateUser(accessToken: user.accessToken ?? "", user: user, avatar: ["filename": "MainAvatar", "base_64": base64String])
+        let base64String = avatar?.base64image
+        
+        
+        let _ = remoteUserService.updateUser(accessToken: user.accessToken ?? "", user: user, avatar: ["filename": "MainAvatar", "base_64": base64String ?? ""])
             .sink { completion in
-                print("Cant convert image")
+                let error = completion.error
+                if error != nil {
+                    print(error?.localizedDescription)
+                    print("Cant convert image")
+                }
             } receiveValue: { response in
                 print(response)
             }
