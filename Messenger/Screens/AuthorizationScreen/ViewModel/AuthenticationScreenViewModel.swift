@@ -25,7 +25,7 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
     var authService: AuthentificationServiceProtocol
     var notificationService: NotificationServiceProtocol
     var remoteUserService: RemoteUserServiceProtocol
-    var databaseService: DatabaseServiceProtocol
+    var userDatabaseService: UserDatabaseServiceProtocol
     var subscriber = Set<AnyCancellable>()
     
     @Published var navigatior: AuthNavigator = .onEnterPhoneNumber
@@ -40,11 +40,11 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
     
     @State var isValidPhoneNumber: Bool = false
     
-    init(authService: AuthentificationServiceProtocol, databaseService: DatabaseServiceProtocol,  notificationService: NotificationServiceProtocol, remoteUserService: RemoteUserServiceProtocol) {
+    init(authService: AuthentificationServiceProtocol, databaseService: UserDatabaseServiceProtocol,  notificationService: NotificationServiceProtocol, remoteUserService: RemoteUserServiceProtocol) {
         self.authService = authService
         self.notificationService = notificationService
         self.remoteUserService = remoteUserService
-        self.databaseService = databaseService
+        self.userDatabaseService = databaseService
     }
     
     // MARK: Отправление кода авторизации по набранному номеру
@@ -92,8 +92,8 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
                 user.accessToken = SessionInfo.shared.accessToken
                 user.refreshToken = SessionInfo.shared.refreshToken
                 self.navigatior = .toChatList(userResponse.profile_data)
-                self.databaseService.setCurrentUser(user: user)
-                self.databaseService.save(user: user)
+                self.userDatabaseService.setCurrentUser(user: user)
+                self.userDatabaseService.save(user: user)
             }
             .store(in: &subscriber)
     }
@@ -116,7 +116,7 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
                 user.id = SessionInfo.shared.userID!
                 user.refreshToken = SessionInfo.shared.refreshToken
                 user.accessToken = SessionInfo.shared.accessToken
-                self.databaseService.setCurrentUser(user: user)
+                self.userDatabaseService.setCurrentUser(user: user)
                 self.navigatior = .toChatList(user)
             }
             .store(in: &self.subscriber)

@@ -17,7 +17,7 @@ final class ProfileScreenViewModel: ObservableObject {
     var subscriber = Set<AnyCancellable>()
     
     var remoteUserService: RemoteUserServiceProtocol
-    var databaseService: DatabaseServiceProtocol
+    var userDatabaseService: UserDatabaseServiceProtocol
     
     
     /// При каждом изменении @Published свойства, обновляется вся модель. По этому нет причин не использовать вычисляемые свойства, основанне на издателе.
@@ -32,9 +32,9 @@ final class ProfileScreenViewModel: ObservableObject {
     @Published var birthday: Date?
     @Published var avatar: Data?
     
-    init(databaseService: DatabaseServiceProtocol, remoteUserService: RemoteUserServiceProtocol, user: UserModel) {
+    init(databaseService: UserDatabaseServiceProtocol, remoteUserService: RemoteUserServiceProtocol, user: UserModel) {
         self.remoteUserService = remoteUserService
-        self.databaseService = databaseService
+        self.userDatabaseService = databaseService
         self.user = user
         self.city = user.city
         self.name = user.name
@@ -69,7 +69,7 @@ final class ProfileScreenViewModel: ObservableObject {
     
     ///обновление пользователя в базе и на сервере.
     func updateUser() {
-        databaseService.updateUser { [weak self] in
+        userDatabaseService.updateUser { [weak self] in
             self?.user.name = name
             self?.user.city = city
             self?.user.birthday = birthday?.toString
@@ -93,7 +93,7 @@ final class ProfileScreenViewModel: ObservableObject {
     }
     
     func removeCurrentUser() {
-        databaseService.removeCurrentUser()
+        userDatabaseService.removeCurrentUser()
     }
 }
 

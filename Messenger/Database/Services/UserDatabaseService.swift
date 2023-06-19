@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol DatabaseServiceProtocol {
+protocol UserDatabaseServiceProtocol {
     func updateUser(execute: () -> Void)
     func save(user: UserModel)
     func getCurrentUser() -> UserModel?
@@ -15,7 +15,7 @@ protocol DatabaseServiceProtocol {
     func removeCurrentUser()
 }
 
-final class DatabaseService: DatabaseServiceProtocol {
+final class UserDatabaseService: UserDatabaseServiceProtocol {
     
     var databaseManager: DatabaseManagerProtocol
     

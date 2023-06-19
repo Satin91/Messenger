@@ -30,7 +30,7 @@
 		8E626DE82A38B11C0018AD87 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 8E626DE72A38B11C0018AD87 /* Realm */; };
 		8E626DEA2A38B11C0018AD87 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8E626DE92A38B11C0018AD87 /* RealmSwift */; };
 		8E626DED2A38B1560018AD87 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E626DEC2A38B1560018AD87 /* DatabaseManager.swift */; };
-		8E626DEF2A38B15E0018AD87 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E626DEE2A38B15E0018AD87 /* DatabaseService.swift */; };
+		8E626DEF2A38B15E0018AD87 /* UserDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E626DEE2A38B15E0018AD87 /* UserDatabaseService.swift */; };
 		8E626DF22A38B78F0018AD87 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E626DF12A38B78F0018AD87 /* RegistrationView.swift */; };
 		8E626DF82A38E20B0018AD87 /* UserRegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E626DF72A38E20B0018AD87 /* UserRegisterRequest.swift */; };
 		8E626DFA2A38E2B90018AD87 /* UserRegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E626DF92A38E2B90018AD87 /* UserRegisterResponse.swift */; };
@@ -46,7 +46,6 @@
 		8E89645D2A3A9ABC00C0243C /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E89645C2A3A9ABC00C0243C /* ProfileScreen.swift */; };
 		8E8964622A3AAE6500C0243C /* ProfileScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8964612A3AAE6500C0243C /* ProfileScreenViewModel.swift */; };
 		8E8964642A3B6B4400C0243C /* TitledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8964632A3B6B4400C0243C /* TitledTextField.swift */; };
-		8E8964662A3B88A600C0243C /* PopUpModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8964652A3B88A600C0243C /* PopUpModifier.swift */; };
 		8E8964682A3BAB9500C0243C /* ZodiacSign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8964672A3BAB9500C0243C /* ZodiacSign.swift */; };
 		8E89646A2A3BAFD800C0243C /* DateConversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8964692A3BAFD800C0243C /* DateConversions.swift */; };
 		8E89646D2A3BCCBC00C0243C /* OptionalBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E89646C2A3BCCBC00C0243C /* OptionalBinding.swift */; };
@@ -107,7 +106,7 @@
 		8E3CEC2E2A3F8BD100BA63FD /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		8E3CEC302A3F8F9200BA63FD /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		8E626DEC2A38B1560018AD87 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
-		8E626DEE2A38B15E0018AD87 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
+		8E626DEE2A38B15E0018AD87 /* UserDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDatabaseService.swift; sourceTree = "<group>"; };
 		8E626DF12A38B78F0018AD87 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		8E626DF72A38E20B0018AD87 /* UserRegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterRequest.swift; sourceTree = "<group>"; };
 		8E626DF92A38E2B90018AD87 /* UserRegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterResponse.swift; sourceTree = "<group>"; };
@@ -123,7 +122,6 @@
 		8E89645C2A3A9ABC00C0243C /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		8E8964612A3AAE6500C0243C /* ProfileScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewModel.swift; sourceTree = "<group>"; };
 		8E8964632A3B6B4400C0243C /* TitledTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledTextField.swift; sourceTree = "<group>"; };
-		8E8964652A3B88A600C0243C /* PopUpModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpModifier.swift; sourceTree = "<group>"; };
 		8E8964672A3BAB9500C0243C /* ZodiacSign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZodiacSign.swift; sourceTree = "<group>"; };
 		8E8964692A3BAFD800C0243C /* DateConversions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConversions.swift; sourceTree = "<group>"; };
 		8E89646C2A3BCCBC00C0243C /* OptionalBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalBinding.swift; sourceTree = "<group>"; };
@@ -327,7 +325,7 @@
 		8E626DFD2A38F3880018AD87 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				8E626DEE2A38B15E0018AD87 /* DatabaseService.swift */,
+				8E626DEE2A38B15E0018AD87 /* UserDatabaseService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -485,7 +483,6 @@
 				8E8964562A3A5DF100C0243C /* ShadowModifiers.swift */,
 				8E8964582A3A63CF00C0243C /* DismissingKeyboardModifier.swift */,
 				8E89645A2A3A8DB400C0243C /* FillBackgroundModifier.swift */,
-				8E8964652A3B88A600C0243C /* PopUpModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -634,7 +631,6 @@
 				8E34C2952A33E776009C40FA /* NetworkManager.swift in Sources */,
 				8E626E012A38F88E0018AD87 /* GetCurrentUserRequest.swift in Sources */,
 				8E89644F2A3A282100C0243C /* MockChats.swift in Sources */,
-				8E8964662A3B88A600C0243C /* PopUpModifier.swift in Sources */,
 				8E35C0EE2A4003F6006B67A6 /* Base64Encoder.swift in Sources */,
 				8E9B08A92A360F4F00D1A035 /* NotificationService.swift in Sources */,
 				8E3CEC2F2A3F8BD100BA63FD /* CurrentUser.swift in Sources */,
@@ -675,7 +671,7 @@
 				8E9B08CF2A36C09100D1A035 /* ReadSizeModifier.swift in Sources */,
 				8E8964622A3AAE6500C0243C /* ProfileScreenViewModel.swift in Sources */,
 				8E9B08DC2A37BA4400D1A035 /* AppCoordinator.swift in Sources */,
-				8E626DEF2A38B15E0018AD87 /* DatabaseService.swift in Sources */,
+				8E626DEF2A38B15E0018AD87 /* UserDatabaseService.swift in Sources */,
 				8E9AF5772A3D6BDA000A5531 /* ChatListScreenViewModel.swift in Sources */,
 				8EDB893A2A3E80FF0067B9C9 /* PublishersError.swift in Sources */,
 				8E1945AA2A326C0E00CBB4B4 /* Fonts.swift in Sources */,

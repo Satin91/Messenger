@@ -21,8 +21,8 @@ final class ApplicationFactory {
         NotificationService(manager: notificationManager)
     }
     
-    var databaseService: DatabaseServiceProtocol{
-        DatabaseService(databaseManager: databaseManager)
+    var userDatabaseService: UserDatabaseServiceProtocol{
+        UserDatabaseService(databaseManager: databaseManager)
     }
     
     var authService: AuthentificationServiceProtocol {
@@ -34,11 +34,11 @@ final class ApplicationFactory {
     }
     
     var verificationScreenViewModel: AuthenticationScreenViewModel {
-        AuthenticationScreenViewModel(authService: authService, databaseService: databaseService, notificationService: notificationService, remoteUserService: remoteUserService)
+        AuthenticationScreenViewModel(authService: authService, databaseService: userDatabaseService, notificationService: notificationService, remoteUserService: remoteUserService)
     }
     
     func profileScreenViewModel(user: UserModel) -> ProfileScreenViewModel {
-        ProfileScreenViewModel(databaseService: databaseService, remoteUserService: remoteUserService, user: user)
+        ProfileScreenViewModel(databaseService: userDatabaseService, remoteUserService: remoteUserService, user: user)
     }
     
     func chatListScreenViewModel(user: UserModel) -> ChatListScreenViewModel {

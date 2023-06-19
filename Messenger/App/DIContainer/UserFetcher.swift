@@ -17,6 +17,6 @@ final class UserFetcher {
     }
     
     func fetchCurrentUser() -> UserModel? {
-        applicationFactory.databaseService.getCurrentUser()
+        applicationFactory.userDatabaseService.getCurrentUser()
     }
 }

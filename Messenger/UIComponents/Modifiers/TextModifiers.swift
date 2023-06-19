@@ -35,7 +35,6 @@ extension Text {
     }
 }
 
-
 struct LargeTitleModifier: ViewModifier {
     
     func body(content: Content) -> some View {

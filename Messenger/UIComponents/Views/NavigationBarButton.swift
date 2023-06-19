@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct NavigationBarButton: View {
+    
+    var action: () -> Void
+    
     var body: some View {
         content
     }
     
-    var action: () -> Void
+    var imageSystemName: String
     
     var content: some View {
         button
@@ -22,7 +25,13 @@ struct NavigationBarButton: View {
         Button {
             action()
         } label: {
-            RoundedRectangle(cornerRadius: 5)
+            Image(systemName: imageSystemName)
+                .foregroundColor(Colors.dark)
+                .background(
+                    Colors.light
+                )
+                .cornerRadius(Layout.Radius.smallRadius)
+                .largeShadowModifier()
         }
 
     }
@@ -30,6 +39,6 @@ struct NavigationBarButton: View {
 
 struct NavigationBarButton_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationBarButton(action: {})
+        NavigationBarButton(action: {}, imageSystemName: "arrow.right")
     }
 }
