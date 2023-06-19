@@ -9,13 +9,12 @@ import SwiftUI
 
 struct NavigationBarButton: View {
     
-    var action: () -> Void
+    let imageSystemName: String
+    let action: () -> Void
     
     var body: some View {
         content
     }
-    
-    var imageSystemName: String
     
     var content: some View {
         button
@@ -26,7 +25,9 @@ struct NavigationBarButton: View {
             action()
         } label: {
             Image(systemName: imageSystemName)
+                .font(.system(size: 20, weight: .semibold))
                 .foregroundColor(Colors.dark)
+                .padding()
                 .background(
                     Colors.light
                 )
@@ -39,6 +40,6 @@ struct NavigationBarButton: View {
 
 struct NavigationBarButton_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationBarButton(action: {}, imageSystemName: "arrow.right")
+        NavigationBarButton(imageSystemName: "arrow.right", action: {})
     }
 }

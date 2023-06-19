@@ -50,8 +50,8 @@ class AppCoordinatorViewModel: ObservableObject {
     var currentUser: UserModel?
     
     init(currentUser: UserModel?) {
-        if currentUser != nil {
-            self.routes = [.root(.chatListScreen(currentUser!), embedInNavigationView: true)]
+        if let currentUser = currentUser {
+            self.routes = [.root(.chatListScreen(currentUser), embedInNavigationView: true)]
         } else {
             self.routes = [.root(.verificationScreen, embedInNavigationView: true)]
         }

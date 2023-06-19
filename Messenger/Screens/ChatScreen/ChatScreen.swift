@@ -43,7 +43,7 @@ struct ChatScreen: View {
         NavigationBar()
             .addLeftContainer {
                 VStack(alignment: .leading, spacing: Layout.Padding.medium) {
-                    Button("Back") {
+                    NavigationBarButton(imageSystemName: "arrow.left") {
                         appCoordinator.back()
                     }
                     HStack(spacing: Layout.Padding.small) {

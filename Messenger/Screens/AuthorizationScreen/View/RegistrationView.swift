@@ -21,15 +21,19 @@ struct RegistrationView: View {
             registerButton
             Spacer()
         }
-        .padding(.horizontal, Layout.Padding.horizontalEdges)
         .background(Colors.background)
     }
     
     private var navigationBar: some View {
         NavigationBar()
             .addLeftContainer {
-                Text("Регистрация")
-                    .largeTitleModifier()
+                VStack(alignment: .leading) {
+                    NavigationBarButton(imageSystemName: "arrow.left") {
+                        viewModel.navigatior = .onEnterPhoneNumber
+                    }
+                    Text("Регистрация")
+                        .largeTitleModifier()
+                }
             }
     }
     

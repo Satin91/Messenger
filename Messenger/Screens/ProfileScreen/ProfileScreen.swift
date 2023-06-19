@@ -52,16 +52,16 @@ struct ProfileScreen: View {
     var navigationBar: some View {
         NavigationBar()
             .addLeftContainer {
-                Button("Back") {
+                NavigationBarButton(imageSystemName: "arrow.left") {
                     appCoordinator.back()
                 }
             }
-            .addRightContainer({
-                Button("Log out") {
+            .addRightContainer {
+                NavigationBarButton(imageSystemName: "arrow.turn.up.left") {
                     viewModel.removeCurrentUser()
                     appCoordinator.backToRootView()
                 }
-            })
+            }
             .padding(.horizontal, Layout.Padding.horizontalEdges)
     }
     
@@ -75,10 +75,10 @@ struct ProfileScreen: View {
             .padding()
             .overlay(alignment: .topTrailing) {
                 PhotosPicker(selection: $avatarItem, matching: .images) {
-                    Image(systemName: "arrow.down.app.fill", variableValue: 1.00)
+                    Image(systemName: "photo.circle.fill", variableValue: 1.00)
                     .symbolRenderingMode(.hierarchical)
                     .foregroundColor(Colors.primary)
-                    .font(.system(size: 34, weight: .regular))
+                    .font(.system(size: 56, weight: .regular))
                 }
             }
             .frame(maxWidth: .infinity)

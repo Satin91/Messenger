@@ -14,6 +14,9 @@ struct EnterPhoneNumberView: View {
     
     var body: some View {
         content
+            .onAppear {
+                viewModel.phoneNumber = ""
+            }
     }
     
     var content: some View {

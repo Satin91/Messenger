@@ -12,6 +12,9 @@ struct EnterVerificationCodeView: View {
     
     var body: some View {
         content
+            .onAppear {
+                viewModel.verificationCode = ""
+            }
     }
     
     var content: some View {
@@ -29,7 +32,7 @@ struct EnterVerificationCodeView: View {
         NavigationBar()
             .addLeftContainer {
                 VStack(alignment: .leading, spacing: Layout.Sizes.mediumControl) {
-                    Button("Назад") {
+                    NavigationBarButton(imageSystemName: "arrow.left") {
                         viewModel.navigatior = .onEnterPhoneNumber
                         viewModel.verificationCode.removeAll()
                     }
