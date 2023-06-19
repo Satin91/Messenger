@@ -20,7 +20,7 @@ struct TitledTextField: View {
     }
     
     var content: some View {
-        VStack(alignment: .leading, spacing: Spacing.extraSmallPadding) {
+        VStack(alignment: .leading, spacing: Layout.Padding.extraSmall) {
             titleLabel
             textField
         }
@@ -36,12 +36,12 @@ struct TitledTextField: View {
     var textField: some View {
         TextField(placeholder, text: $text, axis: axis)
             .font(Fonts.roboto(weight: .medium, size: 14))
-            .foregroundColor(Colors.primary)
+            .foregroundColor(isEntryDisabled ? Colors.neutral : Colors.primary)
             .disabled(isEntryDisabled)
             .padding(.all)
             .padding(.leading)
             .background(Colors.lightGray)
-            .cornerRadius(Spacing.smallRadius)
+            .cornerRadius(Layout.Radius.smallRadius)
     }
 }
 

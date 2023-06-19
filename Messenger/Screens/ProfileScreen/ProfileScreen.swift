@@ -11,7 +11,7 @@ import Alamofire
 import PhotosUI
 
 struct ProfileScreen: View {
-    @EnvironmentObject var AppCoordinator: AppCoordinatorViewModel
+    @EnvironmentObject var appCoordinator: AppCoordinatorViewModel
     @StateObject var viewModel: ProfileScreenViewModel
     
     /// Кнопка сохранения свойств пользователя имеет состояния, этот флаг оповещает об изменениях произошедших во вью модели.
@@ -35,15 +35,15 @@ struct ProfileScreen: View {
     }
     
     var content: some View {
-        VStack(spacing: Spacing.mediumPadding) {
+        VStack(spacing: Layout.Padding.medium) {
             navigationBar
             ScrollView(.vertical) {
-                VStack(alignment: .leading, spacing: Spacing.mediumPadding) {
+                VStack(alignment: .leading, spacing: Layout.Padding.medium) {
                     avatarContainer
                     textContainer
                     saveButton
                 }
-                .padding(.horizontal, Spacing.horizontalEdges)
+                .padding(.horizontal, Layout.Padding.horizontalEdges)
             }
         }
         .fillBackgroundModifier(color: Colors.background)
@@ -52,11 +52,17 @@ struct ProfileScreen: View {
     var navigationBar: some View {
         NavigationBar()
             .addLeftContainer {
-                Button("Back") {
-                    AppCoordinator.back()
+                NavigationBarButton(imageSystemName: "arrow.left") {
+                    appCoordinator.back()
                 }
             }
-            .padding(.horizontal, Spacing.horizontalEdges)
+            .addRightContainer {
+                NavigationBarButton(imageSystemName: "arrow.turn.up.left") {
+                    viewModel.logOut()
+                    appCoordinator.backToRootView()
+                }
+            }
+            .padding(.horizontal, Layout.Padding.horizontalEdges)
     }
     
     var avatarContainer: some View {
@@ -69,17 +75,17 @@ struct ProfileScreen: View {
             .padding()
             .overlay(alignment: .topTrailing) {
                 PhotosPicker(selection: $avatarItem, matching: .images) {
-                    Image(systemName: "arrow.down.app.fill", variableValue: 1.00)
+                    Image(systemName: "photo.circle.fill", variableValue: 1.00)
                     .symbolRenderingMode(.hierarchical)
                     .foregroundColor(Colors.primary)
-                    .font(.system(size: 34, weight: .regular))
+                    .font(.system(size: 56, weight: .regular))
                 }
             }
             .frame(maxWidth: .infinity)
     }
     
     var textContainer: some View {
-        VStack(alignment: .leading, spacing: Spacing.mediumPadding) {
+        VStack(alignment: .leading, spacing: Layout.Padding.medium) {
             Group {
                 nameTextField
                 userNameLabel
@@ -121,7 +127,8 @@ struct ProfileScreen: View {
     var cityTextField: some View {
         TitledTextField(
             title: "Расположение",
-            text: $viewModel.city.bound, placeholder: "Населенный пункт не указан"
+            text: $viewModel.city.bound,
+            placeholder: "Населенный пункт не указан"
         )
     }
     
@@ -129,7 +136,8 @@ struct ProfileScreen: View {
         ZStack {
             TitledTextField(
                 title: "Знак зодиака",
-                text: .constant(viewModel.zodiacSignText.bound), placeholder: "Дата рождения не выбрана",
+                text: .constant(viewModel.zodiacSignText.bound),
+                placeholder: "Дата рождения не выбрана",
                 isEntryDisabled: true
             )
             .overlay(alignment: .bottomTrailing) {
@@ -147,17 +155,18 @@ struct ProfileScreen: View {
         .padding(8)
     }
     
-    
     var aboutMeTextField: some View {
-        TitledTextField(title: "Обо мне", text: $viewModel.aboutMe.bound, placeholder: "Расскажите о себе", axis: .vertical)
+        TitledTextField(title: "Обо мне", text: $viewModel.aboutMe.bound, placeholder: "", axis: .vertical)
             .frame(alignment: .topLeading)
     }
     
     var saveButton: some View {
-        
         StatebleButton(title: "Сохранить", isEnable: isUserChanged) {
-            viewModel.updateUser()
-            AppCoordinator.back()
+            viewModel.updateUser { isSuccess in
+                if isSuccess {
+                    self.appCoordinator.back()
+                }
+            }
         }
     }
 }

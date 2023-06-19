@@ -10,13 +10,17 @@ import Alamofire
 
 struct EnterPhoneNumberView: View {
     @EnvironmentObject var viewModel: AuthenticationScreenViewModel
+    @State var isValidPhoneNumber: Bool = false
     
     var body: some View {
         content
+            .onAppear {
+                viewModel.phoneNumber = ""
+            }
     }
     
     var content: some View {
-        VStack(alignment: .leading, spacing: Spacing.largePadding) {
+        VStack(alignment: .leading, spacing: Layout.Padding.large) {
             navigationBar
             infoLabel
             textField
@@ -48,11 +52,11 @@ struct EnterPhoneNumberView: View {
     }
     
     var textField: some View {
-        PhoneNumberTextField(text: $viewModel.phoneNumber)
+        PhoneNumberTextField(text: $viewModel.phoneNumber, isValidNumber: $isValidPhoneNumber)
     }
     
     var nextButton: some View {
-        StatebleButton(title: "Отправить код", isEnable: viewModel.isFullPhoneNumber) {
+        StatebleButton(title: "Отправить код", isEnable: isValidPhoneNumber) {
             viewModel.sendAuthCode()
         }
     }

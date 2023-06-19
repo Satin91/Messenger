@@ -10,7 +10,7 @@ import SwiftUI
 struct ChatListScreen: View {
     let mockChats = MockChats.chats
     
-    @EnvironmentObject var AppCoordinator: AppCoordinatorViewModel
+    @EnvironmentObject var appCoordinator: AppCoordinatorViewModel
     @StateObject var viewModel: ChatListScreenViewModel
     
     var body: some View {
@@ -23,7 +23,7 @@ struct ChatListScreen: View {
             chatList
             Spacer()
         }
-        .padding(Spacing.horizontalEdges)
+        .padding(Layout.Padding.horizontalEdges)
         .fillBackgroundModifier(color: Colors.background)
     }
     
@@ -36,7 +36,7 @@ struct ChatListScreen: View {
             .addRightContainer {
                 profile
                     .onTapGesture {
-                        AppCoordinator.pushToProfileScreen(user: viewModel.user)
+                        appCoordinator.pushToProfileScreen(user: viewModel.user)
                     }
             }
     }
@@ -54,7 +54,7 @@ struct ChatListScreen: View {
             ForEach(mockChats, id: \.id) { companion in
                 ChatListRow(companion: companion)
                     .onTapGesture {
-                        AppCoordinator.pushToChatScreen(user: viewModel.user, companion: companion)
+                        appCoordinator.pushToChatScreen(user: viewModel.user, companion: companion)
                     }
             }
         }
@@ -71,7 +71,7 @@ struct ChatListRow: View {
     
     var content: some View {
         VStack(alignment: .leading) {
-            HStack(spacing: Spacing.smallPadding) {
+            HStack(spacing: Layout.Padding.small) {
                 avatar
                 textContainer
             }
@@ -89,7 +89,7 @@ struct ChatListRow: View {
     }
     
     var textContainer: some View {
-        VStack(alignment: .leading, spacing: Spacing.extraSmallPadding / 2) {
+        VStack(alignment: .leading, spacing: Layout.Padding.extraSmall / 2) {
             nameLabel
             lastMessageLabel
         }

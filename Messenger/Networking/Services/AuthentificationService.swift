@@ -13,6 +13,7 @@ protocol AuthentificationServiceProtocol {
     func sendAuthCode(phone: String) -> AnyPublisher<SendAuthCodeResponse, Error>
     func register(phone: String, name: String, username: String) -> AnyPublisher<UserRegisterResponse, Error>
     func checkAuthCode(phone: String, code: String) -> AnyPublisher<CheckAuthCodeResponse, Error>
+    func refreshToken(refreshToken: String) -> AnyPublisher<RefreshTokenResponse, Error>
 }
 
 class AuthentificationService: AuthentificationServiceProtocol {
@@ -43,6 +44,13 @@ class AuthentificationService: AuthentificationServiceProtocol {
         let request = UserRegisterRequest(phone: phone, name: name, username: username)
         return networkManager.sendRequest(request: request)
             .decode(type: UserRegisterResponse.self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
+    }
+    
+    func refreshToken(refreshToken: String) -> AnyPublisher<RefreshTokenResponse, Error> {
+        let request = RefreshTokenRequest(refreshToken: refreshToken)
+        return networkManager.sendRequest(request: request)
+            .decode(type: RefreshTokenResponse.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
 }

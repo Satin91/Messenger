@@ -6,16 +6,27 @@
 //
 
 import SwiftUI
+import Combine
 
 struct EnterVerificationCodeView: View {
     @EnvironmentObject var viewModel: AuthenticationScreenViewModel
     
     var body: some View {
         content
+            .onAppear {
+                viewModel.verificationCode = ""
+            }
+            .onReceive(Just(viewModel.verificationCode)) { input in
+                    let filtered = input.filter { "0123456789".contains($0) }
+                    if filtered != input {
+                        self.viewModel.verificationCode = filtered
+                    }
+                }
+
     }
     
     var content: some View {
-        VStack(alignment: .leading, spacing: Spacing.largePadding) {
+        VStack(alignment: .leading, spacing: Layout.Padding.large) {
             navigationBar
             infoLabel
             textField
@@ -28,8 +39,8 @@ struct EnterVerificationCodeView: View {
     var navigationBar: some View {
         NavigationBar()
             .addLeftContainer {
-                VStack(alignment: .leading, spacing: Spacing.mediumControl) {
-                    Button("Назад") {
+                VStack(alignment: .leading, spacing: Layout.Sizes.mediumControl) {
+                    NavigationBarButton(imageSystemName: "arrow.left") {
                         viewModel.navigatior = .onEnterPhoneNumber
                         viewModel.verificationCode.removeAll()
                     }

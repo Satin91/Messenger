@@ -21,13 +21,19 @@
 		8E34C28D2A339329009C40FA /* SendAuthCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E34C28C2A339329009C40FA /* SendAuthCodeRequest.swift */; };
 		8E34C2922A33AF0B009C40FA /* SendAuthCodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E34C2912A33AF0B009C40FA /* SendAuthCodeResponse.swift */; };
 		8E34C2952A33E776009C40FA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E34C2942A33E776009C40FA /* NetworkManager.swift */; };
+		8E35C0EC2A3FFF96006B67A6 /* iPhoneNumberField in Frameworks */ = {isa = PBXBuildFile; productRef = 8E35C0EB2A3FFF96006B67A6 /* iPhoneNumberField */; };
+		8E35C0EE2A4003F6006B67A6 /* Base64Encoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E35C0ED2A4003F6006B67A6 /* Base64Encoder.swift */; };
+		8E35C0F02A40132B006B67A6 /* NavigationBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E35C0EF2A40132B006B67A6 /* NavigationBarButton.swift */; };
+		8E35C0F22A4046FD006B67A6 /* SpecifyTextFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E35C0F12A4046FD006B67A6 /* SpecifyTextFilter.swift */; };
+		8E35C0F42A404F7E006B67A6 /* RefreshTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E35C0F32A404F7E006B67A6 /* RefreshTokenRequest.swift */; };
+		8E35C0F62A40540B006B67A6 /* RefreshTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E35C0F52A40540B006B67A6 /* RefreshTokenResponse.swift */; };
 		8E3CEC2D2A3F8A5000BA63FD /* UserFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3CEC2C2A3F8A5000BA63FD /* UserFetcher.swift */; };
 		8E3CEC2F2A3F8BD100BA63FD /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3CEC2E2A3F8BD100BA63FD /* CurrentUser.swift */; };
 		8E3CEC312A3F8F9200BA63FD /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3CEC302A3F8F9200BA63FD /* DIContainer.swift */; };
 		8E626DE82A38B11C0018AD87 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 8E626DE72A38B11C0018AD87 /* Realm */; };
 		8E626DEA2A38B11C0018AD87 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8E626DE92A38B11C0018AD87 /* RealmSwift */; };
 		8E626DED2A38B1560018AD87 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E626DEC2A38B1560018AD87 /* DatabaseManager.swift */; };
-		8E626DEF2A38B15E0018AD87 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E626DEE2A38B15E0018AD87 /* DatabaseService.swift */; };
+		8E626DEF2A38B15E0018AD87 /* UserDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E626DEE2A38B15E0018AD87 /* UserDatabaseService.swift */; };
 		8E626DF22A38B78F0018AD87 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E626DF12A38B78F0018AD87 /* RegistrationView.swift */; };
 		8E626DF82A38E20B0018AD87 /* UserRegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E626DF72A38E20B0018AD87 /* UserRegisterRequest.swift */; };
 		8E626DFA2A38E2B90018AD87 /* UserRegisterResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E626DF92A38E2B90018AD87 /* UserRegisterResponse.swift */; };
@@ -43,7 +49,6 @@
 		8E89645D2A3A9ABC00C0243C /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E89645C2A3A9ABC00C0243C /* ProfileScreen.swift */; };
 		8E8964622A3AAE6500C0243C /* ProfileScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8964612A3AAE6500C0243C /* ProfileScreenViewModel.swift */; };
 		8E8964642A3B6B4400C0243C /* TitledTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8964632A3B6B4400C0243C /* TitledTextField.swift */; };
-		8E8964662A3B88A600C0243C /* PopUpModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8964652A3B88A600C0243C /* PopUpModifier.swift */; };
 		8E8964682A3BAB9500C0243C /* ZodiacSign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8964672A3BAB9500C0243C /* ZodiacSign.swift */; };
 		8E89646A2A3BAFD800C0243C /* DateConversions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8964692A3BAFD800C0243C /* DateConversions.swift */; };
 		8E89646D2A3BCCBC00C0243C /* OptionalBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E89646C2A3BCCBC00C0243C /* OptionalBinding.swift */; };
@@ -65,12 +70,10 @@
 		8E9B08B72A36306B00D1A035 /* EnterVerificationCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08B62A36306B00D1A035 /* EnterVerificationCodeView.swift */; };
 		8E9B08B92A36412300D1A035 /* PhoneNumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08B82A36412300D1A035 /* PhoneNumberTextField.swift */; };
 		8E9B08BB2A36459400D1A035 /* StatebleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08BA2A36459400D1A035 /* StatebleButton.swift */; };
-		8E9B08C52A368EB800D1A035 /* iPhoneNumberField in Frameworks */ = {isa = PBXBuildFile; productRef = 8E9B08C42A368EB800D1A035 /* iPhoneNumberField */; };
 		8E9B08C72A36961900D1A035 /* RoundedBorderModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08C62A36961900D1A035 /* RoundedBorderModifier.swift */; };
 		8E9B08CB2A369E2800D1A035 /* TextModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08CA2A369E2800D1A035 /* TextModifiers.swift */; };
 		8E9B08CD2A36B82400D1A035 /* VerificationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08CC2A36B82400D1A035 /* VerificationTextField.swift */; };
 		8E9B08CF2A36C09100D1A035 /* ReadSizeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08CE2A36C09100D1A035 /* ReadSizeModifier.swift */; };
-		8E9B08D42A3785BD00D1A035 /* PhoneNumberKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8E9B08D32A3785BD00D1A035 /* PhoneNumberKit */; };
 		8E9B08D62A37969600D1A035 /* CheckAuthCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08D52A37969600D1A035 /* CheckAuthCodeRequest.swift */; };
 		8E9B08D82A3797DC00D1A035 /* CheckAuthCodeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08D72A3797DB00D1A035 /* CheckAuthCodeResponse.swift */; };
 		8E9B08DA2A37B0EB00D1A035 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9B08D92A37B0EB00D1A035 /* AlertView.swift */; };
@@ -100,11 +103,16 @@
 		8E34C28C2A339329009C40FA /* SendAuthCodeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAuthCodeRequest.swift; sourceTree = "<group>"; };
 		8E34C2912A33AF0B009C40FA /* SendAuthCodeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAuthCodeResponse.swift; sourceTree = "<group>"; };
 		8E34C2942A33E776009C40FA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		8E35C0ED2A4003F6006B67A6 /* Base64Encoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base64Encoder.swift; sourceTree = "<group>"; };
+		8E35C0EF2A40132B006B67A6 /* NavigationBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarButton.swift; sourceTree = "<group>"; };
+		8E35C0F12A4046FD006B67A6 /* SpecifyTextFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecifyTextFilter.swift; sourceTree = "<group>"; };
+		8E35C0F32A404F7E006B67A6 /* RefreshTokenRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenRequest.swift; sourceTree = "<group>"; };
+		8E35C0F52A40540B006B67A6 /* RefreshTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenResponse.swift; sourceTree = "<group>"; };
 		8E3CEC2C2A3F8A5000BA63FD /* UserFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFetcher.swift; sourceTree = "<group>"; };
 		8E3CEC2E2A3F8BD100BA63FD /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		8E3CEC302A3F8F9200BA63FD /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
 		8E626DEC2A38B1560018AD87 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
-		8E626DEE2A38B15E0018AD87 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
+		8E626DEE2A38B15E0018AD87 /* UserDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDatabaseService.swift; sourceTree = "<group>"; };
 		8E626DF12A38B78F0018AD87 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		8E626DF72A38E20B0018AD87 /* UserRegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterRequest.swift; sourceTree = "<group>"; };
 		8E626DF92A38E2B90018AD87 /* UserRegisterResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRegisterResponse.swift; sourceTree = "<group>"; };
@@ -120,7 +128,6 @@
 		8E89645C2A3A9ABC00C0243C /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		8E8964612A3AAE6500C0243C /* ProfileScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewModel.swift; sourceTree = "<group>"; };
 		8E8964632A3B6B4400C0243C /* TitledTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitledTextField.swift; sourceTree = "<group>"; };
-		8E8964652A3B88A600C0243C /* PopUpModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpModifier.swift; sourceTree = "<group>"; };
 		8E8964672A3BAB9500C0243C /* ZodiacSign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZodiacSign.swift; sourceTree = "<group>"; };
 		8E8964692A3BAFD800C0243C /* DateConversions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateConversions.swift; sourceTree = "<group>"; };
 		8E89646C2A3BCCBC00C0243C /* OptionalBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionalBinding.swift; sourceTree = "<group>"; };
@@ -162,10 +169,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E626DEA2A38B11C0018AD87 /* RealmSwift in Frameworks */,
-				8E9B08D42A3785BD00D1A035 /* PhoneNumberKit in Frameworks */,
 				8E9033032A35060000445809 /* Alamofire in Frameworks */,
-				8E9B08C52A368EB800D1A035 /* iPhoneNumberField in Frameworks */,
 				8E9B08DF2A37C27B00D1A035 /* FlowStacks in Frameworks */,
+				8E35C0EC2A3FFF96006B67A6 /* iPhoneNumberField in Frameworks */,
 				8E626DE82A38B11C0018AD87 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,6 +285,7 @@
 				8E9B08D52A37969600D1A035 /* CheckAuthCodeRequest.swift */,
 				8E626E002A38F88E0018AD87 /* GetCurrentUserRequest.swift */,
 				8E89646E2A3BE3C900C0243C /* UpdateUserRequest.swift */,
+				8E35C0F32A404F7E006B67A6 /* RefreshTokenRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -291,6 +298,7 @@
 				8E626DF92A38E2B90018AD87 /* UserRegisterResponse.swift */,
 				8E626E042A38F9930018AD87 /* GetCurrentUserResponse.swift */,
 				8E8964702A3BEABE00C0243C /* UpdateUserResponse.swift */,
+				8E35C0F52A40540B006B67A6 /* RefreshTokenResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -298,8 +306,8 @@
 		8E626DEB2A38B1480018AD87 /* Database */ = {
 			isa = PBXGroup;
 			children = (
-				8E626DFD2A38F3880018AD87 /* Services */,
 				8E626DFC2A38F3820018AD87 /* Manager */,
+				8E626DFD2A38F3880018AD87 /* Services */,
 				8E626DFB2A38F37B0018AD87 /* Model */,
 			);
 			path = Database;
@@ -325,7 +333,7 @@
 		8E626DFD2A38F3880018AD87 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				8E626DEE2A38B15E0018AD87 /* DatabaseService.swift */,
+				8E626DEE2A38B15E0018AD87 /* UserDatabaseService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -362,6 +370,7 @@
 				8E89646C2A3BCCBC00C0243C /* OptionalBinding.swift */,
 				8E99B8B02A3D29E0009EBC1A /* ImageFromData.swift */,
 				8EDB89392A3E80FF0067B9C9 /* PublishersError.swift */,
+				8E35C0ED2A4003F6006B67A6 /* Base64Encoder.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -482,7 +491,7 @@
 				8E8964562A3A5DF100C0243C /* ShadowModifiers.swift */,
 				8E8964582A3A63CF00C0243C /* DismissingKeyboardModifier.swift */,
 				8E89645A2A3A8DB400C0243C /* FillBackgroundModifier.swift */,
-				8E8964652A3B88A600C0243C /* PopUpModifier.swift */,
+				8E35C0F12A4046FD006B67A6 /* SpecifyTextFilter.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -491,6 +500,7 @@
 			isa = PBXGroup;
 			children = (
 				8E9B08B12A36294A00D1A035 /* NavigationBar.swift */,
+				8E35C0EF2A40132B006B67A6 /* NavigationBarButton.swift */,
 				8E9B08B82A36412300D1A035 /* PhoneNumberTextField.swift */,
 				8E8964632A3B6B4400C0243C /* TitledTextField.swift */,
 				8E9B08CC2A36B82400D1A035 /* VerificationTextField.swift */,
@@ -555,11 +565,10 @@
 			name = Messenger;
 			packageProductDependencies = (
 				8E9033022A35060000445809 /* Alamofire */,
-				8E9B08C42A368EB800D1A035 /* iPhoneNumberField */,
-				8E9B08D32A3785BD00D1A035 /* PhoneNumberKit */,
 				8E9B08DE2A37C27B00D1A035 /* FlowStacks */,
 				8E626DE72A38B11C0018AD87 /* Realm */,
 				8E626DE92A38B11C0018AD87 /* RealmSwift */,
+				8E35C0EB2A3FFF96006B67A6 /* iPhoneNumberField */,
 			);
 			productName = Messenger;
 			productReference = 8E19458B2A3269C900CBB4B4 /* Messenger.app */;
@@ -591,10 +600,9 @@
 			mainGroup = 8E1945822A3269C900CBB4B4;
 			packageReferences = (
 				8E9033012A35060000445809 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				8E9B08C32A368EB800D1A035 /* XCRemoteSwiftPackageReference "iPhoneNumberField" */,
-				8E9B08D22A3785BD00D1A035 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */,
 				8E9B08DD2A37C27B00D1A035 /* XCRemoteSwiftPackageReference "FlowStacks" */,
 				8E626DE62A38B11C0018AD87 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				8E35C0EA2A3FFF96006B67A6 /* XCRemoteSwiftPackageReference "iPhoneNumberField" */,
 			);
 			productRefGroup = 8E19458C2A3269C900CBB4B4 /* Products */;
 			projectDirPath = "";
@@ -629,10 +637,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E89646A2A3BAFD800C0243C /* DateConversions.swift in Sources */,
+				8E35C0F42A404F7E006B67A6 /* RefreshTokenRequest.swift in Sources */,
 				8E34C2952A33E776009C40FA /* NetworkManager.swift in Sources */,
 				8E626E012A38F88E0018AD87 /* GetCurrentUserRequest.swift in Sources */,
 				8E89644F2A3A282100C0243C /* MockChats.swift in Sources */,
-				8E8964662A3B88A600C0243C /* PopUpModifier.swift in Sources */,
+				8E35C0EE2A4003F6006B67A6 /* Base64Encoder.swift in Sources */,
 				8E9B08A92A360F4F00D1A035 /* NotificationService.swift in Sources */,
 				8E3CEC2F2A3F8BD100BA63FD /* CurrentUser.swift in Sources */,
 				8E89645D2A3A9ABC00C0243C /* ProfileScreen.swift in Sources */,
@@ -647,6 +656,7 @@
 				8EDB893D2A3EB04D0067B9C9 /* AuthError.swift in Sources */,
 				8E626DF22A38B78F0018AD87 /* RegistrationView.swift in Sources */,
 				8E9B08B22A36294A00D1A035 /* NavigationBar.swift in Sources */,
+				8E35C0F62A40540B006B67A6 /* RefreshTokenResponse.swift in Sources */,
 				8E8964542A3A49A200C0243C /* ChatScreen.swift in Sources */,
 				8E9B08AF2A36266900D1A035 /* AuthenticationScreenViewModel.swift in Sources */,
 				8E9B08B52A36305500D1A035 /* EnterPhoneNumberView.swift in Sources */,
@@ -664,6 +674,7 @@
 				8E9B08A72A360F4800D1A035 /* NotificationManager.swift in Sources */,
 				8E8964592A3A63CF00C0243C /* DismissingKeyboardModifier.swift in Sources */,
 				8E9B08A12A35FD5D00D1A035 /* ScreenFactory.swift in Sources */,
+				8E35C0F02A40132B006B67A6 /* NavigationBarButton.swift in Sources */,
 				8E9B08C72A36961900D1A035 /* RoundedBorderModifier.swift in Sources */,
 				8E89646D2A3BCCBC00C0243C /* OptionalBinding.swift in Sources */,
 				8E89646F2A3BE3C900C0243C /* UpdateUserRequest.swift in Sources */,
@@ -671,7 +682,7 @@
 				8E9B08CF2A36C09100D1A035 /* ReadSizeModifier.swift in Sources */,
 				8E8964622A3AAE6500C0243C /* ProfileScreenViewModel.swift in Sources */,
 				8E9B08DC2A37BA4400D1A035 /* AppCoordinator.swift in Sources */,
-				8E626DEF2A38B15E0018AD87 /* DatabaseService.swift in Sources */,
+				8E626DEF2A38B15E0018AD87 /* UserDatabaseService.swift in Sources */,
 				8E9AF5772A3D6BDA000A5531 /* ChatListScreenViewModel.swift in Sources */,
 				8EDB893A2A3E80FF0067B9C9 /* PublishersError.swift in Sources */,
 				8E1945AA2A326C0E00CBB4B4 /* Fonts.swift in Sources */,
@@ -688,6 +699,7 @@
 				8E34C2922A33AF0B009C40FA /* SendAuthCodeResponse.swift in Sources */,
 				8EDB89382A3E72270067B9C9 /* SessionInfo.swift in Sources */,
 				8E9B08CB2A369E2800D1A035 /* TextModifiers.swift in Sources */,
+				8E35C0F22A4046FD006B67A6 /* SpecifyTextFilter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -896,6 +908,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8E35C0EA2A3FFF96006B67A6 /* XCRemoteSwiftPackageReference "iPhoneNumberField" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/MojtabaHs/iPhoneNumberField.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		8E626DE62A38B11C0018AD87 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -912,22 +932,6 @@
 				minimumVersion = 5.6.4;
 			};
 		};
-		8E9B08C32A368EB800D1A035 /* XCRemoteSwiftPackageReference "iPhoneNumberField" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/MojtabaHs/iPhoneNumberField.git";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 0.10.0;
-			};
-		};
-		8E9B08D22A3785BD00D1A035 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/marmelroy/PhoneNumberKit";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.4.0;
-			};
-		};
 		8E9B08DD2A37C27B00D1A035 /* XCRemoteSwiftPackageReference "FlowStacks" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/johnpatrickmorgan/FlowStacks";
@@ -939,6 +943,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8E35C0EB2A3FFF96006B67A6 /* iPhoneNumberField */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8E35C0EA2A3FFF96006B67A6 /* XCRemoteSwiftPackageReference "iPhoneNumberField" */;
+			productName = iPhoneNumberField;
+		};
 		8E626DE72A38B11C0018AD87 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8E626DE62A38B11C0018AD87 /* XCRemoteSwiftPackageReference "realm-swift" */;
@@ -953,16 +962,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8E9033012A35060000445809 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		8E9B08C42A368EB800D1A035 /* iPhoneNumberField */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8E9B08C32A368EB800D1A035 /* XCRemoteSwiftPackageReference "iPhoneNumberField" */;
-			productName = iPhoneNumberField;
-		};
-		8E9B08D32A3785BD00D1A035 /* PhoneNumberKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8E9B08D22A3785BD00D1A035 /* XCRemoteSwiftPackageReference "PhoneNumberKit" */;
-			productName = PhoneNumberKit;
 		};
 		8E9B08DE2A37C27B00D1A035 /* FlowStacks */ = {
 			isa = XCSwiftPackageProductDependency;

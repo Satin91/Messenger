@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/MojtabaHs/iPhoneNumberField.git",
       "state" : {
-        "revision" : "5298972c899ba3555a77549bebeace2e16bc927d",
-        "version" : "0.10.1"
+        "branch" : "main",
+        "revision" : "bd16acfc0bbe43893e245475f2b7b4589d3b6bd2"
       }
     },
     {
@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/marmelroy/PhoneNumberKit",
       "state" : {
-        "revision" : "f901c4e6191cfc3b5cb73eee1d66217fe9f3eaca",
-        "version" : "3.6.0"
+        "revision" : "83e68b5fea032939fd9dcb178cd5bc01fde7ee58",
+        "version" : "3.6.2"
       }
     },
     {

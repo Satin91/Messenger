@@ -21,32 +21,30 @@ import RealmSwift
  - Регистрация
  */
 
-
 final class AuthenticationScreenViewModel: NSObject, ObservableObject {
     var authService: AuthentificationServiceProtocol
     var notificationService: NotificationServiceProtocol
     var remoteUserService: RemoteUserServiceProtocol
-    var databaseService: DatabaseServiceProtocol
-    
+    var userDatabaseService: UserDatabaseServiceProtocol
     var subscriber = Set<AnyCancellable>()
+    
     @Published var navigatior: AuthNavigator = .onEnterPhoneNumber
-    @Published var phoneNumber = ""
+    @Published var phoneNumber: String = ""
     @Published var verificationCode = ""
     @Published var name = ""
     @Published var username = ""
     @Published var registerSuccess: Bool = false
+    @Published var alertMessage: String = ""
+    @Published var showAlert: Bool = false
     
     
-    var isFullPhoneNumber: Bool {
-        let numbers = Array(phoneNumber).compactMap({ Int(String($0))})
-        return numbers.count >= 11
-    }
+    @State var isValidPhoneNumber: Bool = false
     
-    init(authService: AuthentificationServiceProtocol, databaseService: DatabaseServiceProtocol,  notificationService: NotificationServiceProtocol, remoteUserService: RemoteUserServiceProtocol) {
+    init(authService: AuthentificationServiceProtocol, databaseService: UserDatabaseServiceProtocol,  notificationService: NotificationServiceProtocol, remoteUserService: RemoteUserServiceProtocol) {
         self.authService = authService
         self.notificationService = notificationService
         self.remoteUserService = remoteUserService
-        self.databaseService = databaseService
+        self.userDatabaseService = databaseService
     }
     
     // MARK: Отправление кода авторизации по набранному номеру
@@ -81,7 +79,7 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
                     }
                     /// Код авторизации неверный, вывести ошибку.
                 case .error(let error):
-                    self.navigatior = .onError(error.detail.message)
+                    self.showAlert(message: error.detail.message)
                     return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
                 }
             }
@@ -94,8 +92,8 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
                 user.accessToken = SessionInfo.shared.accessToken
                 user.refreshToken = SessionInfo.shared.refreshToken
                 self.navigatior = .toChatList(userResponse.profile_data)
-                self.databaseService.setCurrentUser(user: user)
-                self.databaseService.save(user: user)
+                self.userDatabaseService.setCurrentUser(user: user)
+                self.userDatabaseService.save(user: user)
             }
             .store(in: &subscriber)
     }
@@ -111,14 +109,14 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
                 SessionInfo.shared.refreshToken = registerResponse.refresh_token
                 return self.remoteUserService.getCurrentUser(accessToken: registerResponse.access_token)
             }
-            .sink { completion in
+            .sink { _ in
             } receiveValue: { userResponse in
                 /// Создание объекта User
                 let user = userResponse.profile_data
                 user.id = SessionInfo.shared.userID!
                 user.refreshToken = SessionInfo.shared.refreshToken
                 user.accessToken = SessionInfo.shared.accessToken
-                self.databaseService.setCurrentUser(user: user)
+                self.userDatabaseService.setCurrentUser(user: user)
                 self.navigatior = .toChatList(user)
             }
             .store(in: &self.subscriber)
@@ -129,6 +127,12 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
     func sendVerificationCode() {
         self.notificationService.push(NotificationModel(title: "Код ", subtitle: "133337", timeInterval: 2))
     }
+    
+    // MARK: Демонстрация ошибки
+    func showAlert(message: String) {
+        self.alertMessage = message
+        showAlert.toggle()
+    }
 }
 
 //MARK: Внутренний навигатор
@@ -138,7 +142,6 @@ extension AuthenticationScreenViewModel {
         case onEnterPhoneNumber
         case onEnterVerificationCode
         case onRegistrationScreen
-        case onError(String)
         case toChatList(UserModel)
     }
 }
