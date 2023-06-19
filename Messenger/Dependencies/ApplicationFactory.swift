@@ -25,8 +25,8 @@ final class ApplicationFactory {
         UserDatabaseService(databaseManager: databaseManager)
     }
     
-    var authService: AuthentificationServiceProtocol {
-        AuthentificationService(networkManager: networkManager)
+    var authService: AuthServiceProtocol {
+        AuthService(networkManager: networkManager)
     }
     
     var remoteUserService: RemoteUserServiceProtocol {

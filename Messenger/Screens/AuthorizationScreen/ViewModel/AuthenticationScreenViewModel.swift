@@ -22,7 +22,7 @@ import RealmSwift
  */
 
 final class AuthenticationScreenViewModel: NSObject, ObservableObject {
-    var authService: AuthentificationServiceProtocol
+    var authService: AuthServiceProtocol
     var notificationService: NotificationServiceProtocol
     var remoteUserService: RemoteUserServiceProtocol
     var userDatabaseService: UserDatabaseServiceProtocol
@@ -40,7 +40,7 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
     
     @State var isValidPhoneNumber: Bool = false
     
-    init(authService: AuthentificationServiceProtocol, databaseService: UserDatabaseServiceProtocol,  notificationService: NotificationServiceProtocol, remoteUserService: RemoteUserServiceProtocol) {
+    init(authService: AuthServiceProtocol, databaseService: UserDatabaseServiceProtocol,  notificationService: NotificationServiceProtocol, remoteUserService: RemoteUserServiceProtocol) {
         self.authService = authService
         self.notificationService = notificationService
         self.remoteUserService = remoteUserService

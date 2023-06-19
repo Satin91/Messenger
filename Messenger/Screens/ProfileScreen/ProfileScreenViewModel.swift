@@ -16,7 +16,7 @@ final class ProfileScreenViewModel: ObservableObject {
     var subscriber = Set<AnyCancellable>()
     var remoteUserService: RemoteUserServiceProtocol
     var userDatabaseService: UserDatabaseServiceProtocol
-    var authService: AuthentificationServiceProtocol
+    var authService: AuthServiceProtocol
     
     /// При каждом изменении @Published свойства, обновляется вся модель. По этому нет причин не использовать вычисляемые свойства, основанне на издателе.
     var zodiacSignText: String? {
@@ -30,7 +30,7 @@ final class ProfileScreenViewModel: ObservableObject {
     @Published var birthday: Date?
     @Published var avatar: Data?
     
-    init(databaseService: UserDatabaseServiceProtocol, remoteUserService: RemoteUserServiceProtocol, authService: AuthentificationServiceProtocol, user: UserModel) {
+    init(databaseService: UserDatabaseServiceProtocol, remoteUserService: RemoteUserServiceProtocol, authService: AuthServiceProtocol, user: UserModel) {
         self.remoteUserService = remoteUserService
         self.userDatabaseService = databaseService
         self.authService = authService

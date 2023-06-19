@@ -15,7 +15,7 @@
 		8E1945A42A326AC600CBB4B4 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E1945A12A326AC500CBB4B4 /* Roboto-Regular.ttf */; };
 		8E1945A52A326AC600CBB4B4 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E1945A22A326AC500CBB4B4 /* Roboto-Bold.ttf */; };
 		8E1945AA2A326C0E00CBB4B4 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1945A92A326C0E00CBB4B4 /* Fonts.swift */; };
-		8E1945AC2A326DCA00CBB4B4 /* AuthentificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1945AB2A326DCA00CBB4B4 /* AuthentificationService.swift */; };
+		8E1945AC2A326DCA00CBB4B4 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1945AB2A326DCA00CBB4B4 /* AuthService.swift */; };
 		8E34C2882A33908B009C40FA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E34C2872A33908B009C40FA /* Constants.swift */; };
 		8E34C28A2A3392F0009C40FA /* RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E34C2892A3392F0009C40FA /* RequestModel.swift */; };
 		8E34C28D2A339329009C40FA /* SendAuthCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E34C28C2A339329009C40FA /* SendAuthCodeRequest.swift */; };
@@ -98,7 +98,7 @@
 		8E1945A22A326AC500CBB4B4 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		8E1945A62A326AE500CBB4B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8E1945A92A326C0E00CBB4B4 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
-		8E1945AB2A326DCA00CBB4B4 /* AuthentificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthentificationService.swift; sourceTree = "<group>"; };
+		8E1945AB2A326DCA00CBB4B4 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		8E34C2872A33908B009C40FA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8E34C2892A3392F0009C40FA /* RequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestModel.swift; sourceTree = "<group>"; };
 		8E34C28C2A339329009C40FA /* SendAuthCodeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendAuthCodeRequest.swift; sourceTree = "<group>"; };
@@ -435,7 +435,7 @@
 		8E9B089E2A35F22100D1A035 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				8E1945AB2A326DCA00CBB4B4 /* AuthentificationService.swift */,
+				8E1945AB2A326DCA00CBB4B4 /* AuthService.swift */,
 				8E626E022A38F9360018AD87 /* RemoteUserService.swift */,
 			);
 			path = Services;
@@ -672,7 +672,7 @@
 				8E8964682A3BAB9500C0243C /* ZodiacSign.swift in Sources */,
 				8E9B08B72A36306B00D1A035 /* EnterVerificationCodeView.swift in Sources */,
 				8E9B08AD2A36264700D1A035 /* AuthenticationScreen.swift in Sources */,
-				8E1945AC2A326DCA00CBB4B4 /* AuthentificationService.swift in Sources */,
+				8E1945AC2A326DCA00CBB4B4 /* AuthService.swift in Sources */,
 				8E9B08BB2A36459400D1A035 /* StatebleButton.swift in Sources */,
 				8E34C28D2A339329009C40FA /* SendAuthCodeRequest.swift in Sources */,
 				8E9B08A72A360F4800D1A035 /* NotificationManager.swift in Sources */,

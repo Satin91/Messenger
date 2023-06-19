@@ -9,14 +9,14 @@ import Foundation
 import Combine
 import UIKit
 
-protocol AuthentificationServiceProtocol {
+protocol AuthServiceProtocol {
     func sendAuthCode(phone: String) -> AnyPublisher<SendAuthCodeResponse, Error>
     func register(phone: String, name: String, username: String) -> AnyPublisher<UserRegisterResponse, Error>
     func checkAuthCode(phone: String, code: String) -> AnyPublisher<CheckAuthCodeResponse, Error>
     func refreshToken(refreshToken: String) -> AnyPublisher<RefreshTokenResponse, Error>
 }
 
-class AuthentificationService: AuthentificationServiceProtocol {
+class AuthService: AuthServiceProtocol {
     
     var networkManager: NetworkManagerProtocol
     
