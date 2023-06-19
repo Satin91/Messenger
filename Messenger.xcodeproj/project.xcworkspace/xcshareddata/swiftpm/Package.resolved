@@ -19,6 +19,24 @@
       }
     },
     {
+      "identity" : "iphonenumberfield",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/MojtabaHs/iPhoneNumberField.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "bd16acfc0bbe43893e245475f2b7b4589d3b6bd2"
+      }
+    },
+    {
+      "identity" : "phonenumberkit",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/marmelroy/PhoneNumberKit",
+      "state" : {
+        "revision" : "83e68b5fea032939fd9dcb178cd5bc01fde7ee58",
+        "version" : "3.6.2"
+      }
+    },
+    {
       "identity" : "realm-core",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/realm/realm-core.git",
