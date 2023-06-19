@@ -24,7 +24,9 @@ struct PhoneNumberTextField: View {
         content
             .onChange(of: text) { newValue in
                 self.isValidNumber = self.isValidPhoneNumber(phoneNumber: newValue)
-                self.updatingView = text.count <= 1
+//                let countryCode = phoneNumberKit.mainCountry(forCode: newValue.suffix(3))
+//                print(countryCode)
+//                self.phoneNumberKit.getExampleNumber(forCountry: "")
             }
     }
     
@@ -34,11 +36,13 @@ struct PhoneNumberTextField: View {
     
     
     private var textField: some View {
-        iPhoneNumberField(text: $text)
+        iPhoneNumberField("", text: $text)
             .font(UIFont(name: "Roboto-Regilar", size: 17))
             .foregroundColor(Colors.primary)
-            .autofillPrefix(updatingView)
             .prefixHidden(false)
+            .onNumberChange { num in
+                insertSuffix()
+            }
             .flagHidden(false)
             .flagSelectable(true)
             .roundedBorderModifier(borderColor: Colors.neutral)
@@ -49,4 +53,10 @@ struct PhoneNumberTextField: View {
         return phoneNumberKit.isValidPhoneNumber(phoneNumber)
     }
     
+    
+    func insertSuffix() {
+        if text.count > 1 && text.suffix(1) != "+" {
+            text.insert("+", at: text.startIndex)
+        }
+    }
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct EnterVerificationCodeView: View {
     @EnvironmentObject var viewModel: AuthenticationScreenViewModel
@@ -15,6 +16,13 @@ struct EnterVerificationCodeView: View {
             .onAppear {
                 viewModel.verificationCode = ""
             }
+            .onReceive(Just(viewModel.verificationCode)) { input in
+                    let filtered = input.filter { "0123456789".contains($0) }
+                    if filtered != input {
+                        self.viewModel.verificationCode = filtered
+                    }
+                }
+
     }
     
     var content: some View {

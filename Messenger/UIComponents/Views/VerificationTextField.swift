@@ -38,6 +38,7 @@ struct VerificationTextField: View {
             .frame(height: Layout.Sizes.mediumControl)
             .offset(x: 18)
             .scrollDisabled(true)
+            .textFilterModifier(text: $text, syntax: .numbersOnly)
             .onReceive(Just(text)) { _ in
                 if text.count > 6 {
                     text = String(text.prefix(6))

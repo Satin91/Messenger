@@ -60,6 +60,7 @@ struct RegistrationView: View {
             text: $viewModel.name,
             placeholder: ""
         )
+        .textFilterModifier(text: $viewModel.name, syntax: .URIGeneric)
     }
     
     private var usernameTextField: some View {
@@ -68,6 +69,7 @@ struct RegistrationView: View {
             text: $viewModel.username,
             placeholder: ""
         )
+        .textFilterModifier(text: $viewModel.username, syntax: .URIGeneric)
     }
     
     private var registerButton: some View {

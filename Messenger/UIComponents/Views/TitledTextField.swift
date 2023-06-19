@@ -36,7 +36,7 @@ struct TitledTextField: View {
     var textField: some View {
         TextField(placeholder, text: $text, axis: axis)
             .font(Fonts.roboto(weight: .medium, size: 14))
-            .foregroundColor(Colors.primary)
+            .foregroundColor(isEntryDisabled ? Colors.neutral : Colors.primary)
             .disabled(isEntryDisabled)
             .padding(.all)
             .padding(.leading)

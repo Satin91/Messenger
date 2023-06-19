@@ -127,7 +127,8 @@ struct ProfileScreen: View {
     var cityTextField: some View {
         TitledTextField(
             title: "Расположение",
-            text: $viewModel.city.bound, placeholder: "Населенный пункт не указан"
+            text: $viewModel.city.bound,
+            placeholder: "Населенный пункт не указан"
         )
     }
     
@@ -135,7 +136,8 @@ struct ProfileScreen: View {
         ZStack {
             TitledTextField(
                 title: "Знак зодиака",
-                text: .constant(viewModel.zodiacSignText.bound), placeholder: "Дата рождения не выбрана",
+                text: .constant(viewModel.zodiacSignText.bound),
+                placeholder: "Дата рождения не выбрана",
                 isEntryDisabled: true
             )
             .overlay(alignment: .bottomTrailing) {
@@ -154,7 +156,7 @@ struct ProfileScreen: View {
     }
     
     var aboutMeTextField: some View {
-        TitledTextField(title: "Обо мне", text: $viewModel.aboutMe.bound, placeholder: "Расскажите о себе", axis: .vertical)
+        TitledTextField(title: "Обо мне", text: $viewModel.aboutMe.bound, placeholder: "", axis: .vertical)
             .frame(alignment: .topLeading)
     }
     
