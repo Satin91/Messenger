@@ -10,12 +10,11 @@ import Combine
 
 @main
 struct MessengerApp: App {
+    let contailer = DIContainer()
     
     var body: some Scene {
         WindowGroup {
-            AppCoordinator(
-                viewModel: AppCoordinatorViewModel(currentUser: DIContainer.shared.userFetcher.fetchCurrentUser())
-            )
+            AppCoordinator(userFetcher: contailer.userFetcher, sceneFactory: contailer.sceneFactory)
         }
     }
 }

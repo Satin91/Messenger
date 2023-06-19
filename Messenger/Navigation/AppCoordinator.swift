@@ -18,10 +18,13 @@ enum Screen {
 
 struct AppCoordinator: View {
     @ObservedObject var coordinator: AppCoordinatorViewModel
-    let sceneFactory = DIContainer.shared.sceneFactory
+    let sceneFactory: SceneFactoryProtocol
+    let userFetcher: UserFetcher
     
-    init(viewModel: AppCoordinatorViewModel) {
-        self.coordinator = viewModel
+    init(userFetcher: UserFetcher, sceneFactory: SceneFactoryProtocol) {
+        self.userFetcher = userFetcher
+        self.coordinator = AppCoordinatorViewModel(currentUser: userFetcher.fetchCurrentUser())
+        self.sceneFactory = sceneFactory
     }
     
     var body: some View {

@@ -201,6 +201,9 @@
 			isa = PBXGroup;
 			children = (
 				8E9032FE2A34E74500445809 /* App */,
+				8E99B8AF2A3D012D009EBC1A /* Navigation */,
+				8E99B8AE2A3D0110009EBC1A /* Dependencies */,
+				8E9B08A22A35FE3D00D1A035 /* Helpers */,
 				8E9B08A52A360F3300D1A035 /* Notifications */,
 				8E626DEB2A38B1480018AD87 /* Database */,
 				8E9033002A35055A00445809 /* Networking */,
@@ -392,9 +395,6 @@
 		8E9032FE2A34E74500445809 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				8E99B8AF2A3D012D009EBC1A /* Coordinator */,
-				8E99B8AE2A3D0110009EBC1A /* DIContainer */,
-				8E9B08A22A35FE3D00D1A035 /* Helpers */,
 				8E19458E2A3269C900CBB4B4 /* MessengerApp.swift */,
 			);
 			path = App;
@@ -413,7 +413,7 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		8E99B8AE2A3D0110009EBC1A /* DIContainer */ = {
+		8E99B8AE2A3D0110009EBC1A /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
 				8E3CEC302A3F8F9200BA63FD /* DIContainer.swift */,
@@ -421,15 +421,15 @@
 				8E9B08A02A35FD5D00D1A035 /* ScreenFactory.swift */,
 				8E3CEC2C2A3F8A5000BA63FD /* UserFetcher.swift */,
 			);
-			path = DIContainer;
+			path = Dependencies;
 			sourceTree = "<group>";
 		};
-		8E99B8AF2A3D012D009EBC1A /* Coordinator */ = {
+		8E99B8AF2A3D012D009EBC1A /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
 				8E9B08DB2A37BA4400D1A035 /* AppCoordinator.swift */,
 			);
-			path = Coordinator;
+			path = Navigation;
 			sourceTree = "<group>";
 		};
 		8E9B089E2A35F22100D1A035 /* Services */ = {
@@ -479,8 +479,8 @@
 		8E9B08B32A36301900D1A035 /* AuthorizationScreen */ = {
 			isa = PBXGroup;
 			children = (
-				8E9B08D02A36C0AF00D1A035 /* ViewModel */,
 				8E9B08D12A36C0C400D1A035 /* View */,
+				8E9B08D02A36C0AF00D1A035 /* ViewModel */,
 			);
 			path = AuthorizationScreen;
 			sourceTree = "<group>";

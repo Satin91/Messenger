@@ -15,18 +15,20 @@ struct PhoneNumberTextField: View {
     
     @Binding var text: String
     @Binding var isValidNumber: Bool
+    @State var filteredText: String = "" {
+        willSet {
+            print(newValue)
+        }
+    }
     private let phoneNumberKit = PhoneNumberKit()
     
-    /// В библиотеке iPhoneNumberField была допущена ошибка, изза чего наблюдатель за заполнением префикса номера телефона (+n) провоцирует пересоздание текстового поля, изза чего грузится оперативная память. Сейчас был выбран обходной путь,  но по хорошему нужно редактировать саму библиотеку.
     @State private var updatingView: Bool = true
     
     var body: some View {
         content
             .onChange(of: text) { newValue in
                 self.isValidNumber = self.isValidPhoneNumber(phoneNumber: newValue)
-//                let countryCode = phoneNumberKit.mainCountry(forCode: newValue.suffix(3))
-//                print(countryCode)
-//                self.phoneNumberKit.getExampleNumber(forCountry: "")
+                print(filteredText)
             }
     }
     
@@ -36,7 +38,7 @@ struct PhoneNumberTextField: View {
     
     
     private var textField: some View {
-        iPhoneNumberField("", text: $text)
+        iPhoneNumberField("+7 923 222-44-22", text: $text)
             .font(UIFont(name: "Roboto-Regilar", size: 17))
             .foregroundColor(Colors.primary)
             .prefixHidden(false)
