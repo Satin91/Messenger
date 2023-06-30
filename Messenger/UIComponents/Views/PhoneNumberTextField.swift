@@ -20,6 +20,7 @@ struct PhoneNumberTextField: View {
             print(newValue)
         }
     }
+    
     private let phoneNumberKit = PhoneNumberKit()
     
     @State private var updatingView: Bool = true
@@ -28,6 +29,7 @@ struct PhoneNumberTextField: View {
         content
             .onChange(of: text) { newValue in
                 self.isValidNumber = self.isValidPhoneNumber(phoneNumber: newValue)
+                
                 print(filteredText)
             }
     }
@@ -54,7 +56,6 @@ struct PhoneNumberTextField: View {
         let phoneNumberKit = PhoneNumberKit()
         return phoneNumberKit.isValidPhoneNumber(phoneNumber)
     }
-    
     
     func insertSuffix() {
         if text.count > 1 && text.suffix(1) != "+" {

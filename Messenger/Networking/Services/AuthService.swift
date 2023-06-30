@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import UIKit
+import Alamofire
 
 protocol AuthServiceProtocol {
     func sendAuthCode(phone: String) -> AnyPublisher<SendAuthCodeResponse, Error>

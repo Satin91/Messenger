@@ -52,6 +52,9 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
     func sendAuthCode() {
         authService.sendAuthCode(phone: phoneNumber)
             .sink { completion in
+                if let error = completion.error {
+                    self.showAlert(message: error.localizedDescription ?? "Произошла какая то ошибка")
+                }
             } receiveValue: { response in
                 self.sendVerificationCode()
                 self.navigatior = .onEnterVerificationCode
