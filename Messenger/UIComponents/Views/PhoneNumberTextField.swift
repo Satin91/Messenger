@@ -15,11 +15,7 @@ struct PhoneNumberTextField: View {
     
     @Binding var text: String
     @Binding var isValidNumber: Bool
-    @State var filteredText: String = "" {
-        willSet {
-            print(newValue)
-        }
-    }
+    @State var filteredText: String = ""
     
     private let phoneNumberKit = PhoneNumberKit()
     
@@ -29,15 +25,12 @@ struct PhoneNumberTextField: View {
         content
             .onChange(of: text) { newValue in
                 self.isValidNumber = self.isValidPhoneNumber(phoneNumber: newValue)
-                
-                print(filteredText)
             }
     }
     
     private var content: some View {
         textField
     }
-    
     
     private var textField: some View {
         iPhoneNumberField("+7 923 222-44-22", text: $text)
@@ -58,7 +51,7 @@ struct PhoneNumberTextField: View {
     }
     
     func insertSuffix() {
-        if text.count > 1 && text.suffix(1) != "+" {
+        if !text.hasPrefix("+") {
             text.insert("+", at: text.startIndex)
         }
     }

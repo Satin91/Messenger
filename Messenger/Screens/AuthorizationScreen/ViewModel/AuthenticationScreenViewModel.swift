@@ -29,7 +29,13 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
     var subscriber = Set<AnyCancellable>()
     
     @Published var navigatior: AuthNavigator = .onEnterPhoneNumber
-    @Published var phoneNumber: String = ""
+    @Published var phoneNumber: String = "" {
+        willSet {
+            if newValue.hasPrefix("++") {
+                print(newValue)
+            }
+        }
+    }
     @Published var verificationCode = ""
     @Published var name = ""
     @Published var username = ""
