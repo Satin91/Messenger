@@ -29,6 +29,10 @@ final class ApplicationFactory {
         BalabobaService(networkManager: networkManager)
     }
     
+    var chatDatabaseService: ChatDatabaseServiceProtocol {
+        ChatDatabaseService(databaseManager: databaseManager)
+    }
+    
     var authService: AuthServiceProtocol {
         AuthService(networkManager: networkManager)
     }
@@ -46,11 +50,11 @@ final class ApplicationFactory {
     }
     
     func chatListScreenViewModel(user: UserModel) -> ChatListScreenViewModel {
-        ChatListScreenViewModel(user: user)
+        ChatListScreenViewModel(user: user, chatDatabaseService: chatDatabaseService)
     }
     
-    func chatScreenViewModel(user: UserModel, companion: MockChats.ChatUser) -> ChatScreenViewModel {
-        ChatScreenViewModel(user: user, companion: companion, balabobaService: balabobaService)
+    func chatScreenViewModel(user: UserModel, companion: CompanionModel) -> ChatScreenViewModel {
+        ChatScreenViewModel(user: user, companion: companion, balabobaService: balabobaService, chatDatabaseService: chatDatabaseService)
     }
     
     init() {

@@ -10,7 +10,7 @@ import RealmSwift
 
 @objcMembers
 class CurrentUserModel: Object {
-    dynamic var id = 0
+    dynamic var id: Int = 0
     dynamic var user: UserModel?
     
     convenience init(user: UserModel) {

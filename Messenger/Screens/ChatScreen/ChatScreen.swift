@@ -42,7 +42,7 @@ struct ChatScreen: View {
                         appCoordinator.back()
                     }
                     HStack(spacing: Layout.Padding.small) {
-                        Image(viewModel.companion.avatar)
+                        Image("") // TODO: Установить аватарку
                             .resizable()
                             .scaledToFit()
                             .clipShape(Circle())
@@ -62,7 +62,7 @@ struct ChatScreen: View {
     private var messagesContainer: some View {
         ScrollView(.vertical) {
             ForEach(viewModel.messages, id: \.self) { message in
-                messageView(text: message)
+                messageView(message: message)
                     .padding(.vertical, 4)
             }.rotationEffect(.degrees(180))
                 .padding(Layout.Padding.horizontalEdges)
@@ -82,8 +82,7 @@ struct ChatScreen: View {
             Button {
                 isKeyboardForeground = nil
                 guard !text.isEmpty else { return }
-                viewModel.messages.append(text)
-                viewModel.send(message: text)
+                viewModel.write(text: text)
                 text = ""
             } label: {
                 Image(systemName: "paperplane.fill")
@@ -118,15 +117,15 @@ struct ChatScreen: View {
                 .foregroundColor(Colors.primary)
                 .padding()
                 .background(Colors.primarySecondary)
-                .cornerRadius(Layout.Radius.defaultRadius)
+                .cornerRadius(Layout.Radius.smallRadius)
         }
     }
     
-    @ViewBuilder private func messageView(text: String) -> some View {
-        if viewModel.companion.messages.contains(text) {
-            companionMessageView(text: text)
+    @ViewBuilder private func messageView(message: MessageModel) -> some View {
+        if message.ownerId != String(viewModel.user.id) {
+            companionMessageView(text: message.text)
         } else {
-            userMessageView(text: text)
+            userMessageView(text: message.text)
         }
     }
 }

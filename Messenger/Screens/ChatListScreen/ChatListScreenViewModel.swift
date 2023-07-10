@@ -12,8 +12,20 @@ import Foundation
  */
 final class ChatListScreenViewModel: ObservableObject {
     var user: UserModel
+    @Published var chats: [CompanionModel] = []
+    var chatDatabaseService: ChatDatabaseServiceProtocol
     
-    init(user: UserModel) {
+    init(user: UserModel, chatDatabaseService: ChatDatabaseServiceProtocol) {
         self.user = user
+        self.chatDatabaseService = chatDatabaseService
+        chats = Array(user.companions)
+//        addCompanion()
+    }
+    
+    func addCompanion() {
+        let newCompaion = CompanionModel(name: "Интересный собеседник")
+        chatDatabaseService.add(companion: newCompaion, for: user)
+        let message = MessageModel(text: "Привет, это первый текст из этого чата!", ownerId: newCompaion.id)
+        chatDatabaseService.save(message: message, for: newCompaion)
     }
 }

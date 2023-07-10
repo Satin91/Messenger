@@ -12,7 +12,7 @@ import FlowStacks
 enum Screen {
     case verificationScreen
     case chatListScreen(UserModel)
-    case chatScreen(UserModel, MockChats.ChatUser)
+    case chatScreen(UserModel, CompanionModel)
     case profileScreen(UserModel)
 }
 
@@ -68,7 +68,7 @@ class AppCoordinatorViewModel: ObservableObject {
         routes.push(.chatListScreen(user) )
     }
     
-    func pushToChatScreen(user: UserModel, companion: MockChats.ChatUser) {
+    func pushToChatScreen(user: UserModel, companion: CompanionModel) {
         routes.push(.chatScreen(user, companion))
     }
     

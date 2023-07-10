@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 protocol BalabobaServiceProtocol {
-    func send(message: String) -> AnyPublisher<BalabobaDecodingData, Error>
+    func send(message: String) -> AnyPublisher<BalabobaResponse, Error>
 }
 
 class BalabobaService: BalabobaServiceProtocol {
@@ -19,14 +19,10 @@ class BalabobaService: BalabobaServiceProtocol {
         self.networkManager = networkManager
     }
     
-    func send(message: String) -> AnyPublisher<BalabobaDecodingData, Error> {
+    func send(message: String) -> AnyPublisher<BalabobaResponse, Error> {
         let request = BalabobaMessageRequest(query: message)
         return networkManager.sendRequest(request: request)
-            .decode(type: BalabobaDecodingData.self, decoder: JSONDecoder())
+            .decode(type: BalabobaResponse.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
-}
-
-struct BalabobaDecodingData: Decodable {
-    var text: String
 }

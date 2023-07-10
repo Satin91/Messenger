@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ChatListScreen: View {
-    let mockChats = MockChats.chats
+//    let mockChats = MockChats.chats
     
     @EnvironmentObject var appCoordinator: AppCoordinatorViewModel
     @StateObject var viewModel: ChatListScreenViewModel
@@ -51,7 +51,7 @@ struct ChatListScreen: View {
     
     var chatList: some View {
         ScrollView(.vertical) {
-            ForEach(mockChats, id: \.id) { companion in
+            ForEach(viewModel.chats, id: \.id) { companion in
                 ChatListRow(companion: companion)
                     .onTapGesture {
                         appCoordinator.pushToChatScreen(user: viewModel.user, companion: companion)
@@ -63,7 +63,7 @@ struct ChatListScreen: View {
 
 struct ChatListRow: View {
     let id = UUID()
-    let companion: MockChats.ChatUser
+    let companion: CompanionModel
     
     var body: some View {
         content
@@ -81,7 +81,7 @@ struct ChatListRow: View {
     }
     
     var avatar: some View {
-        Image(companion.avatar)
+        Image("")
             .resizable()
             .scaledToFill()
             .frame(width: 56, height: 56)
@@ -102,7 +102,7 @@ struct ChatListRow: View {
     }
     
     var lastMessageLabel: some View {
-        Text(companion.messages.last ?? "No messages yet")
+        Text(companion.messages.last?.text ?? "No messages yet")
             .font(Fonts.museoSans(weight: .regular, size: 16))
             .foregroundColor(Colors.neutral)
     }

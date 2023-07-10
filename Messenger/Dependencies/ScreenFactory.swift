@@ -13,7 +13,7 @@ import SwiftUI
 protocol SceneFactoryProtocol {
     func makeAuthenticationScreen() -> AnyView
     func makeChatListScreen(user: UserModel) -> AnyView
-    func makeChatScreen(user: UserModel, companion: MockChats.ChatUser) -> AnyView
+    func makeChatScreen(user: UserModel, companion: CompanionModel) -> AnyView
     func makeProfileScreen(user: UserModel) -> AnyView
 }
 
@@ -36,7 +36,7 @@ final class SceneFactory: SceneFactoryProtocol {
         AnyView(ChatListScreen(viewModel: self.applicationFactory.chatListScreenViewModel(user: user)))
     }
     
-    func makeChatScreen(user: UserModel, companion: MockChats.ChatUser) -> AnyView {
+    func makeChatScreen(user: UserModel, companion: CompanionModel) -> AnyView {
         AnyView(ChatScreen(viewModel: self.applicationFactory.chatScreenViewModel(user: user, companion: companion)))
     }
     
