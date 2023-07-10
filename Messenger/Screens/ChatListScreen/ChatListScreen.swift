@@ -32,7 +32,6 @@ struct ChatListScreen: View {
             chatList
             Spacer()
         }
-        .padding(Layout.Padding.horizontalEdges)
         .edgesIgnoringSafeArea(.bottom)
         .overlay {
             VStack {
@@ -43,7 +42,15 @@ struct ChatListScreen: View {
                 }
             }
         }
-        .fillBackgroundModifier(color: Colors.background)
+        .background(content: {
+            ZStack {
+                LinearGradient(gradient: Gradient(colors: [.red.opacity(0.3),.white, .red.opacity(0.4), .red.opacity(0.2)]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                    .blur(radius: 140)
+//                AngularGradient(gradient: Gradient(colors: [.red, .mint]), center: .center, startAngle: .zero, endAngle: .degrees(360))
+//                    .opacity(0.1)
+            }
+        })
+//        .fillBackgroundModifier(color: Colors.background)
     }
     
     var navigationBar: some View {
@@ -58,6 +65,7 @@ struct ChatListScreen: View {
                         appCoordinator.pushToProfileScreen(user: viewModel.user)
                     }
             }
+            .padding(Layout.Padding.horizontalEdges)
     }
     
     var profile: some View {
@@ -77,6 +85,7 @@ struct ChatListScreen: View {
                     }
             }
         }
+        .frame(maxWidth: .infinity)
     }
     
     var createChatButton: some View {
@@ -89,9 +98,6 @@ struct ChatListScreen: View {
                 .font(.system(size: 36, weight: .semibold))
                 .shadow(color: Colors.primarySecondary, radius: 4)
                 .padding()
-                .background {
-                    Colors.light
-                }
                 .clipShape(Circle())
                 .largeShadowModifier()
                 .padding(36)
@@ -129,9 +135,26 @@ struct ChatListRow: View {
                 avatar
                 textContainer
             }
-            Divider()
         }
-        .frame(height: 80)
+        .padding()
+        .overlay(
+            RoundedRectangle(cornerRadius: Layout.Radius.defaultRadius)
+                .stroke(Color.white.opacity(0.8), lineWidth: 1)
+                .shadow(color: Color.white,
+                        radius: 64, x: 0, y: 0)
+                .clipShape(
+                    RoundedRectangle(cornerRadius: Layout.Radius.defaultRadius)
+                )
+                .shadow(color: Color.white, radius: 8, x: 0, y: 0)
+                .clipShape(
+                    RoundedRectangle(cornerRadius: Layout.Radius.defaultRadius)
+                )
+        )
+        .background(Color.white.opacity(0.2))
+        .cornerRadius(20)
+//        .roundedBorderModifier(borderColor: Color.clear, backgroundColor: Color.gray)
+        .padding(.vertical)
+        .frame(maxWidth: .infinity)
     }
     
     var avatar: some View {
