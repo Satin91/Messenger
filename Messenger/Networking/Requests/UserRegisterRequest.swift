@@ -15,6 +15,6 @@ struct UserRegisterRequest: NetworkRequestProtocol {
     }
     
     func make() -> RequestModel {
-        RequestModel(path: Constants.API.Auth.userRegisterPath, parameters: self.parameters, method: .post)
+        RequestModel(path: Constants.API.baseURL + Constants.API.Auth.userRegisterPath, parameters: self.parameters, method: .post)
     }
 }

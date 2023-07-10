@@ -26,6 +26,6 @@ struct UpdateUserRequest: NetworkRequestProtocol {
     
     func make() -> RequestModel {
         let headers = header.merging(Constants.API.baseHeaders) { $1 }
-        return RequestModel(path: Constants.API.User.updateUserPath, parameters: parameters, headers: HTTPHeaders(headers), method: .put)
+        return RequestModel(path: Constants.API.baseURL + Constants.API.User.updateUserPath, parameters: parameters, headers: HTTPHeaders(headers), method: .post)
     }
 }

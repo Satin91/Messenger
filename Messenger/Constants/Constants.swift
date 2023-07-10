@@ -15,6 +15,7 @@ enum Constants {
     
     enum API {
         static let baseURL = "https://plannerok.ru/"
+        static let yandexBaseURL = "https://iam.api.cloud.yandex.net/"
         
         static let baseHeaders = ["Content-Type": "application/json", "application/json": "accept"]
         enum Auth {

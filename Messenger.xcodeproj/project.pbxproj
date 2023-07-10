@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E1201552A5B215700BD570E /* BalabobaMessageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1201542A5B215700BD570E /* BalabobaMessageRequest.swift */; };
+		8E1201572A5B310700BD570E /* BalabobaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1201562A5B310700BD570E /* BalabobaService.swift */; };
 		8E19458F2A3269C900CBB4B4 /* MessengerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E19458E2A3269C900CBB4B4 /* MessengerApp.swift */; };
 		8E1945932A3269CA00CBB4B4 /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E1945922A3269CA00CBB4B4 /* AppIcon.xcassets */; };
 		8E1945962A3269CA00CBB4B4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E1945952A3269CA00CBB4B4 /* Preview Assets.xcassets */; };
@@ -88,6 +90,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8E1201542A5B215700BD570E /* BalabobaMessageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalabobaMessageRequest.swift; sourceTree = "<group>"; };
+		8E1201562A5B310700BD570E /* BalabobaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalabobaService.swift; sourceTree = "<group>"; };
 		8E19458B2A3269C900CBB4B4 /* Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E19458E2A3269C900CBB4B4 /* MessengerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerApp.swift; sourceTree = "<group>"; };
 		8E1945922A3269CA00CBB4B4 /* AppIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcon.xcassets; sourceTree = "<group>"; };
@@ -291,6 +295,7 @@
 				8E626E002A38F88E0018AD87 /* GetCurrentUserRequest.swift */,
 				8E89646E2A3BE3C900C0243C /* UpdateUserRequest.swift */,
 				8E35C0F32A404F7E006B67A6 /* RefreshTokenRequest.swift */,
+				8E1201542A5B215700BD570E /* BalabobaMessageRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -437,6 +442,7 @@
 			children = (
 				8E1945AB2A326DCA00CBB4B4 /* AuthService.swift */,
 				8E626E022A38F9360018AD87 /* RemoteUserService.swift */,
+				8E1201562A5B310700BD570E /* BalabobaService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -670,12 +676,14 @@
 				8E89645B2A3A8DB400C0243C /* FillBackgroundModifier.swift in Sources */,
 				8E9B08A42A35FE5100D1A035 /* ApplicationFactory.swift in Sources */,
 				8E8964682A3BAB9500C0243C /* ZodiacSign.swift in Sources */,
+				8E1201572A5B310700BD570E /* BalabobaService.swift in Sources */,
 				8E9B08B72A36306B00D1A035 /* EnterVerificationCodeView.swift in Sources */,
 				8E9B08AD2A36264700D1A035 /* AuthenticationScreen.swift in Sources */,
 				8E1945AC2A326DCA00CBB4B4 /* AuthService.swift in Sources */,
 				8E9B08BB2A36459400D1A035 /* StatebleButton.swift in Sources */,
 				8E34C28D2A339329009C40FA /* SendAuthCodeRequest.swift in Sources */,
 				8E9B08A72A360F4800D1A035 /* NotificationManager.swift in Sources */,
+				8E1201552A5B215700BD570E /* BalabobaMessageRequest.swift in Sources */,
 				8E8964592A3A63CF00C0243C /* DismissingKeyboardModifier.swift in Sources */,
 				8E9B08A12A35FD5D00D1A035 /* ScreenFactory.swift in Sources */,
 				8E35C0F02A40132B006B67A6 /* NavigationBarButton.swift in Sources */,

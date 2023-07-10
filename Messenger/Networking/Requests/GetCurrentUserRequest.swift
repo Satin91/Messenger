@@ -17,6 +17,6 @@ struct GetCurrentUserRequest: NetworkRequestProtocol {
     
     func make() -> RequestModel {
         let headers = header.merging(Constants.API.baseHeaders) { $1 }
-        return RequestModel(path: Constants.API.User.getCurrentUserPath, headers: HTTPHeaders(headers), method: .get)
+        return RequestModel(path: Constants.API.baseURL + Constants.API.User.getCurrentUserPath, headers: HTTPHeaders(headers), method: .get)
     }
 }

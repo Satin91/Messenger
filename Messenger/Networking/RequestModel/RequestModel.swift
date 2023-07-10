@@ -21,9 +21,6 @@ struct RequestModel {
     var method: Alamofire.HTTPMethod
     var headers: HTTPHeaders
     
-    var baseUrl: String {
-        Constants.API.baseURL
-    }
     var encoding: ParameterEncoding {
         JSONEncoding.default
     }

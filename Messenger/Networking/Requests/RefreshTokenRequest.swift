@@ -16,6 +16,6 @@ struct RefreshTokenRequest: NetworkRequestProtocol {
     }
     
     func make() -> RequestModel {
-        return RequestModel(path: Constants.API.Auth.refreshTokenPath,parameters: params, method: .post)
+        return RequestModel(path: Constants.API.baseURL + Constants.API.Auth.refreshTokenPath,parameters: params, method: .post)
     }
 }

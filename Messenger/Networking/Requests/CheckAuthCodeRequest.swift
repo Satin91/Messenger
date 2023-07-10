@@ -15,6 +15,6 @@ struct CheckAuthCodeRequest: NetworkRequestProtocol {
     }
     
     func make() -> RequestModel {
-        RequestModel(path: Constants.API.Auth.checkAuthCodePath, parameters: self.parameters, method: .post)
+        RequestModel(path: Constants.API.baseURL + Constants.API.Auth.checkAuthCodePath, parameters: self.parameters, method: .post)
     }
 }
