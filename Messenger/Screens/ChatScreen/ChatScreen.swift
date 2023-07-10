@@ -37,12 +37,12 @@ struct ChatScreen: View {
     private var navigationBar: some View {
         NavigationBar()
             .addLeftContainer {
-                VStack(alignment: .leading, spacing: Layout.Padding.medium) {
+                HStack(spacing: Layout.Padding.medium) {
                     NavigationBarButton(imageSystemName: "arrow.left") {
                         appCoordinator.back()
                     }
                     HStack(spacing: Layout.Padding.small) {
-                        Image("") // TODO: Установить аватарку
+                        Image("chatAvatar1") // TODO: Установить аватарку
                             .resizable()
                             .scaledToFit()
                             .clipShape(Circle())
@@ -50,6 +50,7 @@ struct ChatScreen: View {
                         VStack(alignment: .leading, spacing: Layout.Padding.extraSmall) {
                             Text(viewModel.companion.name)
                                 .mediumTitleModifier()
+                                .lineLimit(1)
                             Text("Online")
                                 .font(Fonts.museoSans(weight: .regular, size: 16))
                                 .foregroundColor(Colors.neutral)

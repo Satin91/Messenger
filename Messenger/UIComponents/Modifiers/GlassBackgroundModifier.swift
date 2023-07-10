@@ -11,22 +11,22 @@ import SwiftUI
 struct GlassBackgroundModifier: ViewModifier {
     var radius: CGFloat
     
+    let gradient = LinearGradient(colors: [.white, Color(hex: "452A7C").opacity(0.4)], startPoint: .top, endPoint: .bottomTrailing)
+    
     func body(content: Content) -> some View {
         content
             .overlay(
-                ZStack {
-                    RoundedRectangle(cornerRadius: radius)
-                        .stroke(Color.white.opacity(0.4), lineWidth: 1)
-                        .shadow(color: Color.white, radius: 8, x: -8, y: -8)
-                    RoundedRectangle(cornerRadius: radius)
-                        .foregroundColor(Color.clear)
-                        .shadow(color: Color.white, radius: 8, x: 8, y: 8)
-                        .clipShape(
-                            RoundedRectangle(cornerRadius: radius)
-                        )
-                }
+                RoundedRectangle(cornerRadius: radius)
+                    .stroke(.white, lineWidth: 1)
+                    .blendMode(.overlay)
+                    .offset(x: 0.5, y: 0.5)
+                    .blur(radius: 0)
+                    .mask {
+                        RoundedRectangle(cornerRadius: radius)
+                    }
             )
-            .background(.thinMaterial)
+            .backgroundBlur(radius: 40, opaque: true)
+            .background(Color.white.opacity(0.4))
             .clipShape(
                 RoundedRectangle(cornerRadius: radius)
             )

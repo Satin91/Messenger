@@ -49,14 +49,10 @@ struct ChatListScreen: View {
         }
         .fillBackgroundModifier(
             content:
-                ZStack {
-                    LinearGradient(colors: [.blue, .purple, .cyan], startPoint: .topLeading, endPoint: .bottomTrailing)
-                        .opacity(0.4)
-                        .blur(radius: 40)
-//                    AngularGradient(colors: [.red, .purple], center: .topLeading)
-//                        .opacity(0.2)
-//                        .blur(radius: 140)
-                }
+                    Image("bgBlur")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(height: 900)
         )
     }
     
@@ -91,6 +87,7 @@ struct ChatListScreen: View {
                         appCoordinator.pushToChatScreen(user: viewModel.user, companion: companion)
                     }
             }
+            .offset(y: 8)
         }
         .frame(maxWidth: .infinity)
     }
@@ -106,8 +103,7 @@ struct ChatListScreen: View {
                 .shadow(color: Colors.primarySecondary, radius: 4)
                 .padding()
                 .clipShape(Circle())
-                .glassBackground(radius: 150)
-                .largeShadowModifier()
+                .glassBackground(radius: 250)
                 .padding(36)
         }
         
@@ -119,12 +115,14 @@ struct ChatListScreen: View {
             SelectChatTypeRow(text: "Чат с рецептами")
             SelectChatTypeRow(text: "Чат с предсказаниями")
         }
+        .onTapGesture {
+            viewModel.addCompanion()
+            presentPopup.toggle()
+        }
         .padding()
         .padding(.bottom, 44)
         .frame(maxWidth: .infinity)
-        .background {
-            Colors.light
-        }
+        .glassBackground(radius: .zero)
         .largeShadowModifier()
     }
 }
@@ -145,15 +143,16 @@ struct ChatListRow: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
             .glassBackground(radius: Layout.Radius.defaultRadius)
-            .frame(height: 100)
-            .padding()
+//            .frame(height: 100)
+            .padding(.horizontal)
+            .shadow(color: Color(hex: "452A7C").opacity(0.25), radius: 40, y: 30)
     }
     
     var avatar: some View {
-        Image("chatAvatar1")
+        Image("chatAvatar5")
             .resizable()
             .scaledToFill()
-            .frame(width: 56, height: 56)
+            .frame(width: 86, height: 86)
             .cornerRadius(8)
     }
     
@@ -173,7 +172,7 @@ struct ChatListRow: View {
     var lastMessageLabel: some View {
         Text(companion.messages.last?.text ?? "No messages yet")
             .font(Fonts.museoSans(weight: .regular, size: 14))
-            .foregroundColor(Colors.neutral)
+            .foregroundColor(Colors.dark.opacity(0.6))
     }
 }
 
