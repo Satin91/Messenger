@@ -21,6 +21,7 @@ final class ChatScreenViewModel: ObservableObject {
         self.user = user
         self.companion = companion
         self.balabobaService = balabobaService
+        messages.append(contentsOf: companion.messages)
     }
     
     func send(message: String) {

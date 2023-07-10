@@ -20,9 +20,6 @@ struct ChatScreen: View {
     
     var body: some View {
         content
-            .onAppear {
-                viewModel.messages.append(contentsOf: viewModel.companion.messages)
-            }
             .dismissingKeyboard()
     }
     
@@ -69,6 +66,7 @@ struct ChatScreen: View {
                     .padding(.vertical, 4)
             }.rotationEffect(.degrees(180))
                 .padding(Layout.Padding.horizontalEdges)
+                .animation(.easeInOut, value: viewModel.messages)
         }.rotationEffect(.degrees(180))
             .background(Colors.chatBackground)
     }
@@ -82,13 +80,11 @@ struct ChatScreen: View {
                 .background(Colors.light)
                 .cornerRadius(Layout.Radius.defaultRadius, antialiased: true)
             Button {
-                withAnimation {
-                    isKeyboardForeground = nil
-                    guard !text.isEmpty else { return }
-                    viewModel.messages.append(text)
-                    viewModel.send(message: text)
-                    text = ""
-                }
+                isKeyboardForeground = nil
+                guard !text.isEmpty else { return }
+                viewModel.messages.append(text)
+                viewModel.send(message: text)
+                text = ""
             } label: {
                 Image(systemName: "paperplane.fill")
                     .font(.system(size: 26))
@@ -105,7 +101,6 @@ struct ChatScreen: View {
         HStack {
             Text(text)
                 .font(Fonts.museoSans(weight: .regular, size: 14))
-//                .font(.system(size: 14))
                 .foregroundColor(Colors.dark)
                 .padding()
                 .background(Colors.light)
@@ -123,7 +118,7 @@ struct ChatScreen: View {
                 .foregroundColor(Colors.primary)
                 .padding()
                 .background(Colors.primarySecondary)
-                .cornerRadius(Layout.Radius.smallRadius)
+                .cornerRadius(Layout.Radius.defaultRadius)
         }
     }
     
