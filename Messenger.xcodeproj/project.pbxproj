@@ -37,6 +37,7 @@
 		8E5CA61B2A5C28B6002E0B33 /* CompanionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5CA61A2A5C28B6002E0B33 /* CompanionModel.swift */; };
 		8E5CA61D2A5C3BBA002E0B33 /* ChatDatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5CA61C2A5C3BBA002E0B33 /* ChatDatabaseService.swift */; };
 		8E5CA61F2A5C5D0D002E0B33 /* PopupModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5CA61E2A5C5D0D002E0B33 /* PopupModifier.swift */; };
+		8E5CA6212A5C849F002E0B33 /* GlassBackgroundModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5CA6202A5C849F002E0B33 /* GlassBackgroundModifier.swift */; };
 		8E626DE82A38B11C0018AD87 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 8E626DE72A38B11C0018AD87 /* Realm */; };
 		8E626DEA2A38B11C0018AD87 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8E626DE92A38B11C0018AD87 /* RealmSwift */; };
 		8E626DED2A38B1560018AD87 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E626DEC2A38B1560018AD87 /* DatabaseManager.swift */; };
@@ -125,6 +126,7 @@
 		8E5CA61A2A5C28B6002E0B33 /* CompanionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanionModel.swift; sourceTree = "<group>"; };
 		8E5CA61C2A5C3BBA002E0B33 /* ChatDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDatabaseService.swift; sourceTree = "<group>"; };
 		8E5CA61E2A5C5D0D002E0B33 /* PopupModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupModifier.swift; sourceTree = "<group>"; };
+		8E5CA6202A5C849F002E0B33 /* GlassBackgroundModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlassBackgroundModifier.swift; sourceTree = "<group>"; };
 		8E626DEC2A38B1560018AD87 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		8E626DEE2A38B15E0018AD87 /* UserDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDatabaseService.swift; sourceTree = "<group>"; };
 		8E626DF12A38B78F0018AD87 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
@@ -506,6 +508,7 @@
 			isa = PBXGroup;
 			children = (
 				8E9B08C62A36961900D1A035 /* RoundedBorderModifier.swift */,
+				8E5CA6202A5C849F002E0B33 /* GlassBackgroundModifier.swift */,
 				8E9B08CA2A369E2800D1A035 /* TextModifiers.swift */,
 				8E9B08CE2A36C09100D1A035 /* ReadSizeModifier.swift */,
 				8E8964562A3A5DF100C0243C /* ShadowModifiers.swift */,
@@ -682,6 +685,7 @@
 				8E9B08B22A36294A00D1A035 /* NavigationBar.swift in Sources */,
 				8E35C0F62A40540B006B67A6 /* RefreshTokenResponse.swift in Sources */,
 				8E8964542A3A49A200C0243C /* ChatScreen.swift in Sources */,
+				8E5CA6212A5C849F002E0B33 /* GlassBackgroundModifier.swift in Sources */,
 				8E9B08AF2A36266900D1A035 /* AuthenticationScreenViewModel.swift in Sources */,
 				8E9B08B52A36305500D1A035 /* EnterPhoneNumberView.swift in Sources */,
 				8E8964572A3A5DF100C0243C /* ShadowModifiers.swift in Sources */,

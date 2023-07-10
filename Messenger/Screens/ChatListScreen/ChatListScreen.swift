@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ChatListScreen: View {
-//    let mockChats = MockChats.chats
+    //    let mockChats = MockChats.chats
     
     @EnvironmentObject var appCoordinator: AppCoordinatorViewModel
     @StateObject var viewModel: ChatListScreenViewModel
@@ -27,8 +27,13 @@ struct ChatListScreen: View {
     }
     
     var content: some View {
-        VStack {
+        VStack(spacing: .zero) {
             navigationBar
+                .background {
+                    Colors.light.opacity(0.2)
+                        .edgesIgnoringSafeArea(.all)
+                }
+            Divider()
             chatList
             Spacer()
         }
@@ -42,15 +47,17 @@ struct ChatListScreen: View {
                 }
             }
         }
-        .background(content: {
-            ZStack {
-                LinearGradient(gradient: Gradient(colors: [.red.opacity(0.3),.white, .red.opacity(0.4), .red.opacity(0.2)]), startPoint: .topLeading, endPoint: .bottomTrailing)
-                    .blur(radius: 140)
-//                AngularGradient(gradient: Gradient(colors: [.red, .mint]), center: .center, startAngle: .zero, endAngle: .degrees(360))
-//                    .opacity(0.1)
-            }
-        })
-//        .fillBackgroundModifier(color: Colors.background)
+        .fillBackgroundModifier(
+            content:
+                ZStack {
+                    LinearGradient(colors: [.blue, .purple, .cyan], startPoint: .topLeading, endPoint: .bottomTrailing)
+                        .opacity(0.4)
+                        .blur(radius: 40)
+//                    AngularGradient(colors: [.red, .purple], center: .topLeading)
+//                        .opacity(0.2)
+//                        .blur(radius: 140)
+                }
+        )
     }
     
     var navigationBar: some View {
@@ -90,19 +97,20 @@ struct ChatListScreen: View {
     
     var createChatButton: some View {
         Button {
-//            viewModel.addCompanion()
+            //            viewModel.addCompanion()
             presentPopup.toggle()
         } label: {
             Image(systemName: "plus", variableValue: 1.00)
-                .foregroundColor(Colors.primary)
-                .font(.system(size: 36, weight: .semibold))
+                .foregroundColor(Colors.dark)
+                .font(.system(size: 36, weight: .light))
                 .shadow(color: Colors.primarySecondary, radius: 4)
                 .padding()
                 .clipShape(Circle())
+                .glassBackground(radius: 150)
                 .largeShadowModifier()
                 .padding(36)
         }
-
+        
     }
     
     var selectChatTypeMenu: some View {
@@ -130,39 +138,23 @@ struct ChatListRow: View {
     }
     
     var content: some View {
-        VStack(alignment: .leading) {
             HStack(spacing: Layout.Padding.small) {
                 avatar
                 textContainer
             }
-        }
-        .padding()
-        .overlay(
-            RoundedRectangle(cornerRadius: Layout.Radius.defaultRadius)
-                .stroke(Color.white.opacity(0.8), lineWidth: 1)
-                .shadow(color: Color.white,
-                        radius: 64, x: 0, y: 0)
-                .clipShape(
-                    RoundedRectangle(cornerRadius: Layout.Radius.defaultRadius)
-                )
-                .shadow(color: Color.white, radius: 8, x: 0, y: 0)
-                .clipShape(
-                    RoundedRectangle(cornerRadius: Layout.Radius.defaultRadius)
-                )
-        )
-        .background(Color.white.opacity(0.2))
-        .cornerRadius(20)
-//        .roundedBorderModifier(borderColor: Color.clear, backgroundColor: Color.gray)
-        .padding(.vertical)
-        .frame(maxWidth: .infinity)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .padding()
+            .glassBackground(radius: Layout.Radius.defaultRadius)
+            .frame(height: 100)
+            .padding()
     }
     
     var avatar: some View {
-        Image(Constants.CommonNames.avatarPlaceholder)
+        Image("chatAvatar1")
             .resizable()
             .scaledToFill()
             .frame(width: 56, height: 56)
-            .cornerRadius(16)
+            .cornerRadius(8)
     }
     
     var textContainer: some View {
@@ -180,7 +172,7 @@ struct ChatListRow: View {
     
     var lastMessageLabel: some View {
         Text(companion.messages.last?.text ?? "No messages yet")
-            .font(Fonts.museoSans(weight: .regular, size: 16))
+            .font(Fonts.museoSans(weight: .regular, size: 14))
             .foregroundColor(Colors.neutral)
     }
 }

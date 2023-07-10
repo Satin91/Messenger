@@ -46,7 +46,7 @@ struct ProfileScreen: View {
                 .padding(.horizontal, Layout.Padding.horizontalEdges)
             }
         }
-        .fillBackgroundModifier(color: Colors.background)
+        .fillBackgroundModifier(content: Colors.background)
     }
     
     var navigationBar: some View {

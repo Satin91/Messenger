@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct FillBackgroundModifier: ViewModifier {
-    
-    let color: Color
+    var bgView: AnyView
     
     func body(content: Content) -> some View {
         content
             .background(
-                color
+                bgView
+                    .ignoresSafeArea(.all)
             )
     }
 }
 
 extension View {
-    func fillBackgroundModifier(color: Color) -> some View {
-        modifier(FillBackgroundModifier(color: color))
+    func fillBackgroundModifier(content: any View) -> some View {
+        modifier(FillBackgroundModifier(bgView: AnyView(content)))
     }
 }

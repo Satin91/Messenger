@@ -34,9 +34,6 @@ struct Popup<T: View>: ViewModifier {
     
     @ViewBuilder private func popupContent() -> some View {
         GeometryReader { geometry in
-//                .onAppear {
-//                    self.xOffset = hideOffset
-//                }
             if isPresented {
                 popup
                     .transition(.offset(x: 0, y: geometry.belowScreenEdge))

@@ -31,7 +31,7 @@ struct ChatScreen: View {
             Divider()
             textFieldContainer
         }
-        .fillBackgroundModifier(color: Colors.background)
+        .fillBackgroundModifier(content: Colors.background)
     }
     
     private var navigationBar: some View {
