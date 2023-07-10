@@ -98,12 +98,12 @@ struct ChatListRow: View {
     var nameLabel: some View {
         Text(companion.name)
             .foregroundColor(Colors.dark)
-            .font(Fonts.roboto(weight: .medium, size: 18))
+            .font(Fonts.museoSans(weight: .medium, size: 18))
     }
     
     var lastMessageLabel: some View {
         Text(companion.messages.last ?? "No messages yet")
-            .font(Fonts.roboto(weight: .regular, size: 16))
+            .font(Fonts.museoSans(weight: .regular, size: 16))
             .foregroundColor(Colors.neutral)
     }
 }

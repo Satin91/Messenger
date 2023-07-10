@@ -10,7 +10,7 @@ import SwiftUI
 struct SmalTitleModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
-            .font(Fonts.roboto(weight: .regular, size: 18))
+            .font(Fonts.museoSans(weight: .regular, size: 18))
             .foregroundColor(Colors.dark)
     }
 }
@@ -25,7 +25,7 @@ struct MediumTitleModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .font(Fonts.roboto(weight: .medium, size: 26))
+            .font(Fonts.museoSans(weight: .medium, size: 26))
     }
 }
 
@@ -39,7 +39,7 @@ struct LargeTitleModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .font(Fonts.roboto(weight: .bold, size: 40))
+            .font(Fonts.museoSans(weight: .bold, size: 40))
             .foregroundColor(Colors.dark)
     }
 }
@@ -54,7 +54,7 @@ struct PrimaryTextModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .font(Fonts.roboto(weight: .medium, size: 14))
+            .font(Fonts.museoSans(weight: .medium, size: 14))
             .foregroundColor(Colors.primary)
     }
 }

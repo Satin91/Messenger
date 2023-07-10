@@ -28,14 +28,14 @@ struct TitledTextField: View {
     
     var titleLabel: some View {
         Text(title)
-            .font(Fonts.roboto(weight: .bold, size: 14))
+            .font(Fonts.museoSans(weight: .bold, size: 14))
             .padding(.leading)
         
     }
     
     var textField: some View {
         TextField(placeholder, text: $text, axis: axis)
-            .font(Fonts.roboto(weight: .medium, size: 14))
+            .font(Fonts.museoSans(weight: .medium, size: 14))
             .foregroundColor(isEntryDisabled ? Colors.neutral : Colors.primary)
             .disabled(isEntryDisabled)
             .padding(.all)

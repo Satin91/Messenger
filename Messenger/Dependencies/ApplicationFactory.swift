@@ -21,8 +21,12 @@ final class ApplicationFactory {
         NotificationService(manager: notificationManager)
     }
     
-    var userDatabaseService: UserDatabaseServiceProtocol{
+    var userDatabaseService: UserDatabaseServiceProtocol {
         UserDatabaseService(databaseManager: databaseManager)
+    }
+    
+    var balabobaService: BalabobaServiceProtocol {
+        BalabobaService(networkManager: networkManager)
     }
     
     var authService: AuthServiceProtocol {
@@ -46,7 +50,7 @@ final class ApplicationFactory {
     }
     
     func chatScreenViewModel(user: UserModel, companion: MockChats.ChatUser) -> ChatScreenViewModel {
-        ChatScreenViewModel(user: user, companion: companion)
+        ChatScreenViewModel(user: user, companion: companion, balabobaService: balabobaService)
     }
     
     init() {

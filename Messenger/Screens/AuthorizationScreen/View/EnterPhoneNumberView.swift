@@ -39,15 +39,15 @@ struct EnterPhoneNumberView: View {
     
     var infoLabel: some View {
         Text("Пожалуйста, введите")
-            .font(Fonts.roboto(weight: .light, size: 16))
+            .font(Fonts.museoSans(weight: .light, size: 16))
             .foregroundColor(Colors.dark)
         +
         Text(" свой номер телефона")
-            .font(Fonts.roboto(weight: .bold, size: 16))
+            .font(Fonts.museoSans(weight: .bold, size: 16))
             .foregroundColor(Colors.dark)
         +
         Text(", чтобы мы могли подтвердить Вашу личность.")
-            .font(Fonts.roboto(weight: .light, size: 16))
+            .font(Fonts.museoSans(weight: .light, size: 16))
             .foregroundColor(Colors.dark)
     }
     

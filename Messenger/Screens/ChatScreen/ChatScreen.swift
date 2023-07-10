@@ -13,7 +13,7 @@ struct ChatScreen: View {
     }
     
     @EnvironmentObject var appCoordinator: AppCoordinatorViewModel
-    @ObservedObject var viewModel: ChatScreenViewModel
+    @StateObject var viewModel: ChatScreenViewModel
     
     @State var text = ""
     @FocusState var isKeyboardForeground: KeyboardForeground?
@@ -53,8 +53,8 @@ struct ChatScreen: View {
                         VStack(alignment: .leading, spacing: Layout.Padding.extraSmall) {
                             Text(viewModel.companion.name)
                                 .mediumTitleModifier()
-                            Text("Last seen 1 hour ago")
-                                .font(Fonts.roboto(weight: .light, size: 16))
+                            Text("Online")
+                                .font(Fonts.museoSans(weight: .regular, size: 16))
                                 .foregroundColor(Colors.neutral)
                         }
                     }
@@ -76,7 +76,7 @@ struct ChatScreen: View {
     private var textFieldContainer: some View {
         HStack(spacing: Layout.Padding.small) {
             TextField("Enter text", text: $text)
-                .font(Fonts.roboto(weight: .regular, size: 14))
+                .font(Fonts.museoSans(weight: .regular, size: 14))
                 .focused($isKeyboardForeground, equals: .foreground)
                 .padding()
                 .background(Colors.light)
@@ -86,6 +86,7 @@ struct ChatScreen: View {
                     isKeyboardForeground = nil
                     guard !text.isEmpty else { return }
                     viewModel.messages.append(text)
+                    viewModel.send(message: text)
                     text = ""
                 }
             } label: {
@@ -103,7 +104,8 @@ struct ChatScreen: View {
     private func companionMessageView(text: String) -> some View {
         HStack {
             Text(text)
-                .font(Fonts.roboto(weight: .regular, size: 14))
+                .font(Fonts.museoSans(weight: .regular, size: 14))
+//                .font(.system(size: 14))
                 .foregroundColor(Colors.dark)
                 .padding()
                 .background(Colors.light)
@@ -117,7 +119,7 @@ struct ChatScreen: View {
         HStack {
             Spacer()
             Text(text)
-                .font(Fonts.roboto(weight: .regular, size: 14))
+                .font(Fonts.museoSans(weight: .regular, size: 14))
                 .foregroundColor(Colors.primary)
                 .padding()
                 .background(Colors.primarySecondary)

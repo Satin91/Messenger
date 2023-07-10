@@ -52,7 +52,7 @@ struct EnterVerificationCodeView: View {
     
     var infoLabel: some View {
         Text("Мы отправили Вам код, проверьте входящие СМС.")
-            .font(Fonts.roboto(weight: .light, size: 16))
+            .font(Fonts.museoSans(weight: .light, size: 16))
             .foregroundColor(Colors.dark)
     }
     
@@ -63,13 +63,13 @@ struct EnterVerificationCodeView: View {
     var resendCodeLabel: some View {
         HStack(spacing: .zero) {
             Text("Не получили код? ")
-                .font(Fonts.roboto(weight: .regular, size: 14))
+                .font(Fonts.museoSans(weight: .regular, size: 14))
                 .foregroundColor(Colors.neutral)
             Button {
                 viewModel.sendVerificationCode()
             } label: {
                 Text("Отправить снова")
-                    .font(Fonts.roboto(weight: .bold, size: 14))
+                    .font(Fonts.museoSans(weight: .bold, size: 14))
                     .foregroundColor(Colors.primary)
             }
         }

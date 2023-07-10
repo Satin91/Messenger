@@ -8,12 +8,13 @@
 import SwiftUI
 
 enum Fonts: String {
-    case light = "Roboto-Light"
-    case regular = "Roboto-Regular"
-    case medium = "Roboto-Medium"
-    case bold = "Roboto-Bold"
+    case light = "MuseoSansCyrl-100"
+    case regular = "MuseoSansCyrl-300"
+    case medium = "MuseoSansCyrl-500"
+    case bold = "MuseoSansCyrl-700"
     
-    static func roboto(weight: Fonts, size: CGFloat) -> Font {
+    static func museoSans(weight: Fonts, size: CGFloat) -> Font {
         Font.custom(weight.rawValue, size: size)
     }
+
 }

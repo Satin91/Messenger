@@ -12,10 +12,6 @@
 		8E19458F2A3269C900CBB4B4 /* MessengerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E19458E2A3269C900CBB4B4 /* MessengerApp.swift */; };
 		8E1945932A3269CA00CBB4B4 /* AppIcon.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E1945922A3269CA00CBB4B4 /* AppIcon.xcassets */; };
 		8E1945962A3269CA00CBB4B4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E1945952A3269CA00CBB4B4 /* Preview Assets.xcassets */; };
-		8E19459F2A326AAF00CBB4B4 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E19459E2A326AAF00CBB4B4 /* Roboto-Light.ttf */; };
-		8E1945A32A326AC600CBB4B4 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E1945A02A326AC500CBB4B4 /* Roboto-Medium.ttf */; };
-		8E1945A42A326AC600CBB4B4 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E1945A12A326AC500CBB4B4 /* Roboto-Regular.ttf */; };
-		8E1945A52A326AC600CBB4B4 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E1945A22A326AC500CBB4B4 /* Roboto-Bold.ttf */; };
 		8E1945AA2A326C0E00CBB4B4 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1945A92A326C0E00CBB4B4 /* Fonts.swift */; };
 		8E1945AC2A326DCA00CBB4B4 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1945AB2A326DCA00CBB4B4 /* AuthService.swift */; };
 		8E34C2882A33908B009C40FA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E34C2872A33908B009C40FA /* Constants.swift */; };
@@ -33,6 +29,10 @@
 		8E3CEC2D2A3F8A5000BA63FD /* UserFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3CEC2C2A3F8A5000BA63FD /* UserFetcher.swift */; };
 		8E3CEC2F2A3F8BD100BA63FD /* CurrentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3CEC2E2A3F8BD100BA63FD /* CurrentUser.swift */; };
 		8E3CEC312A3F8F9200BA63FD /* DIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E3CEC302A3F8F9200BA63FD /* DIContainer.swift */; };
+		8E5CA6142A5C1693002E0B33 /* MuseoSansCyrl-500.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E5CA6102A5C1693002E0B33 /* MuseoSansCyrl-500.ttf */; };
+		8E5CA6152A5C1693002E0B33 /* MuseoSansCyrl-100.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E5CA6112A5C1693002E0B33 /* MuseoSansCyrl-100.ttf */; };
+		8E5CA6162A5C1693002E0B33 /* MuseoSansCyrl-300.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E5CA6122A5C1693002E0B33 /* MuseoSansCyrl-300.ttf */; };
+		8E5CA6172A5C1693002E0B33 /* MuseoSansCyrl-700.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E5CA6132A5C1693002E0B33 /* MuseoSansCyrl-700.ttf */; };
 		8E626DE82A38B11C0018AD87 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 8E626DE72A38B11C0018AD87 /* Realm */; };
 		8E626DEA2A38B11C0018AD87 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 8E626DE92A38B11C0018AD87 /* RealmSwift */; };
 		8E626DED2A38B1560018AD87 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E626DEC2A38B1560018AD87 /* DatabaseManager.swift */; };
@@ -96,10 +96,6 @@
 		8E19458E2A3269C900CBB4B4 /* MessengerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerApp.swift; sourceTree = "<group>"; };
 		8E1945922A3269CA00CBB4B4 /* AppIcon.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppIcon.xcassets; sourceTree = "<group>"; };
 		8E1945952A3269CA00CBB4B4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		8E19459E2A326AAF00CBB4B4 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
-		8E1945A02A326AC500CBB4B4 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
-		8E1945A12A326AC500CBB4B4 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
-		8E1945A22A326AC500CBB4B4 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		8E1945A62A326AE500CBB4B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8E1945A92A326C0E00CBB4B4 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		8E1945AB2A326DCA00CBB4B4 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -117,6 +113,10 @@
 		8E3CEC2C2A3F8A5000BA63FD /* UserFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserFetcher.swift; sourceTree = "<group>"; };
 		8E3CEC2E2A3F8BD100BA63FD /* CurrentUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUser.swift; sourceTree = "<group>"; };
 		8E3CEC302A3F8F9200BA63FD /* DIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DIContainer.swift; sourceTree = "<group>"; };
+		8E5CA6102A5C1693002E0B33 /* MuseoSansCyrl-500.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSansCyrl-500.ttf"; sourceTree = "<group>"; };
+		8E5CA6112A5C1693002E0B33 /* MuseoSansCyrl-100.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSansCyrl-100.ttf"; sourceTree = "<group>"; };
+		8E5CA6122A5C1693002E0B33 /* MuseoSansCyrl-300.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSansCyrl-300.ttf"; sourceTree = "<group>"; };
+		8E5CA6132A5C1693002E0B33 /* MuseoSansCyrl-700.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MuseoSansCyrl-700.ttf"; sourceTree = "<group>"; };
 		8E626DEC2A38B1560018AD87 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		8E626DEE2A38B15E0018AD87 /* UserDatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDatabaseService.swift; sourceTree = "<group>"; };
 		8E626DF12A38B78F0018AD87 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
@@ -245,10 +245,10 @@
 		8E19459D2A3269E000CBB4B4 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				8E19459E2A326AAF00CBB4B4 /* Roboto-Light.ttf */,
-				8E1945A22A326AC500CBB4B4 /* Roboto-Bold.ttf */,
-				8E1945A02A326AC500CBB4B4 /* Roboto-Medium.ttf */,
-				8E1945A12A326AC500CBB4B4 /* Roboto-Regular.ttf */,
+				8E5CA6112A5C1693002E0B33 /* MuseoSansCyrl-100.ttf */,
+				8E5CA6122A5C1693002E0B33 /* MuseoSansCyrl-300.ttf */,
+				8E5CA6102A5C1693002E0B33 /* MuseoSansCyrl-500.ttf */,
+				8E5CA6132A5C1693002E0B33 /* MuseoSansCyrl-700.ttf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -627,13 +627,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E1945A32A326AC600CBB4B4 /* Roboto-Medium.ttf in Resources */,
+				8E5CA6162A5C1693002E0B33 /* MuseoSansCyrl-300.ttf in Resources */,
 				8E9B08E42A37D81900D1A035 /* Images.xcassets in Resources */,
+				8E5CA6152A5C1693002E0B33 /* MuseoSansCyrl-100.ttf in Resources */,
 				8E1945962A3269CA00CBB4B4 /* Preview Assets.xcassets in Resources */,
-				8E1945A52A326AC600CBB4B4 /* Roboto-Bold.ttf in Resources */,
-				8E1945A42A326AC600CBB4B4 /* Roboto-Regular.ttf in Resources */,
+				8E5CA6142A5C1693002E0B33 /* MuseoSansCyrl-500.ttf in Resources */,
+				8E5CA6172A5C1693002E0B33 /* MuseoSansCyrl-700.ttf in Resources */,
 				8E1945932A3269CA00CBB4B4 /* AppIcon.xcassets in Resources */,
-				8E19459F2A326AAF00CBB4B4 /* Roboto-Light.ttf in Resources */,
 				8E9033072A3545AA00445809 /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
