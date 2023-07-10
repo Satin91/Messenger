@@ -18,8 +18,7 @@ final class ChatListScreenViewModel: ObservableObject {
     init(user: UserModel, chatDatabaseService: ChatDatabaseServiceProtocol) {
         self.user = user
         self.chatDatabaseService = chatDatabaseService
-        chats = Array(user.companions)
-//        addCompanion()
+        refreshChats()
     }
     
     func addCompanion() {
@@ -27,5 +26,10 @@ final class ChatListScreenViewModel: ObservableObject {
         chatDatabaseService.add(companion: newCompaion, for: user)
         let message = MessageModel(text: "Привет, это первый текст из этого чата!", ownerId: newCompaion.id)
         chatDatabaseService.save(message: message, for: newCompaion)
+        refreshChats()
+    }
+    
+    private func refreshChats() {
+        chats = Array(user.companions)
     }
 }
