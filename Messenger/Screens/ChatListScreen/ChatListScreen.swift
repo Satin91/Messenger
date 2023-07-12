@@ -49,10 +49,11 @@ struct ChatListScreen: View {
         }
         .fillBackgroundModifier(
             content:
-                    Image("bgBlur")
-                        .resizable()
-                        .scaledToFill()
-                        .frame(height: 900)
+                Image("bgBlur")
+                .resizable()
+                .scaledToFill()
+                .frame(height: 900)
+            //                        .blur(radius: 40)
         )
     }
     
@@ -94,7 +95,6 @@ struct ChatListScreen: View {
     
     var createChatButton: some View {
         Button {
-            //            viewModel.addCompanion()
             presentPopup.toggle()
         } label: {
             Image(systemName: "plus", variableValue: 1.00)
@@ -110,10 +110,10 @@ struct ChatListScreen: View {
     }
     
     var selectChatTypeMenu: some View {
-        VStack(alignment: .leading, spacing: .zero) {
-            SelectChatTypeRow(text: "Обычный чат")
-            SelectChatTypeRow(text: "Чат с рецептами")
-            SelectChatTypeRow(text: "Чат с предсказаниями")
+        VStack(alignment: .leading, spacing: 16) {
+            SelectChatTypeRow(text: "Обычный чат", imageName: "bubble.left.and.bubble.right")
+            SelectChatTypeRow(text: "Чат с рецептами", imageName: "cloud.bolt.rain")
+            SelectChatTypeRow(text: "Чат с предсказаниями", imageName: "cloud.bolt.rain")
         }
         .onTapGesture {
             viewModel.addCompanion()
@@ -136,24 +136,26 @@ struct ChatListRow: View {
     }
     
     var content: some View {
-            HStack(spacing: Layout.Padding.small) {
-                avatar
-                textContainer
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .padding()
-            .glassBackground(radius: Layout.Radius.defaultRadius)
-//            .frame(height: 100)
-            .padding(.horizontal)
-            .shadow(color: Color(hex: "452A7C").opacity(0.25), radius: 40, y: 30)
+        HStack(spacing: Layout.Padding.small) {
+            avatar
+            textContainer
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding()
+        .glassBackground(radius: Layout.Radius.defaultRadius)
+        .padding(.horizontal)
+        .shadow(color: Color(hex: "452A7C").opacity(0.45), radius: 30, y: 30)
     }
     
     var avatar: some View {
-        Image("chatAvatar5")
-            .resizable()
-            .scaledToFill()
-            .frame(width: 86, height: 86)
-            .cornerRadius(8)
+        ZStack {
+            Image("chatAvatar5")
+                .resizable()
+                .scaledToFill()
+                .frame(width: 56, height: 56)
+                .shadow(color: .black.opacity(0.3), radius: 2, y: 10)
+        }
+        
     }
     
     var textContainer: some View {
@@ -165,28 +167,40 @@ struct ChatListRow: View {
     
     var nameLabel: some View {
         Text(companion.name)
-            .foregroundColor(Colors.dark)
-            .font(Fonts.museoSans(weight: .medium, size: 18))
+            .foregroundColor(Color.black)
+            .font(.system(size: 18, weight: .semibold))
+            .modifier(PassthroughtBlend())
     }
     
     var lastMessageLabel: some View {
         Text(companion.messages.last?.text ?? "No messages yet")
-            .font(Fonts.museoSans(weight: .regular, size: 14))
-            .foregroundColor(Colors.dark.opacity(0.6))
+            .lineLimit(2)
+            .font(.system(size: 14, weight: .light))
+            .modifier(PassthroughtBlend())
     }
 }
 
 struct SelectChatTypeRow: View {
     let text: String
+    let imageName: String
     
     var body: some View {
         content
     }
     
     var content: some View {
-        Text(text)
-            .font(Fonts.museoSans(weight: .regular, size: 18))
-            .foregroundColor(Colors.dark)
-            .padding(Layout.Padding.small)
+        HStack {
+            Image(systemName: imageName)
+                .foregroundColor(Color.black)
+                .font(.system(size: 16, weight: .medium))
+                .blendMode(.overlay)
+                .frame(width: 24, height: 24)
+                .padding()
+                .glassBackground(radius: 150)
+            Text(text)
+                .font(Fonts.museoSans(weight: .regular, size: 18))
+                .foregroundColor(Colors.dark)
+                .padding(Layout.Padding.small)
+        }
     }
 }

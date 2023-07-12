@@ -43,7 +43,6 @@ final class AuthenticationScreenViewModel: NSObject, ObservableObject {
     @Published var alertMessage: String = ""
     @Published var showAlert: Bool = false
     
-    
     @State var isValidPhoneNumber: Bool = false
     
     init(authService: AuthServiceProtocol, databaseService: UserDatabaseServiceProtocol,  notificationService: NotificationServiceProtocol, remoteUserService: RemoteUserServiceProtocol) {

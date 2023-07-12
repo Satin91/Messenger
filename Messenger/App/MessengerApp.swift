@@ -17,6 +17,9 @@ struct MessengerApp: App {
     var body: some Scene {
         WindowGroup {
             AppCoordinator(userFetcher: contailer.userFetcher, sceneFactory: contailer.sceneFactory)
+                .onAppear {
+                    print(UIFont.familyNames)
+                }
         }
     }
 }

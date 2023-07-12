@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E07901B2A5F359E00EEED8B /* vcrosdmonorusbyd.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8E07901A2A5F359D00EEED8B /* vcrosdmonorusbyd.ttf */; };
+		8E07901D2A5F48C400EEED8B /* PassthroughtBlend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E07901C2A5F48C400EEED8B /* PassthroughtBlend.swift */; };
 		8E1201552A5B215700BD570E /* BalabobaMessageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1201542A5B215700BD570E /* BalabobaMessageRequest.swift */; };
 		8E1201572A5B310700BD570E /* BalabobaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1201562A5B310700BD570E /* BalabobaService.swift */; };
 		8E19458F2A3269C900CBB4B4 /* MessengerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E19458E2A3269C900CBB4B4 /* MessengerApp.swift */; };
@@ -97,6 +99,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8E07901A2A5F359D00EEED8B /* vcrosdmonorusbyd.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = vcrosdmonorusbyd.ttf; sourceTree = "<group>"; };
+		8E07901C2A5F48C400EEED8B /* PassthroughtBlend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassthroughtBlend.swift; sourceTree = "<group>"; };
 		8E1201542A5B215700BD570E /* BalabobaMessageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalabobaMessageRequest.swift; sourceTree = "<group>"; };
 		8E1201562A5B310700BD570E /* BalabobaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalabobaService.swift; sourceTree = "<group>"; };
 		8E19458B2A3269C900CBB4B4 /* Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -259,6 +263,7 @@
 		8E19459D2A3269E000CBB4B4 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				8E07901A2A5F359D00EEED8B /* vcrosdmonorusbyd.ttf */,
 				8E5CA6112A5C1693002E0B33 /* MuseoSansCyrl-100.ttf */,
 				8E5CA6122A5C1693002E0B33 /* MuseoSansCyrl-300.ttf */,
 				8E5CA6102A5C1693002E0B33 /* MuseoSansCyrl-500.ttf */,
@@ -521,6 +526,7 @@
 				8E89645A2A3A8DB400C0243C /* FillBackgroundModifier.swift */,
 				8E35C0F12A4046FD006B67A6 /* SpecifyTextFilter.swift */,
 				8E5CA61E2A5C5D0D002E0B33 /* PopupModifier.swift */,
+				8E07901C2A5F48C400EEED8B /* PassthroughtBlend.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -650,6 +656,7 @@
 			files = (
 				8E5CA6162A5C1693002E0B33 /* MuseoSansCyrl-300.ttf in Resources */,
 				8E9B08E42A37D81900D1A035 /* Images.xcassets in Resources */,
+				8E07901B2A5F359E00EEED8B /* vcrosdmonorusbyd.ttf in Resources */,
 				8E5CA6152A5C1693002E0B33 /* MuseoSansCyrl-100.ttf in Resources */,
 				8E1945962A3269CA00CBB4B4 /* Preview Assets.xcassets in Resources */,
 				8E5CA6142A5C1693002E0B33 /* MuseoSansCyrl-500.ttf in Resources */,
@@ -716,6 +723,7 @@
 				8E89646D2A3BCCBC00C0243C /* OptionalBinding.swift in Sources */,
 				8E89646F2A3BE3C900C0243C /* UpdateUserRequest.swift in Sources */,
 				8E9B08D62A37969600D1A035 /* CheckAuthCodeRequest.swift in Sources */,
+				8E07901D2A5F48C400EEED8B /* PassthroughtBlend.swift in Sources */,
 				8E9B08CF2A36C09100D1A035 /* ReadSizeModifier.swift in Sources */,
 				8E8964622A3AAE6500C0243C /* ProfileScreenViewModel.swift in Sources */,
 				8E9B08DC2A37BA4400D1A035 /* AppCoordinator.swift in Sources */,

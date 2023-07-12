@@ -20,6 +20,9 @@ struct BalabobaMessageRequest: NetworkRequestProtocol {
         "Referer": "https://yandex.ru/"
     ]
 
+    // 9 - Синопсис фильмов
+    // 8 - позновательно
+    
     init(query: String) {
         self.parameters = [
             "filter": 1,
