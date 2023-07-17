@@ -31,7 +31,12 @@ struct ChatScreen: View {
             Divider()
             textFieldContainer
         }
-        .fillBackgroundModifier(content: Colors.background)
+        .fillBackgroundModifier(
+            content:
+                Image("chatBgBlur").resizable()
+                .scaledToFill()
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        )
     }
     
     private var navigationBar: some View {
@@ -42,14 +47,14 @@ struct ChatScreen: View {
                         appCoordinator.back()
                     }
                     HStack(spacing: Layout.Padding.small) {
-                        Image("chatAvatar1") // TODO: Установить аватарку
+                        Image(uiImage: UIImage(data: viewModel.companion.avatar)!) // TODO: Установить аватарку
                             .resizable()
                             .scaledToFit()
                             .clipShape(Circle())
                             .frame(width: 58, height: 58)
                         VStack(alignment: .leading, spacing: Layout.Padding.extraSmall) {
                             Text(viewModel.companion.name)
-                                .mediumTitleModifier()
+                                .smalTitleModifier()
                                 .lineLimit(1)
                             Text("Online")
                                 .font(Fonts.museoSans(weight: .regular, size: 16))
@@ -69,7 +74,6 @@ struct ChatScreen: View {
                 .padding(Layout.Padding.horizontalEdges)
                 .animation(.easeInOut, value: viewModel.messages)
         }.rotationEffect(.degrees(180))
-            .background(Colors.chatBackground)
     }
     
     private var textFieldContainer: some View {
@@ -105,7 +109,6 @@ struct ChatScreen: View {
                 .padding()
                 .background(Colors.light)
                 .cornerRadius(Layout.Radius.smallRadius)
-                .largeShadowModifier()
             Spacer()
         }
     }

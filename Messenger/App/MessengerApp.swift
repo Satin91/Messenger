@@ -6,20 +6,14 @@
 //
 
 import SwiftUI
-import Combine
-import Alamofire
 
 @main
 struct MessengerApp: App {
     let contailer = DIContainer()
     
-    @State var cancelBag = Set<AnyCancellable>()
     var body: some Scene {
         WindowGroup {
             AppCoordinator(userFetcher: contailer.userFetcher, sceneFactory: contailer.sceneFactory)
-                .onAppear {
-                    print(UIFont.familyNames)
-                }
         }
     }
 }

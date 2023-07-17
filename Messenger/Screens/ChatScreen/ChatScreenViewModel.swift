@@ -35,7 +35,7 @@ final class ChatScreenViewModel: ObservableObject {
     }
     
     func send(message: String) {
-        balabobaService.send(message: message)
+        balabobaService.send(message: message, type: companion.type)
             .sink { completion in
             } receiveValue: { response in
                 print("Response text \(response.text)")

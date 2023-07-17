@@ -12,11 +12,15 @@ import RealmSwift
 class CompanionModel: Object, Decodable {
     dynamic var id: String = UUID().uuidString
     dynamic var name: String = ""
+    dynamic var type: Int = 0
+    dynamic var avatar: Data = Data()
     dynamic var messages = RealmSwift.List<MessageModel>()
     
-    convenience init(name: String) {
+    convenience init(name: String, type: Int, avatar: Data) {
         self.init()
         self.name = name
+        self.type = type
+        self.avatar = avatar
     }
     
     override static func primaryKey() -> String? {

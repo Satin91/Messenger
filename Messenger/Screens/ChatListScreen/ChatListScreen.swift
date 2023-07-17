@@ -14,7 +14,6 @@ struct ChatListScreen: View {
     @StateObject var viewModel: ChatListScreenViewModel
     @State var presentPopup: Bool = false
     
-    
     var body: some View {
         content
             .onTapGesture {
@@ -53,7 +52,6 @@ struct ChatListScreen: View {
                 .resizable()
                 .scaledToFill()
                 .frame(height: 900)
-            //                        .blur(radius: 40)
         )
     }
     
@@ -112,12 +110,20 @@ struct ChatListScreen: View {
     var selectChatTypeMenu: some View {
         VStack(alignment: .leading, spacing: 16) {
             SelectChatTypeRow(text: "Обычный чат", imageName: "bubble.left.and.bubble.right")
-            SelectChatTypeRow(text: "Чат с рецептами", imageName: "cloud.bolt.rain")
-            SelectChatTypeRow(text: "Чат с предсказаниями", imageName: "cloud.bolt.rain")
-        }
-        .onTapGesture {
-            viewModel.addCompanion()
-            presentPopup.toggle()
+                .onTapGesture {
+                    viewModel.addCompanion(of: 0)
+                    presentPopup.toggle()
+                }
+            SelectChatTypeRow(text: "Знайка", imageName: "cloud.bolt.rain")
+                .onTapGesture {
+                    viewModel.addCompanion(of: 8)
+                    presentPopup.toggle()
+                }
+            SelectChatTypeRow(text: "Выдумщик", imageName: "cloud.bolt.rain")
+                .onTapGesture {
+                    viewModel.addCompanion(of: 9)
+                    presentPopup.toggle()
+                }
         }
         .padding()
         .padding(.bottom, 44)
@@ -130,7 +136,6 @@ struct ChatListScreen: View {
 struct ChatListRow: View {
     let id = UUID()
     let companion: CompanionModel
-    
     var body: some View {
         content
     }
@@ -148,13 +153,12 @@ struct ChatListRow: View {
     }
     
     var avatar: some View {
-        ZStack {
-            Image("chatAvatar5")
-                .resizable()
-                .scaledToFill()
-                .frame(width: 56, height: 56)
-                .shadow(color: .black.opacity(0.3), radius: 2, y: 10)
-        }
+        Image(uiImage: UIImage(data: companion.avatar)!)
+            .resizable()
+            .scaledToFill()
+            .frame(width: 86, height: 86)
+            .glassBackground(radius: Layout.Radius.defaultRadius)
+            .cornerRadius(Layout.Radius.defaultRadius)
         
     }
     
@@ -167,16 +171,15 @@ struct ChatListRow: View {
     
     var nameLabel: some View {
         Text(companion.name)
-            .foregroundColor(Color.black)
+            .foregroundColor(Colors.dark)
             .font(.system(size: 18, weight: .semibold))
-            .modifier(PassthroughtBlend())
     }
     
     var lastMessageLabel: some View {
         Text(companion.messages.last?.text ?? "No messages yet")
             .lineLimit(2)
             .font(.system(size: 14, weight: .light))
-            .modifier(PassthroughtBlend())
+            .foregroundColor(Colors.dark)
     }
 }
 

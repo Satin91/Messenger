@@ -11,7 +11,7 @@ import SwiftUI
 struct GlassBackgroundModifier: ViewModifier {
     var radius: CGFloat
     let lineWidth: CGFloat = 2
-    let gradient = LinearGradient(colors: [.white.opacity(0.6), .black], startPoint: .top, endPoint: .bottomTrailing)
+    let gradient = LinearGradient(colors: [.white.opacity(0.6), .black], startPoint: .topLeading, endPoint: .bottomTrailing)
     
     func body(content: Content) -> some View {
         content

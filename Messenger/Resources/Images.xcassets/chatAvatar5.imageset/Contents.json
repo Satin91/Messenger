@@ -1,17 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "robot.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
+      "filename" : "Снимок_экрана_2023-07-17_в_20_01_53-transformed.png",
+      "idiom" : "universal"
     }
   ],
   "info" : {
