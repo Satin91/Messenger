@@ -33,9 +33,7 @@ struct ChatScreen: View {
         }
         .fillBackgroundModifier(
             content:
-                Image("chatBgBlur").resizable()
-                .scaledToFill()
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                Colors.chatBackground
         )
     }
     
@@ -82,7 +80,7 @@ struct ChatScreen: View {
                 .font(Fonts.museoSans(weight: .regular, size: 14))
                 .focused($isKeyboardForeground, equals: .foreground)
                 .padding()
-                .background(Colors.light)
+                .background(Colors.dark)
                 .cornerRadius(Layout.Radius.defaultRadius, antialiased: true)
             Button {
                 isKeyboardForeground = nil
